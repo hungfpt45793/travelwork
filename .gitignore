@@ -13,7 +13,8 @@
 /public/library_staff_member
 /public/library_cv
 /public/library_employee_cv
-/public/CV
+/public/CV/*
+!/public/CV/.gitignore
 /public/.well-known
 /public/sitemap.xml
 /public/.htaccess

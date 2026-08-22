@@ -135,21 +135,19 @@ $cl_cv_6 = $list_color_cv[5];
 ?>
 <div class="container">
     <div class="left" style="background:{{ $color->code_color }}">
-        @if(!empty($employee->employee_image))
-            <?php
-            $cv = str_replace("/public", "", $employee->employee_image);
-            $cv = public_path($cv);
-
-            ?>
-        @else
-            <?php
-            $cv = public_path('/assets/image/no_avatar.jpg');
-            ?>
-        @endif
+        <?php
+        $cv = public_path('/assets/image/no_avatar.jpg');
+        if (!empty($employee->employee_image)) {
+            $employeeImage = public_path(str_replace('/public', '', $employee->employee_image));
+            if (is_file($employeeImage)) {
+                $cv = $employeeImage;
+            }
+        }
+        ?>
 
 
         <div id="cvo-profile-avatar-wraper">
-            <img src="{{ !empty($employee->employee_image) ?  $cv  : public_path('/assets/image/no_avatar.jpg') }}"/>
+            <img src="{{ $cv }}" alt="Ảnh ứng viên"/>
         </div>
         <div id="sortable">
 

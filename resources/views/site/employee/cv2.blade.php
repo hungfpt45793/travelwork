@@ -11,10 +11,10 @@
 			padding:0!important;
 			font-size: 13px;
 		}
-		body {
+		body, body * {
             /*font-family: "Josefin Slab";*/
 			/*font-family: "Roboto Slab" ;*/
-			font-family: DejaVu Sans;
+			font-family: DejaVu Sans, sans-serif;
 			letter-spacing: -.81px;
         }
         #block01 ,#block02 ,#block03 ,#block04 ,#block05 ,#block06

@@ -34,7 +34,7 @@
 </head>
 <body>
     <div style="display:inline-block">
-        <img style="height:40px;width:220px" src="library/images/logo/logo2.jpg" alt="">
+        <img style="height:40px;width:220px" src="{{ public_path('assets/image/logo2.jpg') }}" alt="Sàn Kế Toán">
     </div>
     <div style="display:inline-block;float:right;margin-top:0;padding-top:0">
         <span style="margin-top:0;padding-top:0">Ngày <?php echo date("d") ?> Tháng <?php echo date("m") ?> Năm <?php echo date("Y") ?></span>

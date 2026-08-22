@@ -58,6 +58,8 @@ class PdfController extends SiteController
 
     public function exportpdf_cv_user_id($user_id)
     {
+        $this->authorizeEmployeePdf($user_id);
+
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
@@ -156,6 +158,8 @@ class PdfController extends SiteController
 
     public function self_exportpdf_cv_user_id($user_id)
     {
+        $this->authorizeEmployeePdf($user_id);
+
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
@@ -256,6 +260,8 @@ class PdfController extends SiteController
 
     public function employer_exportpdf_cv_user_id($user_id ,Request $request)
     {
+        $this->authorizeEmployerPdf($request);
+
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
@@ -356,6 +362,8 @@ class PdfController extends SiteController
     //show hết thông tin ứng viên trong app phan show full thông tin
     public function employer_exportpdf_cv_user_id_full($user_id ,Request $request)
     {
+        $this->authorizeEmployerPdf($request);
+
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
@@ -401,7 +409,7 @@ class PdfController extends SiteController
         $cv_employee = Cv_employee::select('*')->where('employee_id', $employee->employee_id)->first();
         // return view('site.employee.cv',compact('employee','cv_template','cv_note_template','cv_employee'));
         $employer_id = !empty($request->input('employer_id')) ? $request->input('employer_id') : '0';
-        $dompdf = PDF::loadView('site.employee.cv1_full', compact('employee', 'cv_template', 'cv_note_template', 'cv_employee','employer_id'))->setPaper('a4');
+        $dompdf = PDF::loadView('site.employee.cv1', compact('employee', 'cv_template', 'cv_note_template', 'cv_employee', 'employer_id'))->setPaper('a4');
         $dompdf2 = PDF::loadView('site.employee.cv2', compact('employee', 'cv_template', 'cv_note_template', 'cv_employee', 'list_career'))->setPaper('a4');
         $dompdf3 = PDF::loadView('site.employee.cv3')->setPaper('a4');
         PDF::setOptions(['dpi' => 150]);
@@ -663,6 +671,26 @@ class PdfController extends SiteController
 
 
     }
+    private function authorizeEmployeePdf($userId)
+    {
+        if (!Auth::check() || Auth::user()->role != 1 || (int) Auth::id() !== (int) $userId) {
+            abort(403, 'Bạn không có quyền tải CV này.');
+        }
+    }
+
+    private function authorizeEmployerPdf(Request $request)
+    {
+        if (Auth::check() && Auth::user()->role == 2) {
+            return;
+        }
+
+        if (!Auth::check() && !empty($request->input('employer_id'))) {
+            return;
+        }
+
+        abort(403, 'Bạn không có quyền tải CV này.');
+    }
+
 //    public function exportpdf_so_yeu_ly_lich(Request $request)
 //    {
 ////        $pdf = App::make('dompdf.wrapper');
