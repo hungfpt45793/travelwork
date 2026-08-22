@@ -1,9 +1,10 @@
-FROM php:7.4-cli
+FROM php:8.1-cli
 
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
     poppler-utils \
+    libcurl4-openssl-dev \
     libzip-dev \
     libpng-dev \
     libjpeg62-turbo-dev \
@@ -17,6 +18,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install \
         pdo \
         pdo_mysql \
+        curl \
         mbstring \
         xml \
         zip \

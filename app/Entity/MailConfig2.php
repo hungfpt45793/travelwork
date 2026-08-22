@@ -48,7 +48,7 @@ class MailConfig2 extends Model
         'created_at',
         'updated_at'
     ];
-    public static function sendMail($to = '', $subject, $content) {
+    public static function sendMail($to, $subject, $content) {
         try {
             $emailConfig2 = MailConfig::where('id_config',1)->first();
 
@@ -61,25 +61,29 @@ class MailConfig2 extends Model
                 return true;
             }
             // change config send mail
-            config(['mail.host' => $emailConfig2->address_server]);
-            config(['mail.port' => $emailConfig2->port]);
+            $driver = $emailConfig2->driver ?: 'smtp';
+
+            config(['mail.default' => $driver]);
             config(['mail.from' => [
                 'address' => $emailConfig2->email_send,
                 'name' => $emailConfig2->name_send
             ]]);
-            config(['mail.username' => $emailConfig2->email]);
-            config(['mail.password' => $emailConfig2->password]);
-            config(['mail.driver' => $emailConfig2->driver]);
-            config(['mail.encryption' => $emailConfig2->encryption]);
+            config(["mail.mailers.{$driver}.transport" => $driver]);
+            config(["mail.mailers.{$driver}.host" => $emailConfig2->address_server]);
+            config(["mail.mailers.{$driver}.port" => $emailConfig2->port]);
+            config(["mail.mailers.{$driver}.username" => $emailConfig2->email]);
+            config(["mail.mailers.{$driver}.password" => $emailConfig2->password]);
+            config(["mail.mailers.{$driver}.encryption" => $emailConfig2->encryption]);
             if ($emailConfig2->method == 1) {
                 // config mailGun
-                config(['mail.driver' => $emailConfig2->driver]);
-                config(['mail.host' => $emailConfig2->host]);
+                config(["mail.mailers.{$driver}.host" => $emailConfig2->host]);
                 config(['services.mailgun' => [
                     'domain' => $emailConfig2->address_server,
                     'secret' => $emailConfig2->api_key,
                 ]]);
             }
+
+            app('mail.manager')->purge($driver);
 
             $to = (empty($to)) ? $emailConfig2->email_receive : $to;
             $mail = new Mail(

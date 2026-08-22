@@ -72,25 +72,29 @@ class MailConfig extends Model
                 return false;
             }
 
-            config(['mail.host' => $emailConfig->address_server]);
-            config(['mail.port' => $emailConfig->port]);
+            $driver = $emailConfig->driver ?: 'smtp';
+
+            config(['mail.default' => $driver]);
             config(['mail.from' => [
                 'address' => $emailConfig->email_send,
                 'name' => $emailConfig->name_send,
             ]]);
-            config(['mail.username' => $emailConfig->email]);
-            config(['mail.password' => $emailConfig->password]);
-            config(['mail.driver' => $emailConfig->driver]);
-            config(['mail.encryption' => $emailConfig->encryption]);
+            config(["mail.mailers.{$driver}.transport" => $driver]);
+            config(["mail.mailers.{$driver}.host" => $emailConfig->address_server]);
+            config(["mail.mailers.{$driver}.port" => $emailConfig->port]);
+            config(["mail.mailers.{$driver}.username" => $emailConfig->email]);
+            config(["mail.mailers.{$driver}.password" => $emailConfig->password]);
+            config(["mail.mailers.{$driver}.encryption" => $emailConfig->encryption]);
 
             if ($emailConfig->method == 1) {
-                config(['mail.driver' => $emailConfig->driver]);
-                config(['mail.host' => $emailConfig->host]);
+                config(["mail.mailers.{$driver}.host" => $emailConfig->host]);
                 config(['services.mailgun' => [
                     'domain' => $emailConfig->address_server,
                     'secret' => $emailConfig->api_key,
                 ]]);
             }
+
+            app('mail.manager')->purge($driver);
 
             if (empty($to) && empty($emailConfig->email_receive)) {
                 return false;

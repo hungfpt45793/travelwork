@@ -39,17 +39,17 @@ trait Ratingable
         return '-'.$this->ratings()->where('rating', '<', 0)->count();
     }
 
-    public function rating(array $data, Model $author, Model $parent = null)
+    public function rating(array $data, Model $author, ?Model $parent = null)
     {
         return (new Rating())->createRating($this, $data, $author);
     }
 
-    public function ratingUnique(array $data, Model $author, Model $parent = null)
+    public function ratingUnique(array $data, Model $author, ?Model $parent = null)
     {
         return (new Rating())->createUniqueRating($this, $data, $author);
     }
 
-    public function updateRating($id, array $data, Model $parent = null)
+    public function updateRating($id, array $data, ?Model $parent = null)
     {
         return (new Rating())->updateRating($id, $data);
     }

@@ -203,8 +203,7 @@
                                                                         id="province">
                                                                         <option value="">-- Chọn Tỉnh/Thành phố --
                                                                         </option>
-                                                                        @foreach(\App\Entity\Province::orderBy('province_name')->get()
-                                                                        as $province)
+                                                                        @foreach(\App\Entity\Province::orderBy('province_name')->get() as $province)
                                                                         <option value="{{$province->province_id}}"
                                                                             @if($teacher->province ==
                                                                             $province->province_id) selected @endif
@@ -220,8 +219,7 @@
                                                                         name="district" aria-label="Quận/Huyện"
                                                                         id="district">
                                                                         <option value="">-- Chọn Quận/Huyện --</option>
-                                                                        @foreach(\App\Entity\District::orderBy('district_name')->get()
-                                                                        as $district)
+                                                                        @foreach(\App\Entity\District::orderBy('district_name')->get() as $district)
                                                                         <option value="{{$district->district_id }}"
                                                                             @if($teacher->district ==
                                                                             $district->district_id) selected @endif
@@ -439,8 +437,7 @@
                                                                             class="selectbox requiredbox form-control">
                                                                             <option value="0" selected>-- Chọn Bằng cấp
                                                                                 --</option>
-                                                                            @foreach(\App\Entity\Literacy::get() as
-                                                                            $literacy)
+                                                                            @foreach(\App\Entity\Literacy::get() as $literacy)
                                                                             <option value="{{$literacy->literacy_id}}"
                                                                                 {{ isset($spec->leve) && ($spec->leve == $literacy->literacy_id) ? 'selected' : ''}}>
                                                                                 {{$literacy->literacy_name}}</option>

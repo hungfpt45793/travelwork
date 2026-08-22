@@ -227,8 +227,7 @@
                                                                 <select class=" form-control select2" id="province"
                                                                     name="province">
                                                                     <option value="">--Tỉnh/Thành phố--</option>
-                                                                    @foreach(\App\Entity\Province::orderBy('province_name')->get()
-                                                                    as $province)
+                                                                    @foreach(\App\Entity\Province::orderBy('province_name')->get() as $province)
                                                                     <option value="{{$province->province_id}}"
                                                                         @if(isset($_GET['province']) &&
                                                                         $_GET['province']==$province->province_id) selected
@@ -248,8 +247,7 @@
                                                                 <select class=" form-control select2" name="district"
                                                                     id="district">
                                                                     <option value="">--Chọn quận/huyện</option>
-                                                                    @foreach(\App\Entity\District::orderBy('district_name')->get()
-                                                                    as $district)
+                                                                    @foreach(\App\Entity\District::orderBy('district_name')->get() as $district)
                                                                     <option value="{{$district->district_id}}"
                                                                         @if(isset($_GET['district']) &&
                                                                         $_GET['district']==$district->district_id) selected

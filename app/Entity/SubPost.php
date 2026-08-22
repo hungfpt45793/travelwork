@@ -69,7 +69,7 @@ class SubPost extends Model
             return array();
         }
     }
-    public static function showSubPostOrderBY($order_by='asc',$typePost, $count = 5)
+    public static function showSubPostOrderBY($order_by, $typePost, $count = 5)
     {
         try {
             $postModel = new Post();

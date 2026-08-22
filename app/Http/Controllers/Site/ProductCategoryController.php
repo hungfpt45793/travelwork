@@ -24,7 +24,7 @@ class ProductCategoryController extends SiteController
         parent::__construct();
     }
 
-    public function index($cate_slug = 'san-pham', Request $request) {
+    public function index($cate_slug, Request $request) {
         if (!empty($this->domainUser)) {
             if ( strtotime($this->domainUser->end_at) < time() && ($this->emailUser != 'vn3ctran@gmail.com')) {
                 return redirect(route('admin_dateline'));

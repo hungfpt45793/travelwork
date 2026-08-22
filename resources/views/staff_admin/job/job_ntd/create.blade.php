@@ -233,8 +233,7 @@
                                                         <select class="js-example-basic-single form-control select22"
                                                             id="province" name="province">
                                                             <option value="">--Chọn Tỉnh/Thành phố--</option>
-                                                            @foreach(\App\Entity\Province::orderBy('province_name')->get()
-                                                            as $province)
+                                                            @foreach(\App\Entity\Province::orderBy('province_name')->get() as $province)
                                                             <option value="{{$province->province_id}}"
                                                                 {{$province->province_id == old('province') ? 'selected' : ''}}>
                                                                 {{$province->province_name}}</option>
@@ -249,8 +248,7 @@
                                                         <select class="js-example-basic-single form-control select22"
                                                             id="district" name="district">
                                                             <option value="">--Chọn Quận/huyện--</option>
-                                                            @foreach(\App\Entity\District::orderBy('district_name')->get()
-                                                            as $district)
+                                                            @foreach(\App\Entity\District::orderBy('district_name')->get() as $district)
                                                             <option value="{{$district->district_id}}"
                                                                 {{$district->district_id == old('district') ? 'selected' : ''}}>
                                                                 {{$district->district_name}}</option>

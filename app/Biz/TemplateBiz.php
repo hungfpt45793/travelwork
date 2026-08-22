@@ -1,4 +1,4 @@
-git push -u github upgrade-dompdf<?php
+<?php
 
 namespace App\Biz;
 
