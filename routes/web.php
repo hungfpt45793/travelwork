@@ -13,12 +13,12 @@ use App\Entity\Category_tag;
 |
 */
 
-require_once('admin.php');
+require('admin.php');
 //dang nhap
 //require_once('ctv.php');
 //require_once('agency.php');
-require_once('staff.php');
-require_once('forum.php');
+require('staff.php');
+require('forum.php');
 Route::group(['namespace' => 'Site', 'middleware' => 'HtmlMifier'], function () {
     Route::get('test/quet-luu-cv', 'HomeController@testSaveCv');
 
@@ -92,7 +92,7 @@ Route::group(['namespace' => 'Site', 'middleware' => 'HtmlMifier'], function () 
     Route::post('/dang-nhap', 'LoginController@login')->name('login_home');
     Route::post('/dang-nhap-kiem-tien', 'LoginController@login_money')->name('login_money');
     Route::get('dang-xuat', 'LoginController@logout');
-    Route::get('dang-xuat/tai-khoan', 'LoginController@get_logout')->name('get_logout');
+    Route::get('dang-xuat/tai-khoan', 'LoginController@get_logout')->name('get_logout_page');
     Route::post('dang-xuat', 'LoginController@logout')->name('logoutHome');
     Route::post('dang-xuat/tai-khoan', 'LoginController@get_logout')->name('get_logout');
     Route::get('cblogin', 'LoginController@callbackLogin');
@@ -473,9 +473,9 @@ Route::group(['namespace' => 'Site', 'middleware' => 'HtmlMifier'], function () 
     Route::get('giao-vien/danh-sach-cau-hoi-trac-nghiem','Course\CoursesController@list_teacher_exam')->name('list_teacher_exam');
     //-quan ly tai-lieu-cua-bai-hoc
 
-    Route::get('giao-vien/quan-ly-tai-lieu/{course_content_id}','Course\CoursesController@index')->name('index');
+    Route::get('giao-vien/quan-ly-tai-lieu/{course_content_id}','Course\CoursesController@index')->name('teacher_course_voucher_index');
     Route::get('giao-vien/them-bai-tai-lieu/{course_content_id}','Course\CoursesController@create')->name('create');
-    Route::post('giao-vien/course_voucher_store','Course\CoursesController@store')->name('store');
+    Route::post('giao-vien/course_voucher_store','Course\CoursesController@store')->name('teacher_course_voucher_store');
     Route::get('giao-vien/cap-nhat-bai-hoc/{course_content_id}','Course\CoursesController@edit')->name('edit');
     Route::post('giao-vien/course_voucher_update','Course\CoursesController@update')->name('update');
     Route::post('giao-vien/course_voucher_delete','Course\CoursesController@delete')->name('delete');
@@ -607,7 +607,7 @@ Route::group(['namespace' => 'Site', 'middleware' => 'HtmlMifier'], function () 
     Route::post('/them-moi-ho-so-trinh-do/ung-vien', 'JobFaceUserController@store_Specialize_Employee')->name('store_Specialize_Employee');
     Route::post('/cap-nhat-ho-so-trinh-do/ung-vien', 'JobFaceUserController@update_Specialize_Employee')->name('update_Specialize_Employee');
     Route::post('/them-moi-ho-so-kinh-nghiem/ung-vien', 'JobFaceUserController@store_Experience_Employee')->name('store_Experience_Employee');
-    Route::post('/cap-nhat-ho-so-kinh-nghiem/ung-vien', 'JobFaceUserController@update_Experience_Employee')->name('update_Experience_Employee');
+    Route::post('/cap-nhat-ho-so-kinh-nghiem/ung-vien', 'JobFaceUserController@update_Experience_Employee')->name('update_employee_experience_profile');
     Route::post('/cap-nhat-tinh-trang-ho-so/ung-vien', 'JobFaceUserController@update_File_Employee')->name('update_File_Employee');
 
     //    ung vien
@@ -1110,11 +1110,10 @@ Route::group(['namespace' => 'Site', 'middleware' => 'HtmlMifier'], function () 
 
 
 Route::group(['namespace' => 'Site', 'middleware' => 'HtmlMifier'], function () {
-    require_once('test_login.php');
+    require('test_login.php');
     Route::get('{slug_cate}/tin-tuc', 'CategoryController@index')->name('site_category_post');
     Route::get('{cate_slug}/{post_slug}', 'PostController@index')->name('post');
     Route::get('test/test/{post_slug}', 'PostController@test')->name('post_test');
     Route::get('ho-tro-ho-so/{cate_slug}/{post_slug}.html', 'PostController@support')->name('support');
 
 });
-

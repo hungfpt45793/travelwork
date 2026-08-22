@@ -62,7 +62,7 @@
 
                         <div class="modal fade" id="modal-xl">
                             <div class="modal-dialog modal-xl">
-                                <form role="form" action="{{ route('store_chapter_content') }}" method="POST">
+                                <form role="form" action="{{ route('admin_store_chapter_content') }}" method="POST">
                                     {!! csrf_field() !!}
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -155,7 +155,7 @@
                                             <button class="btn btn-primary"><i class="fa fa-pencil"
                                                                                aria-hidden="true"></i></button>
                                         </a>
-                                        <a href="{{ route('delete_chapter_content',['course_content_id'=> $content->course_content_id]) }}"
+                                        <a href="{{ route('admin_delete_chapter_content',['course_content_id'=> $content->course_content_id]) }}"
                                            class="btn btn-danger btnDelete" data-toggle="modal"
                                            data-target="#myModalDelete" onclick="return submitDelete(this);">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -177,7 +177,7 @@
     @foreach($list_chapter_content  as $content)
         <div class="modal fade" id="modal_{{$content->course_content_id}}">
             <div class="modal-dialog modal-xl">
-                <form role="form" action="{{ route('update_chapter_content') }}" method="POST">
+                <form role="form" action="{{ route('admin_update_chapter_content') }}" method="POST">
                     {!! csrf_field() !!}
                     <div class="modal-content">
                         <div class="modal-header">

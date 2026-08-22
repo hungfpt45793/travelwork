@@ -476,9 +476,9 @@ class EmployerController extends AdminController
                 $content .= '<p> Chi tiết xem tại tủ hồ sơ của <a href="https://sanketoan.vn/">sanketoan.vn</a></p>';
                 MailConfig::sendMail($employee->email, $subject, $content);
             }
-            return redirect(route('list_intership', ['employer_id' => $employer->employer_id]))->with('suscess', 'Cập nhật trạng thái tuyển thực tập thành công');
+            return redirect(route('admin_list_intership', ['employer_id' => $employer->employer_id]))->with('suscess', 'Cập nhật trạng thái tuyển thực tập thành công');
         } catch (\Exception $e) {
-            return redirect(route('list_intership', ['employer_id' => $employer->employer_id]))->with('erorr', 'Cập nhật trạng thái tuyển thực tập thất bại');
+            return redirect(route('admin_list_intership', ['employer_id' => $employer->employer_id]))->with('erorr', 'Cập nhật trạng thái tuyển thực tập thất bại');
         }
     }
 
@@ -494,9 +494,9 @@ class EmployerController extends AdminController
 
             $delete = $intership->where('intership_id', $intership_id)->delete();
 
-            return redirect(route('list_intership', ['employer_id' => $employer->employer_id]))->with('suscess', 'Xóa hồ sơ thực tập thành công');
+            return redirect(route('admin_list_intership', ['employer_id' => $employer->employer_id]))->with('suscess', 'Xóa hồ sơ thực tập thành công');
         } catch (\Exception $e) {
-            return redirect(route('list_intership', ['employer_id' => $employer->employer_id]))->with('erorr', 'Xóa hồ sơ thực tập thất bại');
+            return redirect(route('admin_list_intership', ['employer_id' => $employer->employer_id]))->with('erorr', 'Xóa hồ sơ thực tập thất bại');
         }
     }
 

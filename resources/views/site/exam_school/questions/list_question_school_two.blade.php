@@ -147,7 +147,7 @@
                                                                            class="copy_question" title="Sửa câu hỏi"><i
                                                                                     class="fa fa-edit"></i></a>
 
-                                                                        <a href="{{ route('delete_question',['id_ques' => $question['id_ques'] ]) }}"
+                                                                        <a href="{{ route('delete_question',['ques_id' => $question['id_ques'] ]) }}"
                                                                            class=" delete_question btnDelete" data-toggle="modal"
                                                                            data-target="#myModalDelete0"
                                                                            onclick="return submitDelete(this);" title="Xóa câu hỏi">
@@ -249,7 +249,7 @@
                                                                                    title="Sửa câu hỏi"><i class="fa fa-edit"></i></a>
 
 
-                                                                                <a href="{{ route('delete_question',['id_ques' => $question['id_ques'] ]) }}"
+                                                                                <a href="{{ route('delete_question',['ques_id' => $question['id_ques'] ]) }}"
                                                                                    title="Xóa câu hỏi" class="btnDelete" data-toggle="modal"
                                                                                    data-target="#myModalDelete0"
                                                                                    onclick="return submitDelete(this);"><i class="far fa-trash-alt"></i></a>
@@ -387,7 +387,6 @@
         }
     </style>
 @endsection
-
 
 
 

@@ -74,7 +74,7 @@
 
                         <div class="modal fade" id="modal-xl">
                             <div class="modal-dialog modal-xl">
-                                <form role="form" action="{{ route('store_content_voucher') }}" method="POST" enctype="multipart/form-data">
+                                <form role="form" action="{{ route('admin_store_content_voucher') }}" method="POST" enctype="multipart/form-data">
                                     {!! csrf_field() !!}
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -113,7 +113,7 @@
                         </div>
                         <div class="modal fade" id="modal_xl_answer">
                             <div class="modal-dialog modal-xl">
-                                <form role="form" action="{{ route('store_content_voucher_answer') }}" method="POST" enctype="multipart/form-data">
+                                <form role="form" action="{{ route('admin_store_content_voucher_answer') }}" method="POST" enctype="multipart/form-data">
                                     {!! csrf_field() !!}
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -176,7 +176,7 @@
                                             <button class="btn btn-primary"><i class="fa fa-pencil"
                                                                                aria-hidden="true"></i></button>
                                         </a>
-                                        <a href="{{ route('delete_content_voucher',['course_content_voucher_id'=> $voucher->course_content_voucher_id]) }}"
+                                        <a href="{{ route('admin_delete_content_voucher',['course_content_voucher_id'=> $voucher->course_content_voucher_id]) }}"
                                            class="btn btn-danger btnDelete" data-toggle="modal"
                                            data-target="#myModalDelete" onclick="return submitDelete(this);">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -208,7 +208,7 @@
                                             <button class="btn btn-primary"><i class="fa fa-pencil"
                                                                                aria-hidden="true"></i></button>
                                         </a>
-                                        <a href="{{ route('delete_content_voucher_answer',['course_content_voucher_answer_id'=> $voucher_answer->course_content_voucher_answer_id]) }}"
+                                        <a href="{{ route('admin_delete_content_voucher_answer',['course_content_voucher_answer_id'=> $voucher_answer->course_content_voucher_answer_id]) }}"
                                            class="btn btn-danger btnDelete" data-toggle="modal"
                                            data-target="#myModalDelete" onclick="return submitDelete(this);">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -230,7 +230,7 @@
     @foreach($list_voucher  as $voucher)
         <div class="modal fade" id="modal_{{$voucher->course_content_voucher_id}}">
             <div class="modal-dialog modal-xl">
-                <form role="form" action="{{ route('update_content_voucher') }}" method="POST" enctype="multipart/form-data">
+                <form role="form" action="{{ route('admin_update_content_voucher') }}" method="POST" enctype="multipart/form-data">
                     {!! csrf_field() !!}
                     <div class="modal-content">
                         <div class="modal-header">
@@ -284,7 +284,7 @@
     @foreach($list_voucher_answer  as $voucher_answer)
         <div class="modal fade" id="modal_answer{{$voucher_answer->course_content_voucher_answer_id}}">
             <div class="modal-dialog modal-xl">
-                <form role="form" action="{{ route('update_content_voucher_answer') }}" method="POST" enctype="multipart/form-data">
+                <form role="form" action="{{ route('admin_update_content_voucher_answer') }}" method="POST" enctype="multipart/form-data">
                     {!! csrf_field() !!}
                     <div class="modal-content">
                         <div class="modal-header">

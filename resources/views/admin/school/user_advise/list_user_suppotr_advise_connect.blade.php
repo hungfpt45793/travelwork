@@ -121,7 +121,7 @@
     @foreach($list_ad  as $ad)
         <div class="modal fade" id="modal-xl{{$ad->ad_id}}">
             <div class="modal-dialog modal-xl">
-                <form role="form" action="{{ route('update_advise_status') }}" method="POST">
+                <form role="form" action="{{ route('admin_update_support_advise_status') }}" method="POST">
                     {!! csrf_field() !!}
                     <div class="modal-content">
                         <div class="modal-header">

@@ -24,16 +24,16 @@
                 },
                 "require": {
                     "php": ">=5.5.9",
-                    "illuminate/config": "^5.3|^6.0",
-                    "illuminate/support": "^5.3|^6.0"
+                    "illuminate/config": "^5.3|^6.0|^7.0",
+                    "illuminate/support": "^5.3|^6.0|^7.0"
                 }
             }
         }
     ],
     "require": {
-        "php": ">=7.2.0",
+        "php": ">=7.2.5",
         "anhskohbo/no-captcha": "^3.2",
-        "arcanedev/log-viewer": "^5.2",
+        "arcanedev/log-viewer": "^7.1",
         "aws/aws-sdk-php": "^3.163",
         "barryvdh/laravel-dompdf": "^0.8.6",
         "convertio/convertio-php": "^0.4.0",
@@ -42,12 +42,13 @@
         "google/apiclient": "^2.9",
         "google/recaptcha": "^1.2",
         "guzzlehttp/guzzle": "v6.5.5",
-        "htmlmin/htmlmin": "^6.0",
+        "htmlmin/htmlmin": "^7.0",
         "ixudra/curl": "^6.16",
-        "laravel/framework": "^6.20",
+        "laravel/framework": "^7.30",
         "laravel/helpers": "^1.1",
         "laravel/socialite": "^4.4",
-        "laravel/tinker": "~1.0",
+        "laravel/tinker": "^2.0",
+        "laravel/ui": "^2.0",
         "mews/captcha": "^3.2",
         "ncjoes/poppler-php": "1.1.1",
         "phpoffice/phpspreadsheet": "^1.30",
@@ -61,7 +62,7 @@
         "twilio/sdk": "6.20",
         "tymon/jwt-auth": "^1.0.2",
         "uxweb/sweet-alert": "^2.0",
-        "watson/sitemap": "^2.0",
+        "watson/sitemap": "^3.0",
         "webklex/laravel-pdfmerger": "^1.1",
         "yajra/laravel-datatables-oracle": "^9.18",
         "yangqi/htmldom": "1.0.*"

@@ -305,7 +305,7 @@
                                             <a href="{{ route('employer.destroy',['employer_id' => $employer->employer_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                                             </a>
-                                            <a class="mgt5" href="{{ route('list_intership',['employer_id' => $employer->employer_id]) }}" style="display: block">
+                                            <a class="mgt5" href="{{ route('admin_list_intership',['employer_id' => $employer->employer_id]) }}" style="display: block">
                                                 <button style="margin-top: 5px;" class="btn btn-success" type="button"><i class="fa fa-list" aria-hidden="true"></i>
                                               thực tập</button>
                                             </a>

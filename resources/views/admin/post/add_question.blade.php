@@ -96,7 +96,7 @@
                                            <a href="{{ route('edit_question', ['post_ques_id' => $post_question->post_ques_id]) }}">
                                                 <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                             </a>
-                                            <a  href="{{ route('delete_question', ['post_ques_id' => $post_question->post_ques_id]) }}" class="btn btn-danger btnDelete"
+                                            <a  href="{{ route('admin_delete_question', ['post_ques_id' => $post_question->post_ques_id]) }}" class="btn btn-danger btnDelete"
                                                 data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                                             </a>
@@ -124,5 +124,4 @@
     @include('admin.partials.popup_get_delete')
 
 @endsection
-
 

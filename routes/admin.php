@@ -57,9 +57,9 @@ Route::group(['middleware' => 'HtmlMifier', 'prefix' => 'admin', 'namespace' => 
     Route::post('xoa-chuong-cua-khoa-hoc/{course_chapter_id}', 'Course\CourseChaptersController@delete_course_chapter')->name('admin_delete_course_chapter');
     //thêm bài học cho chương
     Route::get('thong-tin-chuong-cua-khoa-hoc/{course_chapter_id}', 'Course\CourseChaptersController@list_chapters')->name('list_chapters');
-    Route::post('them-bai-hoc-cho-chuong', 'Course\CourseChapterContentsController@store_chapter_content')->name('store_chapter_content');
-    Route::post('cap-nhat-bai-hoc-chuong', 'Course\CourseChapterContentsController@update_chapter_content')->name('update_chapter_content');
-    Route::post('xoa-bai-hoc-chuong/{course_content_id}', 'Course\CourseChapterContentsController@delete_chapter_content')->name('delete_chapter_content');
+    Route::post('them-bai-hoc-cho-chuong', 'Course\CourseChapterContentsController@store_chapter_content')->name('admin_store_chapter_content');
+    Route::post('cap-nhat-bai-hoc-chuong', 'Course\CourseChapterContentsController@update_chapter_content')->name('admin_update_chapter_content');
+    Route::post('xoa-bai-hoc-chuong/{course_content_id}', 'Course\CourseChapterContentsController@delete_chapter_content')->name('admin_delete_chapter_content');
     //thêm câu hỏi trắc nghiệm cho khóa học
     Route::get('danh-sach-de-thi-cho-bai-hoc/{course_content_id}', 'Course\CourseChapterContentsController@list_question_content')->name('list_question_content');
     Route::get('them-moi-de-thi-cho-bai-hoc/{course_content_id}', 'Course\CourseChapterContentsController@add_question_content')->name('add_question_content');
@@ -70,13 +70,13 @@ Route::group(['middleware' => 'HtmlMifier', 'prefix' => 'admin', 'namespace' => 
 
     //thêm tài liệu cho bài học
     Route::get('thong-tin-tai-lieu-cua-bai-hoc/{course_content_id}', 'Course\CourseChapterContentsController@list_content_voucher')->name('list_content_voucher');
-    Route::post('them-tai-lieu-cho-bai-hoc', 'Course\CourseContentVoucherController@store_content_voucher')->name('store_content_voucher');
-    Route::post('cap-nhat-tai-lieu-cho-bai-hoc', 'Course\CourseContentVoucherController@update_content_voucher')->name('update_content_voucher');
-    Route::post('xoa-tai-lieu-cho-bai-hoc/{course_content_voucher_id}', 'Course\CourseContentVoucherController@delete_content_voucher')->name('delete_content_voucher');
+    Route::post('them-tai-lieu-cho-bai-hoc', 'Course\CourseContentVoucherController@store_content_voucher')->name('admin_store_content_voucher');
+    Route::post('cap-nhat-tai-lieu-cho-bai-hoc', 'Course\CourseContentVoucherController@update_content_voucher')->name('admin_update_content_voucher');
+    Route::post('xoa-tai-lieu-cho-bai-hoc/{course_content_voucher_id}', 'Course\CourseContentVoucherController@delete_content_voucher')->name('admin_delete_content_voucher');
     //thêm tài liệu đáp án cho bài học
-    Route::post('them-tai-lieu-dap-an-cho-bai-hoc', 'Course\CourseContentVoucherController@store_content_voucher_answer')->name('store_content_voucher_answer');
-    Route::post('cap-nhat-tai-lieu-dap-an-cho-bai-hoc', 'Course\CourseContentVoucherController@update_content_voucher_answer')->name('update_content_voucher_answer');
-    Route::post('xoa-tai-lieu-dap-an-cho-bai-hoc/{course_content_voucher_answer_id}', 'Course\CourseContentVoucherController@delete_content_voucher_answer')->name('delete_content_voucher_answer');
+    Route::post('them-tai-lieu-dap-an-cho-bai-hoc', 'Course\CourseContentVoucherController@store_content_voucher_answer')->name('admin_store_content_voucher_answer');
+    Route::post('cap-nhat-tai-lieu-dap-an-cho-bai-hoc', 'Course\CourseContentVoucherController@update_content_voucher_answer')->name('admin_update_content_voucher_answer');
+    Route::post('xoa-tai-lieu-dap-an-cho-bai-hoc/{course_content_voucher_answer_id}', 'Course\CourseContentVoucherController@delete_content_voucher_answer')->name('admin_delete_content_voucher_answer');
 
     //danh sách đơn hàng đăng kí khóa học
     Route::resource('course_order', 'Course\CourseOrderController');
@@ -119,7 +119,7 @@ Route::group(['middleware' => 'HtmlMifier', 'prefix' => 'admin', 'namespace' => 
 
     Route::get('posts-edit-question/{post_ques_id}', 'PostController@edit_question')->name('edit_question');
     Route::post('posts-update-question', 'PostController@update_question')->name('update_question');
-    Route::get('posts-delete-question/{post_ques_id}', 'PostController@delete_question')->name('delete_question');
+    Route::get('posts-delete-question/{post_ques_id}', 'PostController@delete_question')->name('admin_delete_question');
 
 
     Route::get('posts-show', 'PostController@anyDatatables')->name('datatable_post');
@@ -155,7 +155,7 @@ Route::group(['middleware' => 'HtmlMifier', 'prefix' => 'admin', 'namespace' => 
 
     Route::get('danh-sach-giang-vien/{ad_id}', 'User_adviseController@list_advise_connect')->name('list_advise_connect');
     Route::get('danh-sach-ke-toan-ket-noi', 'User_adviseController@list_user_suppotr_advise_connect')->name('list_user_suppotr_advise_connect');
-    Route::post('cap-nhat-trang-thai-giang-vien', 'User_adviseController@update_advise_status')->name('update_advise_status');
+    Route::post('cap-nhat-trang-thai-giang-vien', 'User_adviseController@update_advise_status')->name('admin_update_advise_status');
 
 
 
@@ -163,7 +163,7 @@ Route::group(['middleware' => 'HtmlMifier', 'prefix' => 'admin', 'namespace' => 
     Route::get('danh-sach-ke-toan-ho-tro/{sup_id}', 'User_supportController@list_support_connect')->name('list_support_connect');
     Route::post('cap-nhat-trang-thai-ket-toan-ket-noi', 'User_supportController@update_support_status')->name('update_support_status');
 
-    Route::post('cap-nhat-trang-thai-show-an-ke-toan', 'User_supportController@update_advise_status')->name('update_advise_status');
+    Route::post('cap-nhat-trang-thai-show-an-ke-toan', 'User_adviseController@update_advise_status')->name('admin_update_support_advise_status');
 
     Route::get('danh-sach-noi-dung-ket-toan-ho-tro', 'User_supportController@list_user_suppotr_question')->name('list_user_suppotr_question');
     Route::get('ke-toan-ho-tro/{ques_id}', 'User_supportController@detail_question')->name('detail_question');
@@ -322,7 +322,7 @@ Route::group(['middleware' => 'HtmlMifier', 'prefix' => 'admin', 'namespace' => 
     Route::get('cap-nhat-dai-ly/{employer_id}', 'EmployerController@show_employer_angency')->name('show_employer_angency');
     Route::post('update', 'EmployerController@employer_angency')->name('employer_angency');
 
-    Route::get('danh-sach-thuc-tap-ung-vien/{employer_id}', 'EmployerController@list_intership')->name('list_intership');
+    Route::get('danh-sach-thuc-tap-ung-vien/{employer_id}', 'EmployerController@list_intership')->name('admin_list_intership');
     Route::post('cap-nhat-trang-thai-thuc-tap', 'EmployerController@update_status_intership')->name('ad_update_status_intership');
     Route::post('xoa-thuc-tap', 'EmployerController@delete_intership')->name('ad_delete_intership');
 
