@@ -55,3 +55,6 @@ package-lock.json
 # Laravel generated Blade cache
 /storage/framework/views/*
 !/storage/framework/views/.gitignore
+
+# Dompdf 2 generated font metrics cache
+/storage/fonts/*.json

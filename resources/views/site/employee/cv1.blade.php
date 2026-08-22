@@ -15,6 +15,8 @@
         body {
             font-family: DejaVu Sans;
             letter-spacing: -.81px;
+            margin: 0;
+            padding: 0;
         }
 
         .container {

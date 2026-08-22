@@ -17,6 +17,10 @@
 			font-family: DejaVu Sans, sans-serif;
 			letter-spacing: -.81px;
         }
+        body {
+            margin: 0;
+            padding: 0;
+        }
         #block01 ,#block02 ,#block03 ,#block04 ,#block05 ,#block06
         {
             margin-left: 10px;
@@ -34,9 +38,9 @@
         }
         .right{
             width:505px;
-            height:100%;
+            height:auto;
             float:right;
-            margin-bottom:30px;
+            margin-bottom:0;
         }
         img{
             width:195px;

@@ -19,6 +19,12 @@
     td.ck{
         text-align:center;
     }
+    table.document-header,
+    table.document-header tr,
+    table.document-header td {
+        border: 0;
+        padding: 0;
+    }
     footer {
                 position: fixed;
                 bottom: 0cm;
@@ -33,12 +39,12 @@
 </style>
 </head>
 <body>
-    <div style="display:inline-block">
-        <img style="height:40px;width:220px" src="{{ public_path('assets/image/logo2.jpg') }}" alt="Sàn Kế Toán">
-    </div>
-    <div style="display:inline-block;float:right;margin-top:0;padding-top:0">
-        <span style="margin-top:0;padding-top:0">Ngày <?php echo date("d") ?> Tháng <?php echo date("m") ?> Năm <?php echo date("Y") ?></span>
-    </div>
+    <table class="document-header" style="width:100%">
+        <tr>
+            <td><img style="height:40px;width:220px" src="{{ public_path('assets/image/logo2.jpg') }}" alt="Sàn Kế Toán"></td>
+            <td style="text-align:right;vertical-align:top">Ngày <?php echo date("d") ?> Tháng <?php echo date("m") ?> Năm <?php echo date("Y") ?></td>
+        </tr>
+    </table>
     <h2 style="text-align: center">BẢNG BÁO GIÁ</h2>
     <p style="text-align: center; font-size:1.2em;text-transform:uppercase">
         @php

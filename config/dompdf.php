@@ -12,8 +12,9 @@ return array(
     |
     */
     'show_warnings' => false,   // Throw an Exception on warnings from dompdf
-    'orientation' => 'portrait',
-    'defines' => array(
+    'public_path' => null,
+    'convert_entities' => true,
+    'options' => array(
         /**
          * The location of the DOMPDF font directory
          *
@@ -72,6 +73,17 @@ return array(
          * $dompdf = new DOMPDF();	$dompdf->load_html($htmldata); $dompdf->render(); $pdfdata = $dompdf->output();
          */
         "chroot" => realpath(base_path()),
+
+        /**
+         * Protocols that Dompdf may use while resolving document assets.
+         */
+        "allowed_protocols" => array(
+            "file://" => array("rules" => array()),
+            "http://" => array("rules" => array()),
+            "https://" => array("rules" => array()),
+        ),
+
+        "log_output_file" => null,
 
         /**
          * Whether to enable font subsetting or not.
@@ -144,6 +156,11 @@ return array(
         "default_paper_size" => "A4",
 
         /**
+         * The default paper orientation.
+         */
+        "default_paper_orientation" => "portrait",
+
+        /**
          * The default font family
          *
          * Used if no suitable fonts can be found. This must exist in the font folder.
@@ -198,7 +215,7 @@ return array(
          *
          * @var bool
          */
-        "enable_php" => true,
+        "enable_php" => false,
 
         /**
          * Enable inline Javascript
