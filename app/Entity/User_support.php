@@ -11,7 +11,7 @@ class User_support extends Model
 {
     use SoftDeletes;
     protected $softDelete = true;
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     protected $table = 'user_support';
     protected $primaryKey = 'sup_id';
     protected $fillable = [

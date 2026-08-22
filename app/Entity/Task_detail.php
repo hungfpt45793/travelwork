@@ -9,7 +9,12 @@ class Task_detail extends Model
     protected $table = 'task_detail';
 
     protected $primaryKey = 'task_detail_id';
-    protected $dates = ['finish_day', 'giver_day', 'created_at', 'updated_at'];
+    protected $casts = [
+        'finish_day' => 'datetime',
+        'giver_day' => 'datetime',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
     protected $fillable = [
         'giver_id',
         'recipient_id',

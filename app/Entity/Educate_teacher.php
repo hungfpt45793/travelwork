@@ -10,7 +10,7 @@ class Educate_teacher extends Model
 {
     use SoftDeletes;
     protected $softDelete = true;
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
 
     protected $table = 'educate_teacher';
     protected $primaryKey = 'edu_tea_id';

@@ -33,13 +33,11 @@ class ProductBiz
                         try {
                             $path = $productImage['origin_src'];
                             $filename = basename($path);
-                            $imgLibrary = new ImageManager();
-                            $img = $imgLibrary->make($path);
+                            $imgLibrary = ImageManager::gd();
+                            $img = $imgLibrary->read($path);
 
                             if ($img->height() > 800) {
-                                $height = $img->height();
-                                $width = $img->width();
-                                $img->resize((int)($width*800/$height), 800);
+                                $img->scale(height: 800);
                             }
                             $img->save(public_path('library/images/' . $filename));
 

@@ -10,7 +10,7 @@ class Cv_specialize extends Model
 {
 
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     public $timestamps = false;
 
     protected $table = 'cv_specialize';

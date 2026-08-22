@@ -12,7 +12,7 @@ class Courses extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     public $timestamps = false;
     protected $table = 'courses';
     protected $primaryKey = 'course_id';

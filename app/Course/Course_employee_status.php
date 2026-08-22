@@ -12,7 +12,7 @@ class Course_employee_status extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     public $timestamps = false;
     protected $table = 'course_employee_status';
     protected $primaryKey = 'course_employee_status_id';

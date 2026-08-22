@@ -10,7 +10,7 @@ class Forum_post extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
 
     protected $table = 'forum_post';
 

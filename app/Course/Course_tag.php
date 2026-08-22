@@ -13,7 +13,7 @@ class Course_tag extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     public $timestamps = false;
     protected $table = 'course_tag';
     protected $primaryKey = 'tag_id';

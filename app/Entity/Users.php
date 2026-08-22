@@ -12,7 +12,7 @@ class Users extends Authenticatable
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
 
     protected $table = 'users';
 

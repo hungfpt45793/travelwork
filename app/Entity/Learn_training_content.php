@@ -12,7 +12,7 @@ class Learn_training_content extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     public $timestamps = false;
     protected $table = 'learn_training_content';
     protected $primaryKey = 'learn_content_id';

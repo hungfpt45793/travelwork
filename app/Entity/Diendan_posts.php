@@ -13,7 +13,7 @@ class Diendan_posts extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
 
     use Rating;
 

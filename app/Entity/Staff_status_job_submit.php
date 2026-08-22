@@ -11,7 +11,7 @@ class Staff_status_job_submit extends Model
     use SoftDeletes;
 
     protected $softDelete = true;
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
 
     protected $table = 'staff_status_job_submit';
     protected $primaryKey = 'staff_status_job_submit_id';

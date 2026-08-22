@@ -11,7 +11,7 @@ class Combo_advise extends Model
 {
     use SoftDeletes;
     protected $softDelete = true;
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     protected $table = 'combo_advise';
     protected $primaryKey = 'combo_ad_id';
     protected $fillable = [

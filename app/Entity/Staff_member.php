@@ -12,7 +12,7 @@ class Staff_member extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
 
     protected $table = 'staff_member';
     protected $primaryKey = 'staff_member_id';

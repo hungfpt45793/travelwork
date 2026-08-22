@@ -13,7 +13,7 @@ class Course_teacher_money extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     public $timestamps = false;
     protected $table = 'course_teacher_money';
     protected $primaryKey = 'course_money_id';

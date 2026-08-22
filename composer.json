@@ -24,8 +24,8 @@
                 },
                 "require": {
                     "php": ">=5.5.9",
-                    "illuminate/config": "^5.3|^6.0|^7.0|^8.0|^9.0",
-                    "illuminate/support": "^5.3|^6.0|^7.0|^8.0|^9.0"
+                    "illuminate/config": "^5.3|^6.0|^7.0|^8.0|^9.0|^10.0",
+                    "illuminate/support": "^5.3|^6.0|^7.0|^8.0|^9.0|^10.0"
                 }
             }
         },
@@ -53,9 +53,9 @@
         }
     ],
     "require": {
-        "php": "^8.0.2",
+        "php": "^8.2",
         "anhskohbo/no-captcha": "^3.2",
-        "arcanedev/log-viewer": "^9.0",
+        "arcanedev/log-viewer": "^10.0",
         "aws/aws-sdk-php": "^3.163",
         "barryvdh/laravel-dompdf": "2.0.1",
         "convertio/convertio-php": "^0.4.0",
@@ -64,9 +64,8 @@
         "google/apiclient": "^2.9",
         "google/recaptcha": "^1.2",
         "guzzlehttp/guzzle": "^7.0.1",
-        "htmlmin/htmlmin": "^9.0",
         "ixudra/curl": "^6.16",
-        "laravel/framework": "^9.52",
+        "laravel/framework": "^10.50",
         "laravel/helpers": "^1.1",
         "laravel/socialite": "^5.0",
         "laravel/tinker": "^2.7.2",
@@ -75,8 +74,8 @@
         "ncjoes/poppler-php": "1.1.1",
         "phpoffice/phpspreadsheet": "^1.30",
         "phpoffice/phpword": "^1.2",
-        "pusher/pusher-php-server": "^5.0",
-        "renatomarinho/laravel-page-speed": "^2.1",
+        "pusher/pusher-php-server": "^7.0",
+        "renatomarinho/laravel-page-speed": "^4.4",
         "sendgrid/sendgrid": "~7",
         "setasign/fpdf": "1.8.*",
         "setasign/fpdi": "^2.0",
@@ -84,7 +83,7 @@
         "symfony/mailgun-mailer": "^6.0",
         "tinify/tinify": "^1.6",
         "twilio/sdk": "6.20",
-        "tymon/jwt-auth": "2.0.0",
+        "tymon/jwt-auth": "^2.3",
         "watson/sitemap": "^5.0",
         "webklex/laravel-pdfmerger": "^1.1",
         "yajra/laravel-datatables-oracle": "^10.0",
@@ -94,9 +93,9 @@
         "filp/whoops": "~2.0",
         "fakerphp/faker": "^1.9.1",
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^6.1",
-        "phpunit/phpunit": "^9.5.10",
-        "spatie/laravel-ignition": "^1.0"
+        "nunomaduro/collision": "^7.0",
+        "phpunit/phpunit": "^10.0",
+        "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
         "psr-4": {

@@ -12,7 +12,7 @@ class Order_job extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
 
     protected $table = 'order_job';
     protected $primaryKey = 'order_job_id';

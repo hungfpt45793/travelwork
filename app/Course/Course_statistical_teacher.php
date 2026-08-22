@@ -12,7 +12,7 @@ class Course_statistical_teacher extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     public $timestamps = false;
     protected $table = 'course_statistical_teacher';
     protected $primaryKey = 'course_statis_id';

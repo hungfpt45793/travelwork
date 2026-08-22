@@ -11,7 +11,7 @@ class User_support_connect_advise extends Model
 {
     use SoftDeletes;
     protected $softDelete = true;
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     protected $table = 'user_support_connect_advise';
     protected $primaryKey = 'connect_id';
     protected $fillable = [

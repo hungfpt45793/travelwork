@@ -13,7 +13,7 @@ class User extends Authenticatable implements JWTSubject
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
 
     protected $table = 'users';
 

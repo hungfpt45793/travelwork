@@ -12,7 +12,7 @@ class Diendan_input extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
 
     protected $table = 'diendan_input';
 

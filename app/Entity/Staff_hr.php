@@ -12,7 +12,7 @@ class Staff_hr extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
 
     protected $table = 'staff_hr';
     protected $primaryKey = 'staff_hr_id';

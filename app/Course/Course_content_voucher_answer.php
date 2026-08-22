@@ -12,7 +12,7 @@ class Course_content_voucher_answer extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     public $timestamps = false;
     protected $table = 'course_content_voucher_answer';
     protected $primaryKey = 'course_content_voucher_answer_id';

@@ -12,7 +12,7 @@ class Course_chapter_contents extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     public $timestamps = false;
     protected $table = 'course_chapter_contents';
     protected $primaryKey = 'course_content_id';

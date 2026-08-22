@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Log;
 class Cv_employee extends Model
 {
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     public $timestamps = false;
 
     protected $table = 'cv_employee';

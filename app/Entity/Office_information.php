@@ -11,7 +11,7 @@ class Office_information extends Model
     use SoftDeletes;
 
     protected $softDelete = true;
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     protected $table = 'office_information';
     protected $primaryKey = 'office_id';
     public $timestamps = false;

@@ -11,7 +11,7 @@ class Interactive_history_jobfb extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     protected $table = 'interactive_history_jobfb';
     protected $primaryKey = 'id';
     protected $fillable = [

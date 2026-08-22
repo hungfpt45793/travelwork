@@ -12,7 +12,7 @@ class Employer extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
 
     protected $table = 'employer';
     protected $primaryKey = 'employer_id';

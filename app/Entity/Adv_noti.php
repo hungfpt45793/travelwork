@@ -10,7 +10,7 @@ class Adv_noti extends Model
 {
     use SoftDeletes;
     protected $softDelete = true;
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
 
     protected $table = 'adv_noti';
     protected $primaryKey = 'adv_id';

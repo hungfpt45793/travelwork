@@ -10,7 +10,7 @@ class User_forum_code_intro extends Model
     use SoftDeletes;
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
 
     protected $table = 'user_forum_code_intro'; //tính lượt xe cho bài viết
 

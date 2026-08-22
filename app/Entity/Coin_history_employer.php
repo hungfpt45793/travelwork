@@ -12,7 +12,7 @@ class Coin_history_employer extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     public $timestamps = false;
 
     protected $table = 'coin_history_employer';

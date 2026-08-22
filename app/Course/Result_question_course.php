@@ -12,7 +12,7 @@ class Result_question_course extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     public $timestamps = false;
     protected $table = 'result_question_course';
     protected $primaryKey = 'result_id';

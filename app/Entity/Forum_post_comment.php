@@ -12,7 +12,7 @@ class Forum_post_comment extends Model
     use SoftDeletes;
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
 
     protected $table = 'forum_post_comment';
 

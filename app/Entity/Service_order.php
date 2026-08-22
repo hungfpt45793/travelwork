@@ -11,7 +11,7 @@ class Service_order extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     protected $table = 'service_order';
     protected $primaryKey = 'service_order_id';
     protected $fillable = [

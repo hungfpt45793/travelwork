@@ -13,7 +13,7 @@ class Course_questions extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     public $timestamps = false;
     protected $table = 'course_questions';
     protected $primaryKey = 'course_comments_id';

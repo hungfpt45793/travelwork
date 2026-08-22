@@ -12,7 +12,7 @@ class Category_course extends Model
 
     protected $softDelete = true;
 
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     public $timestamps = false;
     protected $table = 'category_course';
     protected $primaryKey = 'category_course_id';

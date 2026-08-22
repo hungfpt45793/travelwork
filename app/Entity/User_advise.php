@@ -11,7 +11,7 @@ class User_advise extends Model
 {
     use SoftDeletes;
     protected $softDelete = true;
-    protected $dates = ['deleted_at'];
+    protected $casts = ['deleted_at' => 'datetime'];
     protected $table = 'user_advise';
     protected $primaryKey = 'ad_id';
     protected $fillable = [
