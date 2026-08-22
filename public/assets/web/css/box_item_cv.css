@@ -1,0 +1,219 @@
+.box_item_cv {
+    width: 800px;
+    max-width: 800px;
+    margin:0 auto;
+
+}
+
+.box_item_cv_content {
+    margin: 30px 0;
+    width: 800px;
+    max-width: 800px;
+    position: relative;
+}
+
+.box_item_cv_content .box_cv_left {
+    width: 296px;
+    max-width: 300px;
+    display: inline-block;
+}
+
+.box_item_cv_content .box_cv_left .item_content_left {
+    padding: 15px 10px;
+}
+
+.box_item_cv_content .box_cv_right {
+    margin-left: -4px;
+    width: 498px;
+    max-width: 498px;
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+.box_item_cv_content .box_cv_image {
+    width: 100%;
+    height: inherit;
+    padding: 15px 45px;
+}
+
+.box_item_cv_content .box_cv_image img {
+    width: 195px;
+    height: 210px;
+    border: solid 3px #d1f4fa;
+}
+
+.box_cv_info .item_cv_info {
+    color: #fff !important;
+    background: #ffad33;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    color: #000 !important;
+}
+
+.box_cv_info .cv_info_input {
+    height: 30px;
+    line-height: 30px;
+}
+
+.box_cv_info .item_cv_info_textare {
+    padding: 10px 15px;
+}
+
+.box_item_cv_content textarea {
+    color: #000 !important;
+    width: 100%;
+    border: none;
+    /*min-height: 70px;*/
+}
+
+.box_item_cv_content .item_cv_link textarea {
+    color: #000 !important;
+    width: 100%;
+    border: none;
+    min-height: 50px !important;
+}
+
+.box_cv_info .item_cv_info_textare textarea {
+    background: #ffad33;
+    color: #000 !important;
+    width: 100%;
+    border: none;
+    /*min-height: 70px;*/
+}
+
+.item_content_left .title_content_left h2 {
+    margin-bottom: 10px;
+    text-align: center;
+    border-radius: 20px;
+    margin-top: 10px;
+    border: solid 1px #fff;
+    font-size: 18px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    text-transform: uppercase;
+    color: rgb(55, 77, 89);
+}
+
+.item_content_left .content_content_left {
+
+}
+
+.item_content_left .content_content_left textarea {
+    padding: 10px 15px;
+    border: none;
+    background: none;
+    overflow-y: hidden;
+    height: auto;
+}
+
+.item_content_left .content_content_left .box_item_skill label {
+    color: #fff !important;
+}
+
+.box_cv_right_content {
+    background: white;
+}
+
+.pd_box_cv_right {
+
+}
+
+.box_cv_right .box_cv_right_header {
+    padding-top: 25px;
+    padding-bottom: 35px;
+}
+
+.box_cv_right .box_cv_right_header .cl_cv_name {
+    font-size: 30px;
+    padding: 15px 30px 5px 45px;
+    line-height: normal;
+    text-align: left;
+    margin-bottom: 0;
+    letter-spacing: 5px;
+    margin-left: 0px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.box_cv_right .box_cv_right_header .cv_right_career {
+    font-size: 20px;
+    text-align: left;
+    color: #ffad33;
+    margin-left: 43px;
+    margin-top: 5px;
+    padding-top: 10px;
+    border-top: solid 1px #fff;
+}
+
+.box_cv_right .box_cv_right_header .cv_right_career textarea {
+    color: #ffad33 !important;
+    font-size: 16px;
+    background: none;
+    padding: 10px;
+
+}
+
+.box_cv_right .box_cv_right_content {
+    background: white;
+    padding: 50px 0px;
+}
+
+.box_cv_right .box_cv_right_content .box_cv_right_item {
+    margin-left: 15px;
+    padding-left: 5px;
+}
+
+.box_cv_right .box_cv_right_content .box_cv_right_item .box_cv_right_title {
+    font-size: 18px;
+    margin-top: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    min-height: 30px;
+    line-height: 30px;
+    padding: 2px 10px;
+    background-color: #ffe680;
+    color: rgb(55, 77, 89);
+    border-radius: 5px;
+    width: 245px;
+    margin-bottom: 0px;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    -webkit-line-clamp: 1 !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+
+}
+
+.box_cv_right .box_cv_right_content .box_cv_right_item .box_cv_right_des {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+.box_cv_right .box_cv_right_content .box_cv_right_item .box_cv_right_des .box_cv_right_company {
+    min-height: 30px;
+    line-height: 30px;
+    font-weight: 600;
+    color: #ffad33!important;
+    width: 100%;
+    font-weight: 600;
+    font-size:16px;
+
+}
+
+.box_cv_right .box_cv_right_content .box_cv_right_item .box_cv_right_des .box_cv_right_positon {
+    height: 18px;
+    min-height: 1em;
+    line-height: 18px;
+    display: inline-block;
+    z-index: 2;
+    color: #374d59;
+    font-size: 15px;
+}
+
+.box_cv_right .box_cv_right_content .box_cv_right_item .box_cv_right_des .box_cv_right_textarea textarea {
+    background: none !important;
+    color: #000;
+
+}

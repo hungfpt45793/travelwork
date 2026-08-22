@@ -1,0 +1,84 @@
+.detailEmployee{
+    overflow: scroll;height: 97vh;
+}
+.detailEmployee .close{
+    position: absolute!important;
+    top: -1.5rem!important;
+    right: -1.5rem!important;
+    background: #ccc!important;
+    width: 3rem!important;
+    height: 3rem!important;
+    border-radius: 50%!important;
+    opacity: 1!important;
+}
+.detailEmployee .modal-dialog.modal-dialog-centered {
+    max-width: 92vw;
+}
+/* .detailEmployee .col_info::-webkit-scrollbar{
+    width: 0;
+} */
+.detailEmployee .col_info{
+    height:95vh;
+}
+.modal80 .modal-dialog{
+    max-width: 80vw;
+}
+.detailEmployee button.close{
+    position: absolute;
+    top: 0;
+    z-index:10;
+    right: 0;
+}
+.detailEmployee table td, .detailEmployee table th{
+    padding: .5rem .4rem;
+}
+.detailEmployee ul li{
+    cursor: pointer;
+    transition: .5s;
+}
+.detailEmployee ul li:hover{
+    color:red;
+}
+.cus-list-group-item{
+    padding: .5rem .65rem!important;
+}
+.form-group small {
+    visibility: hidden;
+}
+
+.form-group.error small {
+    visibility: visible;
+}
+.alert_mess_cv {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    min-width: 320px;
+}
+.detailEmployee .loading_cv {
+    position: absolute;
+    top: 50%;
+}
+@media(max-width:425px){
+    .hideOnMobile,.disOnMobile{display:none}
+    .showOnMobile,.showOnLaptopMinii{display:inherit}
+
+    .detailEmployee .show_cv img{
+        height: unset!important;
+    }   
+    .detailEmployee .col_info {
+        height: unset!important;
+    }
+    .detailEmployee .reload_cv.showOnMobile {
+        margin: auto;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        transform: scale(1.5);
+    }
+}
+@media(min-width: 426px){
+    .disOnDes {
+        display:none;
+    }
+}

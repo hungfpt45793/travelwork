@@ -1,0 +1,493 @@
+section.UTN .cvbox {
+	display: block;
+	overflow: hidden;
+	background: #fff;
+	padding: 10px
+}
+
+section.UTN .cvleft {
+	float: left;
+	overflow: hidden;
+	width: 70%
+}
+
+section.UTN .title {
+	display: block;
+	overflow: hidden;
+	padding: 0 0 15px;
+	font-size: 21px;
+	color: #333;
+	line-height: 32px;
+	text-align: center
+}
+
+section.UTN .infotext {
+	display: block;
+	height: 1px;
+	background: #ccc;
+	position: relative;
+	margin: 20px 0
+}
+section.UTN .selectbox{
+	font-size: 12px;
+}
+section.UTN .infotext span {
+	display: block;
+    overflow: hidden;
+    padding: 10px 15px;
+    font-size: 25px;
+    color: #009385;
+    font-weight: bold;
+    line-height: 32px;
+    position: absolute;
+    width: 300px;
+    margin: -26px auto 0;
+    background: #fff;
+    left: 34%;
+    text-align: center;
+}
+
+section.UTN .cvrow {
+	display: block;
+	overflow: hidden;
+	margin-bottom: 10px
+}
+
+section.UTN .cvrow input[type="text"],
+section.UTN .cvrow input[type="number"],
+section.UTN .cvrow input[type="password"],
+section.UTN .cvrow input[type="email"] {
+	display: block;
+	padding: 10px 0;
+	border: 1px solid #ddd;
+	color: #444;
+	width: 95%;
+	text-indent: 10px;
+	border-radius: 4px
+}
+
+section.UTN .cvrow input[type="radio"] {
+	display: inline-block;
+	vertical-align: middle;
+	width: 16px;
+	height: 16px;
+	border: 1px solid #ddd;
+	background: #fff
+}
+
+section.UTN .cvrow label {
+	display: inline-block;
+	font-size: 14px;
+	color: #333;
+	margin-right: 10px;
+	vertical-align: middle;
+	cursor: pointer;
+	margin-bottom: 0;
+}
+
+section.UTN .cvrow span {
+	color: #d0021b;
+	font-size: 16px
+}
+
+section.UTN .cvrow .texterror {
+	display: none;
+	clear: both;
+	overflow: hidden;
+	font-size: 14px;
+	color: #f00;
+	padding: 5px 0
+}
+
+section.UTN .text {
+	display: block;
+	overflow: hidden;
+	font-size: 14px;
+	padding: 5px 0;
+	font-weight: 600
+}
+
+section.UTN .inline {
+	display: inline-block;
+	margin-right: 5px;
+	vertical-align: middle;
+	padding: 10px 0
+}
+
+section.UTN .cvrow input.date {
+	width: 63%;
+	display: inline-block;
+	vertical-align: middle
+}
+
+section.UTN .four {
+	display: inline-block;
+	vertical-align: top;
+	width: 40%
+}
+
+section.UTN .fifty {
+	display: inline-block;
+	width: 48.4%;
+	vertical-align: top
+}
+
+section.UTN .six {
+	display: inline-block;
+	vertical-align: top;
+	width: 58%
+}
+
+section.UTN .thirty {
+	display: inline-block;
+	width: 31.5%;
+	vertical-align: top
+}
+
+section.UTN .error input {
+	border-color: #f00 !important
+}
+
+section.UTN .error .texterror {
+	display: inline-block
+}
+
+section.UTN .savecv {
+	display: block;
+	overflow: hidden;
+	padding: 15px 0;
+	text-align: center;
+	width: 150px;
+	background: #80239e;
+	font-size: 16px;
+	font-weight: 600;
+	margin: 10px auto;
+	color: #fff
+}
+
+section.UTN .cvright {
+	float: right;
+	overflow: hidden;
+	width: 30%
+}
+
+section.UTN .textpic {
+	display: block;
+	overflow: hidden;
+	text-align: center;
+	font-size: 18px;
+	line-height: 26px;
+	margin-bottom: 15px
+}
+
+section.UTN .camera {
+	display: block;
+	overflow: hidden
+}
+
+section.UTN .camera img {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-width: 143px;
+	margin: auto;
+	cursor: pointer
+}
+
+section.UTN .yourpic {
+	display: block;
+	overflow: hidden
+}
+
+section.UTN .yourpic img {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-width: 143px;
+	margin: auto
+}
+
+section.UTN .ortext {
+	display: block;
+	overflow: hidden;
+	font-size: 12px;
+	text-align: center;
+	padding: 10px 0
+}
+
+section.UTN .ortext input {
+	visibility: hidden
+}
+
+section.UTN .inputfile {
+	width: .1px;
+	height: .1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1
+}
+
+section.UTN .inputfile-1+label {
+	color: #fff;
+	background-color: #39d2b4
+}
+
+section.UTN .inputfile+label {
+	max-width: 80%;
+	font-size: 14px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	cursor: pointer;
+	display: inline-block;
+	overflow: hidden;
+	padding: 8px;
+	margin: 10px 0
+}
+
+section.UTN .inputfile+label svg {
+	width: 1em;
+	height: 1em;
+	vertical-align: middle;
+	fill: currentColor;
+	margin-top: -.25em;
+	margin-right: .25em
+}
+
+section.UTN .addschool {
+	float: right;
+	border-radius: 4px;
+	overflow: hidden;
+	padding: 10px 15px 10px 25px;
+	font-size: 16px;
+	color: #fff;
+	background: #4a90e2;
+	cursor: pointer;
+	position: relative;
+	margin-right: 26px
+}
+
+section.UTN .addschool:before,
+section.UTN .addschool:after {
+	content: '';
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	background: #fff
+}
+
+section.UTN .addschool:before {
+	width: 16px;
+	height: 2px;
+	top: 16px
+}
+
+section.UTN .addschool:after {
+	width: 2px;
+	height: 15px;
+	top: 10px;
+	left: 12px
+}
+
+section.UTN .addcompany {
+	float: right;
+	border-radius: 4px;
+	overflow: hidden;
+	padding: 10px 15px 10px 25px;
+	font-size: 16px;
+	color: #fff;
+	background: #80239e;
+	cursor: pointer;
+	position: relative;
+	margin-right: 26px
+}
+
+section.UTN .addcompany:before,
+section.UTN .addcompany:after {
+	content: '';
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	background: #fff
+}
+
+section.UTN .addcompany:before {
+	width: 16px;
+	height: 2px;
+	top: 16px
+}
+
+section.UTN .addcompany:after {
+	width: 2px;
+	height: 15px;
+	top: 10px;
+	left: 12px
+}
+
+section.UTN .textarea {
+	display: block;
+	overflow: auto;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	width: 96%;
+	padding: 2%;
+	font-size: 14px;
+	color: #444;
+	text-align: left;
+	resize: none;
+	text-indent: 0
+}
+
+section.UTN .roundcv {
+	display: block;
+	overflow: hidden
+}
+
+section.UTN .roundcv li {
+	display: block;
+	padding: 0;
+	background: #fff;
+	position: relative;
+	margin-top: 15px;
+	overflow: hidden;
+	border-radius: 5px
+}
+
+section.UTN .roundcv li div {
+	display: block;
+	color: #1e0afe;
+	overflow: visible;
+	padding: 15px 10px;
+	font-size: 24px
+}
+
+section.UTN .roundcv li div img {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	box-shadow: 0 3px 0 1px rgba(0, 0, 0, .2)
+}
+
+section.UTN .roundcv li a {
+	display: block;
+	overflow: hidden
+}
+
+section.UTN .roundcv li span {
+	display: block;
+	height: 52px;
+	background: #802390;
+	position: relative
+}
+
+section.UTN .roundcv li span b {
+	font-size: 22px;
+	color: #fff;
+	text-align: center;
+	display: block;
+	margin: auto;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	transform: translateY(-50%)
+}
+
+section.UTN .sample {
+	display: block;
+	overflow: hidden;
+	padding: 15px 0;
+	color: #fff;
+	font-size: 18px;
+	text-align: center;
+	background: #802390;
+	margin-top: 15px
+}
+
+section.UTN .sample:hover {
+	background: #288ad6
+}
+
+section.UTN .notex {
+	display: inline-block;
+	overflow: hidden;
+	font-size: 10px;
+	color: #d0021b;
+	vertical-align: middle;
+	font-weight: 300
+}
+section.UTN .notey {
+    display: inline-block;
+    overflow: hidden;
+    font-size: 12px;
+    color: #d0021b;
+    vertical-align: middle;
+    font-weight: 300;
+}
+@media screen and (max-width:1200px) {
+	section.UTN .cvrow label {
+		margin-right: 8px
+	}
+	section.UTN .inline {
+		margin-right: 0
+	}
+	section.UTN .cvrow input.date {
+		width: 60%;
+		font-size: 12px
+	}
+	section.UTN .cvrow,
+	section.UTN .text,
+	section.UTN .textarea {
+		font-size: 13px
+	}
+	section.UTN .cvrow input[type="text"],
+	section.UTN .cvrow input[type="number"],
+	section.UTN .cvrow input[type="password"],
+	section.UTN .cvrow input[type="email"] {
+		font-size: 13px
+	}
+	section.UTN .roundcv li div {
+		font-size: 22px
+	}
+}
+
+section.UTN #camera-main {
+	position: absolute;
+	z-index: 999;
+	display: none
+}
+
+section.UTN .livecam-html5 video {
+	width: 400px;
+	height: 300px
+}
+
+section.UTN #camera-wrap {
+	margin: 0 auto;
+	background: #f1f1f2;
+	width: 100%;
+	box-shadow: 1px 1px 8px #000
+}
+
+section.UTN #camera-wrap table {
+	width: 100%;
+	padding: 10px;
+	margin: auto 0;
+	text-align: center
+}
+
+.borderTopLeftRight5{
+	border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.borderTopLeftRight10{
+	border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.borderBotLeftRight10{
+	border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}

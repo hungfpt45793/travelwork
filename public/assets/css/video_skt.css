@@ -1,0 +1,131 @@
+
+.item_video {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.item_video {
+    /*position: relative;*/
+}
+
+.item_video .icon_youtube {
+    position: absolute;
+    z-index: 2;
+    width: 60px;
+    top: calc(50% - 55px);
+    left: calc(50% - 35px);
+}
+
+.item_video p {
+    margin-bottom: 0px;
+    color: #212529 !important;
+    font-size: 16px;
+}
+
+.item_title_video {
+    display: block;
+    /*padding: 0px 10px;*/
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.sticky_video {
+    position: fixed !important;
+    width: 100%;
+    left: 0 !important;
+    top: 52px !important;
+    padding: -19px 1px;
+    border-top: 0;
+    margin: 15px 0;
+    z-index: 1050;
+    padding-bottom: 0 !important;
+    padding-top: 14px !important;
+    margin-bottom: 0;
+    border-bottom: 1px solid #ccc;
+    background: #fff;
+}
+
+.item_video img {
+    max-width: 100%;
+    width: 100% !important;
+}
+
+.diendan_video {
+    border: none;
+    margin-top: 0px !important;
+    border-radius: 5px;
+    padding: 20px 0px;
+}
+
+.diendan_video .contentJobsInteresting {
+    border: 1px solid lightgray;
+    padding-top: 15px;
+}
+
+.item_video a:hover p {
+    color: #FA7436 !important;
+}
+
+.detail_diendan_video .detail_link_video {
+    width: 100%;
+    margin: 20px 0px;
+}
+
+/*.detail_diendan_video .detail_link_video iframe {*/
+/*width: 100% !important;*/
+/*height: 500px !important;*/
+/*max-height: 500px !important;*/
+/*}*/
+
+.detail_diendan_video {
+    background: #fff;
+}
+
+.item_title_icon_video .item_title_icon_video_left {
+    display: inline-block;
+    float: left;
+}
+
+.item_title_icon_video .item_title_icon_video_right {
+    display: inline-block;
+    float: right;
+}
+
+.detail_video h1 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 20px;
+}
+
+.detail_video h2 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.detail_link_video iframe {
+    margin-bottom: 0px;
+    width: 100%;
+    min-height: 400px;
+}
+
+@media (max-width: 500px) {
+    .detail_link_video {
+        /*min-height: 230px;*/
+        /*margin-bottom: 400px !important;*/
+        /*margin-top: -20px !important;*/
+        margin-bottom: 50px !important;
+        margin-top: -20px !important;
+        height: 200px;
+    }
+    .detail_link_video iframe {
+        margin-bottom: 0px;
+        min-height: 230px;
+        /*position: fixed;*/
+        z-index: 9;
+        height: 200px;
+    }
+}

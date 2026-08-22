@@ -1,0 +1,213 @@
+/**, ::after, ::before {*/
+/*box-sizing: inherit;*/
+/*}*/
+/*.cvo-profile-avatar-wraper::after, .cvo-profile-avatar-wraper::before {*/
+/*box-sizing: inherit !important;*/
+/*}*/
+
+/*#page-taocv, ::after, ::before {*/
+/*box-sizing: inherit;*/
+/*}#cvo-profile-avatar-wraper, ::after, ::before {*/
+/*box-sizing: inherit;*/
+/*}*/
+#cv-top {
+    width: 100%;
+    overflow: auto;
+}
+
+#cv-right {
+    width: 293px !important;
+}
+
+#cvo-profile-avatar-wraper {
+    float: left;
+    width: 293px;
+    height: inherit;
+    padding: 15px 45px;
+    background: #0096a5;
+}
+
+#cvo-profile-avatar-wraper img {
+    width: 195px;
+
+    border: solid 3px #d1f4fa;
+}
+
+.f20, p.h3 span.exp-subtitle {
+    font-size: 20px;
+}
+
+input.title_input {
+    min-height: 1em;
+    display: inline-block;
+    position: relative;
+    min-width: 25pt;
+    color: #374d59;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#sortable .cvo-block {
+    float: left;
+    width: 99%;
+    padding-left: 0;
+    padding: 15px 10px;
+}
+
+.editor-controls-wraper {
+    text-align: center;
+}
+
+#page-cv input, #page-cv textarea {
+    border: none;
+    background: none;
+}
+
+#cv-profile-job, #cv-profile-job::placeholder {
+    color: #ffad33;
+}
+
+
+
+#page-cv input[name='cv_email'], #page-cv input[name='cv_phone'], #page-cv input[name='cv_birthday'], #page-cv input[name='cv_address'], #page-cv input[name='cv_facebook'] {
+    width: 100%;
+    text-align: center;
+}
+#cv-content p {
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+input.box-title {
+    font-weight: bold;
+    min-height: 1em;
+    display: inline-block;
+    position: relative;
+    min-width: 25pt;
+    color: #374d59;
+    text-transform: uppercase;
+    text-align: center;
+}
+input.skill-name {
+    color: #fff;
+}
+textarea.box-content {
+    width: 280px;
+    color: #fff;
+    max-width: 100%;
+    overflow: hidden;
+    resize: vertical;
+}
+textarea.exp-content {
+    overflow: hidden;
+    resize: vertical;
+}
+textarea.box-content:hover, input.box-title:hover {
+    outline: #77a5cc dashed 1pt;
+}
+input.block-title
+{
+    font-size: 18px;
+    margin-top: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #374d59;
+}
+input.exp-title
+{
+    min-height: 1em;
+    font-weight: 600;
+    color: #ffad33!important;
+    width: 100%;
+}
+
+input.exp-subtitle
+{
+    min-height: 1em;
+    display: inline-block;
+    z-index: 2;
+    color: #374d59;
+    font-size: 15px;
+}
+textarea.exp-content
+{
+    padding: 0;
+}
+#cvo-toolbar .item.button .title {
+    margin-bottom: 2px;
+}
+.box-four.make-me-sticky{
+    overflow: auto;
+    height:600px;
+}
+.hoso-scroll {
+    width: 300px;
+    margin-left: 20px;
+    display: inline-block;
+     float: inherit;
+    position: fixed;
+    
+    /*position: relative;*/
+    background: #fff;
+    z-index: 2;
+    height: auto;
+}
+.hoso-scroll .content_guide_cv
+{
+    padding: 20px;
+    padding-top: 0px;
+}
+.hoso-scroll .content_guide_cv p
+{
+    margin-bottom: 0px;
+}
+.hoso-scroll .title_guide_cv
+{
+    text-align: center;
+    box-shadow: 0 0 2px rgba(0,0,0,.25);
+    border-radius: 3px;
+    width: 96%;
+    padding: 4px 0px;
+    margin: 0 auto 15px;
+    text-align: left;
+    padding-left: 10px;
+}
+.hoso-scroll .item ul li {
+    font-size: 14px;
+    color: rgb(65,65,65);
+}
+.hidden_cv_guide
+{
+    display: none;
+}
+.show_cvguidden
+{
+    display: block;
+}
+.item_title_gui_cv h4
+{
+    font-size: 20px;
+    margin-left: 20px;
+}
+.item_title_gui_cv h4 i
+{
+    margin-right: 5px;
+}
+ /*.content_guide_cv {*/
+    /*overflow-y: scroll;*/
+/*}*/
+input.exp-title.qcont:first-letter {
+
+    text-transform: capitalize
+
+}
+@media (max-width: 1000px) {
+    #sidebar
+    {
+        display: none;
+    }
+
+}
+

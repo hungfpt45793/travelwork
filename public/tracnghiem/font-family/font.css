@@ -1,0 +1,72 @@
+@font-face {
+	font-family: 'Montserrat-Bold';
+	src: url('Montserrat-Bold.eot');
+	src: url('Montserrat-Bold.eot?#iefix') format('embedded-opentype'),
+	url('Montserrat-Bold.svg#Montserrat-Bold') format('svg'),
+	url('Montserrat-Bold.ttf') format('truetype'),
+	url('Montserrat-Bold.woff') format('woff'),
+	url('Montserrat-Bold.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Verdana';
+	src: url('Verdana.svg#Verdana') format('svg'),
+	url('Verdana.ttf') format('truetype'),
+	url('Verdana.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'verdana';
+	src: url('verdana.eot');
+	src: url('verdana.eot?#iefix') format('embedded-opentype'),
+	url('verdana.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Montserrat-Regular';
+	src: url('Montserrat-Regular.eot');
+	src: url('Montserrat-Regular.eot?#iefix') format('embedded-opentype'),
+	url('Montserrat-Regular.svg#Montserrat-Regular') format('svg'),
+	url('Montserrat-Regular.ttf') format('truetype'),
+	url('Montserrat-Regular.woff') format('woff'),
+	url('Montserrat-Regular.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Montserrat-SemiBold';
+	src: url('Montserrat-SemiBold.eot');
+	src: url('Montserrat-SemiBold.eot?#iefix') format('embedded-opentype'),
+	url('Montserrat-SemiBold.svg#Montserrat-SemiBold') format('svg'),
+	url('Montserrat-SemiBold.ttf') format('truetype'),
+	url('Montserrat-SemiBold.woff') format('woff'),
+	url('Montserrat-SemiBold.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+  font-family: 'Verdana-Bold';
+  src: url('Verdana-Bold.svg#Verdana-Bold') format('svg'),
+       url('Verdana-Bold.ttf') format('truetype'),
+       url('Verdana-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'verdanab';
+  src: url('verdanab.eot');
+  src: url('verdanab.eot?#iefix') format('embedded-opentype'),
+       url('verdanab.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+

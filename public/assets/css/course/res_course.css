@@ -1,0 +1,85 @@
+.box_price_course_resgister {
+    background: #f5f5f5;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.box_price_course_resgister h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.padding_right0 {
+    padding-right: 0px;
+}
+
+.padding_left0 {
+    padding-left: 0px;
+}
+
+.box_price_course_table {
+    margin: 20px 0;
+}
+
+.box_price_course_table .table td, .box_price_course_table .table th {
+    padding: 0.75rem;
+    vertical-align: top;
+    border: 1px solid #dee2e6;
+}
+
+.btn_res_th {
+    background-color: #e95420;
+    display: inline-block;
+    color: #fff;
+    padding: 10px 0;
+    width: 110px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.background_th {
+    background: #e95420;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+@media (max-width: 1000px) {
+    .btn_res_th {
+        width: 100%;
+        border-radius: 0;
+        background: #009385;
+    }
+    .mbds_block_1000 {
+        display: block;
+    }
+    .mbds_none_1000 {
+        display: none;
+    }
+    .item_box_course_price
+    {
+        margin-bottom: 15px;
+        border: 1px solid #e95420;
+    }
+    .item_box_course_price .title_box_price h3
+    {
+        background-color: #e95420;
+        display: inline-block;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 16px;
+        width: 100%;
+    }
+    .item_box_course_price .content_box_price ul
+    {
+        padding: 0px;
+        margin-bottom: 0px;
+    }
+    .item_box_course_price .content_box_price ul li
+    {
+        list-style: none;
+        border-bottom: 1px solid #ccc;
+        padding: 2px 10px;
+    }
+}

@@ -1,0 +1,99 @@
+.createProfileOnline {
+    background: white;
+}
+
+.box_guide {
+    border: 1px solid red;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.createProfileOnline .employer_create_job .title h1 {
+    color: #009385;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.createProfileOnline .employer_create_job .supporter {
+    border: 1px solid red;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.createProfileOnline .employer_create_job .icon_show_hidden span {
+    border: 1px solid #ccc;
+    display: inline-block;
+    color: red;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.js_hidden_show {
+    display: none;
+}
+
+.list_job_employer .title h1 {
+    border-left: 5px solid #009385;
+    color: #009385;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.list_item_submit_job .item_submit_job {
+    border: 1px solid #ccc;
+    border-bottom: none;
+}
+
+.list_item_submit_job .item_submit_job .item_job_title {
+    color: #fff;
+    background: #009385;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5px 10px;
+}
+.list_item_submit_job .item_submit_job .ul_list_employee {
+    padding: 0px;
+    list-style: none;
+}
+.list_item_submit_job .item_submit_job .ul_list_employee li{
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+.list_item_submit_job .item_submit_job .ul_list_employee li .job_submit_title
+{
+    color: #000 !important;
+    text-transform: capitalize;
+    display: block;
+    font-weight: 700 !important;
+    font-size: 16px;
+}
+.list_item_submit_job .item_submit_job .option_status_show_cv {
+    display: block;
+}
+
+.list_item_submit_job .item_submit_job .option_status {
+    display: inline-block;
+}
+
+.list_item_submit_job .item_submit_job .show_cv {
+    display: inline-block;
+}
+
+.detail_show_file iframe {
+    width: 100%;
+    height: 450px;
+}
+.detail_show_order .title_order
+{
+    color: #009385;
+    font-size: 20px;
+    font-weight: bold;
+}
+@media (max-width: 500px) {
+    .detail_show_file iframe {
+        width: 100%;
+        height: 250px;
+    }
+}

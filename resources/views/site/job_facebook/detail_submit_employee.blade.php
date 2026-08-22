@@ -1,0 +1,47 @@
+@extends('site.layout.site')
+
+@section('title', 'hồ  sơ ứng viên')
+@section('meta_description', 'hồ  sơ ứng viên')
+@section('keywords', 'hồ  sơ ứng viên')
+
+@section('content')
+    <section class="content bgrGray pdt5">
+        <div class="container-fluid ">
+            <div class="row ">
+                @include('site.sidebar.sidebar_job_face')
+                <div class="col-xl-9 col-lg-8 col-md-12 col-12 col-12">
+                    <div class="titleJobs f18 white col-f14">
+                        <div class="link bgrWhite md-mgt20 disOnMobile">
+                            <ul class="nav">
+                                <li class="nav-item pd8">
+                                    <a href="/" class="f18 md-f14 blueDN hvBlueDN"><i class="fas fa-home"></i> Trang chủ</a>
+                                </li>
+                                <li class="nav-item pd8">
+                                    <p class="mgb0 md-f13 md-mgt2 blueDN"><i class="fas fa-chevron-right"></i></p>
+                                </li>
+                                <li class="nav-item pd8">
+                                    <a href="{{ route('list_Job_Candidate_Employee') }}" class=" f18 md-f14 mgb0">Danh sách ứng viên ứng tuyển</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 borderTop"></div>
+                    </div>
+                    @include('site.modum_sidebar.detail_user_employee')
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        $('#city').change(function () {
+            $.get('/admin/ajax-district/' + $(this).val(), function (data) {
+                $('#county').html(data);
+            });
+        });
+    </script>
+
+
+
+@endsection

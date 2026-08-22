@@ -1,0 +1,376 @@
+.hotline-phone-ring-wrap {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.hotline-phone-ring {
+    position: relative;
+    visibility: visible;
+    background-color: transparent;
+    width: 110px;
+    height: 110px;
+    cursor: pointer;
+    z-index: 11;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transition: visibility .5s;
+    left: 0;
+    bottom: 40px;
+    display: block;
+}
+
+.hotline-phone-ring-circle {
+    width: 85px;
+    height: 85px;
+    top: 10px;
+    left: 10px;
+    position: absolute;
+    background-color: transparent;
+    border-radius: 100%;
+    border: 2px solid #e60808;
+    -webkit-animation: phonering-alo-circle-anim 1.2s infinite ease-in-out;
+    animation: phonering-alo-circle-anim 1.2s infinite ease-in-out;
+    transition: all .5s;
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    opacity: 0.5;
+}
+
+.hotline-phone-ring-circle-fill {
+    width: 55px;
+    height: 55px;
+    top: 25px;
+    left: 25px;
+    position: absolute;
+    background-color: rgba(230, 8, 8, 0.7);
+    border-radius: 100%;
+    border: 2px solid transparent;
+    -webkit-animation: phonering-alo-circle-fill-anim 2.3s infinite ease-in-out;
+    animation: phonering-alo-circle-fill-anim 2.3s infinite ease-in-out;
+    transition: all .5s;
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+
+.hotline-phone-ring-img-circle {
+    background-color: #e60808;
+    width: 33px;
+    height: 33px;
+    top: 37px;
+    left: 37px;
+    position: absolute;
+    background-size: 20px;
+    border-radius: 100%;
+    border: 2px solid transparent;
+    -webkit-animation: phonering-alo-circle-img-anim 1s infinite ease-in-out;
+    animation: phonering-alo-circle-img-anim 1s infinite ease-in-out;
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hotline-phone-ring-img-circle .pps-btn-img {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.hotline-phone-ring-img-circle .pps-btn-img img {
+    width: 20px;
+    height: 20px;
+}
+
+.hotline-bar {
+    position: absolute;
+    background: rgba(230, 8, 8, 0.75);
+    height: 40px;
+    width: 180px;
+    line-height: 40px;
+    border-radius: 3px;
+    padding: 0 10px;
+    background-size: 100%;
+    cursor: pointer;
+    transition: all 0.8s;
+    -webkit-transition: all 0.8s;
+    z-index: 9;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 50px !important;
+    /* width: 175px !important; */
+    left: 33px;
+    bottom: 77px;
+}
+
+.hotline-bar > a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    text-indent: 50px;
+    display: block;
+    letter-spacing: 1px;
+    line-height: 40px;
+    font-family: Arial;
+}
+
+.hotline-bar > a:hover,
+.hotline-bar > a:active {
+    color: #fff;
+}
+
+.send_email_contact .hotline-phone-ring-wrap {
+    position: fixed;
+    bottom: 0;
+    left: inherit;
+    right: 300px !important;
+    z-index: 1;
+}
+
+.send_email_contact .hotline-bar i {
+    display: inherit;
+}
+
+.send_email_contact .hotline-bar {
+    position: absolute;
+    background: none !important;
+    color: rgb(2, 116, 107) !important;
+    height: 40px;
+    width: 210px !important;
+    line-height: 40px;
+    border-radius: 3px;
+    padding: 0 10px;
+    background-size: 100%;
+    cursor: pointer;
+    transition: all 0.8s;
+    -webkit-transition: all 0.8s;
+    z-index: 9;
+    box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 10%);
+    border-radius: 50px !important;
+    border: 1px solid rgb(2, 116, 107) !important;
+    /* width: 175px !important; */
+    left: 33px;
+    bottom: 77px;
+}
+
+.send_email_contact .hotline-bar > a {
+    color: rgb(2, 116, 107) !important;
+}
+
+
+.send_email_contact a {
+    color: #000;
+}
+
+.send_email_contact {
+    position: fixed;
+    bottom: 30px;
+    right: 0;
+    z-index: 1;
+}
+
+.send_email_contact .icon_sendemail {
+    font-size: 20px;
+    display: block;
+    width: 40px;
+    background: green;
+    height: 40px;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+}
+
+.send_email_contact .arrow-up {
+    margin-left: 5px;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid green;
+
+}
+
+.send_email_contact .box_send_email {
+
+    border: 2px solid green;
+    padding: 5px;
+    font-size: 15px;
+    position: relative;
+    right: 38px;
+    background: #fff !important;
+    color: #000;
+}
+
+.send_email_contact .box_send_email span {
+    background: green;
+    position: absolute;
+    top: -13px;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    right: -8px;
+    border-radius: 50%;
+    color: #fff;
+}
+
+.send_email_contact a {
+    text-decoration: none;
+    color: #000;
+}
+
+.js_span_closed {
+    cursor: pointer;
+}
+
+.js_max_height_title {
+    max-height: 50px !important;
+}
+
+.call_table_price {
+    position: fixed;
+    bottom: 140px;
+    left: 45px;
+    z-index: 99;
+
+}
+
+.call_table_price a {
+    text-decoration: none;
+}
+
+.call_table_price .box_table_price {
+    position: relative;
+}
+
+.call_table_price .icon_table_price {
+    border: 2px solid red;
+    display: inline-block;
+    padding: 3px 5px;
+    margin-right: -6px;
+    border-right: 4px solid red;
+    background: #fff;
+    font-size: 14px;
+    color: #000;
+}
+
+.call_table_price .icon_xoay_table_price i {
+    transform: rotate(300deg);
+    font-size: 27px;
+    color: red;
+}
+
+.call_table_price .icon_xoay_table_price {
+    position: absolute;
+    top: -14px;
+    left: 10px;
+}
+
+.call_table_price .text_table_price {
+    background: red;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+@-webkit-keyframes phonering-alo-circle-anim {
+    0% {
+        -webkit-transform: rotate(0) scale(0.5) skew(1deg);
+        -webkit-opacity: 0.1;
+    }
+    30% {
+        -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+        -webkit-opacity: 0.5;
+    }
+    100% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg);
+        -webkit-opacity: 0.1;
+    }
+}
+
+@-webkit-keyframes phonering-alo-circle-fill-anim {
+    0% {
+        -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+        opacity: 0.6;
+    }
+    50% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg);
+        opacity: 0.6;
+    }
+    100% {
+        -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+        opacity: 0.6;
+    }
+}
+
+@-webkit-keyframes phonering-alo-circle-img-anim {
+    0% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg);
+    }
+    10% {
+        -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+    }
+    20% {
+        -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+    }
+    30% {
+        -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+    }
+    40% {
+        -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+    }
+    50% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg);
+    }
+    100% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .hotline-bar {
+        display: none;
+    }
+
+    .hotline-phone-ring-circle {
+        display: none;
+    }
+
+    .hotline-phone-ring-circle-fill {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .call_table_price {
+        display: none !important;
+    }
+
+    .send_email_contact {
+        position: fixed;
+        bottom: 78px;
+        right: 30px;
+        z-index: 1;
+    }
+
+    .send_email_contact .arrow-up {
+        display: none;
+    }
+
+    .send_email_contact .box_send_email {
+        display: none;
+    }
+}

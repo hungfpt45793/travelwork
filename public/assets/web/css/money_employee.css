@@ -1,0 +1,60 @@
+.list_redeem
+{
+    margin-top: 15px;
+}
+.list_redeem .item_redeem {
+    margin-bottom: 5px;
+}
+.list_redeem .item_redeem a:hover, .list_redeem .item_redeem a.active {
+    color: green;
+    background: #fff;
+    border: 1px solid green;
+    cursor: pointer;
+}
+.list_redeem .item_redeem a {
+    padding: 15px;
+    color: #fff;
+    background: green;
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    border: 1px solid green;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.dsInline {
+    display: inline-block;
+}
+.box_header_money
+{
+    margin-top: 15px;
+    border: 1px solid lightgray;
+    background: #fff;
+}
+.box_header_money .border_box
+{
+    display: block;
+    padding: 10px 20px;
+    background: #009385;
+}
+.box_header_money .item_total_money
+{
+    padding: 20px;
+}
+.box_header_money .item_total_money h5
+{
+    border-left: 5px solid #009385;
+    color: #009385;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    font-weight: 700;
+
+}
+.box_header_money .item_total_money h5 span
+{
+    color: #f20000;
+}
+.box_header_money .NoteTransaction {
+    padding: 10px;
+    border: 1px solid red;
+}

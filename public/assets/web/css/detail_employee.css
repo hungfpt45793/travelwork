@@ -1,0 +1,102 @@
+.content_left_info {
+    background: white;
+    padding: 20px;
+}
+
+/*footer.footer_home*/
+/*{*/
+/*display: none;*/
+/*}*/
+.detail_dowload_cv
+{
+    display: inline-block;
+    background: orange;
+    color: #fff !important;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.box_btn_submit_profile {
+    color: #fff;
+    padding: 6px 15px;
+    border: 1px solid #009385;
+    border-radius: 3px;
+    background-color: #009385;
+}
+
+.box_btn_submit_profile:hover {
+    color: #009385;
+    border: 1px solid #009385;
+    border-radius: 3px;
+    background: #fff;
+}
+
+.a_cursor {
+    cursor: pointer;
+}
+
+.submit_show_info_cv_detail_employee {
+    border: 2px solid #ffa500;
+    color: #ffa500;
+}
+
+.submit_show_info_cv_detail_employee b {
+    font-size: 16px !important;
+}
+
+.text_code {
+    font-size: 19px !important;
+    font-weight: 600 !important
+}
+
+#appendToThis {
+    height: 100vh;
+    width: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+#appendToThis::-webkit-scrollbar {
+    width: 6px;
+    border-left: 1px solid #E6ECF8;
+}
+
+#appendToThis::-webkit-scrollbar-thumb {
+    background-color: #d6872c;
+}
+
+.btn_send_employee {
+    display: inline-block;
+    color: #fff;
+    background: #009385;
+    padding: 5px 20px;
+}
+
+.btn_ratting_employee {
+    display: inline-block;
+    color: #fff;
+    background: orange;
+    padding: 5px 20px;
+}
+
+.btn_feedback_employee {
+    display: inline-block;
+    color: #fff;
+    background: red;
+    padding: 5px 20px;
+}
+.btn_send_employee i, .btn_ratting_employee i , .btn_feedback_employee i
+{
+    color: #fff !important;
+}
+@media (max-width: 500px) {
+    #appendToThis {
+        height: 100vh;
+        overflow: scroll;
+        width: 100% !important;
+        margin: auto;
+        overflow-x: scroll;
+    }
+}

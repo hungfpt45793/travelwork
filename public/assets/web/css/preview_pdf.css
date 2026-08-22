@@ -1,0 +1,27 @@
+#canvas_container::-webkit-scrollbar{width:0px;border-left:1px solid #E6ECF8;}
+#canvas_container::-webkit-scrollbar-thumb{background-color:#d6872c;}
+#canvas_container{
+    overflow: scroll;
+    height: 100vh;
+    padding-top: 30px;
+}
+#my_pdf_viewer{
+    position: relative;
+}
+.control-pdf{
+    background:#46bf9e;
+    width:100%;
+    position: absolute;
+    top:0;
+    right:0;
+}
+#current_page{
+    display: inline-block!important;
+    width: 50px
+}
+.loading_cv{
+    position: absolute;
+    top:50%;
+    font-size:2rem;
+    color:#d63d3d
+}

@@ -1,0 +1,326 @@
+.job_detail .box_job_detail {
+     background: #fff;
+     margin-top: 20px;
+     border-radius: 6px;
+     padding: 15px 20px;
+     border: 1px solid lightgray;
+ }
+
+.job_detail .box_job_detail .box_job_detail_title {
+    position: relative;
+}
+
+.job_detail .box_job_detail .box_job_detail_title .w90 {
+    width: 90%;
+    display: inline-block;
+}
+
+.job_detail .box_job_detail .box_job_detail_title .w90 .title_job {
+    color: #006859;
+    font-size: 23px;
+    font-weight: 700 !important;
+    margin-bottom: 0 !important;
+}
+.job_detail .box_job_detail .box_job_detail_title .w90 .title_job.mgb10 {
+     margin-bottom: 10px !important;
+}
+.job_detail .box_job_detail .box_job_detail_title .w90 .titleCompanyName {
+    color: orange;
+    margin-top: 15px;
+    font-size: 18px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.job_detail .box_job_detail .box_job_detail_title .w10 {
+    width: 9%;
+    display: inline-block;
+}
+
+.job_detail .box_job_detail .box_job_detail_title .w10 .chuaxathuc {
+    width: 110px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.job_detail .box_job_detail .box_save_des .box_save_job {
+    margin-right: 20px;
+    padding: 5px 10px;
+    background: #fff !important;
+    border: 1px solid lightgray;
+}
+
+.job_detail .box_job_detail .box_save_des .box_save_job i {
+    color: #009385;
+}
+
+.job_detail .box_job_detail .IconDetailJob i {
+    color: #009385;
+    display: inline-block;
+    width: 28px;
+    font-size: 16px;
+}
+/*.job_detail .box_job_detail .IconDetailJob .fb-share-button*/
+/*{*/
+    /*border: 1px solid #ccc;*/
+    /*display: inline-block;*/
+    /*padding: 5px 10px;*/
+    /*border-radius: 5px;*/
+    /*margin-bottom: 5px;*/
+
+/*}*/
+/*.job_detail .box_job_detail .IconDetailJob .fb-share-button a*/
+/*{*/
+    /*color: orange;*/
+/*}*/
+/*.job_detail .box_job_detail .IconDetailJob .fb-share-button a i*/
+/*{*/
+    /*width: 20px;*/
+/*}*/
+/*.job_detail .box_job_detail .IconDetailJob .copy_link_post input*/
+/*{*/
+    /*width: 80%;*/
+/*}*/
+.job_detail .box_job_detail_content {
+
+}
+
+.job_detail .box_job_detail_content .title_box_content {
+
+}
+
+.job_detail .title_box_content h2 {
+    text-transform: uppercase;
+    font-weight: 700 !important;
+    font-size: 18px;
+}
+
+.job_detail .box_job_detail_content .Step .itemsteep {
+    color: #fff;
+    padding: 5px 10px;
+}
+
+.job_detail .box_job_detail_content .Step .bgOrangeSteep {
+    background: #faa719;
+}
+
+.job_detail .box_job_detail_content .Step .bgBlueSteep {
+    background: #459cda;
+}
+
+.job_detail .box_job_detail_content .Step .bgRedSteep {
+    background: #ea2628;
+}
+
+.job_detail .box_job_detail_content .Step .bgGreenSteep {
+    background: green;
+}
+
+.job_detail .box_job_detail_content .box_btn_submit_profile {
+    color: #fff;
+    padding: 12px 25px;
+    border: 1px solid #009385;
+    border-radius: 3px;
+    background-color: #009385;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.job_detail .box_job_detail_content .box_btn_submit_profile:hover {
+    color: #009385;
+    padding: 12px 25px;
+    border: 1px solid #009385;
+    border-radius: 3px;
+    background: #fff;
+}.box_btn_submit_profile_cv {
+    color: #fff;
+    padding: 12px 25px;
+    border: 1px solid #347fcf;
+    border-radius: 3px;
+    background-color: #347fcf;
+    font-weight: bold;
+     cursor: pointer;
+}
+.div_box_btn_submit_profile_cv
+{
+    margin-top: 20px;
+}
+.box_btn_submit_profile_cv:hover {
+    color: #347fcf;
+    padding: 12px 25px;
+    border: 1px solid #347fcf;
+    border-radius: 3px;
+    background: #fff;
+}
+
+.job_detail_relative .content_job_detail_relative {
+    background: #fff;
+}
+.job_detail_relative .content_job_detail_relative a{
+    text-decoration: none;
+}
+.job_detail_relative .content_job_detail_relative .hvbgrClick {
+    border-bottom: 1px solid lightgray;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.job_detail_relative .content_job_detail_relative .hvbgrClick:hover {
+    background: #c6ecf9;
+}
+
+.job_detail_relative .content_job_detail_relative .hvbgrClick  .cutTitle {
+    overflow: hidden!important;
+    text-overflow: ellipsis!important;
+    -webkit-line-clamp: 1!important;
+    display: -webkit-box!important;
+    -webkit-box-orient: vertical!important;
+}
+.job_detail_relative .content_job_detail_relative .hvbgrClick .job_relative_title {
+    color: #000!important;
+    text-transform: capitalize;
+    font-weight: 700!important;
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.job_detail_relative .content_job_detail_relative .hvbgrClick .job_relative_company {
+    color: gray;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.job_detail_relative .content_job_detail_relative .hvbgrClick .job_relative_salary {
+    color: #000!important;
+}
+
+.job_detail_relative .content_job_detail_relative .hvbgrClick .job_relative_province {
+    color: #000!important;
+}
+
+.job_detail_relative .content_job_detail_relative .hvbgrClick .job_relative_date {
+    text-align: center;
+}
+#checkUser
+{
+    color: #fff;
+}
+.job_detail .box_job_detail {
+    background: #fff;
+    margin-top: 20px;
+    border-radius: 6px;
+    padding: 15px 20px;
+    border: 1px solid lightgray;
+}
+.job_detail .box_job_detail .js_word_break a {
+    word-break: break-all;
+}
+/*//nộp hồ sơ*/
+.hidden_item_job_app {
+    display: none;
+}
+.job_submit_form_cv
+{
+    padding: 20px;
+    background: white;
+}
+.job_submit_form_cv .button_submit_green
+{
+    background: #009385;
+    border: 1px solid #009385;
+    color: white;
+    padding: 8px 15px;
+    font-size: 15px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.job_submit_form_cv .detail_employee_cv iframe
+{
+    width: 100%;
+    height: 450px;
+}
+.job_submit_form_cv h3
+{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.job_submit_form_cv .detail_employee_cv
+{
+    border: 1px solid #ccc;
+}
+@media (max-width: 1024px) {
+    .job_submit_form_cv .detail_employee_cv iframe
+    {
+        width: 100%;
+        height: 350px;
+    }
+
+    .job_detail .box_job_detail .box_job_detail_title .w90 {
+        width: 80%;
+        display: inline-block;
+    }
+    .job_detail .box_job_detail .box_job_detail_title .w10 .chuaxathuc {
+        width: 80px;
+    }
+    .job_detail .box_job_detail .box_job_detail_title .w90 .title_job {
+        color: #006859;
+        font-size: 20px;
+        font-weight: 700 !important;
+        margin-bottom: 0 !important;
+    }
+}
+@media (max-width: 500px) {
+    .box_job_detail img
+    {
+        max-width: 100% !important;
+    }
+    .job_submit_form_cv .detail_employee_cv iframe
+    {
+        width: 100%;
+        height: 300px;
+    }
+    .mbdsmgt10
+    {
+      margin-top: 10px;
+    }
+    .job_detail .box_job_detail .box_job_detail_title .w90 {
+          width: 80%;
+          display: inline-block;
+      }
+    .job_detail .box_job_detail .box_job_detail_title .w90 p {
+       font-size: 14px;
+    }
+    .job_detail .box_job_detail .box_job_detail_title .w90 .title_job {
+        font-size: 16px;
+    }
+    .job_detail .box_job_detail .box_job_detail_title .w10 .chuaxathuc {
+        width: 55px;
+    }
+    .job_detail .box_job_detail .box_job_detail_title .w90 .titleCompanyName {
+        margin-top: 5px;
+        font-size: 15px;
+    }
+    .job_detail_relative .content_job_detail_relative .hvbgrClick .job_relative_company {
+
+    }
+    .job_detail_relative .content_job_detail_relative .hvbgrClick .job_relative_salary span {
+        display: inline-block;
+    }
+
+    .job_detail_relative .content_job_detail_relative .hvbgrClick .job_relative_province span {
+        display: inline-block;
+    }
+    .job_detail_relative .content_job_detail_relative .hvbgrClick .job_relative_date span {
+        display: inline-block;
+    }
+    .box_save_des .job_detail_date
+    {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+

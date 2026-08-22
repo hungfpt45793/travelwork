@@ -1,0 +1,325 @@
+#form-cv{
+	float: left;
+	position: relative;
+	font-size: 14px;
+	line-height: 24px;
+	color:#fff;	
+	border: solid 1px #1d5464;
+}
+#form-cv p{
+	margin-top: 0;
+	margin-bottom: 6px
+}
+#sortable .cvo-block{
+	margin-bottom: 20px;
+	margin-top: 8px;	
+}
+
+#sortable .icoweb i.fa{
+	float: left;
+}
+#cv-main{
+	float: left;
+	width: 100%;
+	background: #fff;
+}
+#cv-top{		
+    text-align: center;   
+    background: url('CV_b.png') top center no-repeat;
+    background-size: 100% auto; 
+    float: left;
+    width: 100%
+}
+#cvo-profile{
+	float: left;
+	width: 100%;
+}
+#cv-content{
+	width: 506px;
+	float: right;
+	position: relative;	
+	padding-top: 17px;	
+	background-color: #ffffff;
+	color: #374d59;
+	padding-bottom: 4px;
+	background: url('ft.png') bottom center no-repeat;
+}
+
+#cv-right{
+	width: 282px;
+	float: left;	
+	position: relative;	
+	background:#1d5464;
+	color: #fff
+}
+#cv-right .ir{
+	padding: 15px 10px 30px 15px;
+}
+p.skill-name input{
+	color: #070000!important;
+}
+
+#cv-top .icoweb {
+    float: left;
+    color: #fff;
+    line-height: 30px;
+}
+#cv-top .cvi-date{
+	padding-left: 13px;
+	font-size: 18px;
+	float: left;
+	text-align: left;
+}
+#cv-top .cvi-date #cv-profile-birthday{
+	margin-left: 15px;
+	font-size: 15px;
+}
+#cv-top .cvi-phone {
+	width: 25%;
+}
+
+#cv-top .cvi-envelope-square {
+	width: 30%;
+}
+
+#cv-top .cvi-map-marker {
+	width: 45%;
+}
+
+#cv-right #box01{
+	display: none;
+}
+
+#cv-right .ctbx {
+	padding: 0;
+	margin:0;
+	border:0;
+}
+.skill{
+	margin-top: 15px
+}
+
+
+#cv-top h1{
+	font-size: 33px;
+    padding: 0px 30px 0px 30px;
+    line-height: normal;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 0px;
+
+    letter-spacing: 2px;
+    margin-left: 0px;
+    color: #000000;
+}
+
+#box-hvt{
+	float: left;
+	width: 100%;
+	margin-top: 40px
+}
+
+#cv-top h1 span{
+	padding: 0px 15px;
+	font-weight: 500;
+	color: #374d59;
+}
+
+#cv-top h2{
+font-size: 18px;
+    text-align: center;
+    margin-bottom: 1px;
+    color: #374d59;
+    font-weight: 500;
+        margin-bottom: 0px;
+    margin-top: 0px;
+}
+.box-01 p{		
+    overflow: hidden;
+}
+.box-01{
+	padding: 10px;
+	padding-right: 0px;
+}
+#cv-content p{
+	margin-bottom: 5px
+}
+#cv-content .ir a{
+	color: #2ebb2f
+}
+#cv-right .h3, #cv-right h3, #cv-content .head{
+	font-size: 18px;    
+    margin-top: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#cv-right h3{
+	margin-bottom: 15px;
+    color: #fff;
+    padding-left: 10px;
+
+}
+
+#cv-content .head{
+	line-height: 30px;
+	color: #374d59;
+	font-size: 20px;
+}
+
+#cv-right .h3{
+	height: 45px;
+	text-align: center;
+	width: 100%;
+	font-size: 20px;
+
+}
+
+#cv-right .h3 span{
+	margin: 3px 0px;
+	color: #000000;
+	line-height: 43px;
+}
+#cv-content h3{	
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#cv-content .cvo-block {    
+}
+.ctbx{
+	padding-left: 10px;
+	padding-right: 10px
+}
+
+#cv-right .h3:first-child{
+	margin-top: 0
+}
+.ctbx{
+	margin-bottom: 20px;
+	position: relative;
+}
+.ctbx .r5 .h3{
+	text-transform: uppercase;
+}
+.ctbx:hover {
+	box-shadow: 0 0 1px #999;
+}
+.ctbx:hover .fieldgroup_controls{
+	float: left;
+	width: 100%;
+}
+[cvo-form-field] {
+    cursor: text;
+}
+.right-top{
+	float: right;
+	width:66%;
+	padding-top: 10px
+}
+#cvo-profile-avatar-wraper{	    
+    float: left;
+    width:160px;    
+    padding:5px 50px;  
+}
+#cvo-profile-avatar-wraper img{
+    width: 160px;
+    height: 160px;
+}
+#line-seperate {
+    height: 25px;
+}
+.bar-exp div {
+    float: left;
+    height: 8px;
+    background: #d8d860;
+    
+}
+.bar-exp {
+  	width: 100%;
+  	background: #fff;
+  	height: 8px;
+  	float: right;
+  	margin-bottom: 12px;
+}      
+.icoweb label{
+	float: left;
+	width: 100%;
+	color:#627e88;
+}
+#cv-right .icoweb span{
+	color: #070000;
+}
+
+.box-contact{
+    font-size: 15px;
+    float: left;
+    width: 98%;
+    margin-top: 17px;
+    margin-left: 20px;
+}
+#sortable .icoweb{
+	padding-left: 28px;
+	height: 32px;
+	line-height: 32px;
+	margin-bottom: 0
+}
+#sortable .cvi-date{
+	background: url('fa-1.png.html') left center no-repeat;	
+}
+#sortable .cvi-user{
+	background: url('fa-2.png.html') left center no-repeat;	
+}
+#sortable .cvi-phone{
+	background: url('fa-3.png.html') left center no-repeat;	
+}
+#sortable .cvi-envelope-square{
+	background: url('fa-4.png.html') left center no-repeat;	
+}
+#sortable .cvi-map-marker{
+	background: url('fa-5.png.html') left center no-repeat;	
+}
+#sortable .cvi-info{
+	background: url('fa-6.png.html') left center no-repeat;	
+}
+
+.head i.fa, .h3 i.fa{
+	font-size: 12px;
+	border: solid 1px #7c7a79;
+	border-radius: 50%;
+	width: 12px;
+	color: #7c7a79;
+	/*background: white;*/
+	margin-bottom: 5px;
+	text-align: center;
+	padding: 4px;
+}
+.ctbx:hover .fieldgroup_controls {
+    display: block;
+}
+span.box-content {
+    width: 250px;
+}
+.exp-content,.exp-subtitle,span.exp-title {
+    width: 100%;
+}
+
+#cv-profile-birthday::before{
+    color: #fff;
+}
+#cv-profile-sex::before{
+    color: #fff;
+}
+#cv-profile-phone::before{
+    color: #fff;
+}
+#cv-profile-email::before{
+    color: #fff;
+}
+#cv-profile-address::before{
+    color: #fff;
+}
+
+
+

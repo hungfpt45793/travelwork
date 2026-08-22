@@ -1,0 +1,181 @@
+section.attractiveJobs .infoAttractiveJobs p {
+    margin-bottom: 0;
+}
+
+.
+.MenudsNone {
+    display: none;
+}
+
+header .nav_list_dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+header .nav_list_dropdown .dropdown-menu {
+    top: 30px;
+    width: 300px;
+    left: -50px !important;
+}
+
+header .nav_list_dropdown a.dropdown-toggle:focus, header .nav_list_dropdown a.dropdown-toggle {
+    color: #fff !important;
+}
+
+header .nav_list_dropdown .dropdown-menu i {
+    width: 22px;
+}
+
+.rs_video {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.rs_video iframe {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 10px;
+}
+
+.rs_video h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #009385;
+    font-weight: bold;
+}
+
+@media (max-width: 1400px) {
+    .InfoCompanyJob .step_center_block .step_active_link_success {
+         border: none;
+    }
+    .InfoCompanyJob .step_center_block .item_step {
+        width: 25%;
+    }
+
+    .InfoCompanyJob .step_center_block .item_step a {
+        padding: 5px;
+    }
+
+    .InfoCompanyJob .step_center_block .item_step img {
+        top: 7px;
+        width: 30px;
+    }
+
+    .InfoCompanyJob .step_center_block .item_step .step_icon {
+        width: 25px;
+        height: 25px;
+        border: 1px solid orange;
+        text-align: center;
+        line-height: 25px;
+        font-size: 16px;
+        border-radius: 50%;
+        color: orange;
+        margin-right: 5px;
+    }
+
+    .InfoCompanyJob .step_center_block .item_no_success .step_icon {
+        width: 25px;
+        height: 25px;
+        border: 1px solid orange;
+        text-align: center;
+        line-height: 25px;
+        font-size: 16px;
+        border-radius: 50%;
+        color: orange;
+        margin-right: 5px;
+    }
+}
+@media (max-width: 1330px) {
+
+    .InfoCompanyJob .step_center_block .item_step img {
+        display: none;
+    }
+    .InfoCompanyJob .step_center_block .item_step {
+        width: 25%;
+        text-align: center;
+        border-right: 1px solid orange;
+    }
+    .InfoCompanyJob .step_center_block .item_step:last-child {
+        border-right: none;
+    }
+}
+@media (max-width: 1200px) {
+    .InfoCompanyJob .step_center_block .item_step a span img {
+        display: block;
+        width: 25px;
+        margin: 0 auto;
+        margin-top: -20px;
+    }
+
+    .InfoCompanyJob .step_center_block .item_step .item_no_success
+    {
+        border: none;
+    }
+    .InfoCompanyJob .step_center_block .item_step span.f16
+    {
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        -webkit-line-clamp: 1 !important;
+        display: -webkit-box !important;
+        -webkit-box-orient: vertical !important;
+    }
+}
+@media (max-width: 980px) {
+    .rs_video iframe {
+        width: 100%;
+        height: 400px;
+        margin-bottom: 10px;
+    }
+
+    header .nav_list_dropdown a.dropdown-item {
+        color: #000 !important;
+    }
+}
+
+@media (max-width: 800px) {
+    .search_province_district .form-group {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 500px) {
+    .rs_video iframe {
+        width: 100%;
+        height: 300px;
+        margin-bottom: 10px;
+    }
+
+    .MenudsNone {
+        display: none !important;
+    }
+
+    .MenudsBlock {
+        display: block !important;
+    }
+}
+
+.compare_check .form-check-input {
+    margin-top: 0;
+    margin-left: 0;
+    z-index: -1;
+}
+
+.compare_check {
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.compare_check label p {
+    border: 1px solid #333;
+    border-right: none;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    padding: 0.375rem 0.75rem;
+    font-size: 13px;
+}
+
+.compare_check input[type="radio"]:checked + label p {
+    background: #007bff;
+    color: rgb(238, 238, 238);
+}

@@ -1,0 +1,54 @@
+.form_validate .error {
+    margin-bottom: 0;
+    font-style: italic;
+    color: red;
+    margin-top: 3px;
+}
+.form_validate .error label {
+    background: #ef5050;
+    color: #fff;
+    padding: 5px;
+    margin-right: 5px;
+}
+.form_validate .select2-container .select2-selection--single .select2-selection__rendered {
+    border: 1px solid #ccc;
+}
+.form_validate .select2-container .select2-selection--single .select2-selection__rendered {
+    display: block;
+    padding-left: 7px;
+    padding-right: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.form_validate .select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height: 35px;
+}
+.form_validate .select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height: 35px;
+}
+.form_validate .select2-container .select2-selection--single {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height: 35px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.form_validate .select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border: 0;
+    border-radius: 0;
+}
+.form_validate .select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border: none;
+    border-radius: 4px;
+}
+.form_validate .btn_submit
+{
+    background: #009385;
+    color: #fff;
+}

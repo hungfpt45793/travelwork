@@ -1,0 +1,283 @@
+.sc_maneger_profile {
+    background: white;
+}
+
+.bdLeftBlueN5x {
+    border-left: 5px solid #009385;
+}
+
+.blueN {
+    color: #009385;
+}
+
+.dsInline {
+    display: inline-block;
+}
+
+.fw7 {
+    font-weight: 700;
+}
+
+.InfoCompanyJob {
+    background: white;
+    padding: 20px;
+}
+
+.InfoCompanyJob .item_step a {
+    padding: 15px;
+    color: orange;
+}
+
+.InfoCompanyJob .item_step a.step_active_link {
+    border: 1px solid orange;
+}
+
+.step_center_block {
+    justify-content: center;
+}
+
+.InfoCompanyJob .step_icon {
+    width: 35px;
+    height: 35px;
+    border: 1px solid orange;
+    text-align: center;
+    line-height: 35px;
+    font-size: 18px;
+    border-radius: 50%;
+    margin-right: 5px;
+    color: orange;
+    margin-right: 5px;
+
+}
+.step_right_profile .step_icon {
+    width: 35px;
+    height: 35px;
+    border: 1px solid orange;
+    text-align: center;
+    line-height: 35px;
+    font-size: 18px;
+    border-radius: 50%;
+    margin-right: 5px;
+    color: orange;
+    margin-right: 5px;
+}
+
+.InfoCompanyJob img.next_step {
+    width: 45px;
+    position: relative;
+    right: 0;
+    top: 10px;
+    float: right;
+    margin: 0 15px;
+}
+
+.sendConfirmEmail {
+    background-color: #009385;
+    border-radius: 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 14px 39px;
+    color: #fff !important;
+}
+
+/*.btnOrange*/
+/*{*/
+/*font-size: inherit;*/
+/*color: #fff;*/
+/*background: orange;*/
+/*display: inline-block;*/
+/*padding: 5px 10px;*/
+/*}*/
+.btnGreen {
+    font-size: inherit;
+    color: #fff;
+    background: green;
+    display: inline-block;
+    border: 1px solid green;
+    padding: 5px 10px;
+}
+
+.btnGreen:hover {
+    font-size: inherit;
+    color: green;
+    background: #fff;
+    display: inline-block;
+    padding: 5px 10px;
+
+}
+.button_change_email
+{
+    background: #009385;
+    padding: 5px 15px;
+    color: #fff;
+    border: 1px solid #009385;
+}.button_change_email:hover
+{
+    background: #fff;
+    padding: 5px 15px;
+    color: #009385;
+    border: 1px solid #009385;
+}
+.UpdateUserTab
+{
+    background: white;
+    padding: 15px;
+}
+.btnOrange_small
+{
+    border: 1px solid orange;
+    padding: 5px 10px;
+    background-color: orange!important;
+    color: #fff!important;
+    border-radius: 5px;
+    font-size: 14px;
+    display: inline-block;
+}
+.btnOrange_small:hover
+{
+    border: 1px solid orange;
+    padding: 5px 10px;
+    background-color: #fff!important;
+    color: orange !important;
+    border-radius: 5px;
+    font-size: 14px;
+    display: inline-block;
+}
+.rs_video
+{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.rs_video iframe
+{
+    width: 100%;
+    height: 500px;
+    margin-bottom: 10px;
+}
+.rs_video h3
+{
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #009385;
+    font-weight: bold;
+}
+
+@media (max-width: 1400px) {
+    .InfoCompanyJob .step_center_block .item_step {
+        width: 25%;
+    }
+
+    .InfoCompanyJob .step_center_block .item_step a {
+        padding: 5px;
+    }
+
+    .InfoCompanyJob .step_center_block .item_step img {
+        top: 7px;
+        width: 30px;
+    }
+
+    .InfoCompanyJob .step_center_block .item_step .step_icon {
+        width: 25px;
+        height: 25px;
+        border: 1px solid orange;
+        text-align: center;
+        line-height: 25px;
+        font-size: 16px;
+        border-radius: 50%;
+        color: orange;
+        margin-right: 5px;
+    }
+
+    .InfoCompanyJob .step_center_block .item_no_success .step_icon {
+        width: 25px;
+        height: 25px;
+        border: 1px solid orange;
+        text-align: center;
+        line-height: 25px;
+        font-size: 16px;
+        border-radius: 50%;
+        color: orange;
+        margin-right: 5px;
+    }
+}
+@media (max-width: 1330px) {
+
+    .InfoCompanyJob .step_center_block .item_step img {
+        display: none;
+    }
+    .InfoCompanyJob .step_center_block .item_step {
+        width: 25%;
+        text-align: center;
+        border-right: 1px solid orange;
+    }
+    .InfoCompanyJob .step_center_block .item_step:last-child {
+        border-right: none;
+    }
+}
+@media (max-width: 1200px) {
+    .InfoCompanyJob .step_center_block .item_step a span img {
+        display: block;
+        width: 25px;
+        margin: 0 auto;
+        margin-top: -20px;
+    }
+
+    .InfoCompanyJob .step_center_block .item_step .item_no_success
+    {
+        border: none;
+    }
+    .InfoCompanyJob .step_center_block .item_step span.f16
+    {
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        -webkit-line-clamp: 1 !important;
+        display: -webkit-box !important;
+        -webkit-box-orient: vertical !important;
+    }
+}
+
+
+@media (max-width:1000px)
+{
+    .rs_video iframe
+    {
+        width: 100%;
+        height: 400px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width:500px)
+{
+    .rs_video iframe
+    {
+        width: 100%;
+        height: 350px;
+        margin-bottom: 10px;
+    }
+    .mbds_none_500
+    {
+        display: none;
+    }
+    .step_right_profile
+    {
+        margin-top: 20px;
+    }
+    .step_right_profile .step_icon {
+        width: 25px;
+        height: 25px;
+        border: 1px solid orange;
+        text-align: center;
+        line-height: 27px;
+        font-size: 14px;
+    }
+    .step_right_profile h4
+    {
+        font-size: 17px;
+    }
+    .jobsInteresting img
+    {
+        margin-bottom: 20px;
+    }
+}

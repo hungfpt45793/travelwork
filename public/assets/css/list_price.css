@@ -1,0 +1,890 @@
+.right_in_table {
+    float: right;
+}
+
+.center_in_table {
+    text-align: center;
+}
+
+#quyenloi_dichvu table {
+    margin-bottom: 50px;
+}
+
+#quyenloi_dichvu table,
+#quyenloi_dichvu tr,
+#quyenloi_dichvu td,
+#quyenloi_dichvu th {
+    border: 2px solid #c06a23;
+}
+
+#quyenloi_dichvu table th {
+    background: #fff4e3 !important;
+    text-align: center;
+    color: #c06a23 !important;
+    font-size: 20px !important;
+}
+
+#quyenloi_dichvu h2 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #ff0f00;
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.d-center {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    margin: auto;
+}
+
+
+.parent_show {
+    height: 300px;
+}
+
+.parent_show .show {
+    display: none;
+    background: #c5c760;
+    top: 70px;
+    left: 0;
+    height: 250px;
+    padding: 15px;
+    width: 100%;
+}
+
+input[name="icon"]:checked + label + .show {
+    display: block;
+}
+
+input[name="icon"] + label {
+    width: 70px;
+    margin-top: 10px;
+}
+
+input[name="icon"] + label img {
+    width: 70px;
+    height: 20px;
+}
+
+input[name="icon"] {
+    display: block;
+    margin: auto;
+}
+
+.show_price_list .parent_show {
+    display: flex;
+}
+
+.child_show {
+    margin-right: 20px;
+}
+
+#service_show_on_small .feature {
+    display: flex;
+    justify-content: space-between;
+}
+
+#service_show_on_small .one_package {
+    border-bottom: 2px solid #009385;
+}
+
+#service_show_on_small .one_package p.package {
+    color: #009385;
+    font-weight: 0;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+#service_show_on_small .one_package p.discount {
+    margin-bottom: 50px;
+}
+
+#service_show_on_small .one_package span.price {
+    text-decoration-line: line-through;
+}
+
+#service_show_on_small ul li {
+    border: 1px solid #009385;
+    padding: 8px;
+    background-color: #17a2b8;
+    color: #fff !important;
+    font-size: 14px;
+    display: inline-block;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#service_show_on_small > ul > li p {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    text-align: center;
+}
+
+#service_show_on_small > ul {
+    border: 0.5px solid #17a2b8;
+    border-radius: 6px;
+}
+
+.service_show_on_small_li p {
+    color: #fff !important;
+}
+
+.mgat {
+    margin: auto;
+    text-align: center;
+}
+
+#service_show_on_small > ul > li:hover {
+    border: none;
+    background-color: #fd7e14 !important;
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.active_price {
+    background: #009385;
+    padding: 5px;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.pay_price .box_nh {
+    padding: 10px;
+}
+
+.pay_price .logo_nh {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    height: 120px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.box_nh .box_tt_nh {
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.pay_price .logo_nh img {
+    transition: 0.5s;
+    border: 1px solid #ccc6c6;
+    padding: 20px;
+    width: 200px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.pay_price .box_tt_bank img {
+    width: 80px;
+    height: 50px;
+    float: right;
+}
+
+.pay_price .logo_nh img:hover {
+    background-color: #e9eb97;
+}
+
+.pay_price .box2_nh {
+    width: 100%;
+}
+
+.pay_price .box2_nh > div {
+    display: flex;
+    justify-content: center;
+}
+
+#bank_price #bank_title {
+    font-size: 15px;
+}
+
+.price_vat {
+    border: 1px solid red !important;
+    padding: 3px;
+}
+
+#service_show_on_small .content_feature {
+    background: #f5e6e6;
+    padding: 6px;
+}
+
+@media only screen and (max-width: 425px) {
+    .font425_11 {
+        font-size: 11px;
+    }
+
+    .font425_12 {
+        font-size: 12px;
+    }
+
+    #service_show_on_small .dangky a {
+        margin-top: 30px !important;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .font320_11 {
+        font-size: 11px;
+    }
+
+    .font320_12 {
+        font-size: 12px;
+    }
+
+    #service_show_on_small .dangky a {
+        margin-top: 40px !important;
+    }
+}
+
+.table-responsive
+.table-bordered.table-hover.d-table-respon
+tbody
+tr
+td
+p.price {
+    float: right;
+}
+
+.pay_price {
+    background: #eee;
+    padding: 20px 0;
+}
+
+.pay_price .pay_content_price {
+    background: #fff;
+    padding: 15px;
+}
+
+.pay_price .title_pay_price h1 {
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #009385;
+    font-weight: 600;
+    color: #fff;
+    padding: 10px 0;
+    font-size: 21px;
+    border-radius: 3px;
+}
+
+.pay_price .pay_content_price .table_pay_price {
+    border: 1px solid #ccc;
+}
+
+.pay_price .pay_content_price .table_pay_price .border_td_right {
+    border-right: 1px solid #dee2e6;
+}
+
+.pay_price .pay_content_price .table_pay_price .td_span {
+    color: red;
+    font-weight: bold;
+}
+
+.pay_price form label {
+    font-size: 16px;
+}
+
+.error_reg_mess .error {
+    color: red;
+}
+
+.error_g-captcha {
+    color: red;
+}
+
+.tdhastable table:last-child {
+    border-bottom: none !important
+}
+
+.tdhastable table {
+    border-bottom: 2px solid #c06a23 !important;
+}
+
+.section_box_content {
+    background: #fff;
+}
+
+.section_box_content h3.title_box {
+    padding: 15px;
+}
+
+.section_box_content .item_employee_new:nth-child(2n) {
+    background-color: #eee;
+}
+
+.icon_sendemail .fa-envelope-open-text {
+    position: relative;
+    top: 7px;
+}
+
+.list_price_pree {
+    background: #eee;
+
+}
+
+.list_price_pree .bg_list_price_pree {
+    background: #fff;
+    width: 100%;
+    margin: 20px 0px;
+}
+
+.list_price_pree .bg_list_price_pree .title_price_pree h1 {
+    color: #03A15B;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center !important;
+    padding-top: 15px;
+    /*padding-bottom: 20px;*/
+}
+
+.list_price_pree .item_box_price {
+    border-radius: 5px;
+    margin: 30px;
+    padding: 20px;
+}
+
+.list_price_pree .box_price_left h2 {
+    color: #03A15B;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.list_price_pree .box_price_right h2 {
+    color: #F1970F;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.list_price_pree .box_price_left {
+    border: 1px solid #03A15B;
+    background-color: #3dcc962b;
+    /*opacity: 0.7;*/
+
+}
+
+.list_price_pree .list_box_price {
+    padding: 20px 140px;
+    /* text-align: center; */
+    margin: 0 auto;
+    width: 100%;
+}
+
+.list_price_pree .list_box_price ul {
+    padding: 0;
+    /* text-align: left; */
+    list-style: none;
+    margin-bottom: 0px;
+}
+
+.list_price_pree .list_box_price ul li {
+    padding-bottom: 5px;
+}
+
+.list_price_pree .list_box_price ul li i {
+    color: #31B9A5;
+    margin-right: 5px;
+}
+
+.list_price_pree .box_price_right {
+    border: 1px solid #F1970F;
+    background-color: #f1970f2e;
+
+
+}
+
+.button_list_price a {
+    display: inline-block;
+    padding: 7px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff !important;
+}
+
+.box_benefit {
+    border: 1px solid #03A15B;
+}
+
+.box_benefit .title_benefit {
+    padding: 5px 0px;
+    background: #03A15B;
+    color: #fff;
+}
+
+.item_benefit {
+    background: #F0FBF7;
+    padding: 15px 20px;
+    margin: 15px 0px;
+    border-radius: 5px;
+}
+
+.item_benefit i {
+    color: #009385;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.item_benefit p {
+    color: #000000;
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 15px;
+
+}
+
+.item_benefit .des_benefit {
+    color: #03A15B;
+    text-align: left;
+}
+
+.box_price_left .button_list_price a {
+    background: #31B9A5;
+}
+
+.box_price_right .button_list_price a {
+    background: #F1970F;
+}
+
+.box_question {
+    margin: 20px 0px;
+}
+
+.box_question .box_title_question h2 {
+    color: #000000;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.box_question .box_list_question {
+}
+
+.box_question .box_list_question .box_item_ques {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.box_question .box_list_question .box_item_ques .box_item_ques_title {
+    color: #000000;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.box_question .box_list_question .box_item_ques .box_item_ques_content p {
+    margin-bottom: 10px;
+}
+
+.show_modal_login_res .modal_button_header img {
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+.show_modal_login_res .modal_button_header a {
+    display: block;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    color: #2F80ED;
+}
+
+.show_modal_login_res .modal_button_res {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.show_modal_login_res .modal_button_res a {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #fff !important;
+    background: #03A15B;
+    padding: 7px 30px;
+    cursor: pointer;
+}
+
+.show_modal_login_res .modal_button_res button {
+    display: inline-block;
+    color: #fff !important;
+    margin-bottom: 0px;
+    background: #BFBFBF;
+    padding: 6px 30px;
+    border: none;
+    margin-top: -2px;
+    cursor: pointer;
+}
+
+.show_modal_login_res .modal-dialog {
+    top: 20%;
+}
+
+.table_price {
+    margin: 30px 0px;
+}
+
+.table_price .title_table_price h2 {
+    color: red;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.table_price .item_table_price {
+    background: #fff;
+    border: 1px solid #2F2F2F;
+    border-radius: 3px;
+}
+
+.table_price .active_table .item_table_price {
+    background: #31b9a559;
+    /*border: #2F2F2F;*/
+}
+
+.table_price .item_table_price .img_item_table {
+    text-align: center;
+}
+
+.table_price .item_table_price .img_item_table img {
+    width: 150px;
+}
+
+.table_price .item_table_price {
+    padding: 15px 20px;
+}
+
+.table_price .item_table_price .title_goi_tin h3 {
+    margin: 15px 0px;
+    color: #000000;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.table_price .item_table_price .button_more a {
+    background: #31B9A5;
+    color: #fff;
+    padding: 5px 20px;
+}
+
+.table_combo_profile {
+    margin: 20px 0px;
+    border: 1px solid #009385;
+}
+
+.table_combo_profile .title_table_combo_profile {
+    background: #009385;
+    text-align: center;
+}
+
+.table_combo_profile .title_table_combo_profile h2 {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 0px;
+    padding: 10px 20px;
+}
+
+.list_table_combo_profile table .td_table_price {
+    color: #009385;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.list_table_combo_profile table .td_table_price_dis {
+    color: #FF7A00;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.list_table_combo_profile table .res_from_table {
+    background: #31B9A5;
+    color: #fff !important;
+    display: inline-block;
+    padding: 5px 20px;
+}
+
+.list_table_combo_profile table {
+    margin-top: 15px;
+    border: 1px solid #B7E0DB;
+}
+
+.list_table_combo_profile .pdf_list_price {
+    margin-bottom: 20px;
+}
+
+.list_table_combo_profile table th {
+    background: #B7E0DB;
+    color: #000;
+}
+
+.list_table_combo_profile .active_td {
+    background-color: rgba(0, 0, 0, .075);
+}
+
+.js_remove_hidden {
+    margin: 20px 0px;
+    display: none;
+}
+
+.list_ql_combo.active_td {
+    display: block;
+}
+
+.list_ql_combo .box_ql_combo {
+    border: 1px solid #000000;
+    background: #fff !important;
+    border-radius: 3px;
+    padding: 20px;
+}
+
+.list_ql_combo .box_ql_combo h3 {
+    color: #000000;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.list_ql_combo .box_ql_combo h3 i {
+    color: #31B9A5;
+    margin-right: 5px;
+}
+
+.hide_pc {
+    display: none !important;
+}
+.service_show_on_small
+{
+    display: none;
+}
+@media (max-width: 1400px) {
+
+    .list_price_pree .list_box_price {
+        padding: 20px 60px;
+        /* text-align: center; */
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .list_price_pree .list_box_price {
+        padding: 20px 40px;
+        /* text-align: center; */
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .box_nh .box_tt_nh {
+        border-radius: 6px;
+        margin-bottom: 20px;
+    }
+    .list_price_pree .item_box_price {
+        border-radius: 5px;
+        margin: 15px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+
+}
+
+@media (max-width: 500px) {
+    .service_show_on_small {
+        display: block;
+    }
+    .pay_price .logo_nh img {
+        transition: 0.5s;
+        border: 1px solid #ccc6c6;
+        padding: 5px 8px;
+        width: 200px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+    }
+    .box_tt_bank p
+    {
+        margin-bottom: 10px;
+    }
+
+    .service_show_on_big
+    {
+        display: none;
+    }
+    .mobile_value_hunter button
+    {
+        padding: 2px 20px;
+        margin: 7px 0px;
+    }
+    .mobile_value_hunter button i
+    {
+        margin-left: 5px;
+    }
+    .mobile_value_hunter form
+    {
+        margin-bottom: 0px;
+    }
+    .js_hidden_mobile
+    {
+        display: none;
+    }
+    .hide_mobile {
+        display: none !important;
+    }
+
+    .show_mobile {
+        display: block !important;
+    }
+
+    .show_table_mobile {
+        margin-bottom: 20px;
+    }
+
+    .show_table_mobile h2 {
+        text-align: center;
+        width: 100%;
+        background: #009385;
+        margin: 10px 0px;
+        color: #fff;
+        font-weight: 600;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .show_table_mobile .item_mobile_combo {
+        border: 1px solid #009385;
+        margin-bottom: 10px;
+    }
+
+    .show_table_mobile .item_mobile_combo ul {
+        padding: 0px;
+        list-style: none;
+        margin-bottom: 0px;
+    }
+
+    .show_table_mobile .item_mobile_combo ul li {
+        padding: 6px 10px;
+    }
+
+    .show_table_mobile .item_mobile_combo ul li.mobile_label {
+        background-color: #B7E0DB;
+        color: #000000;
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    .show_table_mobile .item_mobile_combo ul li.mobile_value {
+        padding: 5px 10px;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: right;
+    }
+
+    .show_table_mobile .item_mobile_combo ul li.mobile_value_price {
+        color: #009385;
+    }
+
+    .show_table_mobile .item_mobile_combo ul li.mobile_value_package_vat {
+        color: #FF7A00;
+    }
+
+    .show_table_mobile .item_mobile_combo .footer_item_mobile {
+        background: #31B9A5;
+        width: 100%;
+        padding: 5px 10px;
+    }
+
+    .show_table_mobile .item_mobile_combo .footer_item_mobile a {
+        width: 31%;
+        display: inline-block;
+        text-align: center;
+    }
+    .show_table_mobile .item_mobile_combo .footer_item_mobile a.modal_rs {
+        color: #FFE000;
+    }.show_table_mobile .item_mobile_combo .footer_item_mobile a.modal_rs i {
+       margin-right: 5px;
+    }
+    .show_table_mobile .item_mobile_combo .footer_item_mobile a.res_from_table {
+        color: #fff;
+    }
+
+    .list_price_pree .list_box_price {
+        padding: 20px 10px;
+        /* text-align: center; */
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .list_price_pree .item_box_price {
+        border-radius: 5px;
+        /* margin: 20px; */
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #service_show_on_small {
+        display: none;
+    }
+
+
+}
+
+@media only screen and (max-width: 991px) {
+    /*#service_show_on_big {*/
+    /*display: none;*/
+    /*}*/
+    /*.service_show_on_big {*/
+    /*display: none;*/
+    /*}*/
+    .d-h5 {
+        font-size: 23px;
+    }
+}
+
+@media only screen and (max-width: 556px) {
+    #service_show_on_big .recruitmentNewsHandbook {
+        margin-bottom: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    #service_show_on_big .recruitmentNewsHandbook .title_home {
+        margin: 10px 0;
+    }
+
+    #service_show_on_big #price_list {
+        padding: 10px;
+        margin-bottom: 0px;
+    }
+
+    .pay_price .logo_nh {
+        height: 80px;
+    }
+
+    .pay_price .logo_nh img {
+        height: 56px;
+    }
+
+    .d-h5 {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .d-container {
+        max-width: 1200px;
+    }
+}
+

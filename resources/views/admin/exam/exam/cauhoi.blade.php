@@ -1,0 +1,1627 @@
+<div class="row">
+    <div class="col-xs-12 TabQuestion" id="TabQuestion">
+
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab_1" data-toggle="tab">Câu hỏi trắc nghiệm(4 đáp án)</a></li>
+                <li><a href="#tab_2" data-toggle="tab">Câu hỏi (đúng/sai)</a></li>
+                <li><a href="#tab_3" data-toggle="tab">Câu hỏi tự luận</a></li>
+
+
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_1">
+                    {{--trắc nghiệm--}}
+                    <div class="row mainQuestion mgBottom30">
+                        <div class="col-xs-12">
+
+                            <!-- phan trắc nghiệm chọn đáp án -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Câu hỏi phần trắc nghiệm ( 4 đáp án)</div>
+                                <div class="panel-body text-center">
+
+
+                                    <button class="btn   btn-block btn-success" id="addfile" type="button" data-toggle="modal"
+                                            data-target="#myModal">
+                                        <i class="fa fa-plus mgRight5" aria-hidden="true"></i>Thêm câu hỏi
+                                    </button>
+
+                                    @if(!empty($question_1))
+                                        @foreach($question_1 as $id=>$question)
+                                            <div class="panel mgBottom0" >
+                                                <div id="ques_{{ $question['id_ques'] }}">
+                                                    <div class="item_question">
+                                                        <div class="title_question">
+                                                                 <span class="number_question">
+                                                                          Câu hỏi {{ $id + 1 }}
+                                                                         </span>
+                                                            <span class="edit_question" type="button" data-toggle="modal"
+                                                                  data-target="#{{ isset($question['id_ques']) ? $question['id_ques'] : ''  }}"><i
+                                                                        class="fa fa-edit"></i></span>
+
+                                                            <span class="delete_question deleteItem1"> <a
+                                                                        href="{{ route('question.destroy', ['id_ques' => $question->id_ques]) }}"
+                                                                        class="btnDelete" data-toggle="modal" data-target="#myModalDelete"
+                                                                        onclick="return submitDelete(this);"
+                                                                        style="color: #fff;text-decoration: none">
+                                        X </a></span>
+                                                        </div>
+
+                                                        <div class="clearfix"></div>
+
+
+
+                                                        <div class="content_question">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree{{ isset($question['id_ques']) ? $question['id_ques'] : ''  }}" style="color: #000;display: block">
+                                                                <div class="form-group content_title_question mgBottom0" style="float:left;">
+                                                                    {!! $question['name_ques'] !!}
+                                                                    <span style="display: inline-block;border: 1px solid green; padding: 2px 5px;"><i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
+
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+
+                                                        <div id="collapseThree{{ isset($question['id_ques']) ? $question['id_ques'] : ''  }}" class="panel-collapse collapse">
+                                                            <div class="clearfix"></div>
+
+                                                            <div class="answers_question ">
+                                                                <div class="@if($question['show_answer_ques'] == '0')
+                                                                        answer0
+@elseif($question['show_answer_ques'] == '1')
+                                                                        answer1
+@elseif($question['show_answer_ques'] == '2')
+                                                                        answer2
+@else
+                                                                        answer
+@endif" id="">
+                                                                    <!-- ba truong hop chon kiểu đáp án -->
+                                                                    <!--  one_answer two_answer three_answer -->
+                                                                    <div class="answer_question text-left col-md-3">
+
+                                                                        <label class="">
+                                                                            <span class="{{ ($question['correct_answer'] == 'answer1') ? 'answertrue' : 'answerfasle' }}">A</span> . {{ isset($question['answer1']) ? $question['answer1'] : '' }}
+                                                                        </label>
+                                                                    </div>
+
+                                                                    <div class="answer_question text-left col-md-3">
+                                                                        <label>
+                                                                            <span class="{{ ($question['correct_answer'] == 'answer2') ? 'answertrue' : 'answerfasle' }}">B</span> . {{ isset($question['answer2']) ? $question['answer2'] : '' }}
+                                                                        </label>
+                                                                    </div>
+
+                                                                    <div class="answer_question  text-left col-md-3">
+                                                                        <label>
+                                                                            <span class="{{ ($question['correct_answer'] == 'answer3') ? 'answertrue' : 'answerfasle' }}">C</span> . {{ isset($question['answer3']) ? $question['answer3'] : '' }}
+                                                                        </label>
+                                                                    </div>
+
+                                                                    <div class="answer_question text-left  col-md-3">
+                                                                        <label>
+                                                                            <span class="{{ ($question['correct_answer'] == 'answer4') ? 'answertrue' : 'answerfasle' }}">D</span> . {{ isset($question['answer4']) ? $question['answer4'] : '' }}
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="clearfix"></div>
+                                                                    <p class="text-left f16 answer_succcess"> Đáp án đúng là
+                                                                        : @if($question['correct_answer'] == 'answer1')
+                                                                            A @elseif($question['correct_answer'] == 'answer2')
+                                                                            B @elseif($question['correct_answer'] == 'answer3')
+                                                                            C @elseif($question['correct_answer'] == 'answer4') D @endif
+                                                                    </p>
+                                                                    <button class=" btn btn-primary pull-left mgRight5" type="button"
+                                                                            data-toggle="modal"
+                                                                            data-target="#{{ isset($question['id_ques']) ? $question['id_ques'] : ''  }}">
+                                                                        Sửa câu hỏi
+                                                                    </button>
+
+                                                                    <button class=" btn btn-primary pull-left"><a
+                                                                                href="{{ route('question.destroy', ['id_ques' => $question->id_ques]) }}"
+                                                                                class="btnDelete" data-toggle="modal"
+                                                                                data-target="#myModalDelete"
+                                                                                onclick="return submitDelete(this);"
+                                                                                style="color: #fff;text-decoration: none">Xóa câu hỏi
+                                                                        </a></button>
+
+                                                                    {{--<button class=" btn btn-primary pull-left"> <a  href="{{ route('delete_questions', ['id_ques' => $cate2->id_ques]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">--}}
+                                                                    {{--Xóa câu hỏi--}}
+                                                                    {{--</a></button>--}}
+
+
+                                                                </div>
+                                                                <div class="clearfix"></div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        @endforeach
+                                    @else
+                                        <div class="infoAlert">
+                                            <div class="alert alert-success mgBootom10" style="margin-bottom: 15px;">
+                                                <span>Chưa có câu hỏi được tạo</span>
+                                                <button type="button" class="close iconAlert" data-dismiss="alert"
+                                                        aria-label="Close">x
+                                                </button>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    <button class="btn   btn-block btn-success" id="addfile" type="button" data-toggle="modal"
+                                            data-target="#myModal">
+                                        <i class="fa fa-plus mgRight5" aria-hidden="true"></i>Thêm câu hỏi
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.tab-pane -->
+                <div class="tab-pane" id="tab_2">
+                    {{--đúng sai--}}
+                    <div class="row mainQuestion mgBottom30">
+                        <div class="col-xs-12">
+                            <!-- phan trắc nghiệm chọn đáp án Đúng / Sai -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Câu hỏi phần trắc nghiệm (đúng / sai 2 đáp án)</div>
+                                <div class="panel-body text-center">
+
+                                    <button class="btn   btn-block btn-success" id="addfile" type="button" data-toggle="modal" data-target="#myModal2">
+                                        <i class="fa fa-plus mgRight5" aria-hidden="true"></i>Thêm câu hỏi
+                                    </button>
+
+                                    <div class="clearfix"></div>
+                                    @if(!empty($question_2)) @foreach($question_2 as $id=>$question2)
+                                        <div id="ques_{{ $question2['id_ques'] }}">
+                                            <div class="item_question">
+                                                <div class="title_question">
+                                                    <span class="number_question"> Câu hỏi {{ $id + 1 }}</span>
+
+                                                    <span class="edit_question" type="button" data-toggle="modal"
+                                                          data-target="#{{ isset($question2['id_ques']) ? $question2['id_ques'] : ''  }}"><i
+                                                                class="fa fa-edit"></i></span>
+
+
+                                                    <span class="delete_question deleteItem1"> <a
+                                                                href="{{ route('question.destroy', ['id_ques' => $question2->id_ques]) }}"
+                                                                class="btnDelete" data-toggle="modal" data-target="#myModalDelete"
+                                                                onclick="return submitDelete(this);"
+                                                                style="color: #fff;text-decoration: none">
+                                        X </a></span>
+                                                </div>
+
+                                                <div class="content_question">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree{{ isset($question2['id_ques']) ? $question2['id_ques'] : ''  }}" style="color: #000;display: block">
+                                                        <div class="form-group content_title_question" style="float:left;margin-bottom: 0">
+
+                                                            {!! $question2['name_ques'] !!} <span style="display: inline-block;border: 1px solid green; padding: 2px 5px;"><i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
+
+                                                        </div>
+                                                    </a>
+
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div id="collapseThree{{ isset($question2['id_ques']) ? $question2['id_ques'] : ''  }}" class="panel-collapse collapse">
+                                                    <div class="answers_question ">
+                                                        <div class="@if($question2['show_answer_ques'] == '0')
+                                                                answer0
+@elseif($question2['show_answer_ques'] == '1')
+                                                                answer1
+@elseif($question2['show_answer_ques'] == '2')
+                                                                answer2
+@else
+                                                                answer
+@endif" id="">
+                                                            <!-- ba truong hop chon kiểu đáp án -->
+                                                            <!--  one_answer two_answer three_answer -->
+
+
+                                                            <div class="answer_question text-left col-md-3">
+
+                                                                <label class="">
+                                                                    <span class="{{ ($question2['correct_answer'] == 'answer1') ? 'answertrue' : 'answerfasle' }}">A</span> .{{ isset($question2['answer1']) ? $question2['answer1'] : '' }}
+                                                                </label>
+                                                            </div>
+
+                                                            <div class="answer_question text-left col-md-3">
+                                                                <label>
+                                                                    <span class="{{ ($question2['correct_answer'] == 'answer2') ? 'answertrue' : 'answerfasle' }}">B</span> . {{ isset($question2['answer2']) ? $question2['answer2'] : '' }}
+                                                                </label>
+                                                            </div>
+
+                                                            <div class="clearfix"></div>
+                                                            <p class="text-left f16 answer_succcess"> Đáp án đúng là :
+                                                                @if($question2['correct_answer'] == 'answer1')
+                                                                    A
+                                                                @elseif($question2['correct_answer'] == 'answer2')
+                                                                    B
+                                                                @endif
+                                                            </p>
+                                                            <button class=" btn btn-primary pull-left mgRight5" type="button"
+                                                                    data-toggle="modal"
+                                                                    data-target="#{{ isset($question2['id_ques']) ? $question2['id_ques'] : ''  }}">
+                                                                Sửa câu hỏi
+                                                            </button>
+
+                                                            <button class=" btn btn-primary pull-left"><a
+                                                                        href="{{ route('question.destroy', ['id_ques' => $question2->id_ques]) }}"
+                                                                        class="btnDelete" data-toggle="modal"
+                                                                        data-target="#myModalDelete"
+                                                                        onclick="return submitDelete(this);"
+                                                                        style="color: #fff;text-decoration: none">Xóa câu hỏi
+                                                                </a></button>
+
+                                                            {{--<button class=" btn btn-primary pull-left"> <a  href="{{ route('delete_questions', ['id_ques' => $cate2->id_ques]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">--}}
+                                                            {{--Xóa câu hỏi--}}
+                                                            {{--</a></button>--}}
+
+
+                                                        </div>
+                                                        <div class="clearfix"></div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    @endforeach @else
+                                        <div class="infoAlert">
+                                            <div class="alert alert-success mgBootom10" style="margin-bottom: 15px;">
+                                                <span>Chưa có câu hỏi được tạo</span>
+                                                <button type="button" class="close iconAlert" data-dismiss="alert"
+                                                        aria-label="Close">x
+                                                </button>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    <button class="btn   btn-block btn-success" id="addfile" type="button" data-toggle="modal"
+                                            data-target="#myModal2">
+                                        <i class="fa fa-plus mgRight5" aria-hidden="true"></i>Thêm câu hỏi
+                                    </button>
+                                </div>
+
+
+
+                                <script type="text/javascript">
+                                    editor.resize('100%', '350')
+                                </script>
+
+
+                                {{--<script type="text/javascript">--}}
+
+
+                                {{--// $('#myModal').modal('show');--}}
+                                {{--var iddelete = 2;--}}
+
+                                {{--function addAnswer() {--}}
+                                {{--html = '<div class="form-group" id="answer' + iddelete + '">';--}}
+                                {{--html += ' <label class="col-sm-2 control-label pdTop10 textRight"><strong>Đáp án <span class="answer_index"> : </span></strong></label>';--}}
+
+                                {{--html += ' <div class="col-sm-10">';--}}
+                                {{--html += '<div class="input-group">';--}}
+                                {{--html += '<div class="input-group-addon"  onclick="$(\'#answer' + iddelete + '\').remove();" >'--}}
+                                {{--html += ' <em class="fa fa-trash-o fa-pointer">&nbsp;</em>';--}}
+                                {{--html += '</div>';--}}
+                                {{--html += '<input type="text" name="answer[' + iddelete + '][\'title\']" value="" class="form-control">';--}}
+                                {{--html += '<div class="input-group-addon" data-toggle="tooltip" data-placement="top" title="" data-original-title="Đáp án đúng">';--}}
+                                {{--html += '<input type="checkbox" class="" name="answer[' + iddelete + '][\'dapan\']">';--}}
+                                {{--html += '</div>';--}}
+                                {{--html += ' </div>';--}}
+                                {{--html += '</div>';--}}
+                                {{--html += '</div>';--}}
+                                {{--html += ' <div class="clearfix"></div>';--}}
+                                {{--$('#resultInput').append(html)--}}
+                                {{--iddelete++;--}}
+                                {{--}--}}
+                                {{--</script>--}}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.tab-pane -->
+                <div class="tab-pane" id="tab_3">
+                    <div class="row mainQuestion mgBottom30">
+                        <div class="col-xs-12">
+                            <!-- phan trắc nghiệm chọn đáp án Đúng / Sai -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Câu hỏi phần tự luận (có thể nhập đáp án)</div>
+                                <div class="panel-body text-center">
+
+                                    <button class="btn   btn-block btn-success" id="addfile" type="button" data-toggle="modal"
+                                            data-target="#myModal3">
+                                        <i class="fa fa-plus mgRight5" aria-hidden="true"></i>Thêm câu hỏi
+                                    </button>
+
+                                    @if(!empty($question_3)) @foreach($question_3 as $id=>$question3)
+                                        <div id="ques_{{ $question3['id_ques'] }}">
+                                            <div class="item_question">
+                                                <div class="title_question">
+                                                    <span class="number_question"> Câu hỏi {{ $id + 1 }}</span>
+
+                                                    <span class="edit_question" type="button" data-toggle="modal"
+                                                          data-target="#{{ isset($question3['id_ques']) ? $question3['id_ques'] : ''  }}"><i
+                                                                class="fa fa-edit"></i></span>
+
+
+                                                    <span class="delete_question deleteItem1"> <a
+                                                                href="{{ route('question.destroy', ['id_ques' => $question3->id_ques]) }}"
+                                                                class="btnDelete" data-toggle="modal" data-target="#myModalDelete"
+                                                                onclick="return submitDelete(this);"
+                                                                style="color: #fff;text-decoration: none">
+                                        X </a></span>
+                                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                <div class="content_question">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree{{ isset($question3['id_ques']) ? $question3['id_ques'] : ''  }}" style="color: #000;display: block">
+                                                        <div class="form-group content_title_question mgBottom0" style="float:left;">
+                                                            {!! $question3['name_ques'] !!}
+                                                            <span style="display: inline-block;border: 1px solid green; padding: 2px 5px;"><i class="fa fa-angle-double-down" aria-hidden="true"></i></span>
+
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="clearfix"></div>
+
+                                                <div id="collapseThree{{ isset($question['id_ques']) ? $question3['id_ques'] : ''  }}" class="panel-collapse collapse">
+                                                    <div class="clearfix"></div>
+
+                                                    <div class="answers_question ">
+                                                        <div class="@if($question3['show_answer_ques'] == '0')
+                                                                answer0
+@elseif($question3['show_answer_ques'] == '1')
+                                                                answer1
+@elseif($question3['show_answer_ques'] == '2')
+                                                                answer2
+@else
+                                                                answer
+@endif" id="">
+                                                            <!-- ba truong hop chon kiểu đáp án -->
+                                                            <!--  one_answer two_answer three_answer -->
+
+
+
+
+
+                                                            <div class="clearfix"></div>
+                                                            <p class="text-left f16 answer_succcess"> Đáp án đúng là :
+                                                                @if(!empty($question3['correct_answer']))
+                                                                    {{
+                                                                        $question3['correct_answer']
+                                                                    }}
+                                                                @endif
+                                                            </p>
+                                                            <button class=" btn btn-primary pull-left mgRight5" type="button"
+                                                                    data-toggle="modal"
+                                                                    data-target="#{{ isset($question3['id_ques']) ? $question3['id_ques'] : ''  }}">
+                                                                Sửa câu hỏi
+                                                            </button>
+
+                                                            <button class=" btn btn-primary pull-left"><a
+                                                                        href="{{ route('question.destroy', ['id_ques' => $question3->id_ques]) }}"
+                                                                        class="btnDelete" data-toggle="modal"
+                                                                        data-target="#myModalDelete"
+                                                                        onclick="return submitDelete(this);"
+                                                                        style="color: #fff;text-decoration: none">Xóa câu hỏi
+                                                                </a></button>
+
+                                                            {{--<button class=" btn btn-primary pull-left"> <a  href="{{ route('delete_questions', ['id_ques' => $cate2->id_ques]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">--}}
+                                                            {{--Xóa câu hỏi--}}
+                                                            {{--</a></button>--}}
+
+
+                                                        </div>
+                                                        <div class="clearfix"></div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach @else
+                                        <div class="infoAlert">
+                                            <div class="alert alert-success mgBootom10" style="margin-bottom: 15px;">
+                                                <span>Chưa có câu hỏi được tạo</span>
+                                                <button type="button" class="close iconAlert" data-dismiss="alert"
+                                                        aria-label="Close">x
+                                                </button>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    <button class="btn   btn-block btn-success" id="addfile" type="button" data-toggle="modal"
+                                            data-target="#myModal3">
+                                        <i class="fa fa-plus mgRight5" aria-hidden="true"></i>Thêm câu hỏi
+                                    </button>
+                                </div>
+
+                                {{--modal thêm mới câu hỏi trắc nghiệm--}}
+
+                                <script type="text/javascript">
+                                    editor.resize('100%', '350')
+                                </script>
+
+
+                                {{--<script type="text/javascript">--}}
+
+
+                                {{--// $('#myModal').modal('show');--}}
+                                {{--var iddelete = 2;--}}
+
+                                {{--function addAnswer() {--}}
+                                {{--html = '<div class="form-group" id="answer' + iddelete + '">';--}}
+                                {{--html += ' <label class="col-sm-2 control-label pdTop10 textRight"><strong>Đáp án <span class="answer_index"> : </span></strong></label>';--}}
+
+                                {{--html += ' <div class="col-sm-10">';--}}
+                                {{--html += '<div class="input-group">';--}}
+                                {{--html += '<div class="input-group-addon"  onclick="$(\'#answer' + iddelete + '\').remove();" >'--}}
+                                {{--html += ' <em class="fa fa-trash-o fa-pointer">&nbsp;</em>';--}}
+                                {{--html += '</div>';--}}
+                                {{--html += '<input type="text" name="answer[' + iddelete + '][\'title\']" value="" class="form-control">';--}}
+                                {{--html += '<div class="input-group-addon" data-toggle="tooltip" data-placement="top" title="" data-original-title="Đáp án đúng">';--}}
+                                {{--html += '<input type="checkbox" class="" name="answer[' + iddelete + '][\'dapan\']">';--}}
+                                {{--html += '</div>';--}}
+                                {{--html += ' </div>';--}}
+                                {{--html += '</div>';--}}
+                                {{--html += '</div>';--}}
+                                {{--html += ' <div class="clearfix"></div>';--}}
+                                {{--$('#resultInput').append(html)--}}
+                                {{--iddelete++;--}}
+                                {{--}--}}
+                                {{--</script>--}}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.tab-pane -->
+            </div>
+            <!-- /.tab-content -->
+        </div>
+    </div>
+</div>
+
+{{--modal them trac nghiem 4 cau--}}
+{{--modal thêm mới câu hỏi trắc nghiệm--}}
+<div class="modal fade bs-example-modal-lg adđModalQuestion" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <form role="form" action="{{ route('question.store') }}" method="POST" id="valiadateForm">
+            {!! csrf_field() !!} {{ method_field('POST') }} {{-- Dạng câu hỏi trắc nghiệm --}}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Thêm mới câu hỏi (trắc nghiệm chọn 4 đáp án)</h4>
+                </div>
+                <div class="modal-body pd0">
+                    <input type="hidden" name="id_exam"
+                           value="{{ $e_xam->id_exam }}"/> {{--kiêu câu hoi--}} {{--0 là kiểu trắc nghiệm--}}
+                    <input type="hidden" name="type_ques" value="0"/>
+                    <div class="form-group col60">
+                        <label for="exampleInputEmail1 ">Tiêu đề câu hỏi (*)</label>
+                        <textarea class="editor w" id="add01" name="name_ques" rows="10"
+                                  cols="80" required="required" /> {{ old('name_ques') }}</textarea>
+                    </div>
+                    <div class="form-group col40 mgBottom0">
+                        <label><strong>Trình bày đáp án  </strong></label>
+                        <br>
+
+                        <label class="mgRight10 w100">
+                            <input type="radio" name="show_answer_ques" class="flat-red"
+                                   checked="ckecked" value="0">
+                            <!--  <input type="radio" name="r1" checked="checked"> -->
+                            <span>Chia đều hai cột </span>
+                        </label>
+                        <label class="mgRight10 w100">
+                            <input type="radio" name="show_answer_ques" class="flat-red" value="1">
+                            <span>Các đáp án trên một hàng </span>
+                        </label>
+                        <label class="mgRight10 w100">
+                            <input type="radio" name="show_answer_ques" class="flat-red" value="2">
+                            <span>Mỗi đáp án trên một hàng </span>
+                        </label>
+                        <div class="">
+
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-12 control-label">Đáp án A(*)
+                                </label>
+
+                                <div class="col-sm-12 mgBottom5 ">
+                                    <input type="text" class="form-control" id="inputEmail3"
+                                           placeholder="Đáp án A" name="answer1" value="{{ old('answer1') }}">
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-12 control-label">Đáp án B (*)
+                                </label>
+
+                                <div class="col-sm-12 mgBottom5 ">
+                                    <input type="text" class="form-control" id="inputEmail3"
+                                           placeholder="Đáp án B" name="answer2" value="{{ old('answer2') }}" >
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-12 control-label">Đáp án C (*)
+                                </label>
+
+                                <div class="col-sm-12 mgBottom5 ">
+                                    <input type="text" class="form-control" id="inputEmail3"
+                                           placeholder="Đáp án C" name="answer3" value="{{ old('answer3') }}">
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-12 control-label">Đáp án D (*)
+                                </label>
+
+                                <div class="col-sm-12 mgBottom5 ">
+                                    <input type="text" class="form-control" id="inputEmail3"
+                                           placeholder="Đáp án D" name="answer4" value="{{ old('answer4') }}">
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+
+
+                        </div>
+                        <div class="form-group mgBottom0">
+                            <label><strong>Chọn đáp án đúng : </strong></label>
+                            <br>
+
+                            <label class="mgRight10">
+                                <input type="radio" name="correct_answer" class="flat-red"
+                                       checked="ckecked" value="answer1">
+                                <!--  <input type="radio" name="r1" checked="checked"> -->
+                                <span>Đáp án A </span>
+                            </label>
+                            <label class="mgRight10">
+                                <input type="radio" name="correct_answer" class="flat-red"
+                                       value="answer2">
+                                <span>Đáp án B </span>
+                            </label>
+                            <label class="mgRight10">
+                                <input type="radio" name="correct_answer" class="flat-red"
+                                       value="answer3">
+                                <span>Đáp án C </span>
+                            </label>
+                            <label class="mgRight10">
+                                <input type="radio" name="correct_answer" class="flat-red"
+                                       value="answer4">
+                                <span>Đáp án D </span>
+                            </label>
+
+
+
+
+                        </div>
+                        <div class="form-group mgBottom0 mgTop20">
+
+                            <button type="submit" class="btn btn-primary">Lưu câu hỏi</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Hủy bỏ
+                            </button>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                {{--end thêm mới câu hỏi--}}
+
+
+            </div>
+        </form>
+    </div>
+</div>
+
+{{--modal sửa câu hỏi trắc nghiệm--}}
+@if(!empty($question_1))
+    @foreach($question_1 as $id=>$question)
+        <div class="modal fade bs-example-modal-lg adđModalQuestion"
+             id="{{ isset($question['id_ques']) ? $question['id_ques'] : '' }}" tabindex="-1"
+             role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <form role="form"
+                      action="{{ route('question.update', ['id_ques' => $question->id_ques]) }}
+                              " method="post">
+                    {!! csrf_field() !!}
+                    {{ method_field('PUT') }} Dạng câu hỏi trắc nghiệm
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Sửa câu hỏi {{ $id+1 }} </h4>
+                        </div>
+                        <div class="modal-body pd0">
+                            <input type="hidden" name="id_exam" value="{{ $e_xam->id_exam }}"/>
+                            <input type="hidden" name="id_ques" value="{{ $question->id_ques }}"/>
+                            {{--kiêu câu hoi--}} {{--0 là kiểu trắc nghiệm--}}
+                            <input type="hidden" name="type_ques" value="0"/>
+                            <div class="form-group col60">
+                                <label for="exampleInputEmail1 ">Tiêu đề câu hỏi (*)</label>
+                                <textarea class="editor w" id="add01{{ $id+1 }}" name="name_ques"
+                                          rows="10" cols="80"/>
+                                {!! isset($question['name_ques']) ? $question['name_ques'] : '' !!}
+                                </textarea>
+                            </div>
+                            <div class="form-group mgBottom0 col40 ">
+                                <label><strong>Trình bày đáp án : </strong></label>
+                                <br>
+
+                                <label class="mgRight10 w100">
+                                    <input type="radio" name="show_answer_ques" class="flat-red"
+                                           value="0"
+                                            {{ isset($question['show_answer_ques']) && ($question['show_answer_ques'] == 0) ? 'checked="checked'  : '' }}>
+                                    <!--  <input type="radio" name="r1" checked="checked"> -->
+                                    <span>Chia đều hai cột </span>
+                                </label>
+                                <label class="mgRight10 w100">
+                                    <input type="radio" name="show_answer_ques" class="flat-red"
+                                           value="1"
+                                            {{ isset($question['show_answer_ques']) && ($question['show_answer_ques'] == 1) ? 'checked="checked'  : '' }}>
+                                    <span>Các đáp án trên một hàng </span>
+                                </label>
+                                <label class="mgRight10 w100">
+                                    <input type="radio" name="show_answer_ques" class="flat-red"
+                                           value="2"
+                                            {{ isset($question['show_answer_ques']) && ($question['show_answer_ques'] == 2) ? 'checked="checked'  : '' }}>
+                                    <span>Mỗi đáp án trên một hàng </span>
+                                </label>
+                                <div class="">
+
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-12 control-label">Đáp
+                                            án A (*)
+                                        </label>
+                                        <div class="col-sm-12 mgBottom5 ">
+                                            <input type="text" class="form-control" id="inputEmail3"
+                                                   placeholder="Đáp án A" name="answer1"
+                                                   value="{{ isset($question['answer1']) ? $question['answer1'] : '' }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-12 control-label">Đáp
+                                            án B (*)
+                                        </label>
+
+                                        <div class="col-sm-12 mgBottom5 ">
+                                            <input type="text" class="form-control" id="inputEmail3"
+                                                   placeholder="Đáp án B" name="answer2"
+                                                   value="{{ isset($question['answer2']) ? $question['answer2'] : '' }}">
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-12 control-label">Đáp
+                                            án C (*)
+                                        </label>
+
+                                        <div class="col-sm-12 mgBottom5 ">
+                                            <input type="text" class="form-control" id="inputEmail3"
+                                                   placeholder="Đáp án C" name="answer3"
+                                                   value="{{ isset($question['answer3']) ? $question['answer3'] : '' }}">
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-12 control-label">Đáp
+                                            án D (*)
+                                        </label>
+
+                                        <div class="col-sm-12 mgBottom5 ">
+                                            <input type="text" class="form-control" id="inputEmail3"
+                                                   placeholder="Đáp án D" name="answer4"
+                                                   value="{{ isset($question['answer4']) ? $question['answer4'] : '' }}">
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+
+                                    <div class="form-group mgBottom0">
+                                        <label><strong>Chọn đáp án đúng : </strong></label>
+                                        <br>
+
+                                        <label class="mgRight10">
+                                            <input type="radio" name="correct_answer" class="flat-red"
+                                                   value="answer1" {{ isset($question['correct_answer']) && ($question['correct_answer'] == 'answer1') ? 'checked="checked'  : '' }}>
+                                            <!--  <input type="radio" name="r1" checked="checked"> -->
+                                            <span>Đáp án A </span>
+                                        </label>
+                                        <label class="mgRight10">
+                                            <input type="radio" name="correct_answer" class="flat-red"
+                                                   value="answer2" {{ isset($question['correct_answer']) && ($question['correct_answer'] == 'answer2') ? 'checked="checked'  : '' }}>
+                                            <span>Đáp án B </span>
+                                        </label>
+                                        <label class="mgRight10">
+                                            <input type="radio" name="correct_answer" class="flat-red"
+                                                   value="answer3" {{ isset($question['correct_answer']) && ($question['correct_answer'] == 'answer3') ? 'checked="checked'  : '' }}>
+                                            <span>Đáp án C </span>
+                                        </label>
+                                        <label class="mgRight10">
+                                            <input type="radio" name="correct_answer" class="flat-red"
+                                                   value="answer4" {{ isset($question['correct_answer']) && ($question['correct_answer'] == 'answer4') ? 'checked="checked'  : '' }}>
+                                            <span>Đáp án D </span>
+                                        </label>
+
+                                    </div>
+
+
+
+                                </div>
+
+                            </div>
+
+
+                            {{--btnGroup 1--}}
+                            <div class="form-group mgBottom0 mgBottom20 btnGroup">
+                                {{--<button class="btn   btn-block btn-success" id="addfile" type="button" data-toggle="modal"--}}
+                                {{--data-target="#myModal" dataid="{{ isset($question['id_ques']) ? $question['id_ques'] : '' }}"--}}
+                                {{--<i class="fa fa-plus mgRight5" aria-hidden="true"></i>Thêm câu hỏi--}}
+                                {{--</button>--}}
+
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="clickmodal(this)" dataid="add01"> <i class="fa fa-plus mgRight5" aria-hidden="true" ></i>Thêm câu hỏi
+                                </button>
+
+                                {{--<button type="button" class="btn btn-primary" id="addfile">Thêm mới câu hỏi</button>--}}
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="clickmodalcopy(this)" dataid="{{ $question->id_ques }}"><i class="fa fa-clone mgRight5" aria-hidden="true"></i>Copy câu hỏi</button>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-pencil mgRight5" aria-hidden="true"></i>Lưu câu hỏi</button>
+
+                                <button type="button" class="btn btn-default"><a
+                                            href="{{ route('question.destroy', ['id_ques' => $question->id_ques]) }}"
+                                            class="btnDelete" data-toggle="modal"
+                                            data-target="#myModalDelete"
+                                            onclick="return submitDelete(this);"
+                                            style="color: #636b6f;text-decoration: none"><i class="fa fa-trash-o mgRight5" aria-hidden="true"></i>Xóa câu hỏi
+                                    </a></button>
+
+
+
+                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times mgRight5" aria-hidden="true"></i>Hủy bỏ
+                                </button>
+                            </div>
+
+
+
+
+
+
+                        </div>
+
+                        {{--end thêm mới câu hỏi--}}
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    @endforeach
+@endif
+
+{{--phan copy cau hỏi--}}
+@if(!empty($question_1))
+    @foreach($question_1 as $id=>$question)
+        <div class="modal fade bs-example-modal-lg adđModalQuestion"
+             id="copy{{ isset($question['id_ques']) ? $question['id_ques'] : '' }}" tabindex="-1"
+             role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <form role="form" action="{{ route('question.store') }}" method="POST" id="valiadateForm">
+                    {!! csrf_field() !!} {{ method_field('POST') }} {{-- Dạng câu hỏi trắc nghiệm --}}
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Copy từ  câu hỏi {{ $id+1 }} </h4>
+                        </div>
+                        <div class="modal-body pd0">
+                            <input type="hidden" name="id_exam" value="{{ $e_xam->id_exam }}"/>
+                            <input type="hidden" name="id_ques" value="{{ $question->id_ques }}"/>
+                            {{--kiêu câu hoi--}} {{--0 là kiểu trắc nghiệm--}}
+                            <input type="hidden" name="type_ques" value="0"/>
+                            <div class="form-group col60">
+                                <label for="exampleInputEmail1 ">Tiêu đề câu hỏi (*)</label>
+                                <textarea class="editor w" id="copyadd01{{ $id+1 }}" name="name_ques"
+                                          rows="10" cols="80"/>
+                                {!! isset($question['name_ques']) ? $question['name_ques'] : '' !!}
+                                </textarea>
+                            </div>
+                            <div class="form-group mgBottom0 col40 ">
+                                <label><strong>Trình bày đáp án : </strong></label>
+                                <br>
+
+                                <label class="mgRight10 w100">
+                                    <input type="radio" name="show_answer_ques0" class="flat-red"
+                                           value="0"
+                                            {{ isset($question['show_answer_ques']) && ($question['show_answer_ques'] == 0) ? 'checked="checked'  : '' }}>
+                                    <!--  <input type="radio" name="r1" checked="checked"> -->
+                                    <span>Chia đều hai cột </span>
+                                </label>
+                                <label class="mgRight10 w100">
+                                    <input type="radio" name="show_answer_ques0" class="flat-red"
+                                           value="1"
+                                            {{ isset($question['show_answer_ques']) && ($question['show_answer_ques'] == 1) ? 'checked="checked'  : '' }}>
+                                    <span>Các đáp án trên một hàng </span>
+                                </label>
+                                <label class="mgRight10 w100">
+                                    <input type="radio" name="show_answer_ques0" class="flat-red"
+                                           value="2"
+                                            {{ isset($question['show_answer_ques']) && ($question['show_answer_ques'] == 2) ? 'checked="checked'  : '' }}>
+                                    <span>Mỗi đáp án trên một hàng </span>
+                                </label>
+                                <div class="">
+
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-12 control-label">Đáp
+                                            án A (*)
+                                        </label>
+                                        <div class="col-sm-12 mgBottom5 ">
+                                            <input type="text" class="form-control" id="inputEmail3"
+                                                   placeholder="Đáp án A" name="answer1"
+                                                   value="{{ isset($question['answer1']) ? $question['answer1'] : '' }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-12 control-label">Đáp
+                                            án B (*)
+                                        </label>
+
+                                        <div class="col-sm-12 mgBottom5 ">
+                                            <input type="text" class="form-control" id="inputEmail3"
+                                                   placeholder="Đáp án B" name="answer2"
+                                                   value="{{ isset($question['answer2']) ? $question['answer2'] : '' }}">
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-12 control-label">Đáp
+                                            án C (*)
+                                        </label>
+
+                                        <div class="col-sm-12 mgBottom5 ">
+                                            <input type="text" class="form-control" id="inputEmail3"
+                                                   placeholder="Đáp án C" name="answer3"
+                                                   value="{{ isset($question['answer3']) ? $question['answer3'] : '' }}">
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-12 control-label">Đáp
+                                            án D (*)
+                                        </label>
+
+                                        <div class="col-sm-12 mgBottom5 ">
+                                            <input type="text" class="form-control" id="inputEmail3"
+                                                   placeholder="Đáp án D" name="answer4"
+                                                   value="{{ isset($question['answer4']) ? $question['answer4'] : '' }}">
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+
+                                    <div class="form-group mgBottom0">
+                                        <label><strong>Chọn đáp án đúng : </strong></label>
+                                        <br>
+
+                                        <label class="mgRight10">
+                                            <input type="radio" name="correct_answer0" class="flat-red"
+                                                   value="answer1" {{ isset($question['correct_answer']) && ($question['correct_answer'] == 'answer1') ? 'checked="checked'  : '' }}>
+                                            <!--  <input type="radio" name="r1" checked="checked"> -->
+                                            <span>Đáp án A </span>
+                                        </label>
+                                        <label class="mgRight10">
+                                            <input type="radio" name="correct_answer" class="flat-red"
+                                                   value="answer2" {{ isset($question['correct_answer']) && ($question['correct_answer'] == 'answer2') ? 'checked="checked'  : '' }}>
+                                            <span>Đáp án B </span>
+                                        </label>
+                                        <label class="mgRight10">
+                                            <input type="radio" name="correct_answer" class="flat-red"
+                                                   value="answer3" {{ isset($question['correct_answer']) && ($question['correct_answer'] == 'answer3') ? 'checked="checked'  : '' }}>
+                                            <span>Đáp án C </span>
+                                        </label>
+                                        <label class="mgRight10">
+                                            <input type="radio" name="correct_answer" class="flat-red"
+                                                   value="answer4" {{ isset($question['correct_answer']) && ($question['correct_answer'] == 'answer4') ? 'checked="checked'  : '' }}>
+                                            <span>Đáp án D </span>
+                                        </label>
+
+                                    </div>
+
+
+
+                                </div>
+
+                            </div>
+
+
+                            {{--btnGroup 1--}}
+                            <div class="form-group mgBottom0 mgBottom20 btnGroup">
+                                {{--<button class="btn   btn-block btn-success" id="addfile" type="button" data-toggle="modal"--}}
+                                {{--data-target="#myModal" dataid="{{ isset($question['id_ques']) ? $question['id_ques'] : '' }}"--}}
+                                {{--<i class="fa fa-plus mgRight5" aria-hidden="true"></i>Thêm câu hỏi--}}
+                                {{--</button>--}}
+
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="clickmodal(this)" dataid="myModal"> <i class="fa fa-plus mgRight5" aria-hidden="true" ></i>Thêm câu hỏi
+                                </button>
+
+                                {{--<button type="button" class="btn btn-primary" id="addfile">Thêm mới câu hỏi</button>--}}
+
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-pencil mgRight5" aria-hidden="true"></i>Lưu câu hỏi</button>
+
+
+                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times mgRight5" aria-hidden="true"></i>Hủy bỏ
+                                </button>
+                            </div>
+
+
+
+                        </div>
+
+                        {{--end thêm mới câu hỏi--}}
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    @endforeach
+@endif
+{{--modal them trach nghiem 2 cau--}}
+{{--modal thêm mới câu hỏi trắc nghiệm--}}
+<div class="modal fade bs-example-modal-lg adđModalQuestion" id="myModal2" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <form role="form" action="{{ route('question.store') }}" method="POST">
+            {!! csrf_field() !!} {{ method_field('POST') }} {{-- Dạng câu hỏi trắc nghiệm --}}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Thêm mới câu hỏi (Đúng / Sai) </h4>
+                </div>
+                <div class="modal-body pd0">
+                    <input type="hidden" name="id_exam"
+                           value="{{ $e_xam->id_exam }}"/> {{--kiêu câu hoi--}} {{--0 là kiểu trắc nghiệm--}}
+                    <input type="hidden" name="type_ques" value="1"/>
+                    <div class="form-group col60">
+                        <label for="exampleInputEmail1 ">Tiêu đề câu hỏi (*)</label>
+                        <textarea class="editor w" id="add03" name="name_ques" rows="10"
+                                  cols="80"/></textarea>
+                    </div>
+                    <div class="form-group mgBottom0 col40">
+                        <label><strong>Trình bày đáp án  </strong></label>
+                        <br>
+
+                        <label class="mgRight10 w100">
+                            <input type="radio" name="show_answer_ques" class="flat-red"
+                                   checked="ckecked" value="0">
+                            <!--  <input type="radio" name="r1" checked="checked"> -->
+                            <span>Chia đều hai cột </span>
+                        </label>
+                        <label class="mgRight10 w100">
+                            <input type="radio" name="show_answer_ques" class="flat-red" value="1">
+                            <span>Các đáp án trên một hàng </span>
+                        </label>
+                        <label class="mgRight10 w100">
+                            <input type="radio" name="show_answer_ques" class="flat-red" value="2">
+                            <span>Mỗi đáp án trên một hàng </span>
+                        </label>
+                        <div class="">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-12 control-label">Đáp án A (*)
+                                    </label>
+
+                                    <div class="col-sm-12 mgBottom5 ">
+                                        <input type="text" class="form-control" id="inputEmail3"
+                                               placeholder="Đáp án A" name="answer1" value="Đúng">
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-12 control-label">Đáp án B (*)
+                                    </label>
+
+                                    <div class="col-sm-12 mgBottom5 ">
+                                        <input type="text" class="form-control" id="inputEmail3"
+                                               placeholder="Đáp án B" name="answer2" value="Sai">
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+
+
+                            </div>
+                        </div>
+                        <div class="form-group mgBottom0">
+                            <label><strong>Chọn đáp án đúng : </strong></label>
+                            <br>
+                            <label class="mgRight10">
+                                <input type="radio" name="correct_answer" class="flat-red"
+                                       checked="ckecked" value="answer1">
+                                <!--  <input type="radio" name="r1" checked="checked"> -->
+                                <span>Đáp án A </span>
+                            </label>
+                            <label class="mgRight10">
+                                <input type="radio" name="correct_answer" class="flat-red"
+                                       value="answer2">
+                                <span>Đáp án B </span>
+                            </label>
+
+                        </div>
+                        <div class="form-group mgBottom0 mgTop20">
+
+                            <button type="submit" class="btn btn-primary">Lưu câu hỏi</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Hủy bỏ
+                            </button>
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+</div>
+
+{{--modal sửa câu hỏi trắc nghiệm Đúng sai--}}
+@if(!empty($question_2))
+    @foreach($question_2 as $id=>$question2)
+        <div class="modal fade bs-example-modal-lg adđModalQuestion"
+             id="{{ isset($question2['id_ques']) ? $question2['id_ques'] : '' }}" tabindex="-1"
+             role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <form role="form" action="{{ route('question.update', ['id_ques' => $question2->id_ques]) }}
+                        " method="post">
+                    {!! csrf_field() !!}
+                    {{ method_field('PUT') }} Dạng câu hỏi trắc nghiệm Đúng Sai
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Sửa câu hỏi {{ $id+1 }} </h4>
+                        </div>
+                        <div class="modal-body pd0">
+                            <input type="hidden" name="id_exam" value="{{ $e_xam->id_exam }}"/>
+                            <input type="hidden" name="id_ques" value="{{ $question2->id_ques }}"/>
+                            {{--kiêu câu hoi--}} {{--0 là kiểu trắc nghiệm--}}
+                            <input type="hidden" name="type_ques" value="1"/>
+                            <div class="form-group col60">
+                                <label for="exampleInputEmail1 ">Tiêu đề câu hỏi (*)</label>
+                                <textarea class="editor w" id="edit2{{ $id+1 }}" name="name_ques"
+                                          rows="10" cols="80"/>
+                                {!! isset($question2['name_ques']) ? $question2['name_ques'] : '' !!}
+                                </textarea>
+                            </div>
+                            <div class="form-group mgBottom0 col40">
+                                <label><strong>Trình bày đáp án : </strong></label>
+                                <br>
+
+                                <label class="mgRight10 w100">
+                                    <input type="radio" name="show_answer_ques1" class="flat-red"
+                                           value="0"
+                                            {{ isset($question2['show_answer_ques']) && ($question2['show_answer_ques'] == 0) ? 'checked="checked'  : '' }}>
+                                    <!--  <input type="radio" name="r1" checked="checked"> -->
+                                    <span>Chia đều hai cột </span>
+                                </label>
+                                <label class="mgRight10 w100">
+                                    <input type="radio" name="show_answer_ques1" class="flat-red"
+                                           value="1"
+                                            {{ isset($question2['show_answer_ques']) && ($question2['show_answer_ques'] == 1) ? 'checked="checked'  : '' }}>
+                                    <span>Các đáp án trên một hàng </span>
+                                </label>
+                                <label class="mgRight10 w100">
+                                    <input type="radio" name="show_answer_ques1" class="flat-red"
+                                           value="2"
+                                            {{ isset($question2['show_answer_ques']) && ($question2['show_answer_ques'] == 2) ? 'checked="checked'  : '' }}>
+                                    <span>Mỗi đáp án trên một hàng </span>
+                                </label>
+
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-12 control-label">Đáp
+                                            án A (*)
+                                        </label>
+
+                                        <div class="col-sm-12 mgBottom5 ">
+                                            <input type="text" class="form-control" id="inputEmail3"
+                                                   placeholder="Đáp án A" name="answer1"
+                                                   value="{{ isset($question2['answer1']) ? $question2['answer1'] : '' }}">
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-12 control-label">Đáp
+                                            án B (*)
+                                        </label>
+
+                                        <div class="col-sm-12 mgBottom5 ">
+                                            <input type="text" class="form-control" id="inputEmail3"
+                                                   placeholder="Đáp án B" name="answer2"
+                                                   value="{{ isset($question2['answer2']) ? $question2['answer2'] : '' }}">
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+
+                                </div>
+                                <div class="form-group mgBottom0">
+                                    <label><strong>Chọn đáp án đúng : </strong></label>
+                                    <br>
+
+                                    <label class="mgRight10">
+                                        <input type="radio" name="correct_answer1" class="flat-red"
+                                               value="answer1" {{ isset($question2['correct_answer']) && ($question2['correct_answer'] == 'answer1') ? 'checked="checked'  : '' }}>
+                                        <!--  <input type="radio" name="r1" checked="checked"> -->
+                                        <span>Đáp án A </span>
+                                    </label>
+                                    <label class="mgRight10">
+                                        <input type="radio" name="correct_answer1" class="flat-red"
+                                               value="answer2" {{ isset($question2['correct_answer']) && ($question2['correct_answer'] == 'answer2') ? 'checked="checked'  : '' }}>
+                                        <span>Đáp án B </span>
+                                    </label>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="form-group mgBottom0 mgBottom20 btnGroup">
+                                {{--<button class="btn   btn-block btn-success" id="addfile" type="button" data-toggle="modal"--}}
+                                {{--data-target="#myModal" dataid="{{ isset($question['id_ques']) ? $question['id_ques'] : '' }}"--}}
+                                {{--<i class="fa fa-plus mgRight5" aria-hidden="true"></i>Thêm câu hỏi--}}
+                                {{--</button>--}}
+
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="clickmodal(this)" dataid="myModal2"> <i class="fa fa-plus mgRight5" aria-hidden="true" ></i>Thêm câu hỏi
+                                </button>
+
+                                {{--<button type="button" class="btn btn-primary" id="addfile">Thêm mới câu hỏi</button>--}}
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="clickmodalcopy(this)" dataid="{{ $question2->id_ques }}"><i class="fa fa-clone mgRight5" aria-hidden="true"></i>Copy câu hỏi</button>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-pencil mgRight5" aria-hidden="true"></i>Lưu câu hỏi</button>
+
+                                <button type="button" class="btn btn-default"><a
+                                            href="{{ route('question.destroy', ['id_ques' => $question2->id_ques]) }}"
+                                            class="btnDelete" data-toggle="modal"
+                                            data-target="#myModalDelete"
+                                            onclick="return submitDelete(this);"
+                                            style="color: #636b6f;text-decoration: none"><i class="fa fa-trash-o mgRight5" aria-hidden="true"></i>Xóa câu hỏi
+                                    </a></button>
+
+
+
+                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times mgRight5" aria-hidden="true"></i>Hủy bỏ
+                                </button>
+                            </div>
+
+
+
+
+
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    @endforeach
+@endif
+
+{{--phan copy cau hoi 2--}}
+
+@if(!empty($question_2))
+    @foreach($question_2 as $id=>$question2)
+        <div class="modal fade bs-example-modal-lg adđModalQuestion"
+             id="copy{{ isset($question2['id_ques']) ? $question2['id_ques'] : '' }}" tabindex="-1"
+             role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <form role="form" action="{{ route('question.update', ['id_ques' => $question2->id_ques]) }}
+                        " method="post">
+                    {!! csrf_field() !!}
+                    {{ method_field('PUT') }} Dạng câu hỏi trắc nghiệm Đúng Sai
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Copy từ câu hỏi {{ $id+1 }} </h4>
+                        </div>
+                        <div class="modal-body pd0">
+                            <input type="hidden" name="id_exam" value="{{ $e_xam->id_exam }}"/>
+                            <input type="hidden" name="id_ques" value="{{ $question2->id_ques }}"/>
+                            {{--kiêu câu hoi--}} {{--0 là kiểu trắc nghiệm--}}
+                            <input type="hidden" name="type_ques" value="1"/>
+                            <div class="form-group col60">
+                                <label for="exampleInputEmail1 ">Tiêu đề câu hỏi (*)</label>
+                                <textarea class="editor w" id="copyedit2{{ $id+1 }}" name="name_ques"
+                                          rows="10" cols="80"/>
+                                {!! isset($question2['name_ques']) ? $question2['name_ques'] : '' !!}
+                                </textarea>
+                            </div>
+                            <div class="form-group mgBottom0 col40">
+                                <label><strong>Trình bày đáp án : </strong></label>
+                                <br>
+
+                                <label class="mgRight10 w100">
+                                    <input type="radio" name="show_answer_ques" class="flat-red"
+                                           value="0"
+                                            {{ isset($question2['show_answer_ques']) && ($question2['show_answer_ques'] == 0) ? 'checked="checked'  : '' }}>
+                                    <!--  <input type="radio" name="r1" checked="checked"> -->
+                                    <span>Chia đều hai cột </span>
+                                </label>
+                                <label class="mgRight10 w100">
+                                    <input type="radio" name="show_answer_ques" class="flat-red"
+                                           value="1"
+                                            {{ isset($question2['show_answer_ques']) && ($question2['show_answer_ques'] == 1) ? 'checked="checked'  : '' }}>
+                                    <span>Các đáp án trên một hàng </span>
+                                </label>
+                                <label class="mgRight10 w100">
+                                    <input type="radio" name="show_answer_ques" class="flat-red"
+                                           value="2"
+                                            {{ isset($question2['show_answer_ques']) && ($question2['show_answer_ques'] == 2) ? 'checked="checked'  : '' }}>
+                                    <span>Mỗi đáp án trên một hàng </span>
+                                </label>
+
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-12 control-label">Đáp
+                                            án A (*)
+                                        </label>
+
+                                        <div class="col-sm-12 mgBottom5 ">
+                                            <input type="text" class="form-control" id="inputEmail3"
+                                                   placeholder="Đáp án A" name="answer1"
+                                                   value="{{ isset($question2['answer1']) ? $question2['answer1'] : '' }}">
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-12 control-label">Đáp
+                                            án B (*)
+                                        </label>
+
+                                        <div class="col-sm-12 mgBottom5 ">
+                                            <input type="text" class="form-control" id="inputEmail3"
+                                                   placeholder="Đáp án B" name="answer2"
+                                                   value="{{ isset($question2['answer2']) ? $question2['answer2'] : '' }}">
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+
+                                </div>
+                                <div class="form-group mgBottom0">
+                                    <label><strong>Chọn đáp án đúng : </strong></label>
+                                    <br>
+
+                                    <label class="mgRight10">
+                                        <input type="radio" name="correct_answer" class="flat-red"
+                                               value="answer1" {{ isset($question2['correct_answer']) && ($question2['correct_answer'] == 'answer1') ? 'checked="checked'  : '' }}>
+                                        <!--  <input type="radio" name="r1" checked="checked"> -->
+                                        <span>Đáp án A </span>
+                                    </label>
+                                    <label class="mgRight10">
+                                        <input type="radio" name="correct_answer" class="flat-red"
+                                               value="answer2" {{ isset($question2['correct_answer']) && ($question2['correct_answer'] == 'answer2') ? 'checked="checked'  : '' }}>
+                                        <span>Đáp án B </span>
+                                    </label>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="form-group mgBottom0 mgBottom20 btnGroup">
+                                {{--<button class="btn   btn-block btn-success" id="addfile" type="button" data-toggle="modal"--}}
+                                {{--data-target="#myModal" dataid="{{ isset($question['id_ques']) ? $question['id_ques'] : '' }}"--}}
+                                {{--<i class="fa fa-plus mgRight5" aria-hidden="true"></i>Thêm câu hỏi--}}
+                                {{--</button>--}}
+
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="clickmodal(this)" dataid="myModal2"> <i class="fa fa-plus mgRight5" aria-hidden="true" ></i>Thêm câu hỏi
+                                </button>
+
+                                {{--<button type="button" class="btn btn-primary" id="addfile">Thêm mới câu hỏi</button>--}}
+
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-pencil mgRight5" aria-hidden="true"></i>Lưu câu hỏi</button>
+
+
+
+
+                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times mgRight5" aria-hidden="true"></i>Hủy bỏ
+                                </button>
+                            </div>
+
+
+
+
+
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    @endforeach
+@endif
+{{--modal them tu luan--}}
+<div class="modal fade bs-example-modal-lg adđModalQuestion" id="myModal3" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <form role="form" action="{{ route('question.store') }}" method="POST">
+            {!! csrf_field() !!} {{ method_field('POST') }} {{-- Dạng câu hỏi trắc nghiệm --}}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Thêm mới câu hỏi tự luận </h4>
+                </div>
+                <div class="modal-body pd0">
+                    <input type="hidden" name="id_exam"
+                           value="{{ $e_xam->id_exam }}"/> {{--kiêu câu hoi--}} {{--0 là kiểu trắc nghiệm--}}
+                    <input type="hidden" name="type_ques" value="2"/>
+                    <div class="form-group col60">
+                        <label for="exampleInputEmail1 ">Tiêu đề câu hỏi (*)</label>
+                        <textarea class="editor w" id="add04" name="name_ques" rows="10"
+                                  cols="80"/> {{ old('name_ques') }}</textarea>
+                    </div>
+
+
+                    <div class="col40">
+                        <div class="">
+                            <div class="form-group ">
+                                <label for="inputEmail3" class="col-sm-12 control-label">Nhập đáp án(có thể lưu lại để so sanh vói người thi)
+                                </label>
+                            </div>
+                            <div class="form-group ">
+                                <div class="col-sm-12 mgBottom5 ">
+                                    <textarea name="correct_answer" class="w100" id="" cols="30" rows="7"></textarea>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="form-group mgTop20">
+
+                                <button type="submit" class="btn btn-primary">Lưu câu hỏi</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Hủy bỏ
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                {{--end thêm mới câu hỏi--}}
+
+
+            </div>
+        </form>
+    </div>
+</div>
+
+{{--modal sửa câu hỏi trắc nghiệm Đúng sai--}}
+@if(!empty($question_3))
+    @foreach($question_3 as $id=>$question3)
+        <div class="modal fade bs-example-modal-lg adđModalQuestion"
+             id="{{ isset($question3['id_ques']) ? $question3['id_ques'] : '' }}" tabindex="-1"
+             role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <form role="form" action="{{ route('question.update', ['id_ques' => $question3->id_ques]) }}  " method="post">
+                    {!! csrf_field() !!}
+                    {{ method_field('PUT') }} Dạng câu hỏi trắc nghiệm Đúng Sai
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Sửa câu hỏi {{ $id+1 }} </h4>
+                        </div>
+                        <div class="modal-body pd0">
+                            <input type="hidden" name="id_exam" value="{{ $e_xam->id_exam }}"/>
+                            <input type="hidden" name="id_ques" value="{{ $question3->id_ques }}"/>
+                            {{--kiêu câu hoi--}} {{--0 là kiểu trắc nghiệm--}}
+                            <input type="hidden" name="type_ques" value="2"/>
+                            <div class="form-group col60">
+                                <label for="exampleInputEmail1 ">Tiêu đề câu hỏi (*)</label>
+                                <textarea class="editor w" id="edit3{{ $id+1 }}" name="name_ques"
+                                          rows="10" cols="80"/>
+                                {!! isset($question3['name_ques']) ? $question3['name_ques'] : '' !!}
+                                </textarea>
+                            </div>
+
+
+                            <div class="form-group col40 mgBottom0">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-12 control-label">Nhập đáp án(có thể lưu lại để so sanh vói người thi)
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12 mgBottom5 ">
+                                        <textarea name="correct_answer" class="w100" id="" cols="30" rows="7"> {{ isset($question3['correct_answer']) ? $question3['correct_answer'] : '' }}</textarea>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+
+
+
+                            </div>
+
+
+                            <div class="form-group mgBottom0 mgBottom20 btnGroup">
+                                {{--<button class="btn   btn-block btn-success" id="addfile" type="button" data-toggle="modal"--}}
+                                {{--data-target="#myModal" dataid="{{ isset($question['id_ques']) ? $question['id_ques'] : '' }}"--}}
+                                {{--<i class="fa fa-plus mgRight5" aria-hidden="true"></i>Thêm câu hỏi--}}
+                                {{--</button>--}}
+
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="clickmodal(this)" dataid="myModal3"> <i class="fa fa-plus mgRight5" aria-hidden="true" ></i>Thêm câu hỏi
+                                </button>
+
+                                {{--<button type="button" class="btn btn-primary" id="addfile">Thêm mới câu hỏi</button>--}}
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="clickmodalcopy(this)" dataid="{{ $question3->id_ques }}"><i class="fa fa-clone mgRight5" aria-hidden="true"></i>Copy câu hỏi</button>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-pencil mgRight5" aria-hidden="true"></i>Lưu câu hỏi</button>
+
+                                <button type="button" class="btn btn-default"><a
+                                            href="{{ route('question.destroy', ['id_ques' => $question3->id_ques]) }}"
+                                            class="btnDelete" data-toggle="modal"
+                                            data-target="#myModalDelete"
+                                            onclick="return submitDelete(this);"
+                                            style="color: #636b6f;text-decoration: none"><i class="fa fa-trash-o mgRight5" aria-hidden="true"></i>Xóa câu hỏi
+                                    </a></button>
+
+
+
+                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times mgRight5" aria-hidden="true"></i>Hủy bỏ
+                                </button>
+                            </div>
+
+                        </div>
+
+                        {{--end thêm mới câu hỏi--}}
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    @endforeach
+@endif
+
+{{--copy cau hoi tu luan--}}
+
+@if(!empty($question_3))
+    @foreach($question_3 as $id=>$question3)
+        <div class="modal fade bs-example-modal-lg adđModalQuestion"
+             id="copy{{ isset($question3['id_ques']) ? $question3['id_ques'] : '' }}" tabindex="-1"
+             role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <form role="form" action="{{ route('question.update', ['id_ques' => $question3->id_ques]) }}  " method="post">
+                    {!! csrf_field() !!}
+                    {{ method_field('PUT') }} Dạng câu hỏi trắc nghiệm Đúng Sai
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Copy từ câu hỏi {{ $id+1 }} </h4>
+                        </div>
+                        <div class="modal-body pd0">
+                            <input type="hidden" name="id_exam" value="{{ $e_xam->id_exam }}"/>
+                            <input type="hidden" name="id_ques" value="{{ $question3->id_ques }}"/>
+                            {{--kiêu câu hoi--}} {{--0 là kiểu trắc nghiệm--}}
+                            <input type="hidden" name="type_ques" value="2"/>
+                            <div class="form-group col60">
+                                <label for="exampleInputEmail1 ">Tiêu đề câu hỏi (*)</label>
+                                <textarea class="editor w" id="copyedit3{{ $id+1 }}" name="name_ques"
+                                          rows="10" cols="80"/>
+                                {!! isset($question3['name_ques']) ? $question3['name_ques'] : '' !!}
+                                </textarea>
+                            </div>
+
+
+                            <div class="form-group col40 mgBottom0">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-12 control-label">Nhập đáp án(có thể lưu lại để so sanh vói người thi)
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12 mgBottom5 ">
+                                        <textarea name="correct_answer" class="w100" id="" cols="30" rows="7"> {{ isset($question3['correct_answer']) ? $question3['correct_answer'] : '' }}</textarea>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+
+
+
+                            </div>
+
+
+                            <div class="form-group mgBottom0 mgBottom20 btnGroup">
+                                {{--<button class="btn   btn-block btn-success" id="addfile" type="button" data-toggle="modal"--}}
+                                {{--data-target="#myModal" dataid="{{ isset($question['id_ques']) ? $question['id_ques'] : '' }}"--}}
+                                {{--<i class="fa fa-plus mgRight5" aria-hidden="true"></i>Thêm câu hỏi--}}
+                                {{--</button>--}}
+
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="clickmodal(this)" dataid="myModal3"> <i class="fa fa-plus mgRight5" aria-hidden="true" ></i>Thêm câu hỏi
+                                </button>
+
+                                {{--<button type="button" class="btn btn-primary" id="addfile">Thêm mới câu hỏi</button>--}}
+
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-pencil mgRight5" aria-hidden="true"></i>Lưu câu hỏi</button>
+
+
+
+
+
+                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times mgRight5" aria-hidden="true"></i>Hủy bỏ
+                                </button>
+                            </div>
+
+                        </div>
+
+                        {{--end thêm mới câu hỏi--}}
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    @endforeach
+@endif
+
+
+{{--them cau hoi--}}
+@if (session('suscees_add'))
+    <?php $id_ques = session('suscees_add');?>
+    {{--$('#{{$id_ques}}').modal('show');--}}
+    <script>
+        {{--alert({{$id_ques}})--}}
+        $('#{{$id_ques}}').modal('show');
+    </script>
+@endif
+{{--trac nghiem  4 cau--}}
+<script>
+    function clickmodal(e)
+    {
+        var id = $(e).attr('dataid');
+        $('#'+ id +'').modal('show');
+    }
+</script>
+<script>
+    // $( document ).ready(function() {
+    //     $('#46').modal('hiden');
+    // });
+    function clickmodalcopy(e) {
+        var id = $(e).attr('dataid');
+        $('#copy'+ id +'').modal('show');
+    }
+
+
+</script>

@@ -1,0 +1,6 @@
+
+In SocialController.php line 7:
+                                                         
+  Class 'App\Http\Controllers\Api\Controller' not found  
+                                                         
+

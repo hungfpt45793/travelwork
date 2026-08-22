@@ -1,0 +1,245 @@
+<div class="modal fade" style="z-index: 1000000" id="kich_hoat_klhoa_hoc" tabindex="-1" role="dialog"
+     aria-hidden="true">
+    <div class="modal-dialog p-2" role="document">
+
+        <form class="modal-content px-3 py-2 border-0 shadow-lg">
+            <div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="d-flex align-items-center flex-column p-3">
+                <h5 class="m-0">Kích hoạt khóa học</h5>
+                <input type="text" class="text-center px-5 py-1 my-3 " styles="padding" placeholder="Nhập mã kích hoạt"/>
+            </div>
+
+            <div>
+                <input type="submit" class="btn text-white bgorang mx-auto d-block mb-3" styles="background-color:#fd7e14!important;" value="Kích Hoạt" />
+            </div>
+        </form>
+
+
+    </div>
+
+</div>
+
+<header class="showOnMobile bdBottomGray bgrBlueN">
+    <div class="menu">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            @include('site.common.item_login_mobile_course_test')
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link blueN fw7 " data-toggle="sidebar-colapse"><i class="fas fa-home white mgr5"></i>
+                            Trang chủ
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link blueN fw7 " href="{{ route('list_job_face') }}"> <i
+                                class="fas fa-users white mgr5"></i>Cổng việc làm kế
+                            toán
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link blueN fw7 " href="/mau-chung-tu/kho-tai-lieu"> <i
+                                class="fas fa-book white mgr5"></i>Kho tài liệu
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link blueN fw7 " href="{{ route('getTestAllExam') }}"><i
+                                class="far fa-question-circle white mgr5"></i>Trắc nghiệm
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link blueN fw7" href="{{ route('intership') }}">
+                            <i class="fas fa-link white mgr5"></i>Cổng thực tập
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        {{-- fas fa-chalkboard-teacher --}}
+                        <a class="nav-link blueN fw7 " href="{{ route('portEmployer') }}">
+                            Dành cho
+                            nhà tuyển dụng
+                        </a>
+                    </li>
+                    {{-- <li class="nav-item">
+                        <a class="nav-link blueN fw7" href="{{ route('list_price') }}"><i
+                                    class="fas fa-file-invoice-dollar white mgr5"></i>Bảng giá
+                        </a>
+                    </li> --}}
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <script>
+        $('#click').click(function () {
+            $('#show').toggle(500);
+        })
+
+    </script>
+</header>
+
+
+<header class="bgrBlueN pd15-40 showOnLaptopMini sticky-top" style="z-index: 100">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="logo">
+                <a href="/">
+                    <img class="lazy" src="{{ isset($information['logo']) ?  $information['logo'] : '' }}" alt="" width="100%">
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-12 col-12 block mg justify-content-center">
+            @include('site.common.item_login')
+        </div>
+        <div class="col-lg-1">
+            <a class="showHidenMenu"> <i class="fas fa-bars f22"></i></a>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 block mg lg-mgt20">
+            <div class="menu">
+                <ul class="nav justify-content-center MenudsBlock">
+                    <a href="{{ route('list_job_face') }}">
+                        <li class="nav-item text-center ">
+                            <i class="fas fa-users white f25"></i>
+                            <span class="nav-link white hvWhite f17 pdt0 ">Cổng việc làm kế
+                            toán
+                        </span>
+                        </li>
+                    </a>
+                    <a href="/mau-chung-tu/kho-tai-lieu">
+                        <li class="nav-item text-center ">
+                            <i class="fas fa-book white f25"></i>
+                            <span class="nav-link white hvWhite f17 pdt0 ">Kho tài liệu
+                        </span>
+                        </li>
+                    </a>
+                    <a href="{{ route('getTestAllExam') }}">
+                        <li class="nav-item text-center ">
+                            <i class="far fa-question-circle white f25"></i>
+                            <span class="nav-link white hvWhite f17 pdt0 ">Trắc nghiệm
+                        </span>
+                        </li>
+                    </a>
+
+                    <a href="{{ route('intership') }}">
+                        <li class="nav-item text-center ">
+                            <?php  $public_link = \App\Entity\Category::getDetailCategory('thuc-tap-ke-toan');
+                            ?>
+                            @if(isset($public_link['icon']))
+                                {!! $public_link['icon'] !!}
+                            @else
+                                <i class="fas fa-link white f25"></i>
+                            @endif
+
+                            <span class="nav-link white hvWhite f17 pdt0 ">Cổng thực tập
+                        </span>
+
+                        </li>
+                    </a>
+                    {{-- fas fa-chalkboard-teacher --}}
+                    <a href="{{ route('portEmployer') }}">
+                        <li class="nav-item text-center bdLeftWhite lg-noBorderLeft">
+                            {{-- <i class=" white f25">Dành cho</i> --}}
+                            <i class="far fa- white f25"><span class="f12">Dành cho</span></i>
+                            <span class="nav-link white hvWhite f17 pdt0 font-weight-bold" >Nhà tuyển dụng
+                        </span>
+                        </li>
+                    </a>
+                    {{-- <a href="{{ route('list_price') }}">
+                        <li class="nav-item text-center">
+                            <i class="fas fa-file-invoice-dollar white f25"></i>
+                            <span class="nav-link white hvWhite f17 pdt0 ">Bảng giá
+                        </span>
+                        </li>
+                    </a> --}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<header class="bgrBlueN pd15-40 showOnDesktop sticky-top"  style="z-index: 100">
+    <div class="row">
+        <div class="col-xl-2 col-lg-2 col-md-2 block mg">
+            <div class="logo">
+                <a href="/">
+                    <img class="lazy" src="{{ isset($information['logo']) ?  $information['logo'] : '' }}" alt="" width="100%">
+                </a>
+            </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-7 block mg">
+            <div class="menu">
+                {{--menu chinh--}}
+                <ul class="nav justify-content-center MenudsBlock">
+                    <a href="{{ route('list_job_face') }}">
+                        <li class="nav-item text-center ">
+                            <i class="fas fa-users white f25"></i>
+                            <span class="nav-link white hvWhite f17 pdt0">
+                                Cổng việc làm du lịch
+                            </span>
+                        </li>
+                    </a>
+                    <a href="/mau-chung-tu/kho-tai-lieu">
+                        <li class="nav-item text-center ">
+                            <i class="fas fa-book white f25"></i>
+                            <span class="nav-link white hvWhite f17 pdt0 ">Kho tài liệu
+                        </span>
+                        </li>
+                    </a>
+                    <a href="{{ route('getTestAllExam') }}">
+                        <li class="nav-item text-center ">
+                            <i class="far fa-question-circle white f25"></i>
+                            <span class="nav-link white hvWhite f17 pdt0 ">Trắc nghiệm
+                        </span>
+                        </li>
+                    </a>
+                    <!--
+                    -->
+                    <a href="{{ route('intership') }}">
+                        <li class="nav-item text-center ">
+                            <i class="fas fa-link white f25"></i>
+                            <span class="nav-link white hvWhite f17 pdt0 ">Cổng thực tập
+                        </span>
+                        </li>
+                    </a>
+                    {{-- fas fa-chalkboard-teacher --}}
+                    <a href="{{ route('portEmployer') }}">
+                        <li class="nav-item text-center bdLeftWhite lg-noBorderLeft">
+                            {{-- <i class=" white f25">Dành cho</i> --}}
+                            {{-- <i class="fas fa- white f25">Dành cho</i> --}}
+                            <i class="white f19"><span class="f12">Dành cho</span></i>
+                            <span class="nav-link white hvWhite f17 pdt0 ">Nhà tuyển dụng</span>
+
+                        </li>
+                    </a>
+                    {{-- <a href="{{ route('list_price') }}">
+                        <li class="nav-item text-center">
+                            <i class="fas fa-file-invoice-dollar white f25"></i>
+                            <span class="nav-link white hvWhite f17 pdt0 ">Bảng giá
+                        </span>
+                        </li>
+                    </a> --}}
+                </ul>
+
+                {{--menu kho tài liệu--}}
+            </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-4 col-md-3 block mg">
+            @include('site.common.item_login_course_test')
+        </div>
+    </div>
+
+
+</header>
+{{--hiển thị menu toggle--}}
+
+
+
+

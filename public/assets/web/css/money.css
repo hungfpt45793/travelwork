@@ -1,0 +1,227 @@
+.table-bordered thead td, .table-bordered thead th {
+    border-bottom-width: 1px;
+}
+.rs_video h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #009385;
+    font-weight: bold;
+}
+.rs_video iframe {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 10px;
+}
+.content_money {
+    background: #fff;
+}
+
+.content_money .title_money h5 {
+    color: #009385;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border-left: 5px solid #009385;
+}
+
+.content_money .title_money h5 span {
+    color: red;
+}
+
+.content_money .NoteTransaction {
+    padding: 10px;
+    border: 1px solid red;
+}
+
+.tab_link {
+    color: #009385;
+    background-color: #fff;
+}
+
+.tab_link ul {
+    padding: 0;
+}
+
+.tab_link ul li {
+    display: inline-block;
+}
+
+.tab_link ul li a {
+    color: #009385;
+    border: 1px solid #009385;
+    background: #fff;
+    display: inline-block;
+    padding: 6px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.tab_link ul li a.active {
+    color: #fff;
+    border: 1px solid #009385;
+    background: #009385;
+}
+
+.content_tab_money .nav-tabs .nav-item.show .nav-link, .content_tab_money .nav-tabs .nav-link.active {
+    border-color: orange;
+    color: #fff;
+    background: orange;
+}
+
+.content_tab_money .nav-tabs {
+    border-bottom: 1px solid orange;
+}
+.content_tab_money .nav-tabs .nav-link
+{
+    color: orange;
+    border: 1px solid orange;
+}
+.content_tab_money .tab-content {
+    border-bottom: 1px solid orange;
+    border-left: 1px solid orange;
+    border-right: 1px solid orange;
+    margin-bottom: 20px;
+}
+.content_tab_money .tab-content .itemPostSale
+{
+    border-bottom: 1px solid orange;
+    margin: 0px;
+    padding: 10px;
+}
+.share_facebook {
+    border: 1px solid orange;
+    padding: 5px;
+    border-radius: 3px;
+    color: #fff;
+    background: orange;
+    display: inline-block;
+}
+.fb-share-button
+{
+    display: inline;
+    width: 20%;
+}
+.copy_link_post {
+    margin-bottom: 0 !important;
+    display: inline-block;
+    position: relative;
+    width: 80%;
+}
+.copy_link_post input
+{
+    width: 80% !important;
+    padding: 3px 10px;
+    display: inline-block;
+}
+.copy_link_post .input-group-append
+{
+    display: inline-block;
+}
+.copy_link_post .input-group-append button
+{
+    padding: 3px 10px;
+}
+.content_tab_money
+{
+    margin-bottom: 20px;
+}
+.content_tab_money .tab-content .itemPostSale a.link {
+    display: inline-block;
+    padding: 5px 30px;
+    background: #009385;
+    color: #fff;
+    border-radius: 30px;
+    margin-top: 8px;
+}
+.content_tab_money .tab-content .itemPostSale h3
+{
+    color: #009385;
+    font-size: 18px;
+}
+.content_tab_money .money_table
+{
+    padding: 15px;
+}
+.list_change_redeem .item_change_redeem {
+    border: 1px solid #009385;
+    padding: 10px 0;
+}
+.list_change_redeem img {
+    width: 100px;
+}
+.list_change_redeem .content .CV a {
+    color: #288fa5;
+    text-decoration-line: none;
+}
+.content_tab_money h5{
+    border-left: 5px solid #009385;
+    color: #009385;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.cutTitle2 {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    -webkit-line-clamp: 2 !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+}
+.chang_list_product .item_list_product .title_product p span.price_discount {
+    display: inline-block;
+    text-align: left;
+    border: 1px solid red;
+    background-color: red;
+    color: #fff;
+    border-radius: 30px;
+    padding: 3px 10px;
+}
+.chang_list_product .item_list_product .title_product p span.chang_software {
+    display: inline-block;
+    text-align: right;
+    border: 1px solid green;
+    background-color: green;
+    color: #fff;
+    float: right;
+    border-radius: 30px;
+    padding: 3px 10px;
+}
+.chang_list_product .item_list_product .title_product h3 {
+    color: #009385;
+}
+@media (max-width: 1000px) {
+    .content_money .title_money h5 {
+        font-size: 14px;
+        border-left: 2px solid #009385;
+    }
+    .tab_link ul li a {
+        margin-bottom: 5px;
+    }
+    .copy_link_post {
+        width: 100%;
+    }
+    .copy_link_post input {
+        margin: 2px 0;
+        width: 100% !important;
+        padding: 3px 10px;
+        display: inline-block;
+    }
+}
+@media (max-width: 980px) {
+    .rs_video iframe {
+        width: 100%;
+        height: 400px;
+        margin-bottom: 10px;
+    }
+
+    header .nav_list_dropdown a.dropdown-item {
+        color: #000 !important;
+    }
+}
+@media (max-width: 500px) {
+    .rs_video iframe {
+        width: 100%;
+        height: 300px;
+        margin-bottom: 10px;
+    }
+}

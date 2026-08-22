@@ -1,0 +1,268 @@
+.sidebar_job .sidebar_job_title {
+    padding: 5px 0;
+    font-weight: 700;
+}
+
+.sidebar_job .formJobLarge {
+    border: 1px solid lightgray;
+}
+
+.sidebar_job .side-bar-left {
+    background: #fff;
+    border-radius: 3px;
+}
+
+.sidebar_job .list_item_sidebar {
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar_job .list_item_sidebar li a {
+    padding: 8px 20px;
+    display: block;
+    font-size: 16px;
+    padding-left: 10px;
+    color: green;
+    text-decoration: none;
+}
+
+.sidebar_job .list_item_sidebar li a i {
+    margin-right: 10px;
+}
+
+.sidebar_job .list_item_sidebar li a.list_item_title_noti {
+    background: #009385;
+    color: #fff;
+}
+
+.sidebar_job .list_item_sidebar li a.list_item_sidebar_title {
+    background-color: #2d670c;
+    color: #fff;
+
+}
+
+.sidebar_job .list_item_sidebar li ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar_job .list_item_sidebar li ul li a:hover {
+    background: #009385;
+    color: #fff;
+}
+
+.sidebar_job .BannerQc {
+    border: 1px solid lightgray;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.sidebar_job .BannerQc img {
+    max-width: 100%;
+}
+
+.sidebar_job .accountThumbnail img {
+    border-radius: 50%;
+}
+
+.contentSidebar {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: #fff;
+}
+
+.contentSidebar .sidebarFillter {
+    padding: 20px;
+}
+
+.contentSidebar .sidebarFillter .box_header_sidebar h5 {
+    border-left: 5px solid #009385;
+    color: #009385;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+.btn_submit_job_search_sidebar {
+    display: block;
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 16px;
+    background: green;
+    color: #fff;
+    border: 1px solid green;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sidebat_job {
+    background: #fff;
+    margin-top: 20px;
+    border-left: 1px solid #ccc;
+}
+
+.sidebat_job h3.titleJob {
+    font-weight: 700;
+    color: #fff;
+    font-size: 18px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 0;
+    padding: 10px;
+    background-color: #009385;
+}
+
+.item_job .item_job_salary {
+    color: #000 !important;
+}
+
+.sd_submenu2 {
+    margin-left: 20px;
+}
+
+.sd_submenu2 a {
+    font-size: 15px;
+}
+
+.st_money_teacher {
+    padding: 10px;
+    background: #fff;
+    margin-bottom: 15px;
+
+}
+
+.st_money_teacher .st_money_title {
+    color: green;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.st_money_teacher .st_money_vnd {
+    font-size: 20px;
+    color: red;
+    font-weight: bold;
+}
+
+.st_money_teacher p {
+    margin-bottom: 10px;
+}
+
+.js_sd_fixel_bottom {
+    position: fixed;
+    bottom: 40px;
+    width: 350px;
+    z-index: 3;
+}
+
+.fillterJobSubmit {
+    background: #fff;
+    border: 1px solid lightgray;
+    border-top: none;
+}
+
+.fillterJobSubmit h5.title_job_submit {
+    color: #009385;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 10px;
+    margin-bottom: 0;
+}
+
+.fillterJobSubmit .ul_list_job_submit li.li_focus {
+    background: orange;
+    color: #fff !important;
+    padding: 3px;
+}
+
+.fillterJobSubmit .ul_list_job_submit li.li_focus a {
+    color: #fff !important;
+}
+
+.fillterJobSubmit .ul_list_job_submit {
+    list-style: none;
+    padding: 10px;
+    margin-bottom: 0;
+}
+
+.fillterJobSubmit .ul_list_job_submit li .code_job {
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.fillterJobSubmit .form_filter_submit_job {
+    padding: 10px;
+}
+
+.fillterJobSubmit .form_filter_submit_job button {
+    display: block;
+    width: 100%;
+    background: #009385;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 8px 10px;
+}
+
+.form_filter_submit_job button {
+    display: inline-block;
+    background: #009385;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+    padding: 8px 10px;
+}
+.form_filter_submit_job .select2-container .select2-selection--single {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height: 35px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.form_filter_submit_job .select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border: 0;
+    border-radius: 0;
+}
+.form_filter_submit_job .select2-container .select2-selection--single .select2-selection__rendered {
+    display: block;
+    padding-left: 7px;
+    padding-right: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.form_filter_submit_job .select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height: 35px;
+
+}
+
+@media (max-width: 768px) {
+    .filter_form_search .form_search_job_border .btn_submit_search {
+        height: 35px;
+    }
+}
+
+@media (max-width: 500px) {
+    .js_sd_fixel_bottom {
+        bottom: 55px;
+    }
+
+    .sidebar_job .accountThumbnail {
+        text-align: center;
+    }
+
+    .sidebar_job .accountThumbnail img {
+        width: 100px;
+    }
+
+    .accountInfo {
+        text-align: center;
+    }
+}
+
+

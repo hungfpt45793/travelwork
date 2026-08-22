@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Setting Width and Height on Textareas</title>
+        <style>
+            .comments { width: 300px; height: 75px }
+        </style>
+    </head>
+    <body>
+        <textarea class="comments"></textarea>
+    </body>
+</html>
+
+$cv_employee
+$cv_template
+
+
+<div id="sidebar" class="hoso-scroll ">
+    <div class="box-four make-me-sticky" id="">
+        <div class="sidebar__inner">
+            <div class="title_guide_cv">
+                <h4 class="mg0"><i class="fa fa-info-circle"></i><span> Hướng dẫn</span>
+                </h4>
+            </div>
+
+
+            <div class="item item_cv_note note_guide hidden_cv_guide show_cvguidden">
+                <div class="content_guide_cv">
+                    {!!  isset($cv_note_template->note_guide) ? $cv_note_template->note_guide : '' !!}
+                </div>
+            </div>
+            <div class="item item_cv_note note_cv_personal hidden_cv_guide">
+                <div class="item_title_gui_cv">
+                    <h4><i class="fa fa-info-circle"></i> <span>Thông tin cá nhân</span></h4>
+                </div>
+                <div class="content_guide_cv">
+                    {!!  isset($cv_note_template->note_cv_personal) ? $cv_note_template->note_cv_personal : '' !!}
+                </div>
+            </div>
+            <div class="item item_cv_note note_cv_title_career_goals hidden_cv_guide">
+                <div class="item_title_gui_cv">
+                    <h4><i class="fa fa-check-circle"></i><span> Mục tiêu nghề nghiệp</span></h4>
+                </div>
+                <div class="content_guide_cv">
+                    {!!  isset($cv_note_template->note_cv_title_career_goals) ? $cv_note_template->note_cv_title_career_goals : '' !!}
+                </div>
+            </div>
+            <div class="item item_cv_note note_cv_title_prize hidden_cv_guide">
+                <div class="item_title_gui_cv">
+                    <h4><i class="fa fa-trophy"></i> <span>Giải thưởng</span></h4>
+                </div>
+                <div class="content_guide_cv">
+                    {!!  isset($cv_note_template->note_cv_title_prize) ? $cv_note_template->note_cv_title_prize : '' !!}
+                </div>
+            </div>
+            <div class="item item_cv_note note_cv_title_card hidden_cv_guide">
+                <div class="item_title_gui_cv">
+                    <h4><i class="fa fa-trophy"></i><span> Chứng chỉ</span></h4>
+                </div>
+                <div class="content_guide_cv">
+                    {!!  isset($cv_note_template->note_cv_title_card) ? $cv_note_template->note_cv_title_card : '' !!}
+                </div>
+            </div>
+            <div class="item item_cv_note note_cv_title_interests hidden_cv_guide">
+                <div class="item_title_gui_cv">
+                    <h4><i class="fa fa-heart"></i><span> Sở thích</span></h4>
+                </div>
+                <div class="content_guide_cv">
+                    {!!  isset($cv_note_template->note_cv_title_interests) ? $cv_note_template->note_cv_title_interests : '' !!}
+                </div>
+            </div>
+            <div class="item item_cv_note note_title_reference_person hidden_cv_guide">
+                <div class="item_title_gui_cv">
+                    <h4><i class="fa fa-bookmark"></i><span> Liên hệ (người tham chiếu)</span></h4>
+                </div>
+                <div class="content_guide_cv">
+                    {!!  isset($cv_note_template->note_title_reference_person) ? $cv_note_template->note_title_reference_person : '' !!}
+                </div>
+            </div>
+            <div class="item item_cv_note note_title_cv_skills hidden_cv_guide">
+                <div class="item_title_gui_cv">
+                    <h4><i class="fa fa-magic"></i> <span>Kỹ năng</span></h4>
+                </div>
+                <div class="content_guide_cv">
+                    {!!  isset($cv_note_template->note_title_cv_skills) ? $cv_note_template->note_title_cv_skills : '' !!}
+                </div>
+            </div>
+            <div class="item item_cv_note note_title_cv_specialize hidden_cv_guide">
+                <div class="item_title_gui_cv">
+                    <h4><i class="fa fa-graduation-cap"></i><span> Trình độ</span></h4>
+                </div>
+                <div class="content_guide_cv">
+                    {!!  isset($cv_note_template->note_title_cv_specialize) ? $cv_note_template->note_title_cv_specialize : '' !!}
+                </div>
+            </div>
+            <div class="item item_cv_note note_title_cv_experience hidden_cv_guide">
+                <div class="item_title_gui_cv">
+                    <h4><i class="fa fa-briefcase"></i> <span>Kinh nghiệm làm việc</span></h4>
+                </div>
+                <div class="content_guide_cv">
+                    {!!  isset($cv_note_template->note_title_cv_experience) ? $cv_note_template->note_title_cv_experience : '' !!}
+                </div>
+            </div>
+            <div class="item item_cv_note note_title_cv_work hidden_cv_guide">
+                <div class="item_title_gui_cv">
+                    <h4><i class="fa fa-group"></i> <span>Hoạt động xã hội</span></h4>
+                </div>
+                <div class="content_guide_cv">
+                    {!!  isset($cv_note_template->note_title_cv_work) ? $cv_note_template->note_title_cv_work : '' !!}
+                </div>
+            </div>
+            <div class="item item_cv_note note_title_cv_project hidden_cv_guide">
+                <div class="item_title_gui_cv">
+                    <h4><span>Dự án tham gia</span></h4>
+                </div>
+                <div class="content_guide_cv">
+                    {!!  isset($cv_note_template->note_title_cv_project) ? $cv_note_template->note_title_cv_project : '' !!}
+                </div>
+            </div>
+            <div class="item item_cv_note note_title_cv_info hidden_cv_guide">
+                <div class="item_title_gui_cv">
+                    <h4><i class="fa fa-pencil"></i> <span>Thông tin khác</span></h4>
+                </div>
+                <div class="content_guide_cv">
+                    {!!  isset($cv_note_template->note_cv_info) ? $cv_note_template->note_cv_info : '' !!}
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

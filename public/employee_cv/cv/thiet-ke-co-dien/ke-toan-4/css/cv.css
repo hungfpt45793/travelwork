@@ -1,0 +1,297 @@
+#form-cv{
+	width: 100%;
+	float: left;
+	position: relative;
+	font-size: 14px;
+	line-height: 24px;
+	color:#070000;	
+}
+#sortable .cvo-block{
+	margin-bottom: 20px;
+	margin-top: 8px;	
+	padding: 10px;
+	border: dashed 1px #228c7b;
+	padding-top: 0px;
+
+}
+
+#box01{
+	border: none!important;
+}
+
+#sortable .icoweb i.fa{
+	float: left;
+}
+#cv-main{
+	display: table;
+	width: 100%;
+	border-left: solid 1px #228c7b;
+	border-right: solid 1px #228c7b;
+	    padding-top: 20px;
+}
+.ftlx{
+	background: url('ft.png') bottom center no-repeat #fff;
+	height: 110px;
+	float: left;width: 100%;
+		border-left: solid 1px #228c7b;
+	border-right: solid 1px #228c7b;
+
+}
+#cv-top{		
+    text-align: center;    
+    background: url('hd.png') top center no-repeat #fff;
+    border-left: solid 1px #228c7b;
+	border-right: solid 1px #228c7b;
+	width: 100%;
+	padding-top: 35px;
+}
+#cvo-profile{
+	display: block;
+}
+#cv-content{
+	width: 60%;
+	float: right;
+	position: relative;	
+	background: #ffffff;
+	border-left: solid 2px #228c7b;
+}
+#cv-right{
+	width: 39%;
+	float: left;	
+	position: relative;	
+	background:#ffffff;
+}
+#cv-right .ir{
+	padding: 0px 10px 0px 15px;
+}
+p.skill-name input{
+	color: #070000!important;
+}
+
+#cv-right .ctbx {
+	padding: 0;
+	margin:0;
+	border:0;
+}
+.skill{
+	margin-top: 15px
+}
+
+
+#cv-top h1{
+	font-size: 36px;
+    line-height: normal;
+    text-transform: uppercase;
+    text-align: left;
+    margin-bottom: 0;
+    letter-spacing: 4px;
+    margin-left: 0px;
+    color: #374d59;
+    font-weight: 500;
+    margin-top: 10px;
+    float: left;
+    width: 100%;
+}
+
+#box-hvt{
+    width: 56%;
+    margin-top: 45px;
+}
+
+#cv-top h2{
+	font-size: 24px;
+    text-align: left;
+    color: #374d59;
+    padding-left: 43px;
+    margin-top: 0px;
+}
+
+.box-01 p h2{	
+    padding-top: 10px;
+}
+
+#cv-content .ir{
+	margin:0 15px;
+}
+#cv-content p{
+	margin-bottom: 5px
+}
+#cv-content .ir a{
+	color: #2ebb2f
+}
+#cv-right .h3, #cv-right h3, #cv-content .head{
+	font-size: 18px;    
+    margin-top: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+#cv-right h3{
+	margin-bottom: 10px;
+	width: 225px;
+	margin-top: 10px;
+}
+#cv-right h3 span{
+	color: #374d59;
+}
+
+#cv-content .head {
+    height: 30px;
+    line-height: 30px;
+}
+
+
+#cv-content .head span{	
+	color: #374d59;
+	font-size: 20px;
+
+}
+
+#cv-right .h3{
+	height: 45px;
+	text-align: center;
+	width: 100%;
+}
+
+#cv-right .h3 span{
+	margin: 3px 0px;
+	color: #000000;
+	line-height: 43px;
+}
+#cv-content h3{	
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.ctbx{
+	padding-left: 10px;
+	padding-right: 10px
+}
+
+#cv-content span{
+	display: inline-block;	
+	z-index: 9999;
+}
+#cv-content .exp-title{
+	font-size: 18px;
+	font-weight: 300;
+}
+#cv-right .h3:first-child{
+	margin-top: 0
+}
+.ctbx{
+	margin-bottom: 20px;
+	position: relative;
+}
+.ctbx .r5 .h3{
+	text-transform: uppercase;
+}
+.ctbx:hover {
+	box-shadow: 0 0 1px #999;
+}
+.ctbx:hover .fieldgroup_controls{
+	display: block;
+}
+[cvo-form-field] {
+    cursor: text;
+}
+#box-hvt{
+    float: left;
+    text-align: center;
+    margin-left: 100px;
+}
+#cvo-profile-avatar-wraper{	    
+    float: left;
+    width: 140px;
+    border: solid 3px #374d59;
+    padding: 5px;
+    margin-left: 90px; 
+}
+#cvo-profile-avatar-wraper img{
+  	width: 140px;
+  	height: 140px;
+}
+#line-seperate {
+    height: 25px;
+}
+.bar-exp div {
+    float: left;
+    height: 8px;
+    background: #228c7b;
+    
+}
+.bar-exp {
+  	width: 100%;
+  	background: #faeea2;
+  	height: 8px;
+  	float: right;
+  	margin-bottom: 12px;
+}      
+.icoweb label{
+	display: block;
+	color:#627e88;
+}
+.box-contact{
+	font-size: 15px;
+}
+#sortable .icoweb{
+	line-height: 32px;
+	margin-bottom: 0;
+	text-align: center;
+	border-top-right-radius: 30px;
+	border-bottom-left-radius: 30px;
+	color: #fff;
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+
+#sortable .cvi-date,
+#sortable .cvi-envelope-square{
+	background:#f6c523;
+}
+
+#sortable .cvi-user,
+#sortable .cvi-map-marker{
+	background:#304957;
+}
+
+
+#sortable .cvi-phone,
+#sortable .cvi-info{
+	background:#fe6138;
+}
+
+
+
+.exp-content{
+	padding-left: 15px;
+}
+
+.head i.fa, .h3 i.fa{
+	font-size: 12px;
+	border: solid 1px #7c7a79;
+	border-radius: 50%;
+	width: 12px;
+	color: #7c7a79;
+	/*background: white;*/
+	margin-bottom: 5px;
+	text-align: center;
+	padding: 4px;
+}
+
+
+.bar-value-exp input[type="text"]{
+	color: #000;
+}
+div#box01 span {
+    width: 230px;
+}
+span.box-content {
+    width: 270px;
+}
+.exp-content,.exp-subtitle,span.exp-title {
+    width: 100%;
+}
+
+

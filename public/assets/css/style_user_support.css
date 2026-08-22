@@ -1,0 +1,416 @@
+
+.user_support_advise .col_box_title {
+    border: 2px solid #009385;
+
+    /*margin-right: 15px;*/
+    /*margin-left: 15px;*/
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.user_support_advise .col_box_title i {
+    font-size: 35px;
+    color: #009385;
+}
+
+.user_support_advise .col_box_title span {
+    font-size: 25px;
+    color: #009385;
+    font-weight: bold;
+}
+
+.user_support_advise .col_box_title .col_title_support {
+    color: #009385;
+    width: 50%;
+    display: inline-block;
+    margin: 10px -1px;
+    padding: 5px 0px;
+}
+
+.user_support_advise .col_box_title .col_left_advise {
+    border-right: 2px solid #009385;
+}
+
+.user_support_advise .col_box_title .col_right_support {
+    text-align: right;
+}
+
+.user_support_advise .box_advise {
+    background-color: #dedede54;
+    border: 2px solid #009385;
+    padding-bottom: 15px;
+}
+
+.user_support_advise .box_advise .button_res_advíe {
+
+    background: #06AB6D;
+    text-align: center;
+    display: inline-block;
+    padding: 15px 50px;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 16px;
+    margin: 15px 0px;
+    margin-top: 25px;
+}
+
+.user_support_advise .box_advise .button_res_advíe:hover {
+
+    background: #06AB6D;
+    color: #fff;
+    cursor: pointer;
+}
+
+.user_support_advise .box_advise .item_box_advise {
+    border: 1px solid #009385;
+    border-radius: 15px;
+    padding: 15px;
+    background: #fff;
+    /*margin: 30px;*/
+    margin: 10px 30px;
+
+}
+
+.user_support_advise .box_advise .item_box_advise .box_advise_hd {
+    margin-bottom: 10px;
+
+}
+
+.user_support_advise .box_advise .item_box_advise .box_advise_hd img {
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.user_support_advise .box_advise .item_box_advise .box_advise_hd span {
+    color: #009385;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.user_support_advise .box_advise .item_box_advise .box_advise_content p i {
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+.user_support_advise .box_advise .item_box_advise .box_advise_content p.box_advise_province {
+    color: #000;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.user_support_advise .box_advise .item_box_advise .box_advise_content p.box_advise_exp {
+    color: #000;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.user_support_advise .box_advise .item_box_advise .box_advise_content .box_advise_link {
+    color: #03A15B;
+    font-size: 14px;
+}
+
+.user_support_advise .box_advise .item_box_advise .box_advise_content .box_advise_link i {
+    margin-right: 5px;
+}
+
+.content_box_res_advise label input {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.content_box_res_advise label i {
+    color: #009385;
+}
+
+.content_box_res_advise ul {
+    list-style: none;
+}
+
+#res_advise h5 {
+    color: #009385;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.advise_connect {
+    background: #009385;
+    color: #fff !important;
+    padding: 5px 15px;
+    margin-left: 20px;
+    border: 1px solid #009385;
+    cursor: pointer;
+}
+
+.list_user_support_input .form-check {
+    display: inline-block;
+    width: 32%;
+    text-align: center;
+}
+
+.color_message0 {
+    background: orange;
+    border: 1px solid orange;
+}
+
+.color_message1 {
+    /*background: orange;*/
+}
+
+.color_message2 {
+    background: red;
+    border: 1px solid red;
+}
+
+.color_message3 {
+    background: green;
+    border: 1px solid green;
+}
+
+.link_get_all {
+    background: red;
+    color: #fff;
+    padding: 5px 30px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    display: inline-block;
+    border: 1px solid red;
+    text-decoration: none;
+}
+.link_get_all:hover {
+    background: #fff;
+    color:red;
+}
+.detail_user_teacher {
+    margin: 30px 0px;
+}
+
+.box_user_teacher_left {
+    padding: 20px;
+    border: 1px solid #31B9A5;
+    border-radius: 10px;
+}
+
+.box_user_teacher_right {
+    padding: 20px;
+    border: 1px solid #31B9A5;
+    border-radius: 10px;
+}
+
+.box_user_teacher_right_img {
+    text-align: center;
+}
+
+.box_user_teacher_right_img img {
+    width: 150px;
+}
+
+.detail_user_teacher_ex_spec {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-top: 20px !important;
+}
+
+.detail_user_teacher_ex_spec .nav-tabs .nav-item.show .nav-link, .detail_user_teacher_ex_spec .nav-tabs .nav-link.active {
+    background-color: #31B9A5;
+    color: #fff;
+}
+
+.detail_user_teacher_ex_spec .nav-tabs .nav-link {
+    background-color: #15CF74;
+    color: #000;
+    margin-right: 5px;
+}
+
+.box_user_teacher_right_content ul {
+    text-align: center;
+    list-style: none;
+    padding-left: 40px;
+}
+
+.content_box_res_advise p {
+    /*margin-bottom: 0px;*/
+}
+
+.res_user_advise {
+    margin: 30px 0px;
+}
+
+.item_service_input {
+    /*display: inline-block;*/
+    /*width: calc(100%/3);*/
+    /*text-align: center;*/
+}
+
+.res_user_advise .box_res_user_advise h1 {
+    color: #03A15B;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.res_user_advise .box_res_user_advise {
+    background: #fff;
+    border: 1px solid #03A15B;
+    padding: 50px 20px;
+}
+
+.res_user_advise .box_res_user_advise .item_box_res_user {
+    background: #3dcc962e;
+    padding: 20px;
+    border: 1px solid #03A15B;
+    border-radius: 10px;
+}
+
+.res_user_advise .box_res_user_advise .item_box_res_user .header_item_box_res_user {
+    color: #03A15B;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.res_user_advise .box_res_user_advise .item_box_res_user .content_item_box_res_user {
+    padding: 10px;
+}
+
+.res_user_advise .box_res_user_advise .item_box_res_user .price_item_box_res_user {
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+
+}
+
+.res_user_advise .box_res_user_advise .item_box_res_user .price_item_box_res_user span {
+
+}
+
+.res_user_advise .box_res_user_advise .item_box_res_user .price_item_box_res_user span i {
+    background: #31B9A5;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 18px;
+    border-radius: 50%;
+}
+
+.res_user_advise .box_res_user_advise .item_box_res_user .footer_item_box_res_user button {
+    background: #31B9A5;
+    color: #fff;
+    padding: 8px 25px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.res_user_advise .box_res_user_advise .item_box_res_user .footer_item_box_res_user button i {
+    margin-left: 5px;
+
+}
+
+.body_header {
+    text-align: center;
+}
+
+.body_header img {
+    width: 150px;
+}
+
+.body_content a {
+    color: #007bff !important;
+    display: block;
+    font-size: 16px;
+    margin: 15px 0px;
+}
+
+.body_footer a {
+    display: block;
+    padding: 7px 20px;
+    width: 250px;
+    border-radius: 5px;
+    background: #03A15B;
+    color: #fff !important;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.body_footer button {
+    display: block;
+    padding: 5px 20px;
+    width: 250px;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 1000px) {
+
+}
+
+/*// Medium devices (tablets, less than 992px)*/
+@media (max-width: 991px) {
+    /*col-md-12*/
+    .dsNone_991 {
+        display: none;
+    }
+
+    .dsNone_991_implotar {
+        display: none !important;
+    }
+
+    .dsBlock_991 {
+        display: block;
+    }
+}
+
+@media (max-width: 900px) {
+
+
+}
+
+@media (max-width: 500px) {
+    .advise_connect {
+        padding: 5px 8px;
+        margin-left: 10px;
+        font-size: 13px;
+    }
+
+    .res_user_advise .box_res_user_advise h1 {
+        font-size: 18px;
+    }
+
+    .res_user_advise .box_res_user_advise .item_box_res_user {
+        margin-bottom: 15px;
+    }
+    .user_support_advise .col_box_title span {
+        font-size: 13px;
+    }
+    .user_support_advise .col_box_title i {
+        font-size: 18px;
+    }
+    .user_support_advise .box_advise {
+        margin-bottom: 5px;
+    }
+    .user_support_advise .box_advise .button_res_advíe {
+        background: #06AB6D;
+        text-align: center;
+        display: inline-block;
+        padding: 5px 50px;
+        color: #fff;
+        border-radius: 3px;
+        font-size: 15px;
+        margin: 5px 0px;
+        margin-top: 25px;
+    }
+}

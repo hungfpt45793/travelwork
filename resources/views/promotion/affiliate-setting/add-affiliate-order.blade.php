@@ -1,0 +1,207 @@
+@extends('admin.layout.admin')
+
+@section('title', 'Khuyến mãi theo giá trị hóa đơn')
+
+@section('content')
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Khuyến mãi theo giá trị hóa đơn
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Khuyến mãi theo giá trị hóa đơn</a></li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <!-- form start -->
+            <form role="form" action="{{ route('affiliate-group.store') }}" method="POST">
+                {!! csrf_field() !!}
+                {{ method_field('POST') }}
+                <div class="col-xs-12 col-md-6">
+
+                    <!-- Nội dung thêm mới -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Khuyến mãi theo giá trị hóa đơn</h3>
+                        </div>
+                        <!-- /.box-header -->
+
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Tên chương trình</label>
+                                <input type="text" class="form-control" name="title" placeholder="Tên đợi phát hành" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Mô tả</label>
+                                <textarea class="form-control" id="content" name="content" rows="3" cols="80"/></textarea>
+                            </div>
+
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+
+                </div>
+                <div class="col-xs-12 col-md-6">
+
+                    <!-- Nội dung thêm mới -->
+                    <div class="box box-primary">
+
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Ngày bắt đầu</label>
+                                <input type="date" class="form-control" name="title" placeholder="Tên đợi phát hành" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Ngày kết thúc</label>
+                                <input type="date" class="form-control" name="title" placeholder="Tên đợi phát hành" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Độ ưu tiên</label>
+                                <select class="form-control">
+                                    <option>Số 1 (cao nhất)</option>
+                                    <option>Số 2</option>
+                                    <option>Số 3</option>
+                                    <option>Số 4</option>
+                                    <option>Số 5</option>
+                                </select>
+                                <p>Độ ưu tiên được tính từ 1 tới 5. Hệ thống sẽ tự động áp dụng chương trình có độ ưu tiên cao nhất.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                        <!-- /.box-body -->
+                </div>
+
+                    <!-- /.box -->
+                <div class="col-xs-12 col-md-12">
+
+                    <!-- Nội dung thêm mới -->
+                    <div class="box box-primary">
+
+                        <div class="box-body">
+                            <table id="jobs" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3">Giá trị đơn hàng</th>
+                                        <th colspan="2">Nội dung triết khấu</th>
+                                    </tr>
+                                </thead>
+                                <thead>
+                                <tr>
+                                    <th>Từ</th>
+                                    <th>Đến</th>
+                                    <th>Nhóm mã</th>
+                                    <th>Chiết khấu</th>
+                                    <th>Tính theo</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" /></td>
+                                        <td><input type="text" /></td>
+                                        <td>
+                                            <select>
+                                                <option>-Nhóm-</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text" />
+                                        </td>
+                                        <td>
+                                            <select>
+                                                <option>Tiền mặt</option>
+                                                <option>Phần trăm %</option>
+                                            </select>
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                <tr>
+                                    <td><input type="text" /></td>
+                                    <td><input type="text" /></td>
+                                    <td>
+                                        <select>
+                                            <option>-Nhóm-</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" />
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>Tiền mặt</option>
+                                            <option>Phần trăm %</option>
+                                        </select>
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </td>
+
+                                </tr>
+                                </tbody>
+                                <tbody>
+                                <tr>
+                                    <td><input type="text" /></td>
+                                    <td><input type="text" /></td>
+                                    <td>
+                                        <select>
+                                            <option>-Nhóm-</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" />
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>Tiền mặt</option>
+                                            <option>Phần trăm %</option>
+                                        </select>
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </td>
+
+                                </tr>
+                                </tbody>
+                                <tbody>
+                                <tr>
+                                    <td><input type="text" /></td>
+                                    <td><input type="text" /></td>
+                                    <td>
+                                        <select>
+                                            <option>-Nhóm-</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" />
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>Tiền mặt</option>
+                                            <option>Phần trăm %</option>
+                                        </select>
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </td>
+
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="box-footer">
+                                <button class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i> Lưu</button>
+                                <button class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i> Thêm dòng</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+
+            </form>
+        </div>
+    </section>
+@endsection
+

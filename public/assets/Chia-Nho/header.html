@@ -1,0 +1,210 @@
+  <header class="showOnMobile bdBottomGray">
+    <div class="menu container">
+        <nav class="navbar navbar-light navbar-expand-md">
+            <a class="navbar-brand" href="/" style="color:#802390">
+                <img src="./image/255x70_fw_logo.png" alt="logo" width="100%">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-expanded="true" id='click'>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse show" id="show" style="display: none;">
+                <a class="nav-link blueN fw7" href="">Công việc kế toán</a>
+                <a class="nav-link blueN fw7" href="">Cổng tạo CV</a>
+                
+                <a class="nav-link blueN fw7" href="/">Cổng trắc nghiệm</a>
+                <a class="nav-link blueN fw7" href="/">Cổng liên kết</a>
+                <a class="nav-link blueN fw7" href="/">Nhà tuyển dụng</a>
+                <a class="nav-link blueNIm fw7"  data-toggle="modal" data-target="#loginTiva" title="Đăng nhập">Đăng nhập</a>
+                <a class="nav-link blueN fw7" href="/">Hỗ trợ</a>
+            </div>
+        </nav>
+    </div>
+    <div class="modal fade" id="loginTiva" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bkviolet">
+                    <h5 class="modal-title white" id="exampleModalLabel">ĐĂNG NHẬP</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="white" aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <form action="https://tiva.vn/dang-nhap" method="post">
+                    <input type="hidden" name="_token" value="IgM87rhlL7BnnidK301mXE4aBB99TrpEUKCJR7PJ">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email đăng ký <span class="red">(*)</span></label>
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập vào email của bạn">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Mật khẩu <span class="red">(*)</span></label>
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập mật khẩu của bạn">
+                        </div>
+                                                <div class="form-group">
+                            <label for="exampleInputPassword1"> <a href="">Quên mật khẩu</a></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Bạn chưa có tài khoản?
+                                <a href="" data-toggle="modal" data-target="#registerTiva" onclick="$('#loginTiva').modal('hide')">Đăng ký tài khoản</a>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">ĐÓNG</button>
+                        <button type="submit" class="btn bkblue white">ĐĂNG NHẬP</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      $('#click').click(function(){
+         $('#show').toggle(500);
+      })
+            
+   </script>
+
+<!-- TẠO TÀI KHOẢN -->
+    <!-- <div class="modal fade" id="registerTiva" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bkviolet">
+                    <h5 class="modal-title white" id="exampleModalLabel">ĐĂNG KÝ TÀI KHOẢN</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="white" aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <form action="https://tiva.vn/dang-ky" method="post">
+                    <input type="hidden" name="_token" value="IgM87rhlL7BnnidK301mXE4aBB99TrpEUKCJR7PJ">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Họ và tên <span class="red">(*)</span></label>
+                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Họ và tên ...">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Số điện thoại <span class="red">(*)</span></label>
+                            <input type="number" name="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Số điện thoại ...">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email đăng ký <span class="red">(*)</span></label>
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập vào email của bạn">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Mật khẩu <span class="red">(*)</span></label>
+                            <input type="password" class="form-control" name="password" placeholder="Mật khẩu" value="" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Nhập lại Mật khẩu <span class="red">(*)</span></label>
+                            <input type="password" class="form-control" name="password_confirmation" placeholder="Mật khẩu đăng nhập" value="" required="">
+                        </div>
+                                                                                            </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">ĐÓNG</button>
+                        <button type="submit" class="btn bkblue white">ĐĂNG KÝ</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> -->
+  </header>
+
+
+
+
+
+
+
+    <header class="bgrBlueN pd15-40 showOnLaptopMini">
+        <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-12 col-12 block mg">
+                <div class="logo">
+                    <img src="./image/255x70_fw_logo1.png" alt="" width="100%">
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-12 col-12 block mg">
+                <div class="login">
+                    <ul class="nav justify-content-end">
+                      <li class="nav-item">
+                        <a class="nav-link white f17" href="#"><i class="fas fa-users"></i> Tài khoản</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link white f17" href="#"><i class="far fa-question-circle"></i> Hỗ trợ</a>
+                      </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 block mg lg-mgt20">
+                <div class="menu">
+                    <ul class="nav justify-content-center">
+                      <li class="nav-item text-center">
+                        <i class="fas fa-users white f25"></i>
+                        <a class="nav-link white hvWhite f17 pdt0 lg-pd0-7" href="#">Cổng việc làm kế toán</a>
+                      </li>
+                      <li class="nav-item text-center">
+                        <i class="fas fa-user-tie white f25"></i>
+                        <a class="nav-link white hvWhite f17 pdt0 lg-pd0-7" href="#">Cổng tạo CV</a>
+                      </li>
+                      <li class="nav-item text-center">
+                        <i class="fas fa-clipboard-check white f25"></i>
+                        <a class="nav-link white hvWhite f17 pdt0 lg-pd0-7" href="#">Cổng trắc nghiệm</a>
+                      </li>
+                      <li class="nav-item text-center">
+                        <i class="fas fa-link white f25"></i>
+                        <a class="nav-link white hvWhite f17 pdt0 lg-pd0-7" href="#">Cổng liên kết</a>
+                      </li>
+                      <li class="nav-item text-center bdLeftWhite lg-noBorderLeft">
+                        <i class="fas fa-chalkboard-teacher white f25"></i>
+                        <a class="nav-link white hvWhite f17 pdt0 lg-pd0-7" href="#">Nhà tuyển dụng</a>
+                      </li>
+                    </ul>
+                </div>
+            </div>       
+        </div>
+    </header>
+    <header class="bgrBlueN pd15-40 showOnDesktop">
+        <div class="row">
+            <div class="col-xl-2 block mg">
+                <div class="logo">
+                    <img src="./image/255x70_fw_logo1.png" alt="" width="100%">
+                </div>
+            </div>
+            <div class="col-xl-7 block mg">
+                <div class="menu">
+                    <ul class="nav justify-content-center">
+                      <li class="nav-item text-center">
+                        <i class="fas fa-users white f25"></i>
+                        <a class="nav-link white hvWhite f17 pdt0" href="#">Cổng việc làm kế toán</a>
+                      </li>
+                      <li class="nav-item text-center">
+                        <i class="fas fa-user-tie white f25"></i>
+                        <a class="nav-link white hvWhite f17 pdt0" href="#">Cổng tạo CV</a>
+                      </li>
+                      <li class="nav-item text-center">
+                        <i class="fas fa-clipboard-check white f25"></i>
+                        <a class="nav-link white hvWhite f17 pdt0" href="#">Cổng trắc nghiệm</a>
+                      </li>
+                      <li class="nav-item text-center">
+                        <i class="fas fa-link white f25"></i>
+                        <a class="nav-link white hvWhite f17 pdt0" href="#">Cổng liên kết</a>
+                      </li>
+                      <li class="nav-item text-center bdLeftWhite">
+                        <i class="fas fa-chalkboard-teacher white f25"></i>
+                        <a class="nav-link white hvWhite f17 pdt0" href="#">Nhà tuyển dụng</a>
+                      </li>
+                    </ul>
+                </div>
+            </div> 
+            <div class="col-xl-3 block mg">
+                <div class="login">
+                    <ul class="nav justify-content-end">
+                      <li class="nav-item">
+                        <a class="nav-link white f17" href="#"><i class="fas fa-users"></i> Tài khoản</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link white f17" href="#"><i class="far fa-question-circle"></i> Hỗ trợ</a>
+                      </li>
+                    </ul>
+                </div>
+            </div>       
+        </div>
+    </header>

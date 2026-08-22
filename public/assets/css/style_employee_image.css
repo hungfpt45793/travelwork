@@ -1,0 +1,81 @@
+.cus_style_image .i_3x4 {
+    margin-top: 95px;
+    display: inline-block;
+}
+.cus_style_image .select_scrop_image
+{
+    height: 45px;
+    display: block;
+    z-index: 1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 78px;
+    right: 52px;
+    width: 80px;
+    position: absolute;
+}
+@media (max-width: 1450px) {
+    .cus_style_image .i_3x4 {
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 500px) {
+    .cus_style_image .select_scrop_image {
+        top: 80px;
+        right: 113px;
+    }
+    .cus_style_image
+    {
+        text-align: center;
+    }
+    .cropme {
+        float: inherit;
+        margin: 0 auto;
+        width: 100% !important;
+        background-color: #fff;
+        margin-bottom: 5px;
+    }
+    .InfoCompanyJob
+    {
+        display: none;
+    }
+    .mb_button
+    {
+        padding: 5px 10px !important;
+    }
+    #photo {
+        width: 350px !important;
+        height: auto !important;
+        max-width: 450px !important;
+        max-height: 600px !important;
+    }
+
+    #preview {
+        left: 15px !important;
+    }
+
+    .cus_style_image .i_3x4 {
+        margin-top: 0px;
+    }
+
+    #preview .buttons {
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
+        bottom: -45px;
+        left: 0;
+        z-index: 99;
+    }
+
+    #preview .buttons .cancel {
+        display: inline-block;
+        margin-bottom: 0;
+        margin-right: 10px;
+    }
+
+    #preview .buttons .ok {
+        display: inline-block;
+    }
+
+}

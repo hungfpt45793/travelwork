@@ -1,0 +1,290 @@
+#form-cv{
+	width: 100%;
+	float: left;
+	position: relative;
+	font-size: 14px;
+	line-height: 24px;
+	color:#374d59;	
+	background:#fbeed7;
+}
+#form-cv p{
+	margin-top: 0;
+	margin-bottom: 6px
+}
+#sortable .cvo-block{
+	margin-bottom: 20px;
+	margin-top: 8px;	
+}
+
+#sortable .icoweb i.fa{
+	float: left;
+}
+#cv-main{
+	display: table;
+	width: 100%;
+	background: #fbeed7;
+}
+#cv-top{		
+    text-align: center;    
+    background: #fbeed7;
+}
+#cvo-profile{
+	padding:10px;
+	display: block;
+}
+#cv-content{
+	width: 60%;
+	float: left;
+	position: relative;	
+	padding-top: 30px;	
+	background: #ffffff;
+	border-left: solid 1px #fbeed7;
+	border-bottom: solid 3px #fbeed7;
+}
+#cv-right{
+	width: 36%;
+	min-height: 800px;
+	float: right;	
+	position: relative;	
+	background:#fbeed7;
+	padding-left: 30px;
+}
+#cv-right .ir{
+	padding: 30px 10px 15px 0px;
+	background: #e6e6e6
+}
+p.skill-name input{
+	color: #070000!important;
+}
+
+#cv-top .right-top .icoweb {
+    float: right;
+    width: 45%;
+    color: #374d59;
+    background: #94d2e6;
+    border-radius: 15px;
+    margin-left: 2%;
+}
+.bar-value-exp input[type="text"]{
+	color: #000;
+}
+
+#cv-right .cvo-block span#cv-boxtitle{
+    color: #374d59;
+    padding: 5px 18px;
+    background: #94d2e6;
+    border-radius: 10px;
+}
+
+#cv-right #box01{
+	display: none;
+}
+
+#cv-right .ctbx {
+	padding: 0;
+	margin:0;
+	border:0;
+}
+.skill{
+	margin-top: 15px
+}
+
+
+#cv-top h1{
+	font-size: 33px;
+    padding: 0px 30px 0px 30px;
+    line-height: normal;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0px;
+    letter-spacing: 2px;
+    margin-left: 0px;
+    color: #000000;
+    display: inline-block;
+}
+
+#box-hvt{
+	display: inline-block;	
+}
+
+#cv-top h1 span{
+	padding: 0px 15px;
+	font-weight: 500;
+	color: #374d59;
+}
+
+#cv-top h2{
+font-size: 18px;
+    text-align: center;
+    margin-bottom: 1px;
+    display: inline-block;
+    color: #374d59;
+    font-weight: 500
+}
+.box-01 p{		
+    overflow: hidden;
+}
+#cv-content p{
+	margin-bottom: 5px
+}
+#cv-content .ir a{
+	color: #2ebb2f
+}
+#cv-right .h3, #cv-right h3, #cv-content .head{
+	font-size: 18px;    
+    margin-top: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#cv-right h3{
+	    margin-bottom: 15px;
+    color: #374d59;
+    background: #94d2e6;
+    border-radius: 10px;
+    padding-left: 10px;
+
+}
+
+#cv-content .head{
+	line-height: 30px;
+	color: #374d59;
+	padding: 5px 18px;
+	background: #94d2e6;
+	border-radius: 10px;	
+}
+
+#cv-right .h3{
+	height: 45px;
+	text-align: center;
+	width: 100%;
+}
+
+#cv-right .h3 span{
+	margin: 3px 0px;
+	color: #000000;
+	line-height: 43px;
+}
+#cv-content h3{	
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#cv-content .cvo-block {    
+}
+.ctbx{
+	padding-left: 10px;
+	padding-right: 10px
+}
+
+#cv-content span{
+	display: inline-block;	
+	z-index: 9999;
+}
+
+#cv-right .h3:first-child{
+	margin-top: 0
+}
+.ctbx{
+	margin-bottom: 20px;
+	position: relative;
+}
+.ctbx .r5 .h3{
+	text-transform: uppercase;
+}
+.ctbx:hover {
+	box-shadow: 0 0 1px #999;
+}
+.ctbx:hover .fieldgroup_controls{
+	display: block;
+}
+[cvo-form-field] {
+    cursor: text;
+}
+.right-top{
+	float: right;
+	width:75%
+}
+#cvo-profile-avatar-wraper{	    
+    float: right;
+    width:160px;    
+    padding:5px;  
+    border: solid;
+}
+#cvo-profile-avatar-wraper img{
+    
+    width: 160px;
+    height: 160px;
+}
+#line-seperate {
+    height: 25px;
+}
+.bar-exp div {
+    float: left;
+    height: 8px;
+    background: #374d59;
+    
+}
+.bar-exp {
+  	width: 100%;
+  	background: #fff;
+  	height: 8px;
+  	float: right;
+  	margin-bottom: 12px;
+}      
+.icoweb label{
+	display: block;
+	color:#627e88;
+}
+#cv-right .icoweb span{
+	color: #070000;
+}
+
+.box-contact{
+	font-size: 15px;
+}
+#sortable .icoweb{
+	padding-left: 28px;
+	line-height: 32px;
+	display: table;
+	margin-bottom: 0
+}
+#sortable .cvi-date{
+	background: url('fa-1.png.html') left center no-repeat;	
+}
+#sortable .cvi-user{
+	background: url('fa-2.png.html') left center no-repeat;	
+}
+#sortable .cvi-phone{
+	background: url('fa-3.png.html') left center no-repeat;	
+}
+#sortable .cvi-envelope-square{
+	background: url('fa-4.png.html') left center no-repeat;	
+}
+#sortable .cvi-map-marker{
+	background: url('fa-5.png.html') left center no-repeat;	
+}
+#sortable .cvi-info{
+	background: url('fa-6.png.html') left center no-repeat;	
+}
+
+.head i.fa, .h3 i.fa{
+	font-size: 12px;
+	border: solid 1px #7c7a79;
+	border-radius: 50%;
+	width: 12px;
+	color: #7c7a79;
+	/*background: white;*/
+	margin-bottom: 5px;
+	text-align: center;
+	padding: 4px;
+}
+div#box01 span {
+    width: 230px;
+}
+span.box-content {
+    width: 250px;
+}
+.exp-content,.exp-subtitle,span.exp-title {
+    width: 440px;
+}

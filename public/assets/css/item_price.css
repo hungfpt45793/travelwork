@@ -1,0 +1,232 @@
+
+#price_list {
+    padding: 25px;
+}
+
+#price_list .grade {
+    margin: auto;
+    z-index: 2;
+    width: 100%;
+    padding: 5px;
+    background: url(/public/assets/image/bg-colum.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: 1px solid #009385;
+    border-radius: 10px;
+    box-shadow: 10px 5px 10px #888;
+    padding-bottom: 20px;
+}
+
+#price_list .grade .img img {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 75px;
+    height: 75px;
+}
+
+#price_list .grade .button_more {
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+#price_list .grade .button_more .ct_button_more {
+    color: #fff;
+    background-color: #07aa74;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+#price_list .grade .title_goi_tin {
+    max-height: 45px;
+}
+
+#price_list .grade .title_goi_tin h3.name_box {
+    font-size: 16px;
+    color: #c06a23;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 8px;
+    margin-bottom: 0;
+    line-height: 23px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+#price_list .grade .detail_box {
+    padding-bottom: 30px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+#price_list .grade .detail_box .info_detail {
+    height: auto;
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+#price_list .grade .detail_box .info_detail .ic-box {
+    font-size: 12px;
+    color: #009385;
+}
+
+#price_list .grade .detail_box .info_detail .detail_box_span {
+    font-size: 13px;
+}
+
+.show_price_list .item_price_list {
+    background: #dff2f7;
+    margin: 0;
+}
+
+#price_list .show_price_list .title_right {
+    display: flex;
+    justify-content: space-between;
+}
+
+#price_list .show_price_list .item_price_list .title_right h3 {
+    font-size: 18px;
+    color: #19616d;
+}
+
+.title_right-h3 {
+    font-size: 18px;
+    color: #19616d;
+    text-transform: uppercase;
+}
+
+#price_list .show_price_list .item_price_list .title_right {
+    padding-top: 15px;
+}
+
+#price_list .show_price_list .item_price_list .parent_bonus .bonus {
+    top: 0;
+    left: 0;
+}
+
+.grade .img {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+    background-size: 100% !important;
+    background-repeat: no-repeat !important;
+}
+
+#price_list .show_price_list .block_comment {
+    border-bottom: 1px solid #000;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+#price_list .show_price_list .block_comment img {
+    width: 60px;
+    height: 50px;
+    margin-left: 20px;
+}
+
+#price_list .show_price_list .block_comment p {
+    line-height: 20px;
+}
+
+#price_list .show_price_list .item_price_list .tis {
+    font-size: 14px;
+    color: #19616d;
+}
+
+#price_list .show_price_list .item_price_list .d-table-respon tr th {
+    background: #c5c760;
+}
+
+#price_list #service_show_on_big table tr th {
+    background-color: #07aa74;
+    color: #fff;
+    font-size: 15px;
+}
+
+#price_list #service_show_on_big h1,
+#service_show_on_small h2 {
+    text-align: center;
+    background-color: #009385;
+    font-weight: 600;
+    color: #fff;
+    padding: 10px 0;
+    font-size: 21px;
+    border-radius: 3px;
+}
+
+#price_list #service_show_on_big .h4_benifit {
+    text-align: center;
+    color: #237c5e;
+}
+
+.item_title_service {
+    border: 2px solid #c06a23;
+    min-height: 300px;
+}
+
+.item_title_service h3 {
+    background: #fff4e3 !important;
+    color: #c06a23 !important;
+    font-size: 20px !important;
+    margin-bottom: 0px;
+    padding: 10px 0px;
+    font-weight: bold;
+}
+
+.item_title_service .item_content_service {
+
+}
+
+.item_title_service .item_content_service .item_border_service {
+    border-top: 2px solid #c06a23;
+    padding: 15px;
+}
+
+.item_title_service .item_content_service .item_border_service p {
+    margin-bottom: 0px;
+}
+
+@media (max-width: 1024px) {
+    #price_list #service_show_on_big table tr th {
+        font-size: 12px;
+    }
+
+    .col-full {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+@media (max-width: 1200px) {
+    .show_price_list .item_price_list table {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 500px) {
+    #quyenloi_dichvu h2
+    {
+        font-size: 18px;
+    }
+    .item_title_service {
+        border: 2px solid #c06a23;
+        min-height: auto;
+        margin-bottom: 10px;
+    }
+    #price_list {
+        padding: 0px;
+    }
+
+    #price_list .grade {
+        padding-bottom: 0;
+    }
+
+    .mb_show_price_list .table-responsive .table td, .mb_show_price_list .table-responsive .table th {
+        padding: 5px;
+    }
+}

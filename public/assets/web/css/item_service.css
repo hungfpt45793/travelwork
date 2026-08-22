@@ -1,0 +1,9 @@
+.item_service {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0px;
+    padding-bottom: 0;
+}
+
+.item_service_left {
+    border-right: 1px solid #ccc;
+}

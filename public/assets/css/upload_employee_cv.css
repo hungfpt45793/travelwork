@@ -1,0 +1,52 @@
+.InfoCompanyJob
+{
+    padding: 20px;
+    background: #fff;
+}
+.item_step {
+    display: inline-block;
+}
+.item_step a {
+    padding: 15px;
+    color: orange;
+}
+.item_no_success .step_icon {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 35px;
+    font-size: 18px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.step_icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.step_center_block {
+    justify-content: center;
+}
+.sc_upload_cv_option form button
+{
+    display: inline-block;
+    border: none;
+    text-align: center;
+    background-color: #02b5e1;
+    color: #fff!important;
+    padding: 10px;
+}.sc_upload_cv_option form a.btn_button_save
+ {
+     display: inline-block;
+     border: none;
+     text-align: center;
+    background: red;
+     color: #fff!important;
+     padding: 10px;
+ }

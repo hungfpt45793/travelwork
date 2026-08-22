@@ -1,0 +1,363 @@
+
+.item_employee {
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background: #fff;
+    padding: 0;
+}
+
+.item_employee a {
+    position: relative;
+}
+
+.item_employee .content_item_employee {
+    padding-bottom: 15px;
+
+}
+
+.item_employee .content_item_employee img {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%;
+}
+
+.item_employee .item_employee_title {
+
+    font-weight: bold;
+    text-transform: capitalize;
+    color: #000;
+}
+
+.item_employee a {
+    display: block;
+    padding: 10px;
+}
+
+.item_employee a:hover {
+    background: #c6ecf9;
+    text-decoration: none;
+}
+
+.item_employee .newVip .item_employee_title {
+    color: green;
+    font-weight: bold;
+}
+
+.item_employee .company_name {
+    color: gray;
+    display: block;
+}
+
+.item_employee .item_employee_address {
+    color: #000 !important;
+    display: block;
+}
+
+.item_employee .item_employee_salary {
+    color: #000 !important;
+}
+
+.item_employee .content_item_employee .item_title_employee {
+    color: #000 !important;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: 700 !important;
+}
+
+.item_employee .content_item_employee .item_title_career {
+    color: #f20000;
+    display: block;
+}
+
+.item_employee .content_item_employee .item_title_description {
+    display: block;
+}
+
+.item_employee .content_item_employee .item_title_province_district {
+    color: gray;
+}
+
+.item_employee .content_item_employee .box_job_submit {
+    border: 1px solid red;
+    padding: 2px 7px;
+    color: green;
+    display: inline-block;
+}
+
+/*//hien thi danh sach ung vien moi*/
+.section_box_content .content_box_employee {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.item_employee_new a {
+    color: #000 !important;
+    text-decoration: none !important;
+}
+
+.item_employee_new {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+.item_employee_new:nth-child(2n) {
+    background-color: #fff;
+}
+
+.item_employee_new:hover {
+    background-color: #c6ecf9 !important;
+    display: block;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.item_employee_new .item_employee_intro .item_employee_img {
+    display: inline-block;
+    vertical-align: text-bottom;
+    width: 20%;
+    text-align: center;
+}
+
+.item_employee_new .item_employee_intro .item_employee_img img {
+    text-align: center;
+    max-width: 80px !important;
+    padding: .25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    height: 80px;
+    width: 80px;
+}
+
+.item_employee_new .item_employee_intro .item_employee_title {
+    width: 79%;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.item_employee_new .item_employee_intro .item_employee_title h3 {
+    color: #000 !important;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: 700 !important;
+}
+
+.item_employee_new span.link_detail_item {
+    background: orange;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.item_employee_new .item_employee_img {
+    position: relative;
+
+}
+
+.item_employee_new .item_employee_img .item_gender_birhday {
+    width: 100px;
+    background: #ccc;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    left: 8px;
+}
+
+.clGreenHome {
+    color: #009385;
+}
+
+.clXam {
+    color: #ccc;
+}
+
+.notificationBox .disInBlock {
+    display: inline-block;
+}
+
+.notificationBox {
+    border-radius: 6px;
+    padding: 15px 20px;
+    background: #fff;
+    border: 1px solid lightgray;
+}
+
+.notificationBox .bodyBox a {
+    background: #009385;
+    color: #fff;
+    display: inline-block !important;
+    padding: 10px;
+}
+
+.contentPage .box_employer_title {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 700;
+    color: #009385;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.formSearchKey {
+    padding: 10px;
+    background-color: #fff;
+}
+
+.select2-container .select2-selection--single {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height: 35px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border: 0;
+    border-radius: 0;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    display: block;
+    padding-left: 7px;
+    padding-right: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height: 35px;
+
+}
+
+.search_sidebar_border_select .select2-container--default .select2-selection--single .select2-selection__rendered {
+    border: 1px solid #ccc;
+}
+
+.formSearchKey form button {
+    cursor: pointer;
+    width: 100%;
+    line-height: 40px;
+    color: #fff;
+    font-weight: 700 !important;
+    background: #ffc107;
+    border-color: #ffc107;
+    font-size: 18px;
+    border: 1px solid transparent;
+}
+
+.peopleRecruitment {
+
+}
+
+.peopleRecruitment .people_icon .people_title {
+    margin: 0;
+    font-size: 23px;
+    color: #f20000;
+    font-weight: 700 !important;
+}
+
+.peopleRecruitment .people_icon .people_des {
+    color: #00b6bc;
+    font-size: 23px;
+    font-weight: 700 !important;
+}
+
+.employer_price_list .box_employer .employer_grade {
+    /*background: #fff;*/
+    padding: 15px;
+    background: url('/public/assets/image/bg-colum.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid #009385;
+    border-radius: 10px;
+    box-shadow: 10px 5px 10px #888
+}
+
+.employer_price_list .box_employer .list_employer_img {
+}
+
+.employer_price_list .box_employer .title_goi_tin h3 {
+    font-size: 16px;
+    color: #c06a23;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    line-height: 23px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.employer_price_list .box_employer .ct_button_more {
+    color: #fff;
+    background-color: #07aa74;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 7px;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.employer_price_list .box_employer .button_more {
+    margin: 20px 0;
+}
+
+@media (min-width: 1700px) {
+    .employer_price_list .box_employer .title_goi_tin h3 {
+        padding: 0 35px;
+        padding-left: 0;
+        padding-right: 55px;
+    }
+}
+
+/*//xử lý tách riêng của bange giá ntd*/
+@media (max-width: 1300px) {
+    .item_employee_new .item_employee_intro .item_employee_img {
+        width: auto;
+        margin-right: 5px;
+    }
+
+    .item_employee_new .item_employee_intro .item_employee_img img {
+        margin-top: 5px;
+        max-width: 80px !important;
+        height: 60px;
+        width: 60px;
+    }
+
+    .item_employee_new .item_employee_intro .item_employee_title {
+        width: 75%;
+        vertical-align: top;
+        display: inline-block;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .uv_info_item_employee {
+        /*text-align: center;*/
+    }
+
+    .uv_info_item_employee .td-diem-ho-so {
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+    .uv_info_item_employee .td-muc-luong {
+        display: inline-block;
+    }
+
+}

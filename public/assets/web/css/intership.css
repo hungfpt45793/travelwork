@@ -1,0 +1,313 @@
+@media (min-width: 1500px) {
+    .col-max-2 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 16.666667%;
+        flex: 0 0 16.666667%;
+        max-width: 16.666667%;
+    }
+
+    .col-max-10 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 83.333333%;
+        flex: 0 0 83.333333%;
+        max-width: 83.333333%;
+    }
+}
+
+.CropImg50:before {
+    content: "";
+    display: block;
+    padding-bottom: 50%;
+}
+
+.list_intership {
+    margin-top: 20px;
+    border: 1px solid lightgray;
+}
+
+.list_intership .title_intership {
+    background: #009385;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 10px 20px;
+}
+
+.list_intership .title_intership h1 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 0 !important;
+}
+
+.list_intership .content_intership {
+    background: #fff;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.list_intership .content_intership .item_intership {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.list_intership .content_intership .item_intership .imagePostSale {
+    padding: 0 15px;
+    border-right: 1px solid #ccc;
+}
+
+.list_intership .content_intership .item_intership .checkintership {
+    padding: 6px 15px;
+    color: #fff;
+    background: green;
+    margin-top: 5px;
+    display: inline-block;
+    border-top: 1px solid #ccc;
+}
+
+.list_intership .content_intership .item_intership .contentPostSale h3 {
+    color: orange;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.list_intership .content_intership .item_intership .item_intership_local {
+    color: gray;
+    font-size: 14px;
+    display: inline-block;
+
+}
+
+.list_intership .content_intership .item_intership .item_intership_web {
+    font-size: 14px;
+    margin-left: 10px;
+    color: #2d670c;
+}
+
+.list_intership .content_intership .item_intership .item_intership_view {
+    display: inline-block;
+    margin-left: 10px;
+    color: #2d670c;
+}
+
+.list_intership .content_intership .item_intership .item_intership_allwance {
+    display: inline-block;
+    margin-left: 10px;
+    color: #f20000;
+}
+
+.list_intership .content_intership .item_intership .item_intership_business {
+    display: inline-block;
+    margin-left: 10px;
+    color: #009385;
+}
+
+.list_intership .content_intership .item_intership .item_intership_link {
+    display: inline-block;
+    padding: 5px 30px;
+    background: #009385;
+    color: #fff;
+    border-radius: 30px;
+    margin-top: 8px;
+}
+
+.page_intership {
+    border: 1px solid lightgray;
+    background: #fff;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.tabfillter_intership {
+    background: #fff;
+}
+
+.tabfillter_intership .nav-link.active {
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    background: orange;
+}
+
+.tabfillter_intership .nav-link {
+    color: orange;
+    font-weight: 600;
+    font-size: 16px;
+    background: #fff;
+}
+
+.tabfillter_intership .tab-content {
+    padding: 20px;
+}
+
+.tabfillter_intership .linkFillter {
+    color: #000;
+}
+
+/*sidebar*/
+.sidebar_intership {
+    padding: 10px;
+}
+
+.sidebar_intership .title_sidebar_intership {
+    background: #009385;
+    text-align: center;
+    font-weight: 700;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.UvNew_sidebar_intership {
+    background: #fff;
+}
+
+.sidebar_intership .itemIntership {
+
+}
+
+.sidebar_intership .itemIntership {
+    margin: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+article {
+    max-height: 300px; /* (4 * 1.5 = 6) */
+}
+
+.redmore {
+    margin-top: 15px;
+    text-align: center;
+    padding: 5px 10px;
+    font-size: 15px;
+}
+
+.redmore:hover {
+    /*background: #009385;*/
+    /*color: white;*/
+}
+
+.redmore span {
+    background: #009385;
+    border: 1px solid #009385;
+    color: white;
+    padding: 5px 10px;
+}
+
+.sticky {
+    position: fixed !important;
+    width: 75%;
+    left: 0 !important;
+    top: 70px !important;
+    z-index: 100;
+    padding: -19px 1px;
+    margin: 15px 0;
+    padding-bottom: 0 !important;
+    padding-top: 14px !important;
+    margin-bottom: 0;
+    border-right: 1px solid #ccc;
+    margin-top: 5px !important;
+    border-bottom: 1px solid #ccc;
+}
+
+.detailCompany {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.detailCompany .companyTitle {
+    color: #009385;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.detailCompany .w49 {
+    width: 49%;
+    display: inline-block;
+}
+
+.starEmployer .numberStar {
+    vertical-align: top;
+    display: inline-block;
+    padding-top: 2px;
+    font-size: 16px;
+}
+
+.starEmployer .countStar {
+    display: inline-block;
+}
+
+.star4 {
+    background-color: #a6cb01;
+}
+
+.starEmployer .rateCustomer .item {
+    border: 1px solid #bdbdbd;
+    margin-bottom: 25px;
+    padding: 15px;
+}
+
+.starEmployer .rateCustomer .name {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.starEmployer .rateCustomer p {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+.starEmployer .rateCustomer .question {
+    margin-bottom: 10px;
+}
+
+.user_submit_intership {
+    background: white;
+}
+
+.user_submit_intership .from_user_submit_intership {
+    padding: 20px 0;
+}
+
+.user_submit_intership .from_user_submit_intership .title_submut_intership h1 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #009385;
+    margin-bottom: 20px;
+}
+
+.user_submit_intership .from_user_submit_intership form button {
+    border: none;
+    color: #fff;
+    background: #009385;
+    padding: 9px 19px;
+    font-size: 15px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.employer_show_intership {
+    background: #fff;
+}
+
+.employer_show_intership .from_employer_show_intership {
+    padding: 20px 0;
+}
+
+.employer_show_intership .from_employer_show_intership .title_show_intership h1 {
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #009385;
+}
+.employer_show_intership .from_employer_show_intership form button {
+    border: none;
+    color: #fff;
+    background: #009385;
+    padding: 9px 19px;
+    font-size: 15px;
+    border-radius: 3px;
+    cursor: pointer;
+}

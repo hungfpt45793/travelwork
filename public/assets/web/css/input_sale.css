@@ -1,0 +1,39 @@
+.input_sale .fb-share-button {
+    display: inline-block;
+}
+
+.input_sale .share_facebook {
+    border: 1px solid orange;
+    padding: 5px;
+    border-radius: 3px;
+    color: #fff;
+    background: orange;
+}
+
+.input_sale .copy_link_post {
+    margin-bottom: 0 !important;
+    display: inline-block;
+    position: relative;
+    width: 60%;
+}
+
+.input_sale .copy_link_post .input-group-append {
+    position: absolute;
+    z-index: 9;
+    right: 0;
+    top: 0;
+    background: #fff;
+    font-size: 14px;
+    padding: 0;
+    display: inline-block;
+}
+
+.input_sale .copy_link_post .input-group-append button {
+    font-size: 14px;
+    padding: 3px 10px;
+}
+
+.input_sale .copy_link_post input {
+    width: 100%;
+    padding: 2px;
+}

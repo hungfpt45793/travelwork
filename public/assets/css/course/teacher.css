@@ -1,0 +1,150 @@
+
+.color_pla::placeholder {
+    color: #ccc;
+    font-size: 12px;
+    font-style: italic;
+    opacity: 1; /* Firefox */
+}
+
+.color_pla:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #ccc;
+    font-size: 12px;
+    font-style: italic;
+    opacity: 1; /* Firefox */
+}
+
+.color_pla::-ms-input-placeholder { /* Microsoft Edge */
+    color: #ccc;
+    font-size: 12px;
+    font-style: italic;
+    opacity: 1; /* Firefox */
+}
+
+.button_active_course {
+    border-radius: 15px;
+    border: 1px solid #d91b5c;
+    color: #fff !important;
+    background: #d91b5c;
+    font-size: 15px;
+    padding: 6px 10px;
+    margin-top: 0px;
+}
+
+.button_go_class {
+    border-radius: 15px;
+    border: 1px solid #fff;
+    color: #fff !important;
+    font-size: 15px;
+    padding: 6px 10px;
+    margin-left: 5px;
+}
+
+.show_active_course .button_submit_active {
+    background: #d91b5c;
+    color: #fff;
+}
+
+.noti_course_order h1 {
+    margin-bottom: 13px;
+    width: 100%;
+    color: green;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.noti_course_order h3 {
+    margin-bottom: 13px;
+    width: 100%;
+    color: red;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.select2_border .select2-container {
+
+    border: 1px solid #ccc;
+}
+
+.course_sale_employee {
+    margin-top: 20px;
+}
+
+.course_sale_employee .fb-share-button, .course_sale_employee .input-group-append {
+    display: inline-block;
+}
+
+.course_sale_employee .fb-share-button {
+    border: 1px solid orange;
+    padding: 5px;
+    border-radius: 3px;
+    background: orange;
+    margin-right: 20px;
+
+}
+
+.course_sale_employee .fb-share-button a {
+    color: #fff !important;
+}
+
+.course_sale_employee .input-group-append button {
+    font-size: 14px;
+    padding: 6px 12px;
+}
+
+.course_sale_employee .btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.md_try_course_now {
+    background: #1e1e1c;
+    color: #fff;
+}
+
+.md_try_course_now .try_content_chapter h3 {
+    color: #fff;
+    font-size: 20px;
+}
+
+.md_try_course_now .close {
+    color: #fff;
+}
+
+.md_try_course_now .try_content_chapter ul {
+    padding: 0;
+}
+
+.md_try_course_now .try_content_chapter ul li {
+    list-style: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-bottom: 1px solid #3c3b37;
+    cursor: pointer;
+}
+
+.md_try_course_now .try_content_chapter ul li.active_li {
+    background: #3c3b37;
+}
+
+@media (max-width: 1200px) {
+    .button_active_course {
+        margin-top: 3px;
+        font-size: 14px !important;
+        padding: 4px 8px;
+    }
+
+    .button_go_class {
+        margin-top: 3px;
+        font-size: 14px !important;
+        padding: 4px 8px;
+    }
+}
+
+@media (max-width: 500px) {
+    .modal_show_active_course h5 {
+        font-size: 18px;
+    }
+}
+
+
