@@ -16,7 +16,11 @@
 | loading any of our classes later on. It feels great to relax.
 |
 */
-require __DIR__.'/../bootstrap/autoload.php';
+require __DIR__.'/../vendor/autoload.php';
+
+if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
+    require $maintenance;
+}
 /*
 |--------------------------------------------------------------------------
 | Turn On The Lights
