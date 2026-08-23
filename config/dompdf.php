@@ -78,10 +78,13 @@ return array(
          * Protocols that Dompdf may use while resolving document assets.
          */
         "allowed_protocols" => array(
+            "data://" => array("rules" => array()),
             "file://" => array("rules" => array()),
             "http://" => array("rules" => array()),
             "https://" => array("rules" => array()),
         ),
+
+        "artifactPathValidation" => null,
 
         "log_output_file" => null,
 
@@ -245,6 +248,12 @@ return array(
          * @var bool
          */
         "enable_remote" => true,
+
+        /**
+         * Restrict remote resources to the listed hosts when remote access is enabled.
+         * Null preserves the existing behavior of allowing resources from any host.
+         */
+        "allowed_remote_hosts" => null,
 
         /**
          * A ratio applied to the fonts height to be more like browsers' line height

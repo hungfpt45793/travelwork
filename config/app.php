@@ -204,7 +204,7 @@ return [
 
     'aliases' => [
         'PDFMerger' => Webklex\PDFMerger\Facades\PDFMergerFacade::class,
-        'PDF' => Barryvdh\DomPDF\Facade::class,
+        'PDF' => Barryvdh\DomPDF\Facade\Pdf::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
