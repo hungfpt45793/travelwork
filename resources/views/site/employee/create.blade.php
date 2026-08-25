@@ -118,7 +118,7 @@
                                                                 class="fas fa-phone-alt"></i></span>
                                                 </div>
                                                 <input class="form-control error_border_phone" name="phone"
-                                                       placeholder="Số điện thoại" type="number"
+                                                       placeholder="Số điện thoại" type="text"
                                                        value="{{ old('phone') }}" required>
                                             </div>
 
@@ -343,6 +343,13 @@
         });
     </script>
     <script type="text/javascript">
+        $('input[name="phone"]').on('input', function () {
+    this.value = this.value.replace(/\D/g, '').slice(0, 10);
+});
+        $.validator.addMethod("validEmail", function(value, element) {
+    return this.optional(element) ||
+        /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(value);
+}, "Vui lòng nhập một địa chỉ Email hợp lệ !");
         $(document).ready(function () {
             $("#form_register").validate({
                 ignore: [],
@@ -355,13 +362,16 @@
                     },
                     email: {
                         required: true,
-                        checkEmail: true,
+                        //checkEmail: true,
+                        validEmail: true,
                         email: true
                     },
                     phone: {
                         required: true,
                         number: true,
                         checkPhone: true,
+                        minlength: 10,
+                        maxlength: 10
                     },
                     password: {
                         required: true,
