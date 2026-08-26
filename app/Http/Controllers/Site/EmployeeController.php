@@ -1352,8 +1352,12 @@ class EmployeeController extends SiteController
         $employee = $employeeModel->select(
             'employees.*'
         )
-            ->where('employees.employee_user_id', $user->id)
+            ->where('employees.user_id', $user->id)
             ->first();
+
+        if (empty($employee)) {
+            return redirect()->back()->with('error', 'Không tìm thấy hồ sơ ứng viên');
+        }
 
         $historyCompanies = HistoryWork::where('employee_id', $employee->employee_id)->get();
         if ($historyCompanies->isEmpty()) {

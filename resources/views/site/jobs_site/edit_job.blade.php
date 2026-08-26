@@ -74,7 +74,7 @@
                                             @endif
 
                                             <form role="form"
-                                                  action="{{ route('job-user.update',['job_id'=>$job->job_id]) }}"
+                                                  action="{{ route('job-user.update',['job_user'=>$job->job_id]) }}"
                                                   method="POST" class="form_validate" enctype="multipart/form-data"
                                                   id="form_creat_store_jobs">
                                                 {!! csrf_field() !!}

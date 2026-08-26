@@ -1058,21 +1058,54 @@ class EmployerController extends SiteController
 
     public function send_job_employer(Request $request)
     {
-        //end test
-        $jobs_id = $request->input('job_ids');
+        $jobs_id = array_values(array_unique(array_filter((array) $request->input('job_ids', []))));
         if (empty($jobs_id)) {
             return redirect()->back()->with('error', 'Vui lòng chọn tin tuyển dụng để mời ứng viên ứng tuyển');
         }
-        $employee_id = $request->input('employee_id');
-        $employees = new Employee();
-        $employee = $employees->select('*')->where('employee_id', $employee_id)->first();
+
+        $employer = $this->check_user_role();
+        if (empty($employer)) {
+            return redirect()->back()->with('error', 'Vui lòng đăng nhập tài khoản nhà tuyển dụng để sử dụng chức năng này');
+        }
+
+        $employee_id = (int) $request->input('employee_id');
+        $employee = Employee::where('employee_id', $employee_id)
+            ->where('status_employee', 1)
+            ->where('show_hidden_profile', 0)
+            ->first();
+        if (empty($employee)) {
+            return redirect()->back()->with('error', 'Ứng viên không tồn tại hoặc hồ sơ không còn hoạt động');
+        }
+
+        // Không tin dữ liệu job_id gửi từ trình duyệt: tin phải thuộc đúng nhà tuyển dụng,
+        // đang hiển thị và còn hạn tại thời điểm bấm gửi.
+        $jobs = Job::whereIn('job_id', $jobs_id)
+            ->where('employer_id', $employer->employer_id)
+            ->where('active_job', 1)
+            ->whereDate('deadline_submit_profile', '>=', date('Y-m-d'))
+            ->get(['job_id', 'career_category_id']);
+        if ($jobs->count() !== count($jobs_id)) {
+            return redirect()->back()->with('error', 'Tin tuyển dụng không thuộc tài khoản, chưa được hiển thị hoặc đã hết hạn');
+        }
+
+        // Không trừ điểm lần hai nếu nhà tuyển dụng gửi lại cùng một lời mời.
+        $invited_job_ids = Coin_apply_employee::where('employer_id', $employer->employer_id)
+            ->where('employee_id', $employee_id)
+            ->whereIn('job_id', $jobs_id)
+            ->pluck('job_id')
+            ->map(static fn ($job_id) => (int) $job_id)
+            ->all();
+        $new_jobs = $jobs->whereNotIn('job_id', $invited_job_ids)->values();
+
         $total_coin = 0;
-        foreach ($jobs_id as $job_id) {
-            $job = Job::select('career_category_id')->where('job_id', $job_id)->first();
+        foreach ($new_jobs as $job) {
             $caree = \App\Entity\Career::getIdCareer($job->career_category_id);
+            if (empty($caree)) {
+                return redirect()->back()->with('error', 'Tin tuyển dụng chưa có cấu hình điểm mời ứng viên');
+            }
             $total_coin += $caree->view_apply;
         }
-        $employer = $this->check_user_role();
+
         $infomation_coin = \App\Entity\Coin_type_information_employer::get_coin_info();
         $coin_free = !empty($infomation_coin['so-diem-mien-phi-theo-ngay']) ? $infomation_coin['so-diem-mien-phi-theo-ngay'] : 0;
         $history_coin = \App\Entity\Coin_history_employer::sum_coin($employer->employer_id);
@@ -1087,40 +1120,62 @@ class EmployerController extends SiteController
             return redirect()->back()->with('error', 'Số điểm của bạn không đủ để mời ứng viên ứng tuyển');
         }
 
-        DB::beginTransaction();
-        if (!empty($employer->total_employer_coin)) {
-            //trường họp trừ xu của ntd
-            $coin_history_status = 1;
-            $employer_coin = $employer->employer_coin - $total_coin;
-            $update_coin = Employer::where('employer_id', $employer->employer_id)->update([
-                'employer_coin' => $employer_coin
-            ]);
-        } else {
-            //trường hợp xu miễn phí
-            $coin_history_status = 0;
+        try {
+            DB::transaction(function () use ($employer, $employee_id, $jobs_id, $new_jobs, $total_coin) {
+                $coin_history_id = null;
+                if ($new_jobs->isNotEmpty()) {
+                    $coin_history_status = empty($employer->total_employer_coin) ? 0 : 1;
+                    if ($coin_history_status === 1) {
+                        Employer::where('employer_id', $employer->employer_id)
+                            ->decrement('employer_coin', $total_coin);
+                    }
+
+                    $coin_history_id = Coin_history_employer::insertGetId([
+                        'coin_history_title' => 'Mời ứng viên ứng tuyển tin tuyển dụng',
+                        'coin' => $total_coin,
+                        'coin_history_status' => $coin_history_status,
+                        'coin_employee_status' => 1,
+                        'employer_id' => $employer->employer_id,
+                        'created_at' => new \DateTime()
+                    ]);
+                }
+
+                foreach ($new_jobs as $job) {
+                    Coin_apply_employee::insert([
+                        'coin_history_id' => $coin_history_id,
+                        'employer_id' => $employer->employer_id,
+                        'employee_id' => $employee_id,
+                        'job_id' => $job->job_id,
+                        'created_at' => new \DateTime()
+                    ]);
+                }
+
+                // Đây là nguồn dữ liệu trang "Công việc được mời" của ứng viên.
+                foreach ($jobs_id as $job_id) {
+                    Invite::firstOrCreate([
+                        'employer_id' => $employer->employer_id,
+                        'employee_id' => $employee_id,
+                        'job_id' => $job_id,
+                    ], [
+                        'status' => 0,
+                        'created_at' => new \DateTime(),
+                    ]);
+                }
+            });
+        } catch (\Throwable $exception) {
+            report($exception);
+            return redirect()->back()->with('error', 'Có lỗi xảy ra khi gửi lời mời, vui lòng thử lại');
         }
-        //trừ xu
-        $insert_get_id = Coin_history_employer::insertGetId([
-            'coin_history_title' => 'Mời ứng viên ứng tuyển tin tuyển dụng',
-            'coin' => $total_coin,
-            'coin_history_status' => $coin_history_status,
-            'coin_employee_status' => 1,
-            'employer_id' => $employer->employer_id,
-            'created_at' => new \DateTime()
-        ]);
-        foreach ($jobs_id as $job) {
-            $inser_coin_show_employee = Coin_apply_employee::insertGetId([
-                'coin_history_id' => $insert_get_id,
-                'employer_id' => $employer->employer_id,
-                'employee_id' => $employee_id,
-                'job_id' => $job,
-                'created_at' => new \DateTime()
-            ]);
-            $sendmail = MailConfigController::send_apply_job($jobs_id, $employee->email);
-            //email không gửi dc đồng loại nên đóng loại
-            //$sendmail = MailConfigController::send_email_invitation_employee($job, $employee_id);
+
+        // Lời mời trong hệ thống đã được lưu; lỗi email không được làm mất lời mời.
+        if ($new_jobs->isNotEmpty()) {
+            try {
+                MailConfigController::send_apply_job($new_jobs->pluck('job_id')->all(), $employee->email);
+            } catch (\Throwable $exception) {
+                report($exception);
+            }
         }
-        DB::commit();
+
         return redirect()->back()->with('success', 'Mời ứng viên ứng tuyển thành công');
     }
 

@@ -288,11 +288,10 @@
 
             </div>
 
-            @include('site.module_index.filter_job_sidebar')
+            @includeIf('site.module_index.filter_job_sidebar')
         </div>
     </div>
     @include('site.sidebar.list_banner')
 </div>
-
 
 

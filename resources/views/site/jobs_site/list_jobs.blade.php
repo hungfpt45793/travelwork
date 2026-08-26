@@ -116,7 +116,7 @@
                                                                        title="Đẩy tin">Đẩy tin <i
                                                                                 class="fas fa-external-link-square-alt"></i></a>
                                                                     <a class="dropdown-item"
-                                                                       href="{{ route('job-user.edit',['job_id'=>$job['job_id']]) }}"
+                                                                       href="{{ route('job-user.edit',['job_user'=>$job['job_id']]) }}"
                                                                        title="Sửa tin">Sửa tin <i
                                                                                 class="far fa-edit clorange"></i></a>
                                                                     <a class="dropdown-item"

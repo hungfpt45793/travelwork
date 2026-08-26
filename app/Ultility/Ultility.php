@@ -192,18 +192,11 @@ class Ultility
 
     public static function getUrl()
     {
-        if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {
-            $pageURL = "https://";
-        } else {
-            $pageURL = 'http://';
+        if (app()->bound('request')) {
+            return request()->fullUrl();
         }
-        if (isset($_SERVER["SERVER_PORT"]) && $_SERVER["SERVER_PORT"] != "80") {
-            $pageURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $_SERVER["REQUEST_URI"];
-        } else {
-            $pageURL .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
-        }
-        return $pageURL;
 
+        return config('app.url');
     }
 
     public static function getMacHome()
@@ -269,4 +262,3 @@ class Ultility
         return $content_html;
     }
 }
-
