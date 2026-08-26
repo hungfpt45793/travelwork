@@ -172,29 +172,38 @@
 
         $('.js_send_confirm_email').on('click', function () {
             var $this = $(this);
-            // $this.button('loading');
+            if ($this.hasClass('is-sending')) {
+                return;
+            }
+
+            $this.addClass('is-sending').attr('aria-disabled', 'true');
             $this.html('<i class="fas fa-spinner fa-spin mgr5"></i>' + 'Đang gửi email xác thực');
             $.ajax({
                 type: "GET",
                 url: '{!! route('ajax_send_email_confirm') !!}',
-                data: {
-                    email: '{{ isset($user_confirm->email) ? $user_confirm->email : '' }}',
-                },
+                dataType: 'json',
+                timeout: 30000,
                 success: function (data) {
-                    $this.button('reset');
-                    $this.text('Bạn đã gửi email xác thực thành công')
+                    if (data.success) {
+                        $this.text(data.message || 'Email xác thực đã được gửi thành công');
+                        return;
+                    }
+
+                    $this.text(data.message || 'Đã có lỗi khi gửi email, vui lòng thử lại');
                 },
-                error: function (data) {
-                    $this.button('reset');
-                    $this.text('Đã có lỗi khi gửi email vui lòng thử lại')
+                error: function (xhr) {
+                    var message = xhr.responseJSON && xhr.responseJSON.message
+                        ? xhr.responseJSON.message
+                        : 'Đã có lỗi khi gửi email, vui lòng thử lại';
+                    $this.text(message);
+                },
+                complete: function () {
+                    setTimeout(function () {
+                        $this.removeClass('is-sending').removeAttr('aria-disabled');
+                        $this.html('<i class="far fa-envelope mgr5"></i>' + 'Gửi lại email kích hoạt tài khoản');
+                    }, 10000);
                 }
             });
-            // $this.button('reset');
-            setTimeout(function () {
-                $this.html('<i class="far fa-envelope mgr5"></i>' + 'Gửi lại email kích hoạt tài khoản');
-            }, 10000);
-
-
         });
     </script>
 @endsection
