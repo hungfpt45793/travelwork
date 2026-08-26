@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\Entity\Job;
 use App\Entity\JobGroup;
 use App\Entity\MailConfig;
 use App\Mail\TestEmail;
@@ -27,11 +28,23 @@ class HomeController extends SiteController
 //                return redirect(route('admin_dateline'));
 //            }
 //        }
-        return view('site.default_site.index_new');
+        return $this->homeView();
     }
+
     public function home_new(Request $request)
     {
-        return view('site.default_site.index_new');
+        return $this->homeView();
+    }
+
+    private function homeView()
+    {
+        $urgentJobs = Job::showJobVipHome(12);
+        $newJobs = Job::showJobVip2Home(12);
+
+        return view('site.default_site.index_new', [
+            'urgentJobs' => $urgentJobs,
+            'newJobs' => $newJobs,
+        ]);
     }
 
     public function home_test_site(Request $request)
