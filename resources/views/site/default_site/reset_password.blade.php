@@ -33,9 +33,25 @@
                         <h1 class="title_contact f24" style="margin-bottom: 15px;">Quên mật khẩu</h1>
                         <div class="contact-info ">
                             @if (session('success'))
-                                <span class="help-block">
+                                <div class="alert alert-success" role="alert">
                                 <strong> {{ session('success') }}</strong>
-                            </span>
+                                </div>
+                            @endif
+
+                            @if (session('error'))
+                                <div class="alert alert-danger" role="alert">
+                                    <strong>{{ session('error') }}</strong>
+                                </div>
+                            @endif
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger" role="alert">
+                                    <ul class="mgb0">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
                             @endif
 
                             <form action="{{ route('send_email') }}" method="post" enctype="multipart/form-data"
@@ -50,7 +66,7 @@
                                     <div class="col-sm-9">
                                         <input id="email" type="email" class="form-control error_border_email"
                                                name="email" placeholder="Nhập email đăng kí tài khoản"
-                                               required>
+                                               value="{{ old('email') }}" required>
                                         <div class="mess_notice_email clearfix note_text_email"></div>
                                         <div class="error_reg_mess clearfix error_text_email"></div>
                                     </div>
@@ -88,72 +104,54 @@
 
 @endsection
 @section('show_js')
-    <script src="/public/assets/js/jquery.validate.min.js"></script>
+    <script src="{{ asset('assets/js/jquery.validate.min.js') }}"></script>
     @include('site.layout_site.from')
     <script>
-        $("#is_change_email").validate({
-            ignore: [],
-            onkeyup: false,
-            rules: {
-                email: {
-                    required: true,
-                    checkEmailExist: true,
-                    email: true
-                },
-            },
-            messages: {
-                email: {
-                    required: 'Vui lòng nhập địa chỉ Email.',
-                    checkEmailExist: 'Không tồn tại địa chỉ email này !.',
-                    email: 'Vui lòng nhập một địa chỉ Email hợp lệ !'
-                },
-            },
-            onfocusout: function (element) {
-                $(element).valid();
-            },
-            errorPlacement: function (error, element) {
-                var name = $(element).attr("name");
-                $('.note_text_' + name).hide();
-                $('.error_text_' + name).html('<i class="error clRed"><span class="error_reg_mess_icon"></span>' + error.text() + '</i>');
-                $('.error_border_' + name).css("cssText", "border: 1px solid #ff0000  !important;");
-                $('.btn-loading').button('reset');
-                // $('.btn-loading').attr('disabled', true)
+        $(function () {
+            var $form = $('#is_change_email');
+            var $submitButton = $('#btn_changeEmail');
 
-            },
-            success: function (label, element) {
-                var name = $(element).attr("name");
-                $('.note_text_' + name).show();
-                $('.error_text_' + name).html('');
-                $('.error_border_' + name).css("cssText", "border: 1px solid #e0e0e0  !important;");
-            },
-        });
-        jQuery.validator.addMethod("checkEmailExist", function (value, element) {
-            var result = false;
-            $.ajax({
-                async: false,
-                url: '{!! route('check_email_employee') !!}',
-                type: 'get',
-                dataType: 'json',
-                data: {
-                    email: value
-                }, success: function () {
-                    result = false;
+            if (!$.fn.validate) {
+                return;
+            }
+
+            $form.validate({
+                ignore: [],
+                onkeyup: false,
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    }
                 },
-                error: function () {
-                    result = true;
+                messages: {
+                    email: {
+                        required: 'Vui lòng nhập địa chỉ Email.',
+                        email: 'Vui lòng nhập một địa chỉ Email hợp lệ!'
+                    }
+                },
+                onfocusout: function (element) {
+                    $(element).valid();
+                },
+                errorPlacement: function (error, element) {
+                    var name = $(element).attr('name');
+                    $('.note_text_' + name).hide();
+                    $('.error_text_' + name).html('<i class="error clRed"><span class="error_reg_mess_icon"></span>' + error.text() + '</i>');
+                    $('.error_border_' + name).css('cssText', 'border: 1px solid #ff0000 !important;');
+                },
+                success: function (label, element) {
+                    var name = $(element).attr('name');
+                    $('.note_text_' + name).show();
+                    $('.error_text_' + name).html('');
+                    $('.error_border_' + name).css('cssText', 'border: 1px solid #e0e0e0 !important;');
+                },
+                submitHandler: function (form) {
+                    $submitButton
+                        .prop('disabled', true)
+                        .html('<i class="fas fa-spinner fa-spin mgr5"></i>Đang gửi mã xác thực ...');
+                    form.submit();
                 }
             });
-
-            return result;
-        });
-        console.log(result);
-        $('#btn_changeEmail').click(function () {
-            if ($('#is_change_email').valid()) {
-                $(this).html('<i class="fas fa-spinner fa-spin mgr5"></i>' + 'Đang gửi email kích hoạt mật khẩu mới ...');
-                $btn.attr('disabled', false);
-            } else {
-            }
         });
     </script>
 @endsection
-

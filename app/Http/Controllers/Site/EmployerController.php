@@ -122,6 +122,8 @@ class EmployerController extends SiteController
             'address' => 'required',
             'employer_name' => 'required',
             'phone' => 'required',
+            'user_id' => 'nullable|integer|exists:employees,user_id',
+            'tax_code' => ['nullable','regex:/^(\d{10}|\d{13})$/'],
             // 'g-recaptcha-response' => 'required'
         ], [
             //            'enterprise_id.unique' => 'Email đã tồn tại.',
@@ -133,6 +135,9 @@ class EmployerController extends SiteController
             'address.required' => 'Địa chỉ công ty không được bỏ trống',
             'employer_name.required' => 'Tên người phụ trách không được bỏ trống',
             'phone.required' => 'Số điện thoại không được bỏ trống',
+            'user_id.integer' => 'Mã giới thiệu không hợp lệ.',
+            'user_id.exists' => 'Mã giới thiệu không đúng hoặc không tồn tại.',
+            'tax_code.regex'=> 'Mã số thuế phải gồm 10 hoặc 13 chữ số.',
             'g-recaptcha-response.required' => 'Vui lòng tích chọn tôi không phải người máy hoặc  Im not a robot'
         ]);
         return $validation;
@@ -319,9 +324,7 @@ class EmployerController extends SiteController
         return view('site.infomation.employer.checkout');
     }
 
-    public function recharge(Request $request)
-    {
-    }
+    public function recharge(Request $request) {}
 
     public function detailEmployer($slug)
     {
@@ -354,7 +357,8 @@ class EmployerController extends SiteController
     public function detail_agency($slug)
     {
         $employer = new Employer();
-        $employer = $employer->select(  'employer.enterprise_name',
+        $employer = $employer->select(
+            'employer.enterprise_name',
             'employer.employer_id',
             'employer.phone',
             'employer.slug',
@@ -373,10 +377,10 @@ class EmployerController extends SiteController
             'district.district_name',
             'enterprise_name'
         )
-            ->join('province','province.province_id','employer.province')
-            ->join('district','district.district_id','employer.district')
+            ->join('province', 'province.province_id', 'employer.province')
+            ->join('district', 'district.district_id', 'employer.district')
             ->where('slug', $slug)
-            ->where('status_agency',1)
+            ->where('status_agency', 1)
             ->first();
         if (empty($employer)) {
             return redirect(route('home'));
@@ -386,7 +390,7 @@ class EmployerController extends SiteController
             'view' => $view
         ]);
 
-//        return view('site.employer.detail_employer', compact('employer', 'user'));
+        //        return view('site.employer.detail_employer', compact('employer', 'user'));
         return view('site.employer_site.detail_agency', compact('employer'));
     }
 
@@ -404,7 +408,7 @@ class EmployerController extends SiteController
     public function portEmployer()
     {
         //
-//        $list_prices = Service_price::get();
+        //        $list_prices = Service_price::get();
         //
         $employee = new Employee();
         //        $total_employee = $employee->where('status_employee', 1)->count();
@@ -483,7 +487,6 @@ class EmployerController extends SiteController
         $employers->appends(request()->query());
 
         return view('site.employer_site.intership', compact('user', 'employers'));
-
     }
 
     public function recruitment(Request $request)
@@ -693,7 +696,6 @@ class EmployerController extends SiteController
                 'created_at' => new \DateTime()
             ]);
             return redirect()->back()->with('suscess', 'Bạn đã đăng kí thực tập công ty thành công');
-
         } catch (\Exception $e) {
             return redirect()->back()->with('erorr', 'Bạn đã đăng kí thực tập công ty thất bại');
         }
@@ -987,9 +989,9 @@ class EmployerController extends SiteController
         $employees = new Employee();
         $employee = $employees->select('career_category_id', 'user_id', 'employee_id')->where('employee_id', $employee_id)->first();
         //lấy xu theo danh mục công việc
-//        $caree = \App\Entity\Career::check_view_coint($employee_id);
+        //        $caree = \App\Entity\Career::check_view_coint($employee_id);
         $coin_caree = \App\Entity\Employee_career_categories::get_coin_view_profile($employee_id);
-//        echo $employee_id;die;
+        //        echo $employee_id;die;
         $employer = $this->check_user_role();
         if (empty($employer)) {
             return redirect()->back()->with('error', 'Vui lòng đăng nhập tài khoản nhà tuyển dụng để xem thông tin của ứng viên này.');
@@ -1201,7 +1203,6 @@ class EmployerController extends SiteController
                 'employer_response_cv_id' => $employer_response_cv_id,
                 'created_at' => new \Datetime()
             ]);
-
         }
         $user_id = Employee::where('employee_id', $employee_id)->value('user_id');
         //thông báo cho ứng viên
@@ -1212,7 +1213,7 @@ class EmployerController extends SiteController
             'des_noti' => $desc_title, //Nội dung thông báo
             'link_noti' => '', //Link thông báo trên window
             'type_noti' => 'employees', //kiểu thông báo  /notification_employer  //employer thông báo của nhà tuyển dụng //employees thong bao ung vien thông báo dựa theo table job //jobs là thông báo về công việc
-            'noti_status' => 0,//trạng thái thông báo 0 là chưa xem 1 đã xem
+            'noti_status' => 0, //trạng thái thông báo 0 là chưa xem 1 đã xem
             'status_noti' => 0, //trạng thái thông báo 1 là đã xem 2 là đã xóa => tạm thời bỏ
             'view_noti' => 0, //Đã hiển thị thông báo ở cửa sơ window
             'job_id' => 0,
@@ -1233,14 +1234,16 @@ class EmployerController extends SiteController
     {
         if (Auth::check() && Auth::user()->role == 2) {
             $user_id = Auth::user()->id;
-            $employer = Employer::select('employer_id',
+            $employer = Employer::select(
+                'employer_id',
                 'enterprise_name',
                 'phone',
                 'email',
                 'employer_coin',
                 'total_employer_coin',
                 'total_money_coin',
-                'user_id')->where('user_id', $user_id)->first();
+                'user_id'
+            )->where('user_id', $user_id)->first();
             return $employer;
         }
         return false;

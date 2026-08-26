@@ -6,9 +6,9 @@
 
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/employee_profile.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/sitebar.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/web/css/side_bar_job.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/web/css/employee_profile.css') }}"/>
 @endsection
 @section('content')
     <section class="content bgrGray pdt5">
@@ -32,6 +32,16 @@
                             <p class="mgb15 clRed f18 fw6">{{ $message }} </p>
                         @endif
 
+                        @if ($errors->any())
+                            <div class="alert alert-danger" role="alert">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         @if(!empty($message_success))
                             <p class="mgb15 clGreen f18 fw6">{{ $message_success }} ,Đăng nhập tại đây <span class="nav-link white hvWhite f15 pdt0 clWhite hd_btn_login" data-toggle="modal" data-target="#loginTiva">Đăng nhập </span> </p>
                         @endif
@@ -48,23 +58,24 @@
                                     <form action="{{ route('change_otp_email') }}" method="post"
                                           enctype="multipart/form-data" id="validateForm">
                                         {!! csrf_field() !!}
-                                        <input type="hidden" class="form-control" id="inputZip" name="email"
+                                        <input type="hidden" class="form-control" id="resetEmail" name="email"
                                                placeholder=" Email" readonly
                                                value="{{ $user->email }}">
 
                                         <div class="form-row">
                                             <div class="form-group col-lg-12 pdr2p lg-pd0Im">
-                                                <label for="inputZip" class="fw6">Nhập mã xác thực <span
+                                                <label for="otpEmail" class="fw6">Nhập mã xác thực <span
                                                             class="clRed">(*)</span></label>
-                                                <input type="text" class="form-control error_border_password_old"
-                                                       id="inputZip"
+                                                <input type="text" class="form-control error_border_otp_email"
+                                                       id="otpEmail"
                                                        placeholder="Nhập mã xác thực" name="otp_email" required>
+                                                <div class="error_reg_mess clearfix error_text_otp_email"></div>
                                             </div>
                                         </div>
 
                                         <div class="form-row">
                                             <div class="form-group col-lg-12 pdr2p lg-pd0Im">
-                                                <label for="inputZip" class="fw6">Nhập mật khẩu mới <span
+                                                <label for="password" class="fw6">Nhập mật khẩu mới <span
                                                             class="clRed">(*)</span></label>
                                                 <input type="password" class="form-control error_border_password"
                                                        id="password"
@@ -82,11 +93,11 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-lg-12 pdr2p lg-pd0Im">
-                                                <label for="inputZip" class="fw6">Nhập lại mật khẩu mới <span
+                                                <label for="passwordConfirmation" class="fw6">Nhập lại mật khẩu mới <span
                                                             class="clRed">(*)</span></label>
                                                 <input type="password"
                                                        class="form-control error_border_password_confirmation"
-                                                       id="inputZip"
+                                                       id="passwordConfirmation"
                                                        placeholder="Nhập lại mật khẩu mới" required
                                                        name="password_confirmation">
 
@@ -122,14 +133,20 @@
 
 @endsection
 @section('show_js')
-    <script src="/public/assets/js/jquery.validate.min.js"></script>
+    <script src="{{ asset('assets/js/jquery.validate.min.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+            if (!$.fn.validate) {
+                return;
+            }
+
             $("#validateForm").validate({
                 ignore: [],
                 onkeyup: false,
                 rules: {
-
+                    otp_email: {
+                        required: true
+                    },
                     password: {
                         required: true,
                         minlength: 8,
@@ -141,6 +158,9 @@
                     },
                 },
                 messages: {
+                    otp_email: {
+                        required: 'Vui lòng nhập mã xác thực.'
+                    },
                     password: {
                         required: 'Vui lòng nhập vào mật khẩu.',
                         minlength: 'Mật khẩu tối thiểu 8 ký tự'
@@ -172,13 +192,15 @@
             });
         });
 
-        //tao jquery load button
-        $('#btnLoadding').click(function () {
-            if ($('#validateForm').valid()) {
-                $(this).html('<i class="fas fa-spinner fa-spin mgr5"></i>' + 'Đang lưu thay đổi...');
-                $btn.attr('disabled', false);
-            } else {
+        $('#validateForm').on('submit', function () {
+            if ($.fn.validate && !$(this).valid()) {
+                return false;
             }
+
+            var $button = $('#btnLoadding');
+            $button
+                .html('<i class="fas fa-spinner fa-spin mgr5"></i>Đang lưu thay đổi...')
+                .prop('disabled', true);
         });
 
 

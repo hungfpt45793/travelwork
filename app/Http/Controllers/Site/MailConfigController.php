@@ -572,31 +572,41 @@ class MailConfigController extends SiteController
     public static function resetPassword($email_to, $user, $email_otp)
     {
         if (!filter_var($email_to, FILTER_VALIDATE_EMAIL)) {
-            return true;
-            //email khong dung dinh dang nen se k gửi email
+            return false;
         }
 
-        $id_cate_tem = 4;
-        //trạng thái sử dụng của email
-        $status_tem = 1;
-        $template_email_model = new Template_email();
-        $template_email = $template_email_model->where('id_cate_tem', $id_cate_tem)
-            ->where('status_tem', $status_tem)
-            ->first();
-        if (!empty($template_email)) {
-            //cấu hình biến khi gửi mail
-            //link kich hoạt mật khẩu mới
+        try {
+            $template_email = Template_email::where('id_cate_tem', 4)
+                ->where('status_tem', 1)
+                ->first();
 
-            //lấy ra nội dung gửi email
-            $content_email = $template_email->content_tem;
-            //tiêu đề khi gửi email
-            $subject = $template_email->subject_tem;
-            //thay đổi biến thành chuỗi khi gửi email
-            $search = ['{name}', '{email}', '{email_otp}'];
-            $replace = [$user->name, $user->email, $email_otp];
-            $content_string = str_replace($search, $replace, $content_email);
-            //tiến hành gửi email
-            MailConfig::sendMail($email_to, $subject, $content_string);
+            if (!$template_email) {
+                \Log::error('Không tìm thấy template email quên mật khẩu.');
+
+                return false;
+            }
+
+            $content = str_replace(
+                ['{name}', '{email}', '{email_otp}'],
+                [e($user->name), e($user->email), e($email_otp)],
+                $template_email->content_tem
+            );
+
+            $mail = new \App\Mail\Mail($content);
+
+            \Mail::to($email_to)->send(
+                $mail->subject($template_email->subject_tem)
+            );
+
+            \Log::info('Đã gửi OTP quên mật khẩu.', ['user_id' => $user->id]);
+
+            return true;
+        } catch (\Throwable $exception) {
+            \Log::error('Lỗi gửi OTP quên mật khẩu: '.$exception->getMessage(), [
+                'user_id' => $user->id,
+            ]);
+
+            return false;
         }
     }
 

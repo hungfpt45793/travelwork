@@ -133,14 +133,31 @@
                                     </div>
                                 </div>
                                 <div class="form-group row mgb10">
-                                    <label class="col-12 fw6">Mã giới thiệu(nếu có) </label>
-                                    <div class="col-12">
-                                        <input type="text" name='user_id'
-                                            class="form-control error_border_password"
-                                            placeholder="Mã giới thiệu" value="{{old('user_id')}}">
+    <label class="col-12 fw6">
+        Mã giới thiệu (nếu có)
+    </label>
 
-                                    </div>
-                                </div>
+    <div class="col-12">
+        <input
+            type="text"
+            name="user_id"
+            class="form-control error_border_user_id"
+            placeholder="Mã giới thiệu"
+            value="{{ old('user_id') }}"
+        >
+
+        <div class="mess_notice_user_id clearfix note_text_user_id"></div>
+
+        <div class="error_reg_mess clearfix error_text_user_id">
+            @if($errors->has('user_id'))
+                <i class="error">
+                    <span class="error_reg_mess_icon"></span>
+                    {{ $errors->first('user_id') }}
+                </i>
+            @endif
+        </div>
+    </div>
+</div>
                             </div>
                         </div>
 
@@ -210,19 +227,22 @@
 
                                 </div>
 
-                                <div class="form-group row mgb10">
-                                    <label class="col-12 fw6"> Mã số thuế </label>
-                                    <div class="col-6">
-                                        <input type="number" name="tax_code" value=""
-                                            class="form-control error_border_name js_tax_code"
-                                            placeholder="Mã số thuế">
-                                        <i class="f12 js_check_tax_code_error clRed"></i>
-                                    </div>
-                                    {{--<div class="col-6">--}}
-                                    {{--<span class="js_check_tax_code" style="display: inline-block;color: #fff;background: orange;padding: 10px;cursor: pointer">Lấy thông tin</span>--}}
-                                    {{--</div>--}}
-                                </div>
+                                <input type="text"
+    name="tax_code"
+    value="{{ old('tax_code') }}"
+    class="form-control error_border_tax_code js_tax_code"
+    placeholder="Mã số thuế"
+    maxlength="13">
 
+<div class="mess_notice_tax_code clearfix note_text_tax_code"></div>
+<div class="error_reg_mess clearfix error_text_tax_code">
+    @if($errors->has('tax_code'))
+        <i class="error">
+            <span class="error_reg_mess_icon"></span>
+            {{ $errors->first('tax_code') }}
+        </i>
+    @endif
+</div>
 
                             </div>
                             <div class="form-group mgb10">
@@ -613,15 +633,15 @@
             }
 
             // Kiểm tra Google reCAPTCHA.
-            if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse() === '') {
-                $('.error_g-captcha').text(
-                    "Vui lòng tích chọn ' Tôi không phải người máy ' hoặc ' I'm not a robot '"
-                );
-                $('.error_g-captcha').css('margin-bottom', '5px');
-                return false;
-            }
+            // if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse() === '') {
+            //     $('.error_g-captcha').text(
+            //         "Vui lòng tích chọn ' Tôi không phải người máy ' hoặc ' I'm not a robot '"
+            //     );
+            //     $('.error_g-captcha').css('margin-bottom', '5px');
+            //     return false;
+            // }
 
-            $('.error_g-captcha').text('');
+            // $('.error_g-captcha').text('');
 
             var $btn = $('#js_btnRegidit');
             $btn.html('<i class="fas fa-spinner fa-spin mgr5"></i>Đang đăng ký...');
