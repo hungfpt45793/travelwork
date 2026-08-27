@@ -1499,5 +1499,5 @@ $(document).ready(function() {
     })
 });
 </script>
-<script type="text/javascript" src="/public/assets/js/sweetalert.min.js"></script>
+<script type="text/javascript" src="/assets/js/sweetalert.min.js"></script>
 @endsection

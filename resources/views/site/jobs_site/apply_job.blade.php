@@ -39,10 +39,10 @@ $meta_description = ucwords($meta_description);
 @section('meta_image', !empty($job->employer_image) ?  asset($job->employer_image) : asset('assets/image/anh-vuong.jpg'))
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/tab_filter.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/detail_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/tab_filter.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/detail_job.css"/>
 @endsection
 
 @section('content')
@@ -361,8 +361,8 @@ $meta_description = ucwords($meta_description);
 
 @endsection
 @section('show_js')
-    <script type="text/javascript" src="/public/assets/js/sitebar.js"></script>
-    <script src="/public/assets/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/assets/js/sitebar.js"></script>
+    <script src="/assets/js/jquery.validate.min.js"></script>
     @include('site.layout_site.from')
     <script>
         $('.fileup_js').change(function () {

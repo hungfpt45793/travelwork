@@ -296,7 +296,7 @@
 
 @endsection
 @section('show_js')
-<script src="/public/assets/js/jquery.validate.min.js"></script>
+<script src="/assets/js/jquery.validate.min.js"></script>
 @include('site.layout_site.from')
 <script type="text/javascript">
     $(document).ready(function() {

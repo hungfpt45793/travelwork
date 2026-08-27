@@ -5,7 +5,7 @@ $employee_curriculum ='';
 $employee_curriculum = \App\Entity\Employee_curriculum::get_detail_syll($employee->employee_id);
 ?>
 @if(!empty($employee_curriculum))
-<link rel="stylesheet" type="text/css" href="/public/assets/css/so-yeu-ly-lich.css" />
+<link rel="stylesheet" type="text/css" href="/assets/css/so-yeu-ly-lich.css" />
 <style>
     .none_in_hoso{
         display:none;
@@ -53,7 +53,7 @@ $employee_curriculum = \App\Entity\Employee_curriculum::get_detail_syll($employe
                                          data-src="{{ $employee->employee_image }}">
                                 @else
                                     <img class="lazy" id="cvo-profile-avatar" cvo-form-field="true"
-                                         data-src="{{ asset('public/assets/image/no_avatar.jpg') }} ">
+                                         data-src="{{ asset('assets/image/no_avatar.jpg') }} ">
                                 @endif
 
                                 <input readonly  name="anh4x6" type="text"

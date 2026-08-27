@@ -22,9 +22,9 @@ $title = ucwords($title);
 @section('keywords',$title)
 @section('meta_image', isset($information['logo']) ?  asset($information['logo']) : '')
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/tab_filter.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/tab_filter.css"/>
 @endsection
 
 @section('content')
@@ -117,8 +117,8 @@ $title = ucwords($title);
 
 @section('show_js')
 
-    <script type="text/javascript" src="/public/assets/js/sitebar.js"></script>
-    <script type="text/javascript" src="/public/assets/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="/assets/js/sitebar.js"></script>
+    <script type="text/javascript" src="/assets/js/sweetalert.min.js"></script>
 
     {{--hien thi nut tim kiem o cuoi cung--}}
     <script>

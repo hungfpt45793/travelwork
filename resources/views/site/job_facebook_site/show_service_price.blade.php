@@ -6,10 +6,10 @@
 
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/intership.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/item_service.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/intership.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/item_service.css"/>
 @endsection
 
 @section('content')

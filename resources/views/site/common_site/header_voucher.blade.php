@@ -6,7 +6,8 @@
                     <div class="hd_logo">
                         <a href="/">
                             <img class="lazy"
-                                 data-src="{{ !empty($information['logo-pc-new']) ? asset($information['logo-pc-new']) : asset('assets/image/new/Logo.png') }}"
+                                 src="{{ \App\Ultility\Ultility::assetUrl(data_get($information, 'logo-pc-new'), 'assets/image/new/Logo.png') }}"
+                                 data-src="{{ \App\Ultility\Ultility::assetUrl(data_get($information, 'logo-pc-new'), 'assets/image/new/Logo.png') }}"
                                  alt="" width="100%">
                         </a>
                     </div>
@@ -75,7 +76,7 @@
                     <div class="header_new_mobile_center">
                         <a href="/">
                             <img
-                                 class="lazy" data-src="{{ !empty($information['logo-mobile-new']) ? asset($information['logo-mobile-new']) : asset('assets/image/new/logo_mobile.png') }}"
+                                 class="lazy" src="{{ \App\Ultility\Ultility::assetUrl(data_get($information, 'logo-mobile-new'), 'assets/image/new/logo_mobile.png') }}" data-src="{{ \App\Ultility\Ultility::assetUrl(data_get($information, 'logo-mobile-new'), 'assets/image/new/logo_mobile.png') }}"
                                  alt="" width="100%">
                         </a>
                     </div>
@@ -95,7 +96,7 @@
             <div class="col-md-12 col-12 header_new_mobile_box_menu dsNone js_header_new_mobile_box_menu">
                 <div class="menu_mobile_logo">
                     <a href="/"> <img
-                                class="lazy" data-src="{{ !empty($information['logo-mobile-new']) ? asset($information['logo-mobile-new']) : asset('assets/image/new/logo_mobile.png') }}"></a>
+                                class="lazy" src="{{ \App\Ultility\Ultility::assetUrl(data_get($information, 'logo-mobile-new'), 'assets/image/new/logo_mobile.png') }}" data-src="{{ \App\Ultility\Ultility::assetUrl(data_get($information, 'logo-mobile-new'), 'assets/image/new/logo_mobile.png') }}"></a>
                     <a class="menu_mobile_closed js_menu_mobile_closed"><i class="fas fa-times-circle"></i></a>
                 </div>
                 <div class="menu_mobile_login">

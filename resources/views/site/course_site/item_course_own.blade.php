@@ -70,7 +70,7 @@
             <div class="border-top d-flex justify-content-between pt-3">
                 <div class="d-flex align-items-center ">
                     <img class=" rounded-circle user_thump "
-                         src="{{!empty($cou['teacher_images'])?$cou['teacher_images']:asset('public/images/no_image.png')}}"
+                         src="{{!empty($cou['teacher_images'])?$cou['teacher_images']:asset('images/no_image.png')}}"
                          alt="{{!empty($cou['teacher_name'])?$cou['teacher_name']:''}}">
                     <span
                         class="ml-2">{{!empty($cou['teacher_name'])?$cou['teacher_name']:'Đang cập nhật'}}</span>

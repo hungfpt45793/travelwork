@@ -5,7 +5,7 @@
 @section('keywords', 'Danh sách cổng thực tập')
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/money.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/money.css"/>
 
 @endsection
 

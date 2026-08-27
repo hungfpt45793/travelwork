@@ -7,7 +7,7 @@
 @section('content')
 
 
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/so-yeu-ly-lich.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/so-yeu-ly-lich.css" />
     <style>
         .none_in_hoso{
             display:none;

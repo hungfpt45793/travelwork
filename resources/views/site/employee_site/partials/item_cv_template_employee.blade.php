@@ -1,5 +1,5 @@
-<link rel="stylesheet" type="text/css" href="{{ asset('public/assets') }}/web/css/box_item_cv.css"/>
-<link rel="stylesheet" href="{{ asset('public/employee_cv') }}/cv/thiet-ke-co-dien/ke-toan-9/css/cv.css"type="text/css">
+<link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/web/css/box_item_cv.css"/>
+<link rel="stylesheet" href="{{ asset('employee_cv') }}/cv/thiet-ke-co-dien/ke-toan-9/css/cv.css"type="text/css">
 
 <div class="box_item_cv" id="">
     <?php

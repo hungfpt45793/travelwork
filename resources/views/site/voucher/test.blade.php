@@ -13,7 +13,7 @@ $meta_description = ucwords($meta_description);
 ?>
 @section('meta_description') {{ $meta_description }} @endsection
 @section('keywords', !empty($vouchers->meta_keyword) ? $vouchers->meta_keyword : $vouchers->name_voucher)
-@section('meta_image', !empty($vouchers->image_voucher) ?asset($vouchers->image_voucher) : ''  )
+@section('meta_image', \App\Ultility\Ultility::assetUrl(data_get($vouchers, 'image_voucher'), 'assets/image/no_avatar.jpg'))
 
 @section('content')
     <div class="link bgrWhite md-mgt20 LinkVoucher">
@@ -299,7 +299,7 @@ $meta_description = ucwords($meta_description);
                                 @endforeach
                             </div>
 
-                            <div class="text-center mgt5 mgb5"><img src="/public/assets/image/down.png" alt=""
+                            <div class="text-center mgt5 mgb5"><img src="/assets/image/down.png" alt=""
                                                                     width="50px"></div>
                             <div class="employerJobs boxShadowBlue radius10 pd30 pdb5">
                                 @foreach(\App\Entity\SubPost::showSubPost('viec-lam', 2) as $id => $jobs_ketoan)
@@ -313,7 +313,7 @@ $meta_description = ucwords($meta_description);
                                     </p>
                                 @endforeach
                             </div>
-                            <div class="text-center mgt5 mgb5"><img src="/public/assets/image/down.png" alt=""
+                            <div class="text-center mgt5 mgb5"><img src="/assets/image/down.png" alt=""
                                                                     width="50px"></div>
 
                             <div class="employerJobs boxShadowBlue radius10 pd30 pdb5">
@@ -327,7 +327,7 @@ $meta_description = ucwords($meta_description);
                                                 class="white hvWhite fw7 f18">{{$tracnghiem->description}}</a></p>
                                 @endforeach
                             </div>
-                            <div class="text-center mgt5 mgb5"><img src="/public/assets/image/down.png" alt=""
+                            <div class="text-center mgt5 mgb5"><img src="/assets/image/down.png" alt=""
                                                                     width="50px"></div>
 
                             <div class="educate boxShadowBlue radius10 pd30 pdb5">

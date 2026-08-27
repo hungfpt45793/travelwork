@@ -4,7 +4,7 @@
 @section('meta_description', 'Danh sách nhà tuyển dụng đã giới thiệu')
 @section('keywords', 'Danh sách nhà tuyển dụng đã giới thiệu')
 
-<link rel="stylesheet" type="text/css" href="/public/assets/web/css/money_employee.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/web/css/money_employee.css"/>
 @section('content')
     <section class="content bgrGray pdt5">
         <div class="container-fluid ">

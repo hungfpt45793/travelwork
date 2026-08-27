@@ -5,10 +5,10 @@
 @section('keywords', 'Danh sách tin ứng viên ứng tuyển')
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/form.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/employer_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/form.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/employer_job.css"/>
 @endsection
 
 @section('content')

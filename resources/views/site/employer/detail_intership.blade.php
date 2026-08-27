@@ -89,8 +89,8 @@ $meta_description = ucwords($meta_description);
         $avgStar = $total / $commentStar;
     }
     ?>
-    <link rel="stylesheet" href="/public/assets/css/jquery.fancybox.min.css">
-    <script type="text/javascript" src="/public/assets/js/jquery.fancybox.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox.min.css">
+    <script type="text/javascript" src="/assets/js/jquery.fancybox.min.js"></script>
 
     <section class="content bgrGray pdt5">
         <div class="container-fluid ">
@@ -967,7 +967,7 @@ display: block">
             lessLink: '<a title="Thu gọn" class="redmore" href="#">   <span> Thu gọn <i class="fas fa-angle-double-up"></i> </span> </a>',
         });
     </script>
-    <script src="/public/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="/assets/js/jquery-3.3.1.min.js"></script>
 
     <script type="text/javascript">
         @if(session('success_apply_intership'))

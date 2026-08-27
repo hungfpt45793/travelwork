@@ -38,11 +38,11 @@ $com_give = \App\Entity\CommitCompany::where('com_id', $coe->com_id)->value('com
 @section('canonical', 'https://sanketoan.vn/')
 @section('meta_url', 'https://sanketoan.vn/')
 @section('content')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" href="/public/assets/css/course/teacher.css"/>
-    <link rel="stylesheet" href="/public/assets/css/course/course.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/coe_salary.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" href="/assets/css/course/teacher.css"/>
+    <link rel="stylesheet" href="/assets/css/course/course.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/coe_salary.css"/>
     <section class="coe_salary">
         <div class="container container_w_1200">
             <div class="row">

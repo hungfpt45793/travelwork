@@ -21,7 +21,7 @@
 
     <section class="course_preview">
         <div class="course_banner"
-             style="background: url({{ asset('public/assets/image/course/banner-preview.png') }});">
+             style="background: url({{ asset('assets/image/course/banner-preview.png') }});">
             <div class="container container_w_1200">
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-7  course_detail text-white">
@@ -158,7 +158,7 @@
                             ?>
                             @if(!empty($percent))
                                 <div class="sale_rate pt-1"
-                                     style="background: url({{ asset('public/assets/image/course/Vector_2.png')}});">
+                                     style="background: url({{ asset('assets/image/course/Vector_2.png')}});">
                                     <span class="js_course_percent ">  @if(!empty($percent))- {{ $percent }}
                                         %  @endif</span>
                                 </div>
@@ -317,7 +317,7 @@
                     @foreach(\App\Entity\SubPost::showSubPost('loi-ich-khi-su-dung-san-ke-toan',4,'asc') as $subpost)
                         <div class="course_proof_slick_item" style="height: fit-content">
 
-                            <img src="{{ isset($subpost['image'])?$subpost['image']:'' }}"
+                            <img src="{{ \App\Ultility\Ultility::assetUrl(data_get($subpost, 'image'), 'assets/image/course/course_target.png') }}"
                                  alt="{{ isset($subpost['description'])?$subpost['description']:'sanketoan' }}"
                                  class="">
                             <div class="note_proof">
@@ -397,7 +397,7 @@
 
                     </div>
                     <div class="col-md-5 d-none d-md-block">
-                        <img src="{{ asset('public/assets/image/course/content_bg.png') }}" style="width:100%;">
+                        <img src="{{ asset('assets/image/course/content_bg.png') }}" style="width:100%;">
                     </div>
                 </div>
             </div>
@@ -408,7 +408,7 @@
                 </h2>
                 <div class="row">
                     <div class="col-md-5 d-none d-md-block mt-6">
-                        <img style="width: 100%" src="{{ asset('public/assets/image/course/course_target.png') }}"
+                        <img style="width: 100%" src="{{ asset('assets/image/course/course_target.png') }}"
                              alt="course target">
                     </div>
 
@@ -643,7 +643,7 @@
         </div>
 
         <div class="course_register_now my-5" tabindex="-1"
-             style="background: url({{ asset('public/assets/image/course/bg-form.png') }} )rgba(23, 89, 179, 0.9);">
+             style="background: url({{ asset('assets/image/course/bg-form.png') }} )rgba(23, 89, 179, 0.9);">
 
 
             <div class="container container_w_1200">
@@ -940,7 +940,7 @@
         });
     </script>
 
-    <script type="text/javascript" src="{{ asset('/public/assets/web/js/numeral.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/assets/web/js/numeral.min.js') }}"></script>
     {{--//copy chia se khoa hoc--}}
     <script>
         function myFunction() {
@@ -1224,4 +1224,3 @@
         </script>
     @endif
 @endsection
-

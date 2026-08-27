@@ -4,9 +4,9 @@
 @section('keywords', 'Quản lý hồ sơ ứng viên')
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/employee_profile.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/employee_profile.css"/>
 @endsection
 
 
@@ -74,7 +74,7 @@
                                             được xét duyệt bởi sanketoan.vn
                                         </i>
                                     </p>
-                                    <img src="{{ asset('public/assets/image/resume-icon.png') }}"
+                                    <img src="{{ asset('assets/image/resume-icon.png') }}"
                                          class="img-thumbnail mbds_none_500">
 
                                     @if($employee->status_employee == 1)

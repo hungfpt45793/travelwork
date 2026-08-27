@@ -3,10 +3,10 @@
 @section('meta_description', 'Danh sách nhà tuyển dụng')
 @section('keywords', 'nhà tuyển dụng')
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/list_price.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/list_employee.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/list_price.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/list_employee.css"/>
 @endsection
 @section('content')
     <section class="content bgrGray pdt5">

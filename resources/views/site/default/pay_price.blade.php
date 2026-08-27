@@ -7,8 +7,8 @@
 @section('meta_image', !empty($information_service->title) ? $information_service->title : '')
 @section('meta_url',!empty($information_service->title) ? $information_service->title : '' )
 
-<link rel="stylesheet" type="text/css" href="/public/assets/css/list_price.css"/>
-<link rel="stylesheet" type="text/css" href="/public/assets/css/item_price.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/list_price.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/item_price.css"/>
 @section('content')
     <style>
         .icon_sendemail .fa-envelope-open-text {
@@ -314,7 +314,7 @@
 @endsection
 
 @section('show_js')
-    <script src="/public/assets/js/jquery.validate.min.js"></script>
+    <script src="/assets/js/jquery.validate.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             email = $.trim('email');

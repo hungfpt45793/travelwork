@@ -12,11 +12,11 @@ $meta_description = ucwords($meta_description);
 @section('canonical',  !empty($vouchers->slug_voucher) ? route('getVoucher', ['slug_voucher' => $vouchers->slug_voucher]) : '')
 @section('meta_description', !empty($meta_description) ? $meta_description : '')
 @section('keywords', !empty($vouchers->meta_title) ? $vouchers->meta_title : $vouchers->name_voucher)
-@section('meta_image', !empty($vouchers->image_voucher) ?asset($vouchers->image_voucher) : asset($information['og_image']))
+@section('meta_image', \App\Ultility\Ultility::assetUrl(data_get($vouchers, 'image_voucher'), 'assets/image/no_avatar.jpg'))
 @section('meta_url', !empty($vouchers->slug_voucher) ? route('getVoucher', ['slug_voucher' => $vouchers->slug_voucher]) : ''  )
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/voucher.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/voucher.css"/>
     <style>
         a.linkCourseInVoucher:hover > div {
             background: #dbefa9b3;
@@ -155,7 +155,7 @@ $meta_description = ucwords($meta_description);
                                     <hr class="mbdsNone dsBlock">
 
                                     <div class="dsNone mbdsBlock">
-                                       <img style="width: 100%;max-width: 100%;margin-bottom: 20px" src="{{ !empty($vouchers->image_voucher) ? asset($vouchers->image_voucher) : '' }}">
+                                       <img style="width: 100%;max-width: 100%;margin-bottom: 20px" src="{{ \App\Ultility\Ultility::assetUrl(data_get($vouchers, 'image_voucher'), 'assets/image/no_avatar.jpg') }}">
                                     </div>
                                     <a href="{{ asset('upload/'.$vouchers->link_dowload_voucher) }}"
                                        data-id=" {{ $vouchers->id_voucher }}"

@@ -4,9 +4,9 @@
 @section('keywords', 'tim-kiem-tai-lieu')
 @section('show_css')
 
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/slick-theme.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/voucher.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/voucher.css"/>
 @endsection
 @section('content')
     <section class="content pdt20 bgrGray">

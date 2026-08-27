@@ -6,8 +6,8 @@
 @section('keywords','Thanh toán đơn hàng')
 @section('meta_image', isset($information['logo']) ?  asset($information['logo']) : '')
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" href="/public/assets/css/course/course.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" href="/assets/css/course/course.css"/>
 @endsection
 @section('content')
     <section class="course_payment my-5">

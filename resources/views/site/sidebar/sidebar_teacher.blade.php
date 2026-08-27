@@ -138,7 +138,7 @@
 
     <div class="w100">
         <a href="{{ route('teacher_register') }}" title="Đăng kí ứng viên">
-            <img src="{{ isset($information['background-dang-ki-giao-vien']) ?  $information['background-dang-ki-giao-vien'] : '' }}" class="w100">
+            <img src="{{ \App\Ultility\Ultility::assetUrl(data_get($information, 'background-dang-ki-giao-vien'), 'assets/image/course/banner-preview.png') }}" class="w100">
         </a>
     </div>
 

@@ -5,8 +5,8 @@
 @section('keywords', !empty($information_service->title) ? $information_service->title : '')
 @section('meta_image', !empty($information_service->title) ? $information_service->title : '')
 @section('meta_url',!empty($information_service->title) ? $information_service->title : '' )
-<link rel="stylesheet" type="text/css" href="/public/assets/css/list_price.css"/>
-<link rel="stylesheet" type="text/css" href="/public/assets/css/item_price.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/list_price.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/item_price.css"/>
 <style>
     .select2-selection__rendered {
         border: 1px solid #d0d2d4;
@@ -350,7 +350,7 @@
 
 
 @section('show_js')
-    <script src="/public/assets/js/jquery.validate.min.js"></script>
+    <script src="/assets/js/jquery.validate.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             email = $.trim('email');

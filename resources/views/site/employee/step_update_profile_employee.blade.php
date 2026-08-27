@@ -4,11 +4,11 @@
 @section('meta_description', 'Quản lý hồ sơ ứng viên')
 @section('keywords', 'Quản lý hồ sơ ứng viên')
 @section('show_css')
-    {{--<link rel="stylesheet" type="text/css" href="/public/assets/css/nortification.css"/>--}}
-    {{--<link rel="stylesheet" type="text/css" href="/public/assets/simple-image-cropper/css/style.css"/>--}}
-    {{--<link rel="stylesheet" type="text/css" href="/public/assets/simple-image-cropper/css/style-example.css"/>--}}
-    {{--<link rel="stylesheet" type="text/css" href="/public/assets/simple-image-cropper/css/jquery.Jcrop.min.css"/>--}}
-    {{--<link rel="stylesheet" type="text/css" href="/public/assets/css/style_employee_image.css"/>--}}
+    {{--<link rel="stylesheet" type="text/css" href="/assets/css/nortification.css"/>--}}
+    {{--<link rel="stylesheet" type="text/css" href="/assets/simple-image-cropper/css/style.css"/>--}}
+    {{--<link rel="stylesheet" type="text/css" href="/assets/simple-image-cropper/css/style-example.css"/>--}}
+    {{--<link rel="stylesheet" type="text/css" href="/assets/simple-image-cropper/css/jquery.Jcrop.min.css"/>--}}
+    {{--<link rel="stylesheet" type="text/css" href="/assets/css/style_employee_image.css"/>--}}
     {{----}}
 
 
@@ -849,8 +849,8 @@
 @endsection
 @section('show_js')
     {{--scrop js--}}
-    {{--<script type="text/javascript" src="/public/assets/simple-image-cropper/scripts/jquery.Jcrop.js"></script>--}}
-    {{--<script type="text/javascript" src="/public/assets/simple-image-cropper/scripts/jquery.SimpleCropper.js"></script>--}}
+    {{--<script type="text/javascript" src="/assets/simple-image-cropper/scripts/jquery.Jcrop.js"></script>--}}
+    {{--<script type="text/javascript" src="/assets/simple-image-cropper/scripts/jquery.SimpleCropper.js"></script>--}}
     <script type="text/javascript" src="{{ asset('assets/simple-image-cropper/scripts/jquery.Jcrop.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/simple-image-cropper/scripts/jquery.SimpleCropper.js') }}"></script>
     {{--end scrop js--}}

@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" type="text/css" href="/public/assets/css/so-yeu-ly-lich.css" />
+<link rel="stylesheet" type="text/css" href="/assets/css/so-yeu-ly-lich.css" />
 <style>
     .none_in_hoso{
         display:none;
@@ -57,7 +57,7 @@
                                                          data-src="{{ $employee->employee_image }}">
                                                 @else
                                                     <img class="lazy" id="cvo-profile-avatar" cvo-form-field="true"
-                                                         data-src="{{ asset('public/assets/image/no_avatar.jpg') }} ">
+                                                         data-src="{{ asset('assets/image/no_avatar.jpg') }} ">
                                                 @endif
 
                                                 <input readonly  name="anh4x6" type="text"

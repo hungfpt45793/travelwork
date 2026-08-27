@@ -187,9 +187,9 @@
     <!-- Load Facebook SDK for JavaScript -->
     <div class="overlay ">
     </div>
-    <script src="{{ asset('public/assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('public/assets/js/floatscroll.js') }}"></script>
-    <script src="{{ asset('public/adminstration/select2/dist/js/select2.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/floatscroll.js') }}"></script>
+    <script src="{{ asset('adminstration/select2/dist/js/select2.min.js') }}"></script>
     <script src="{{ asset('adminstration/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('adminstration/jquery.priceformat.js') }}"></script>
     <script src="public/assets/js/d-public.js"></script>

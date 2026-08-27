@@ -37,10 +37,10 @@ $teacher_save_submit_fb = 0;
 @section('meta_image', isset($information['logo']) ?  asset($information['logo']) : ''  )
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/tab_filter.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/detail_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/tab_filter.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/detail_job.css"/>
 @endsection
 
 @section('content')
@@ -419,7 +419,7 @@ $teacher_save_submit_fb = 0;
 @endsection
 
 @section('show_js')
-    <script type="text/javascript" src="/public/assets/js/sitebar.js"></script>
+    <script type="text/javascript" src="/assets/js/sitebar.js"></script>
     <script>
         $('.js_click_show_hiden').click(function(){
             $('.show_hidden_btn_share').hide();

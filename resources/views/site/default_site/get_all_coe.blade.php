@@ -7,7 +7,7 @@
 @section('canonical', 'https://travelwork.vn/')
 @section('meta_url', 'https://travelwork.vn/')
 @section('content')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/coe_salary.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/coe_salary.css"/>
     <section class="coe_salary">
         <div class="container container_w_1200">
             <div class="row">
@@ -313,7 +313,7 @@
     <script>
         $('.item_coe_salary').matchHeight();
     </script>
-    <script src="/public/assets/js/jquery.validate.min.js"></script>
+    <script src="/assets/js/jquery.validate.min.js"></script>
     @include('site.layout_site.from')
     <script type="text/javascript">
         $(document).ready(function () {

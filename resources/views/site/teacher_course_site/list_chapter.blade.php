@@ -7,9 +7,9 @@
 @section('meta_image', !empty($course['course_image']) ? asset($course['course_image']) : asset($information['logo']))
 
 @section('show_css')
-    {{--<link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>--}}
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/teacher_course.css"/>
+    {{--<link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>--}}
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/teacher_course.css"/>
 
 @endsection
 
@@ -188,7 +188,7 @@
     </script>
 
 
-    <script type="text/javascript" src="/public/assets/js/sitebar.js"></script>
+    <script type="text/javascript" src="/assets/js/sitebar.js"></script>
     <script>
         $('.js_show_search_job').click(function () {
             $('.js_filter_job_face').toggle();

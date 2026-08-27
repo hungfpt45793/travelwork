@@ -519,7 +519,7 @@ $(document).ready(function() {
 
 })
 </script>
-<script type="text/javascript" src="/public/assets/js/sweetalert.min.js"></script>
+<script type="text/javascript" src="/assets/js/sweetalert.min.js"></script>
 <script>
     $('#list_job_app').change(function () {
         var show_category_id = $(this).val();
@@ -546,7 +546,7 @@ $(document).ready(function() {
         lessLink: '<a title="Thu gọn" class="redmore" href="#">   <span> Thu gọn <i class="fas fa-angle-double-up"></i> </span> </a>',
     });
 </script>
-<script src="/public/assets/ckeditor_easy/ckeditor.js"></script>
+<script src="/assets/ckeditor_easy/ckeditor.js"></script>
 <script>
 
     $('.editor_basic').each(function (e) {
