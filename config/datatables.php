@@ -49,9 +49,9 @@ return [
      * This is where you can register your custom datatables engine.
      */
     'engines'        => [
-        'eloquent'   => Yajra\DataTables\Engines\EloquentEngine::class,
-        'query'      => Yajra\DataTables\Engines\QueryBuilderEngine::class,
-        'collection' => Yajra\DataTables\Engines\CollectionEngine::class,
+        'eloquent'   => Yajra\DataTables\EloquentDataTable::class,
+        'query'      => Yajra\DataTables\QueryDataTable::class,
+        'collection' => Yajra\DataTables\CollectionDataTable::class,
     ],
 
     /**

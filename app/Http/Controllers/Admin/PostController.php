@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Entity\Category_tag;
 use App\Entity\Category;
 use App\Entity\CategoryPost;
-use App\Entity\Comment;
 use App\Entity\Input;
 use App\Entity\Notification_post;
 use App\Entity\Post;
@@ -49,28 +48,14 @@ class PostController extends AdminController
      */
     public function index(Request $request)
     {
-        $total_post =0;
-        $posts = Post::select('posts.*');
-        $posts = $posts->where('post_type', 'post');
-        if(!empty($request->input('post_question')))
-        {
-            $posts = $posts->where('post_question', $request->input('post_question'));
-        }
-        if(!empty($request->input('title')))
-        {
-            $title = $request->input('title');
-            $posts = $posts->where('title','like','%'.$title.'%' );
-        }
-        if(!empty($request->input('sale_money')))
-        {
-            $posts = $posts->where('sale_money', $request->input('sale_money'));
-        }
-        $posts = $posts->orderBy('posts.post_id','desc');
+        $posts = $this->applyPostFilters(
+            Post::where('post_type', 'post'),
+            $request
+        );
+
         $total_post = $posts->count();
-        $posts = $posts->paginate(20);
-//        print_r($posts);die();
-        $posts->appends(request()->query());
-        return View('admin.post.list',compact('posts','total_post'));
+
+        return View('admin.post.list', compact('total_post'));
     }
 
     /**
@@ -474,12 +459,14 @@ class PostController extends AdminController
             $posts = new Post();
             $posts->where('post_id', $post->post_id)->delete();
 
-            Comment::where('post_id', $post->post_id)->delete();
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
             Error::setErrorMessage('Lỗi xảy ra khi xóa bài viết: dữ liệu không hợp lệ.');
-            Log::error('http->admin->PostController->destroy: Lỗi xảy ra trong quá trình xóa bài viết');
+            Log::error('http->admin->PostController->destroy: Lỗi xảy ra trong quá trình xóa bài viết', [
+                'post_id' => $post->post_id,
+                'exception' => $e,
+            ]);
         } finally {
             return redirect('admin/posts');
         }
@@ -555,7 +542,10 @@ class PostController extends AdminController
     }
     
     public function anyDatatables(Request $request) {
-        $posts = Post::where('post_type', 'post')->select('posts.*');
+        $posts = $this->applyPostFilters(
+            Post::where('post_type', 'post')->select('posts.*'),
+            $request
+        );
 
         return Datatables::of($posts)
            ->addColumn('action', function($post) {
@@ -571,5 +561,22 @@ class PostController extends AdminController
            })
             ->orderColumn('post_id', 'post_id desc')
            ->make(true);
+    }
+
+    private function applyPostFilters($posts, Request $request)
+    {
+        if ($request->filled('post_question')) {
+            $posts->where('post_question', $request->input('post_question'));
+        }
+
+        if ($request->filled('title')) {
+            $posts->where('title', 'like', '%' . trim($request->input('title')) . '%');
+        }
+
+        if ($request->filled('sale_money')) {
+            $posts->where('sale_money', $request->input('sale_money'));
+        }
+
+        return $posts;
     }
 }

@@ -100,64 +100,9 @@
                             </tr>
 
                             </thead>
-                            <tbody>
-                            @foreach($posts as $post)
-                                <tr>
-                                    <td>{{ $post->post_id }}</td>
-                                    <td>{{ $post->title }}
-                                        <?php
-                                        $total = 0;
-                                        $total = \App\Entity\Post_question::get_total_question($post->post_id);
-                                        ?>
-                                        @if(!empty($total))
-                                           <span style="color: red">({{ $total }} câu hỏi được tạo)</span>
-                                            @endif
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('post', ['cate_slug' => 'tin-tuc', 'post_slug' => $post->slug]) }}">
-                                            Link
-                                        </a>
-                                    </td>
-
-                                    <td>{{ $post->category_string }}</td>
-                                    <td>
-                                            <img src="{{ $post->image }}" style="width: 50px">
-                                        </a>
-                                    </td>
-                                    <td>
-                                        @if($post->sale_money == 0)
-                                            <span class="red">Không</span>
-                                        @else
-                                            <span class="green">Có</span>
-                                        @endif
-                                    </td>
-                                    <td>
-
-                                        {{--<input type="checkbox" class="" onclick="return visiablePost(this);" value="{{ $post->post_id }}"--}}
-                                               {{--@if($post->visiable == 0 || $post->visiable == null)--}}
-                                               {{--checked--}}
-                                                {{--@endif--}}
-                                        {{--/> Hiện--}}
-
-                                        <a href="{{ route('add_question', ['post_id' => $post->post_id]) }}">
-                                            <button class="btn btn-primary"><i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
-                                        </a><a href="{{ route('posts.edit', ['post' => $post->post_id]) }}">
-                                            <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                        </a>
-                                        <a  href="{{ route('posts.destroy', ['post' => $post->post_id]) }}" class="btn btn-danger btnDelete"
-                                            data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
-                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-
-                            </tbody>
+                            <tbody></tbody>
 
                         </table>
-                        <div class="text-center">
-                            {{  $posts->links() }}
-                        </div>
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -175,7 +120,14 @@
         var table = $('#posts').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{!! route('datatable_post') !!}',
+            ajax: {
+                url: '{!! route('datatable_post') !!}',
+                data: function(data) {
+                    data.post_question = @json(request()->query('post_question'));
+                    data.title = @json(request()->query('title'));
+                    data.sale_money = @json(request()->query('sale_money'));
+                }
+            },
             columns: [{
                     data: 'post_id',
                     name: 'post_id'
