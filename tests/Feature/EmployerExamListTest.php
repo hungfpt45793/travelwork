@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Entity\Category;
 use App\Entity\User;
 use App\Exam\Exam;
+use App\Exam\Questions;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
@@ -82,5 +83,45 @@ class EmployerExamListTest extends TestCase
         $response->assertOk();
         $response->assertSee('Cuộc thi');
         $response->assertSee('Hướng dẫn');
+    }
+
+    public function test_employer_can_open_all_question_lists_with_existing_questions(): void
+    {
+        $employer = User::where('email', 'qa.employer@travelwork.test')->firstOrFail();
+        $exam = Exam::create([
+            'name_exam' => 'Đề thi kiểm thử danh sách câu hỏi',
+            'id_user' => $employer->id,
+            'bank_exam' => 0,
+        ]);
+
+        $questions = [];
+        foreach ([0, 1, 2] as $type) {
+            $questions[$type] = Questions::create([
+                'name_ques' => 'Câu hỏi kiểm thử loại '.$type,
+                'type_ques' => $type,
+                'show_answer_ques' => $type === 2 ? null : 0,
+                'id_exam' => $exam->id_exam,
+                'answer1' => $type === 2 ? null : 'Đáp án A',
+                'answer2' => $type === 2 ? null : 'Đáp án B',
+                'correct_answer' => $type === 2 ? null : 'answer1',
+            ]);
+        }
+
+        $routes = [
+            'getAllQuestionsZero',
+            'getAllQuestionsOne',
+            'getAllQuestionsTwo',
+        ];
+
+        foreach ($routes as $type => $routeName) {
+            $response = $this->actingAs($employer)->get(route($routeName, [
+                'id_exam' => $exam->id_exam,
+            ]));
+
+            $response->assertOk();
+            $response->assertSee(route('site_question.destroy', [
+                'site_question' => $questions[$type]->id_ques,
+            ]), false);
+        }
     }
 }

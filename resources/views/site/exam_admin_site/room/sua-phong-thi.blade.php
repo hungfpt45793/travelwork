@@ -22,7 +22,7 @@
                 <div class="col-lg-12 col-md-12 categoryQuestion userRight">
                     <section class="content contentMain">
                         <div class="clearfix"></div>
-                        <form role="form" action="{{ route('room.update',['id_room'=> $room['id_room'] ]) }}" method="POST" enctype="multipart/form-data"
+                        <form role="form" action="{{ route('room.update',['room'=> $room['id_room'] ]) }}" method="POST" enctype="multipart/form-data"
                               id="validateRoomTime">
                             {!! csrf_field() !!}
                             {{ method_field('PUT') }}
@@ -262,7 +262,6 @@
 
     @include('site.exam_admin_site.delete')
 @endsection
-
 
 
 

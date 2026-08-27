@@ -68,7 +68,7 @@
         <div class="container">
             {{--cau hoi trac nghiem--}}
 
-            <form role="form" action="{{ route('site_question.update',['id_ques' => $question->id_ques]) }}" method="POST"
+            <form role="form" action="{{ route('site_question.update',['site_question' => $question->id_ques]) }}" method="POST"
                   class="formQuestion">
                 {!! csrf_field() !!}
                 {{ method_field('PUT') }}
@@ -422,6 +422,5 @@
 
     @include('site.exam_admin_site.delete')
 @endsection
-
 
 
