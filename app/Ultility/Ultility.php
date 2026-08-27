@@ -199,6 +199,34 @@ class Ultility
         return config('app.url');
     }
 
+    public static function assetUrl($path, $fallback = '')
+    {
+        $fallback = ltrim((string) $fallback, '/');
+        $path = trim((string) $path);
+
+        if ($path === '') {
+            return $fallback !== '' ? asset($fallback) : '';
+        }
+
+        if (preg_match('#^https?://#i', $path)) {
+            return $path;
+        }
+
+        $path = preg_replace('#^/?public/#i', '', $path);
+        $path = ltrim($path, '/');
+
+        if ($path !== '' && strpos($path, '..') === false && is_file(public_path($path))) {
+            return asset($path);
+        }
+
+        $legacyPath = 'images/'.$path;
+        if ($path !== '' && strpos($legacyPath, '..') === false && is_file(public_path($legacyPath))) {
+            return asset($legacyPath);
+        }
+
+        return $fallback !== '' ? asset($fallback) : '';
+    }
+
     public static function getMacHome()
     {
         ob_start();
