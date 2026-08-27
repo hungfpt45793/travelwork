@@ -1,7 +1,17 @@
-<?php  $public_exam = \App\Entity\Category::getDetailCategory('cuoc-thi-trac-nghiem');
-?>
-<?php  $public_test = \App\Entity\Category::getDetailCategory('huong-dan-trac-nghiem');
-?>
+@php
+    $public_exam = \App\Entity\Category::getDetailCategory('cuoc-thi-trac-nghiem');
+    $public_test = \App\Entity\Category::getDetailCategory('huong-dan-trac-nghiem');
+    $public_exam_slug = data_get($public_exam, 'slug');
+    $public_test_slug = data_get($public_test, 'slug');
+    $public_exam_url = $public_exam_slug
+        ? route('site_category_post', ['slug_cate' => $public_exam_slug])
+        : route('getAllExam');
+    $public_test_url = $public_test_slug
+        ? route('site_category_post', ['slug_cate' => $public_test_slug])
+        : route('getTestAllExam');
+    $public_exam_title = data_get($public_exam, 'title', 'Cuộc thi trắc nghiệm');
+    $public_test_title = data_get($public_test, 'title', 'Hướng dẫn trắc nghiệm');
+@endphp
 <header class="header_new_pc dsNone_900">
     <div class="container container_w_1200">
         <div class="row">
@@ -17,10 +27,10 @@
                     <div class="hd_category">
                         <div class="hd_menu">
                             <ul>
-                                <a href="{{ route('site_category_post',['site_category_post'=>$public_exam['slug']]) }}" title="{{ isset($public_exam['title']) ? $public_exam['title'] : '' }}">
+                                <a href="{{ $public_exam_url }}" title="{{ $public_exam_title }}">
                                     <li>
                                         <i class="fas fa-compress-arrows-alt"></i>
-                                        <h2>{{ isset($public_exam['title']) ? $public_exam['title'] : '' }}</h2>
+                                        <h2>{{ $public_exam_title }}</h2>
                                     </li>
                                 </a>
                                 <a  href="{{ route('getRomAll') }}" title="Phòng thi">
@@ -41,10 +51,10 @@
                                         <h2> Đề thi thử</h2>
                                     </li>
                                 </a>
-                                <a target="_blank" href="{{ route('site_category_post',['site_category_post'=>$public_test['slug']]) }}" title="{{ isset($public_test['title']) ? $public_test['title'] : '' }}">
+                                <a target="_blank" href="{{ $public_test_url }}" title="{{ $public_test_title }}">
                                     <li>
                                         <i class="fab fa-slideshare"></i>
-                                        <h2> {{ isset($public_test['title']) ? $public_test['title'] : '' }}</h2>
+                                        <h2> {{ $public_test_title }}</h2>
                                     </li>
                                 </a>
                             </ul>
@@ -117,10 +127,10 @@
                 </div>
                 <div class="menu_mobile_list">
                     <ul>
-                        <a href="{{ route('site_category_post',['site_category_post'=>$public_exam['slug']]) }}" title="{{ isset($public_exam['title']) ? $public_exam['title'] : '' }}">
+                        <a href="{{ $public_exam_url }}" title="{{ $public_exam_title }}">
                             <li>
                                 <i class="fas fa-compress-arrows-alt"></i>
-                                <span>{{ isset($public_exam['title']) ? $public_exam['title'] : '' }}</span>
+                                <span>{{ $public_exam_title }}</span>
                             </li>
                         </a>
                         <a  href="{{ route('getRomAll') }}" title="Phòng thi">
@@ -141,10 +151,10 @@
                                 <span> Đề thi thử</span>
                             </li>
                         </a>
-                        <a target="_blank" href="{{ route('site_category_post',['site_category_post'=>$public_test['slug']]) }}" title="{{ isset($public_test['title']) ? $public_test['title'] : '' }}">
+                        <a target="_blank" href="{{ $public_test_url }}" title="{{ $public_test_title }}">
                             <li>
                                 <i class="fab fa-slideshare"></i>
-                                <span> {{ isset($public_test['title']) ? $public_test['title'] : '' }}</span>
+                                <span> {{ $public_test_title }}</span>
                             </li>
                         </a>
 {{--                        <a target="_blank" ref="nofollow" href="https://skt.sanketoan.vn/" title="MXH kế toán">--}}
@@ -223,6 +233,5 @@
         </div>
     </div>
 </header>
-
 
 

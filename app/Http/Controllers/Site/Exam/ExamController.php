@@ -632,7 +632,7 @@ class ExamController extends SiteController
         return Datatables::of($exams)
 
             ->addColumn('action', function ($exams) {
-                $string = '<a href="' . route('site_exam.edit', ['id_exam' => $exams->id_exam]) . '" class="btn btn-primary btnSmall mgBottom5" title="Sửa đề thi " data-toggle="tooltip" data-placement="bottom">
+                $string = '<a href="' . route('site_exam.edit', ['site_exam' => $exams->id_exam]) . '" class="btn btn-primary btnSmall mgBottom5" title="Sửa đề thi " data-toggle="tooltip" data-placement="bottom">
                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                     </a>';
                 $string .= '<a  href="' . route('getAllQuestionsZero', ['id_exam' => $exams->id_exam]) . '" class="btn btnGreen  btnSmall mgBottom5"
@@ -643,7 +643,7 @@ class ExamController extends SiteController
                                          title="Copy đề thi" data-toggle="tooltip" data-placement="bottom">
                                         <i class="fa fa-clone" aria-hidden="true"></i>
                                     </a>';
-                $string .= '<a  href="' . route('site_exam.destroy', ['id_exam' => $exams->id_exam]) . '" class="btn btn-danger btnDelete btnSmall"
+                $string .= '<a  href="' . route('site_exam.destroy', ['site_exam' => $exams->id_exam]) . '" class="btn btn-danger btnDelete btnSmall"
                                             data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);" title="Xóa đề thi" data-toggle="tooltip" data-placement="bottom">
                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                     </a>';

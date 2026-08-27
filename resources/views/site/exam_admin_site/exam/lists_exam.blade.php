@@ -54,7 +54,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($exams as $exam)
+                            @forelse($exams as $exam)
                                 <tr>
                                     <th scope="row"> <span class="btnGreen pd-05 pd-005 btn-small">{{ $exam['code_exam'] }}</span></th>
                                     <td>{{ $exam['name_exam'] }}</td>
@@ -76,7 +76,7 @@
                                     </span>
                                     </td>
                                     <td style="width: 15%">
-                                        <a href="{{ route('site_exam.edit',['id_exam' => $exam->id_exam]) }}" class="btn btn-primary btnSmall mgBottom5" title="Sửa đề thi " data-toggle="tooltip" data-placement="bottom">
+                                        <a href="{{ route('site_exam.edit',['site_exam' => $exam->id_exam]) }}" class="btn btn-primary btnSmall mgBottom5" title="Sửa đề thi " data-toggle="tooltip" data-placement="bottom">
                                             <i class="far fa-edit"></i>
                                         </a>
                                         <a  href="{{ route('getAllQuestionsZero' ,['id_exam' => $exam->id_exam]) }}" class="btn btnGreen  btnSmall mgBottom5"
@@ -87,13 +87,17 @@
                                             title="Copy đề thi" data-toggle="tooltip" data-placement="bottom">
                                             <i class="fa fa-clone" aria-hidden="true"></i>
                                         </a>
-                                        <a  href="{{ route('site_exam.destroy' ,['id_exam' => $exam->id_exam]) }}" class="btn btn-danger btnDelete btnSmall"
+                                        <a  href="{{ route('site_exam.destroy' ,['site_exam' => $exam->id_exam]) }}" class="btn btn-danger btnDelete btnSmall"
                                             data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);" title="Xóa đề thi" data-toggle="tooltip" data-placement="bottom">
                                             <i class="far fa-trash-alt"></i>
                                         </a>
                                     </td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr>
+                                    <td colspan="5" class="text-center text-muted">Chưa có đề thi nào.</td>
+                                </tr>
+                            @endforelse
 
                             </tbody>
                         </table>
@@ -107,7 +111,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($exams as $exam)
+                            @forelse($exams as $exam)
                                 <tr>
                                     <td style="width: 70%;max-width: 70%;word-wrap: break-word;">
                                         <p class="mgBottom5">Mã đề thi : <span class="btnGreen pd-05 pd-005 btn-small">{{ $exam['code_exam'] }}</span> </p>
@@ -141,7 +145,7 @@
                                         {{--Sửa câu hỏi--}}
                                         {{--</button>--}}
 
-                                        <a href="{{ route('site_exam.edit',['id_exam' => $exam->id_exam]) }}" class="btn btn-primary btnSmall mgBottom5" title="Sửa đề thi " data-toggle="tooltip" data-placement="bottom">
+                                        <a href="{{ route('site_exam.edit',['site_exam' => $exam->id_exam]) }}" class="btn btn-primary btnSmall mgBottom5" title="Sửa đề thi " data-toggle="tooltip" data-placement="bottom">
                                             <i class="far fa-edit"></i>
                                         </a>
                                         <a  href="{{ route('getAllQuestionsZero' ,['id_exam' => $exam->id_exam]) }}" class="btn btnGreen  btnSmall mgBottom5"
@@ -152,13 +156,17 @@
                                             title="Copy đề thi" data-toggle="tooltip" data-placement="bottom">
                                             <i class="fa fa-clone" aria-hidden="true"></i>
                                         </a>
-                                        <a  href="{{ route('site_exam.destroy' ,['id_exam' => $exam->id_exam]) }}" class="btn btn-danger btnDelete btnSmall"
+                                        <a  href="{{ route('site_exam.destroy' ,['site_exam' => $exam->id_exam]) }}" class="btn btn-danger btnDelete btnSmall"
                                             data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);" title="Xóa đề thi" data-toggle="tooltip" data-placement="bottom">
                                             <i class="far fa-trash-alt"></i>
                                         </a>
                                     </td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr>
+                                    <td colspan="3" class="text-center text-muted">Chưa có đề thi nào.</td>
+                                </tr>
+                            @endforelse
 
                             </tbody>
                         </table>
@@ -180,6 +188,4 @@
         });
     </script>
 @endsection
-
-
 

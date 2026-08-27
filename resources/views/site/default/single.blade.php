@@ -27,7 +27,7 @@
                         </li>
                         <li class="nav-item pd8">
                             <a class="f18 md-f14 mgb0 clorange"
-                               href="{{ route('site_category_post',['site_category_post'=>$public_link['slug']]) }}">{{ isset($public_link->title) ? $public_link->title : '' }}</a>
+                               href="{{ route('site_category_post',['slug_cate'=>$public_link['slug']]) }}">{{ isset($public_link->title) ? $public_link->title : '' }}</a>
                         </li>
                     @endif
                 </ul>

@@ -4,10 +4,18 @@
             <div class="col-md-12">
                 <div class="filter_new_form">
                     <div class="filter_from_exam">
-                        <?php  $public_exam = \App\Entity\Category::getDetailCategory('cuoc-thi-trac-nghiem');
-                        ?>
-                        <?php  $public_test = \App\Entity\Category::getDetailCategory('huong-dan-trac-nghiem');
-                        ?>
+                        @php
+                            $publicExam = \App\Entity\Category::getDetailCategory('cuoc-thi-trac-nghiem');
+                            $publicTest = \App\Entity\Category::getDetailCategory('huong-dan-trac-nghiem');
+                            $publicExamSlug = data_get($publicExam, 'slug');
+                            $publicTestSlug = data_get($publicTest, 'slug');
+                            $publicExamUrl = $publicExamSlug
+                                ? route('site_category_post', ['slug_cate' => $publicExamSlug])
+                                : route('getAllExam');
+                            $publicTestUrl = $publicTestSlug
+                                ? route('site_category_post', ['slug_cate' => $publicTestSlug])
+                                : route('getTestAllExam');
+                        @endphp
                         <div class="item_filter_exam @if($active == 'category_exam_new') active_file_exam @endif ">
                             <a href="{{ route('getAllExam') }}" title="Tất cả đề thi">
                                 <span class="icon_exam"><i class="fas fa-question"></i></span>
@@ -21,7 +29,7 @@
                             </a>
                         </div>
                         <div class="item_filter_exam">
-                            <a href="{{ route('site_category_post',['site_category_post'=>$public_exam['slug']]) }}" title="{{ isset($public_exam['title']) ? $public_exam['title'] : '' }}">
+                            <a href="{{ $publicExamUrl }}" title="{{ data_get($publicExam, 'title', 'Cuộc thi') }}">
                                 <span class="icon_exam"><i class="fas fa-compress-arrows-alt"></i></span>
                                 <span>Cuộc thi</span>
                             </a>
@@ -33,7 +41,7 @@
                             </a>
                         </div>
                         <div class="item_filter_exam">
-                            <a target="_blank" href="{{ route('site_category_post',['site_category_post'=>$public_test['slug']]) }}" title="{{ isset($public_test['title']) ? $public_test['title'] : '' }}">
+                            <a target="_blank" href="{{ $publicTestUrl }}" title="{{ data_get($publicTest, 'title', 'Hướng dẫn') }}">
                                 <span class="icon_exam"><i class="fab fa-slideshare"></i></span>
                                 <span>Hướng dẫn</span>
                             </a>

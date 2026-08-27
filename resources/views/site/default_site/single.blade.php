@@ -33,7 +33,7 @@
                         </li>
 
                         <li class="nav-item pd8">
-                            <a href="{{ route('site_category_post',['site_category_post'=>$public_link['slug']]) }}">{{ isset($public_link->title) ? $public_link->title : '' }}</a>
+                            <a href="{{ route('site_category_post',['slug_cate'=>$public_link['slug']]) }}">{{ isset($public_link->title) ? $public_link->title : '' }}</a>
                         </li>
                     @endif
                 </ul>
