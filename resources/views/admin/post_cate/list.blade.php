@@ -40,10 +40,10 @@
                                     <td>{{ $cate->slug }}</td>
                                     <td><img width="100" src="{{ $cate->image }}" /></td>
                                     <td>
-                                        <a href="{{ route('categories.edit', ['category_id' => $cate->category_id]) }}">
+                                        <a href="{{ route('categories.edit', ['category' => $cate->category_id]) }}">
                                             <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         </a>
-                                        <a  href="{{ route('categories.destroy', ['category_id' => $cate->category_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
+                                        <a  href="{{ route('categories.destroy', ['category' => $cate->category_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                         </a>
                                     </td>
@@ -55,10 +55,10 @@
                                         <td>{{ $child['slug'] }}</td>
                                         <td><img width="100" src="{{ $child['image'] }}" /></td>
                                         <td>
-                                            <a href="{{ route('categories.edit', ['category_id' => $child['category_id']]) }}">
+                                            <a href="{{ route('categories.edit', ['category' => $child['category_id']]) }}">
                                                 <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                             </a>
-                                            <a  href="{{ route('categories.destroy', ['category_id' => $child['category_id']]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
+                                            <a  href="{{ route('categories.destroy', ['category' => $child['category_id']]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                                             </a>
                                         </td>
@@ -85,4 +85,3 @@
     </section>
     @include('admin.partials.popup_delete')
 @endsection
-

@@ -18,7 +18,7 @@
     <section class="content">
         <div class="row">
             <!-- form start -->
-            <form role="form" action="{{ route('categories.update', ['category_id' => $category->category_id]) }}" method="POST">
+            <form role="form" action="{{ route('categories.update', ['category' => $category->category_id]) }}" method="POST">
                 {!! csrf_field() !!}
                 {{ method_field('PUT') }}
                 <div class="col-xs-12 col-md-8">
@@ -162,4 +162,3 @@
         </div>
     </section>
 @endsection
-

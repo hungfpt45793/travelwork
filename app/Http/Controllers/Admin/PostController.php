@@ -328,8 +328,8 @@ class PostController extends AdminController
                 ->orderBy('posts.post_id', 'desc')
                 ->get();
 
-//            $callApi = new CallApi();
-//            $campaigns = $callApi->getCampaigns();
+            // Tích hợp GetFly hiện đang tắt, nhưng view vẫn cần biến này.
+            $campaigns = [];
             $input_tags = Category_tag::all_tags_post();
             return view('admin.post.edit', compact(
                 'categories',
@@ -560,10 +560,10 @@ class PostController extends AdminController
         return Datatables::of($posts)
            ->addColumn('action', function($post) {
                $string = '<input type="checkbox" class="flat-red" onclick="return visiablePost(this); " value="'.$post->post_id.'"'.( ($post->visiable == 0 || $post->visiable == null ) ? 'checked' : '' ).'/> Hiện ';
-               $string .=  '<a href="'.route('posts.edit', ['post_id' => $post->post_id]).'">
+               $string .=  '<a href="'.route('posts.edit', ['post' => $post->post_id]).'">
                            <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                        </a>';
-               $string .= '<a  href="'.route('posts.destroy', ['post_id' => $post->post_id]).'" class="btn btn-danger btnDelete" 
+               $string .= '<a  href="'.route('posts.destroy', ['post' => $post->post_id]).'" class="btn btn-danger btnDelete"
                             data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>';

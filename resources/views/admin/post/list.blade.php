@@ -141,10 +141,10 @@
 
                                         <a href="{{ route('add_question', ['post_id' => $post->post_id]) }}">
                                             <button class="btn btn-primary"><i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
-                                        </a><a href="{{ route('posts.edit', ['post_id' => $post->post_id]) }}">
+                                        </a><a href="{{ route('posts.edit', ['post' => $post->post_id]) }}">
                                             <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         </a>
-                                        <a  href="{{ route('posts.destroy', ['post_id' => $post->post_id]) }}" class="btn btn-danger btnDelete"
+                                        <a  href="{{ route('posts.destroy', ['post' => $post->post_id]) }}" class="btn btn-danger btnDelete"
                                             data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                         </a>
@@ -228,4 +228,3 @@
     }); 
     </script>
 @endpush
-
