@@ -428,7 +428,7 @@
                     email: value
                 }
             }).done(function(response) {
-                result = response;
+                result = response && response.status === 200;
             });
             return result;
         }, 'Email đã tồn tại.');

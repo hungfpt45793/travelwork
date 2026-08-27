@@ -37,6 +37,26 @@ class ValidateformController extends SiteController
     public function check_email_employee(Request $request)
     {
         $email = $request->input('email');
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)
+            || !preg_match('/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/', $email)) {
+            return response([
+                'status' => 422,
+                'message' => 'Địa chỉ email không hợp lệ.'
+            ], 422);
+        }
+
+        $domain = substr(strrchr($email, '@'), 1);
+        $hasMailServer = false;
+        $dnsCheckFailed = false;
+        try {
+            $hasMailServer = checkdnsrr($domain, 'MX');
+            if (!$hasMailServer) {
+                $hasMailServer = checkdnsrr($domain, 'A') || checkdnsrr($domain, 'AAAA');
+            }
+        } catch (\Throwable $exception) {
+            $dnsCheckFailed = true;
+        }
+
         $user_model = new User();
         $user = $user_model->select('email')->where('email', $email)->first();
         $user_delete = $user_model->onlyTrashed()->select('email')->where('email', $email)->first();
@@ -57,10 +77,19 @@ class ValidateformController extends SiteController
             return response('Error', 404)
                 ->header('Content-Type', 'text/plain');
         }
+
+        if (!$hasMailServer && !$dnsCheckFailed) {
+            return response([
+                'status' => 422,
+                'message' => 'Tên miền email không có cấu hình nhận thư.'
+            ], 422);
+        }
+
         return response([
             'status' => 200,
-            'email' => 'có thể sử dụng email này'
-        ])->header('Content-Type', 'text/plain');
+            'email' => 'có thể sử dụng email này',
+            'dns_warning' => $dnsCheckFailed
+        ]);
     }
 //    public function check_email_employer(Request $request)
 //    {

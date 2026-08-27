@@ -52,46 +52,6 @@
                                 @endif
                             </div>
 
-                            <div class="col-lg-12">
-                                <div class="input-group input-group-lg group_input_check_email">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text border-danger" id="basic-addon1"><i
-                                                    class="far fa-envelope"></i></span>
-                                    </div>
-                                    <input value="{{ old('email') }}" class="form-control border-danger"
-                                           id="js_val_email" type="email" name="email" v
-                                           placeholder="Vui lòng nhập địa chỉ email ... ">
-                                    <div class="input-group-append mbdsNone">
-                                        <button class="btn btn-danger" id="js_check_email_create" type="button">KIỂM TRA
-                                            EMAIL
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="text-center mgt5 mbdsBlock dsNone">
-                                    <button class="btn btn-danger" id="js_check_email_create" type="button">KIỂM TRA
-                                        EMAIL
-                                    </button>
-                                </div>
-                                {{--<div class="mess_notice_email clearfix note_text_email"></div>--}}
-                                {{--<div class="error_reg_mess clearfix error_text_email"></div>--}}
-
-                                <div id="alert_taikhoantontai" class="alert alert-danger mt-2 alert_error_email"
-                                     style="display: none" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
-                                    </button>
-                                    <strong>Thông báo: </strong><span class="alert_note_email"></span>
-                                </div>
-                                <div id="alert_taikhoanchuatontai" class="alert alert-success mt-2 alert_success_email"
-                                     style="display: none" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
-                                    </button>
-                                    <strong>Chúc mừng!</strong> <span class="alert_note_email"></span>
-                                </div>
-
-                            </div>
-
                         </div>
                         <div class="row mgt15">
                             <div class="col-md-6">
@@ -125,6 +85,28 @@
                                             <div class="mess_notice_phone clearfix note_text_phone"></div>
                                             <div class="error_reg_mess clearfix error_text_phone"></div>
 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1"><i
+                                                                class="far fa-envelope"></i></span>
+                                                </div>
+                                                <input value="{{ old('email') }}" class="form-control error_border_email"
+                                                       id="js_val_email" type="email" name="email"
+                                                       placeholder="Địa chỉ email" required>
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-danger" id="js_check_email_create" type="button">KIỂM TRA EMAIL</button>
+                                                </div>
+                                            </div>
+                                            <div class="mess_notice_email clearfix note_text_email"></div>
+                                            <div class="error_reg_mess clearfix error_text_email"></div>
+                                            <div class="alert alert-danger alert_error_email" style="display: none" role="alert">
+                                                <strong>Thông báo: </strong><span class="alert_note_email"></span>
+                                            </div>
+                                            <div class="alert alert-success alert_success_email" style="display: none" role="alert">
+                                                <strong>Chúc mừng! </strong><span class="alert_note_email"></span>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="input-group">
@@ -205,7 +187,8 @@
                                                             <input type="checkbox" name="career_category_id[]"
                                                                    value="{{$career->career_category_id}}"
                                                                    id="{{$career->career_category_id}}"
-                                                                   class="flat-red resetchecked js_check_category_carrer_max_3">
+                                                                    class="flat-red resetchecked js_check_category_carrer_max_3"
+                                                                    @if(in_array($career->career_category_id, old('career_category_id', []))) checked @endif>
                                                             {{$career->career_category_name}}
                                                         </label>
                                                     </div>
@@ -271,36 +254,62 @@
     </style>
 
     <script>
-        var array = [];
-        $(".js_check_category_carrer_max_3").change(function () {
-            if ($(this).is(":checked")) {
-                array.push(this.id);
-                if (array.length > 3) {
-                    array.splice(0, 1);
+        function limitCareerChoices() {
+            var careerCheckboxes = $('.js_check_category_carrer_max_3');
+            var checkedCareerCheckboxes = careerCheckboxes.filter(':checked');
+
+            checkedCareerCheckboxes.slice(3).each(function () {
+                $(this).iCheck('uncheck');
+            }
+            checkedCareerCheckboxes = careerCheckboxes.filter(':checked');
+
+            careerCheckboxes.each(function () {
+                if (this.checked || checkedCareerCheckboxes.length < 3) {
+                    $(this).iCheck('enable');
+                } else {
+                    $(this).iCheck('disable');
                 }
-                $("input").prop("checked", false);
-                for (var i = 0; i < array.length; i++) {
-                    $("#" + array[i]).prop("checked", true);
-                }
-            } else {
-                var index = array.indexOf(this.id);
-                array.splice(index, 1);
+            });
+        }
+
+        $(document).on('ifChanged', '.js_check_category_carrer_max_3', function () {
+            limitCareerChoices();
+        });
+
+        $(document).on('ifClicked', '.js_check_category_carrer_max_3', function () {
+            var checkedCareerCount = $('.js_check_category_carrer_max_3').filter(function () {
+                return $(this).parent().hasClass('checked');
+            }).length;
+
+            if (!$(this).parent().hasClass('checked') && checkedCareerCount >= 3) {
+                var checkbox = this;
+                setTimeout(function () {
+                    $(checkbox).iCheck('uncheck');
+                }, 0);
             }
         });
-        var array = [];
-        $(".js_check_category_carrer_max_2").change(function () {
-            if ($(this).is(":checked")) {
-                array.push(this.id);
-                if (array.length > 3) {
-                    array.splice(0, 1);
-                }
-                $("input").prop("checked", false);
-                for (var i = 0; i < array.length; i++) {
-                    $("#" + array[i]).prop("checked", true);
-                }
-            } else {
-                var index = array.indexOf(this.id);
-                array.splice(index, 1);
+
+        $(document).ready(function () {
+            limitCareerChoices();
+        });
+
+        $(document).on('ifChanged', '.js_check_category_carrer_max_2', function () {
+            if ($('.js_check_category_carrer_max_2:checked').length > 3) {
+                $(this).iCheck('uncheck');
+            }
+        });
+
+        $(document).on('ifChanged', '.js_check_category_carrer_max_2', function () {
+            if ($('.js_check_category_carrer_max_2:checked').length > 3) {
+                $(this).iCheck('uncheck');
+            }
+        });
+
+        $('#form_register').on('submit', function (event) {
+            if ($('.js_check_category_carrer_max_3:checked').length > 3
+                || $('.js_check_category_carrer_max_2:checked').length > 3) {
+                event.preventDefault();
+                alert('Bạn chỉ được chọn tối đa 3 mục.');
             }
         });
     </script>
@@ -344,6 +353,35 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function () {
+            $.validator.addMethod('strictEmail', function (value, element) {
+                return this.optional(element) || /^[^\s@.](?:[^\s@]*[^\s@.])?@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z]{2,}$/.test(value)
+                    && !/\.\./.test(value);
+            }, 'Vui lòng nhập một địa chỉ Email hợp lệ !');
+
+            $('#js_check_email_create').click(function () {
+                var email = $('#js_val_email').val().trim();
+                if (!/^[^\s@.](?:[^\s@]*[^\s@.])?@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z]{2,}$/.test(email)
+                    || /\.\./.test(email)) {
+                    $('.alert_success_email').hide();
+                    $('.alert_error_email').show().find('.alert_note_email').text('Vui lòng nhập một địa chỉ Email hợp lệ !');
+                    return;
+                }
+
+                $.get('{{ route('check_email_employee') }}', {email: email})
+                    .done(function (response) {
+                        $('.alert_error_email').hide();
+                        $('.alert_success_email').show().find('.alert_note_email').text(response.email || 'Email có thể sử dụng.');
+                    })
+                    .fail(function (xhr) {
+                        $('.alert_success_email').hide();
+                        $('.alert_error_email').show().find('.alert_note_email').text(
+                            xhr.responseJSON && xhr.responseJSON.message
+                                ? xhr.responseJSON.message
+                                : 'Email đã tồn tại hoặc không thể sử dụng.'
+                        );
+                    });
+            });
+
             $("#form_register").validate({
                 ignore: [],
                 onkeyup: false,
@@ -355,8 +393,7 @@
                     },
                     email: {
                         required: true,
-                        checkEmail: true,
-                        email: true
+                        strictEmail: true
                     },
                     phone: {
                         required: true,
@@ -378,9 +415,7 @@
                     },
                     email: {
                         required: 'Vui lòng nhập địa chỉ Email.',
-                        checkEmail: 'Địa chỉ email đã tồn tại trên hệ thống ! Vui lòng nhập một địa chỉ email mới.',
-                        email: 'Vui lòng nhập một địa chỉ Email hợp lệ !'
-                        // checkEmail của jquery layout site
+                        strictEmail: 'Vui lòng nhập một địa chỉ Email hợp lệ !'
                     },
                     phone: {
                         required: 'Số điện thoại phải là số và không được để trống.',
