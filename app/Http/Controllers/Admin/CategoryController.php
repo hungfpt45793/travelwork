@@ -42,12 +42,15 @@ class CategoryController extends AdminController
         try {
             $category = new Category();
             $categories = $category->getCategory();
+            $categoryTitles = Category::where('post_type', 'post')
+                ->pluck('title', 'category_id');
         } catch (\Exception $e) {
             $categories = null;
+            $categoryTitles = collect();
             Error::setErrorMessage('Hiển thị danh mục xảy ra lỗi.');
             Log::error('http->Admin->CategoryController->index: Hiển thị danh mục xảy ra lỗi');
         } finally {
-            return view('admin.post_cate.list', compact('categories'));
+            return view('admin.post_cate.list', compact('categories', 'categoryTitles'));
         }
     }
 

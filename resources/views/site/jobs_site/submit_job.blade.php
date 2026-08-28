@@ -68,7 +68,7 @@
                                                                    style="display: inline-block;cursor: pointer">{{ !empty($company_name) ? $company_name : ''  }}
                                                                 </a>
                                                             @else
-                                                                <a href="{{route('detail_employer',['id' => $employer->slug])}}"
+                                                                <a href="{{route('detail_employer',['slug' => $employer->slug])}}"
                                                                    class="titleCompanyName cutTitle"
                                                                    style="display: inline-block">{{ isset($employer->enterprise_name) ? $employer->enterprise_name : ''}}
                                                                 </a>

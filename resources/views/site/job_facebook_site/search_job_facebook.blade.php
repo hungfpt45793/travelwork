@@ -79,6 +79,13 @@ $title = ucwords($title);
                                     @include('site.jobs_site.item_job_facebook_new',['job'=> $jobFacebook])
                                     {{--@include('site.job_facebook_site.item_job_facebook_new',['image'=>'job_fb','job'=>$jobFacebook])--}}
                                 @endforeach
+
+                                @if($total_jobs === 0 && $total_job_fb === 0)
+                                    <div class="col-12 text-center pd30" id="job_search_empty_state"
+                                         role="status">
+                                        <p class="f18 fw6 mgb0">Chưa có việc phù hợp</p>
+                                    </div>
+                                @endif
                             </div>
                         </div>
 
@@ -120,31 +127,6 @@ $title = ucwords($title);
     <script type="text/javascript" src="/assets/js/sitebar.js"></script>
     <script type="text/javascript" src="/assets/js/sweetalert.min.js"></script>
 
-    {{--hien thi nut tim kiem o cuoi cung--}}
-    <script>
-        $(function () {
-            var js_sd_fixel_bottom_w = $('.sidebarFillter').width();
-            // console.log(js_sd_fixel_bottom_w);
-            if(js_sd_fixel_bottom_w == 0 || js_sd_fixel_bottom_w == '')
-            {
-                js_sd_fixel_bottom_w = 300;
-            }
-            $('.js_sd_fixel_bottom').css('width', js_sd_fixel_bottom_w);
-            var s1 = $('#js_toogle_sidebar').height();
-            // var height_window = $(window).height();
-            var windowpos = $(window).scrollTop();
-            $(window).scroll(function () {
-                var w_h = $(this).scrollTop();
-                // console.log(s1);
-                // console.log( 'winddw'+ w_h);
-                if (w_h > 1000) {
-                    $('.js_remove_fixel').removeClass('js_sd_fixel_bottom');
-                } else {
-                    $('.js_remove_fixel').addClass('js_sd_fixel_bottom');
-                }
-            });
-        });
-    </script>
     <script>
         $('#btnloading_frofile_search').click(function () {
             if($('input[name="old_employee"]').val() == '')
@@ -154,10 +136,6 @@ $title = ucwords($title);
             }
         });
 
-        $('#btnloading_frofile').click(function () {
-            $(this).html('<i class="fas fa-spinner fa-spin mgr5"></i>' + 'Đang lọc việc làm...');
-            $btn.attr('disabled', false);
-        });
         $('#search_city').change(function () {
             var search_city = $(this).val();
             $.get('/tim-kiem-huyen/' + search_city, function (data) {

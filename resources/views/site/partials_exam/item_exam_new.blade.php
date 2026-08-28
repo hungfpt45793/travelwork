@@ -1,9 +1,9 @@
 <div class="item_box_exam">
-    @if($exam['status_exam'] == 1)
-        <a href="{{ route('getTestExam',['slug_exam' => $exam['slug_exam'] ]) }}">
-            @else
-                <a href="{{ route('getExam',['slug_exam' => $exam['slug_exam'] ]) }}">
-                    @endif
+    @if((int) ($exam['status_exam'] ?? 0) === 1)
+        <a href="{{ route('getTestQuestion', ['slug_exam' => $exam['slug_exam']]) }}">
+    @else
+        <a href="{{ route('getQuestion', ['slug_exam' => $exam['slug_exam']]) }}">
+    @endif
                     <p class="item_box_exam_title ">
                         {{ $exam['name_exam'] }}
                     </p>
@@ -29,7 +29,7 @@
                             }
                             ?>
                             <span class="right_icon_exam"><i class="fa fa-eye" aria-hidden="true"></i>{{ $view }}</span>
-                                @if($exam['status_exam'] == 1)
+                                @if((int) ($exam['status_exam'] ?? 0) === 1)
                                     <span class="right_icon_exam right_icon_exam_test"><i class="fa fa-user-times" aria-hidden="true"></i></span>
                                 @else
                                     <span class="right_icon_exam"><i class="fa fa-user" aria-hidden="true"></i></span>

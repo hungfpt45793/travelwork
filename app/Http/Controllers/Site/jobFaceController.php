@@ -58,8 +58,7 @@ class jobFaceController extends SiteController
                 'jobs.title', 'jobs.job_id', 'jobs.date_submit', 'jobs.employer_id', 'jobs.slug', 'jobs.vip', 'jobs.updated_at',
                 'salary.description as salary_description', 'jobs.deadline_submit_profile', 'jobs.district', 'jobs.province', 'jobs.active_job'
             );
-        $list_jobs = $list_jobs->whereDate('jobs.deadline_submit_profile', '>=', date('Y-m-d'));
-        $list_jobs = $list_jobs->where('jobs.active_job', 1);
+        $list_jobs = $list_jobs->publiclyVisible();
         $list_jobs = $list_jobs->where('jobs.vip','=', 1);
         $list_jobs = $list_jobs->orderBy('jobs.vip', 'desc');
         $list_jobs = $list_jobs->orderBy('jobs.updated_at', 'desc');
@@ -75,8 +74,7 @@ class jobFaceController extends SiteController
                 'jobs.title', 'jobs.job_id', 'jobs.date_submit', 'jobs.employer_id', 'jobs.slug', 'jobs.vip', 'jobs.updated_at',
                 'salary.description as salary_description', 'jobs.deadline_submit_profile', 'jobs.district', 'jobs.province', 'jobs.active_job'
             );
-        $list_jobs2 = $list_jobs2->whereDate('jobs.deadline_submit_profile', '>=', date('Y-m-d'));
-        $list_jobs2 = $list_jobs2->where('jobs.active_job', 1);
+        $list_jobs2 = $list_jobs2->publiclyVisible();
         $list_jobs2 = $list_jobs2->where('jobs.vip','!=', 1);
         $list_jobs2 = $list_jobs2->orderBy('jobs.vip', 'desc');
         $list_jobs2 = $list_jobs2->orderBy('jobs.updated_at', 'desc');
@@ -279,6 +277,16 @@ class jobFaceController extends SiteController
     {
 //        echo $slug;die();
         $user = Auth()->user();
+        $word = trim((string) $request->input('word', $request->input('w', '')));
+        $vip = $request->input('vip', $request->input('v'));
+
+        if ($request->boolean('search_by_title') && $word === '') {
+            return redirect()->back()->with(
+                'job_search_error',
+                'Vui lòng nhập việc theo tên'
+            );
+        }
+
         $jobfaceModule = new JobFacebook();
 //        sắp xếp theo tin mới nhất
         $list_job_fb = $jobfaceModule->leftJoin('salary', 'salary.salary_id', 'job_facebook.salary_id');
@@ -295,12 +303,11 @@ class jobFaceController extends SiteController
 //            print_r($request->input('array_salary')) ;die();
             $list_job_fb = $list_job_fb->whereIn('job_facebook.salary_id', $request->input('array_salary'));
         }
-        if (!empty($request->input('w'))) {
-            $word = $request->input('w');
+        if ($word !== '') {
             $list_job_fb = $list_job_fb->where('job_facebook.title', 'like', '%' . $word . '%');
         }
-        if ($request->has('v')) {
-            $list_job_fb = $list_job_fb->where('job_facebook.vip', $request->input('v'));
+        if ($vip !== null && $vip !== '') {
+            $list_job_fb = $list_job_fb->where('job_facebook.vip', $vip);
         }
 
         $list_job_fb = $list_job_fb->select(
@@ -313,12 +320,6 @@ class jobFaceController extends SiteController
             'job_facebook.updated_at',
             'salary.description as salary_description'
         );
-        if (!empty($request->has('v'))) {
-            $vip = $request->input('v');
-            if ($vip != '') {
-                $list_job_fb = $list_job_fb->where('job_facebook.vip', $vip);
-            }
-        }
         if ($request->input('date_create')) {
 //            $total_job = $total_job->whereBetween(DB::raw('DATE(updated_at)'), array($date_form, $date_to));
             $list_job_fb = $list_job_fb->whereDate('job_facebook.updated_at', '>=', $request->input('date_create'));
@@ -356,12 +357,11 @@ class jobFaceController extends SiteController
 //            print_r($request->input('array_salary')) ;die();
             $list_jobs = $list_jobs->whereIn('jobs.salary_id', $request->input('array_salary'));
         }
-        if (!empty($request->input('w'))) {
-            $word = $request->input('w');
+        if ($word !== '') {
             $list_jobs = $list_jobs->where('jobs.title', 'like', '%' . $word . '%');
         }
-        if ($request->has('v')) {
-            $list_jobs = $list_jobs->where('jobs.vip', $request->input('v'));
+        if ($vip !== null && $vip !== '') {
+            $list_jobs = $list_jobs->where('jobs.vip', $vip);
         }
         if (!empty($request->input('date_create'))) {
 //            $total_job = $total_job->whereBetween(DB::raw('DATE(updated_at)'), array($date_form, $date_to));

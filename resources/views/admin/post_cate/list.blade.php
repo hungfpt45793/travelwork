@@ -28,6 +28,7 @@
                                 <th width="5%">ID</th>
                                 <th>Tiêu đề</th>
                                 <th>Danh mục cha</th>
+                                <th>Slug</th>
                                 <th>Hình ảnh</th>
                                 <th>Thao tác</th>
                             </tr>
@@ -37,6 +38,7 @@
                                 <tr>
                                     <td>{{ $cate->category_id }}</td>
                                     <td>{{ $cate->title }}</td>
+                                    <td>{{ $categoryTitles->get($cate->parent, 'Không có') }}</td>
                                     <td>{{ $cate->slug }}</td>
                                     <td><img width="100" src="{{ $cate->image }}" /></td>
                                     <td>
@@ -52,6 +54,7 @@
                                     <tr>
                                         <td>{{ $child['category_id'] }}</td>
                                         <td>{{ $child['title'] }}</td>
+                                        <td>{{ $categoryTitles->get($child['parent'], 'Không có') }}</td>
                                         <td>{{ $child['slug'] }}</td>
                                         <td><img width="100" src="{{ $child['image'] }}" /></td>
                                         <td>
@@ -71,6 +74,7 @@
                                 <th width="5%">ID</th>
                                 <th>Tiêu đề</th>
                                 <th>Danh mục cha</th>
+                                <th>Slug</th>
                                 <th>Hình ảnh</th>
                                 <th>Thao tác</th>
                             </tr>

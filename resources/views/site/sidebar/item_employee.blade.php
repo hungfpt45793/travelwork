@@ -31,6 +31,12 @@
 
             </li>
             <li class="hvbgrBlueN">
+                <a href="{{ route('get_all_coe') }}" class="block hvWhite pd8-20" data-toggle="tooltip"
+                   data-placement="right" title="Tính hệ số lương">
+                    <i class="fas fa-calculator"></i><span>Tính hệ số lương</span>
+                </a>
+            </li>
+            <li class="hvbgrBlueN">
                 <a href="{{route('show_user_job_facebook')}}" class="block hvWhite pd8-20" data-toggle="tooltip"
                    data-placement="right" title="Đổi mật khẩu">
                     <i class="fas fa-user-circle "></i><span>Đổi mật khẩu</span>

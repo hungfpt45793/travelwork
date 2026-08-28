@@ -75,7 +75,7 @@
                                 </p>
                                 <p>Hưởng nhiều chế độ ưu đãi lớn khi đi làm ngay</p>
 
-                                <a href="{{route('detail_employer',['id' => $employer->slug])}}" class="fw5">Thông tin chi tiết <i class="fas fa-angle-double-right"></i></a>
+                                <a href="{{route('detail_employer',['slug' => $employer->slug])}}" class="fw5">Thông tin chi tiết <i class="fas fa-angle-double-right"></i></a>
                             </div>
                         </div>
                     @endif
@@ -97,7 +97,7 @@
                             @endforeach
 
                         </ul>
-                        <a href="{{route('detail_employer',['id' => $employer->slug])}}" class="fw5">Xem thêm <i class="fas fa-angle-double-right"></i></a>
+                        <a href="{{route('detail_employer',['slug' => $employer->slug])}}" class="fw5">Xem thêm <i class="fas fa-angle-double-right"></i></a>
                     </div>
                 @endif
                 <hr>
@@ -293,5 +293,4 @@
     </div>
     @include('site.sidebar.list_banner')
 </div>
-
 

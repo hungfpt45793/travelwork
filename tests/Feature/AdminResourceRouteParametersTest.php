@@ -48,6 +48,35 @@ class AdminResourceRouteParametersTest extends TestCase
             ->assertOk();
     }
 
+    public function test_admin_category_list_displays_parent_title_and_slug_in_separate_columns(): void
+    {
+        $admin = User::where('role', 4)->firstOrFail();
+        $suffix = str_replace('.', '', uniqid('', true));
+        $parent = Category::create([
+            'title' => 'Danh mục cha test ' . $suffix,
+            'slug' => 'danh-muc-cha-test-' . $suffix,
+            'parent' => 0,
+            'post_type' => 'post',
+        ]);
+        $child = Category::create([
+            'title' => 'Danh mục con test ' . $suffix,
+            'slug' => 'slug-khong-phai-danh-muc-cha-' . $suffix,
+            'parent' => $parent->category_id,
+            'post_type' => 'post',
+        ]);
+
+        $response = $this->actingAs($admin)->get(route('categories.index'));
+
+        $response->assertOk();
+        $response->assertSeeText($child->title);
+        $response->assertSeeText($parent->title);
+        $response->assertSeeText($child->slug);
+        $response->assertSeeInOrder([
+            '<th>Danh mục cha</th>',
+            '<th>Slug</th>',
+        ], false);
+    }
+
     public function test_admin_can_soft_delete_a_post_without_querying_a_missing_comments_column(): void
     {
         $admin = User::where('role', 4)->firstOrFail();

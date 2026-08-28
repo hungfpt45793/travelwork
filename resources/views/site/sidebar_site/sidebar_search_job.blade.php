@@ -216,17 +216,23 @@
                     </div>
 
                     <div class="dsBlock">
-                        <?php $word_get = isset($_GET['w']) ? $_GET['w'] : '';?>
-                        <input class="input_s_word" type="text" name="word" style="width: 100%"
-                               placeholder="Nhập tiêu đề công việc..." value="{{ $word_get }}">
+                        <?php $word_get = request()->input('word', request()->input('w', ''));?>
+                        <input class="input_s_word" id="job_title_filter" type="text" name="word"
+                               style="width: 100%" placeholder="Nhập tiêu đề công việc..."
+                               value="{{ $word_get }}" aria-describedby="job_title_filter_error">
+                        <p id="job_title_filter_error" class="clred mgt5" role="alert"
+                           @if(!session('job_search_error')) style="display: none" @endif>
+                            {{ session('job_search_error', 'Vui lòng nhập việc theo tên') }}
+                        </p>
                     </div>
 
 
                     <hr>
 
 
-                        <div class="dsBlock mgt10 js_sd_fixel_bottom js_remove_fixel" style="min-width: 300px">
-                            <button type="submit" class="btn_submit_job_search_sidebar" id="btnloading_frofile">Lọc việc làm </button>
+                        <div class="dsBlock mgt10" style="min-width: 300px">
+                            <button type="submit" name="search_by_title" value="1"
+                                    class="btn_submit_job_search_sidebar" id="btnloading_frofile">Lọc việc làm </button>
                         </div>
 
 
@@ -242,9 +248,19 @@
                     $('input[type=radio]').click(function () {
                         $('#submitSidebar').submit();
                     });
-                    $('#btnloading_frofile').click(function () {
+                    $('#btnloading_frofile').click(function (event) {
+                        var word = $.trim($('#job_title_filter').val());
+                        if (word === '') {
+                            event.preventDefault();
+                            event.stopImmediatePropagation();
+                            $('#job_title_filter_error').text('Vui lòng nhập việc theo tên').show();
+                            $('#job_title_filter').attr('aria-invalid', 'true').focus();
+                            return false;
+                        }
+
+                        $('#job_title_filter_error').hide();
+                        $('#job_title_filter').removeAttr('aria-invalid');
                         $(this).html('<i class="fas fa-spinner fa-spin mgr5"></i>' + 'Đang lọc việc làm...');
-                        $btn.attr('disabled', false);
                     });
                 </script>
 

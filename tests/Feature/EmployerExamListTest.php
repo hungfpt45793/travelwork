@@ -85,6 +85,87 @@ class EmployerExamListTest extends TestCase
         $response->assertSee('Hướng dẫn');
     }
 
+    public function test_regular_exam_card_links_directly_to_question_route(): void
+    {
+        $exam = Exam::create([
+            'code_exam' => 'QA-DIRECT-REGULAR',
+            'name_exam' => 'Đề thi chính kiểm thử route làm bài',
+            'slug_exam' => 'qa-direct-regular-exam',
+            'intro_exam' => 'Kiểm thử liên kết làm bài trực tiếp',
+            'time_exam' => 5,
+            'status_exam' => 0,
+            'bank_exam' => 1,
+        ]);
+
+        $response = $this->get(route('getAllExam'));
+
+        $response->assertOk();
+        $response->assertSee(route('getQuestion', [
+            'slug_exam' => $exam->slug_exam,
+        ]), false);
+        $response->assertDontSee(route('getExam', [
+            'slug_exam' => $exam->slug_exam,
+        ]), false);
+    }
+
+    public function test_test_exam_card_links_directly_to_test_question_route(): void
+    {
+        $exam = Exam::create([
+            'code_exam' => 'QA-DIRECT-TEST',
+            'name_exam' => 'Đề thi thử kiểm thử route làm bài',
+            'slug_exam' => 'qa-direct-test-exam',
+            'intro_exam' => 'Kiểm thử liên kết thi thử trực tiếp',
+            'time_exam' => 5,
+            'status_exam' => 1,
+            'bank_exam' => 1,
+        ]);
+
+        $response = $this->get(route('getTestAllExam'));
+
+        $response->assertOk();
+        $response->assertSee(route('getTestQuestion', [
+            'slug_exam' => $exam->slug_exam,
+        ]), false);
+        $response->assertDontSee(route('getTestExam', [
+            'slug_exam' => $exam->slug_exam,
+        ]), false);
+    }
+
+    public function test_private_regular_exam_displays_a_message_instead_of_throwing_an_exception(): void
+    {
+        $candidate = User::where('email', 'qa.employee@travelwork.test')->firstOrFail();
+        $exam = Exam::create([
+            'code_exam' => 'QA-PRIVATE-REGULAR',
+            'name_exam' => 'Đề thi riêng tư kiểm thử',
+            'slug_exam' => 'qa-private-regular-exam',
+            'status_exam' => 0,
+            'bank_exam' => 0,
+        ]);
+
+        $response = $this->actingAs($candidate)->get(route('getQuestion', [
+            'slug_exam' => $exam->slug_exam,
+        ]));
+
+        $response->assertRedirect(route('getAllExam'));
+        $response->assertSessionHas(
+            'errorExam',
+            'Đề thi không tồn tại hoặc chưa được công khai'
+        );
+    }
+
+    public function test_missing_test_exam_displays_a_message_instead_of_throwing_an_exception(): void
+    {
+        $response = $this->get(route('getTestQuestion', [
+            'slug_exam' => 'qa-missing-test-exam',
+        ]));
+
+        $response->assertRedirect(route('getTestAllExam'));
+        $response->assertSessionHas(
+            'errorExam',
+            'Đề thi không tồn tại hoặc chưa được công khai'
+        );
+    }
+
     public function test_employer_can_open_all_question_lists_with_existing_questions(): void
     {
         $employer = User::where('email', 'qa.employer@travelwork.test')->firstOrFail();
