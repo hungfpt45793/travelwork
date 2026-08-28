@@ -4,7 +4,7 @@
 @section('meta_description', isset($information['meta_description']) ? $information['meta_description'] : '')
 @section('keywords', isset($information['meta_keyword']) ? $information['meta_keyword'] : '')
 
-<link rel="stylesheet" type="text/css" href="/public/assets/web/css/register.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/web/css/register.css"/>
 
 @section('content')
     <section class="content bg_content_regedit">

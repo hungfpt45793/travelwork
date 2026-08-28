@@ -9,9 +9,9 @@
 asset($information['logo']) )
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/list_employee.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/detail_employee.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/preview_pdf.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/list_employee.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/detail_employee.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/preview_pdf.css"/>
 @endsection
 <style>
     header {
@@ -160,7 +160,7 @@ asset($information['logo']) )
                             @if(file_exists(public_path($link_cv_upload_public)))
                                     <iframe class="iframe_cv_employee" src="https://docs.google.com/gview?url={{ asset($link_cv_upload) }}&embedded=true" frameborder="0"></iframe>
                             @else
-                                <img class="img_cv_employee" src="/public/image_cv_upload/cv_upload.jpg" alt=""
+                                <img class="img_cv_employee" src="/image_cv_upload/cv_upload.jpg" alt=""
                                      style="width: 100%;">
                             @endif
                         @else
@@ -171,7 +171,7 @@ asset($information['logo']) )
                                 <div id="appendToThis"></div>
                                 <!-- <iframe id="myFrame"  src="javascript:;" style="width: 100%; height: 90vh; "></iframe> -->
                             @else
-                                <img class="img_cv_employee" src="/public/image_cv_upload/cv_upload.jpg" alt=""
+                                <img class="img_cv_employee" src="/image_cv_upload/cv_upload.jpg" alt=""
                                      style="width: 100%;">
                             @endif
                         @endif
@@ -197,7 +197,7 @@ asset($information['logo']) )
         </div>
     </section>
 @endsection
-<script type="text/javascript" src="/public/assets/js/sweetalert.min.js"></script>
+<script type="text/javascript" src="/assets/js/sweetalert.min.js"></script>
 @section('show_js')
 
 

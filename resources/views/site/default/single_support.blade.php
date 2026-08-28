@@ -24,7 +24,7 @@
                             <p class="mgb0 md-f13 md-mgt2 blueDN"><i class="fas fa-chevron-right"></i></p>
                         </li>
                         <li class="nav-item pd8">
-                         <a href="{{ route('site_category_post',['site_category_post'=>$public_link['slug']]) }}">{{ isset($public_link->title) ? $public_link->title : '' }}</a>
+                         <a href="{{ route('site_category_post',['slug_cate'=>$public_link['slug']]) }}">{{ isset($public_link->title) ? $public_link->title : '' }}</a>
                         </li>
                     @endif
                 </ul>

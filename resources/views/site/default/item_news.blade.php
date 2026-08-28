@@ -9,7 +9,7 @@
             <div class="News pd20">
                 <div class="CropImg">
                     <a href="{{ route('post', ['cate_slug' => $public_link->slug, 'post_slug' => $post->slug]) }}" class="thumbs">
-                        <img data-original="{{ asset('public/assets/image/no_avatar.jpg') }}" class="lazy" data-src="{{$post->image}}" alt="{{ isset($post['title']) ? $post['title'] : '' }}" width="100%">
+                        <img data-original="{{ asset('assets/image/no_avatar.jpg') }}" class="lazy" data-src="{{$post->image}}" alt="{{ isset($post['title']) ? $post['title'] : '' }}" width="100%">
                     </a>
                 </div>
                 <div class="info">

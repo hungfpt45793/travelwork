@@ -1352,8 +1352,12 @@ class EmployeeController extends SiteController
         $employee = $employeeModel->select(
             'employees.*'
         )
-            ->where('employees.employee_user_id', $user->id)
+            ->where('employees.user_id', $user->id)
             ->first();
+
+        if (empty($employee)) {
+            return redirect()->back()->with('error', 'Không tìm thấy hồ sơ ứng viên');
+        }
 
         $historyCompanies = HistoryWork::where('employee_id', $employee->employee_id)->get();
         if ($historyCompanies->isEmpty()) {
@@ -2113,7 +2117,27 @@ class EmployeeController extends SiteController
     {
         //gửi thông báo info den ứng viên
         $noti_model = new Notification_employer();
-        $link_noti = route('detail_employee_show',['employee_slug' => $employee->slug]);
+        $employeeRecord = Employee::select('employee_id', 'employee_name', 'employee_slug')
+            ->where('employee_id', $employee->employee_id)
+            ->first();
+
+        if (empty($employeeRecord)) {
+            return;
+        }
+
+        $employeeSlug = trim((string) $employeeRecord->employee_slug);
+        if ($employeeSlug === '') {
+            $slugBase = Str::slug((string) $employeeRecord->employee_name);
+            $employeeSlug = ($slugBase !== '' ? $slugBase : 'ung-vien')
+                . '-' . $employeeRecord->employee_id;
+
+            $employeeRecord->update([
+                'employee_slug' => $employeeSlug,
+                'updated_at' => new \DateTime(),
+            ]);
+        }
+
+        $link_noti = route('detail_employee_show', ['employee_slug' => $employeeSlug]);
 
         //danh sach cong viec can tim  career_category_id
         $list_carrer = Employee_career_categories::where('employee_id', $employee->employee_id)->get();

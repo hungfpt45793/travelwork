@@ -18,7 +18,7 @@
                                 <h3>Thêm mới danh mục bài viết</h3>
                             </div>
                             <div class="col-md-12 ">
-                                <form role="form" action="{{ route('categories.update', ['category_id' => $category->category_id]) }}" method="POST">
+                                <form role="form" action="{{ route('categories.update', ['category' => $category->category_id]) }}" method="POST">
                                     {!! csrf_field() !!}
                                     {{ method_field('PUT') }}
                                     <div class="col-xs-12 col-md-12">

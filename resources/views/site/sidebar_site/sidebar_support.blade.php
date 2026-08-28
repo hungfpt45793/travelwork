@@ -16,7 +16,7 @@
                     </div>
                 </a>
             @endforeach
-            <a href="{{ route('site_category_post',['site_category_post'=>$public_link['slug']]) }}" title="{{ isset($public_link->title) ? $public_link->title : '' }}" class="text-center bgrBlueN clwhite" style="display: block;padding: 5px 0;">Xem thêm</a>
+            <a href="{{ route('site_category_post',['slug_cate'=>$public_link['slug']]) }}" title="{{ isset($public_link->title) ? $public_link->title : '' }}" class="text-center bgrBlueN clwhite" style="display: block;padding: 5px 0;">Xem thêm</a>
             @endif
         </div>
 

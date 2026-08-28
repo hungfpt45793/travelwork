@@ -7,9 +7,9 @@
 @section('meta_image', isset($information['logo']) ?  asset($information['logo']) : ''  )
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/nortification.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/employee_profile.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/upload_employee_cv.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/nortification.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/employee_profile.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/upload_employee_cv.css"/>
 @endsection
 @section('content')
     <style>
@@ -433,8 +433,8 @@
 @endsection
 
 @section('show_js')
-    <script type="text/javascript" src="/public/assets/js/sitebar.js"></script>
-    <script src="/public/assets/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/assets/js/sitebar.js"></script>
+    <script src="/assets/js/jquery.validate.min.js"></script>
     @include('site.layout_site.from')
     <script>
         $('.fileup_js').change(function () {

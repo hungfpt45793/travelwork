@@ -6,10 +6,10 @@
 @section('keywords', isset($category_tag->tag_keyword) ? $category_tag->tag_keyword : 'từ khóa bài viết')
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/tab_filter.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/post.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/tab_filter.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/post.css"/>
 @endsection
 
 @section('content')
@@ -120,7 +120,7 @@
 @endsection
 
 @section('show_js')
-    <script type="text/javascript" src="/public/assets/js/sitebar.js"></script>
+    <script type="text/javascript" src="/assets/js/sitebar.js"></script>
     <script>
         $('.js_show_search_job').click(function(){
             $('.js_filter_job_face').toggle();

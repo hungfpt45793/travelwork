@@ -6,7 +6,7 @@
 @section('meta_description', !empty($cate_voucher->meta_description) ? $cate_voucher->meta_description : 'Mô tả kho tài liệu')
 @section('keywords', !empty($cate_voucher->meta_keyword) ? $cate_voucher->meta_keyword : $cate_voucher->name_cate_voucher)
 @section('meta_image', ''  )
-@section('meta_url', !empty($cate_voucher->slug_cate_voucher) ? route('getAllCategoryVoucher', ['slug_cate_voucher' => $cate_voucher->slug_cate_voucher]) : '')
+@section('meta_url', !empty($cate_voucher->slug_cate_voucher) ? route('getAllCategoryVoucher', ['slugCategoryVoucher' => $cate_voucher->slug_cate_voucher]) : '')
 @section('content')
 
 <!--    --><?php
@@ -198,4 +198,3 @@
 
 </script>
 @endsection
-

@@ -9,7 +9,7 @@
             $teacher = \App\Entity\Teacher::getTeacher_id($id_user)
             ?>
             <img class="lazy pdl10"
-                 src="{{!empty($teacher->teacher_images) ? $teacher->teacher_images : '/public/CV/Profile.jpg'}}"
+                 src="{{!empty($teacher->teacher_images) ? $teacher->teacher_images : '/assets/image/no_avatar.jpg'}}"
                  alt="" width="100% ">
 
         </div>

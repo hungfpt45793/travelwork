@@ -53,7 +53,7 @@ class CoefficientsSalaryController extends SiteController
 
     public function get_all_coe()
     {
-        return view('site.default_site.get_all_coe', compact('post', 'category', 'cate_slug'));
+        return view('site.default_site.get_all_coe');
     }
 
     public function post_sum_coe(Request $request)

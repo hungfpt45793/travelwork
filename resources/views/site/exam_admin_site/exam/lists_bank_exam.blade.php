@@ -49,7 +49,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($exams as $exam)
+                            @forelse($exams as $exam)
                                 <tr>
                                     <th scope="row"> <span class="btnGreen pd-05 pd-005 btn-small">{{ $exam['code_exam'] }}</span></th>
                                     <td>{{ $exam['name_exam'] }}</td>
@@ -88,7 +88,11 @@
                                         {{--</a>--}}
                                     </td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr>
+                                    <td colspan="5" class="text-center text-muted">Ngân hàng đề thi chưa có dữ liệu.</td>
+                                </tr>
+                            @endforelse
 
                             </tbody>
                         </table>
@@ -102,7 +106,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($exams as $exam)
+                            @forelse($exams as $exam)
                                 <tr>
                                     <td style="width: 70%;max-width: 70%;word-wrap: break-word;">
                                         <p class="mgBottom5">Mã đề thi : <span class="btnGreen pd-05 pd-005 btn-small">{{ $exam['code_exam'] }}</span> </p>
@@ -153,7 +157,11 @@
                                         {{--</a>--}}
                                     </td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr>
+                                    <td colspan="3" class="text-center text-muted">Ngân hàng đề thi chưa có dữ liệu.</td>
+                                </tr>
+                            @endforelse
 
                             </tbody>
                         </table>
@@ -175,6 +183,5 @@
         });
     </script>
 @endsection
-
 
 

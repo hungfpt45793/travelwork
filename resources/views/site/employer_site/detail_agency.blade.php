@@ -16,11 +16,11 @@ $meta_description = ucwords($meta_description);
 
 @section('show_css')
 
-    {{--<link rel="stylesheet" type="text/css" href="/public/assets/web/css/intership.css"/>--}}
+    {{--<link rel="stylesheet" type="text/css" href="/assets/web/css/intership.css"/>--}}
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/web/css/intership.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/web/css/input_sale.css') }}"/>
-    {{--<link rel="stylesheet" type="text/css" href="/public/assets/web/css/detail_job.css"/>--}}
-    {{--<link rel="stylesheet" type="text/css" href="/public/assets/web/css/input_sale.css"/>--}}
+    {{--<link rel="stylesheet" type="text/css" href="/assets/web/css/detail_job.css"/>--}}
+    {{--<link rel="stylesheet" type="text/css" href="/assets/web/css/input_sale.css"/>--}}
 @endsection
 
 @section('content')

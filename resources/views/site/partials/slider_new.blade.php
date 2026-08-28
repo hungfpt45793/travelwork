@@ -9,7 +9,7 @@
                             <div class="row sl_bg">
                                 <div class="col-lg-12 col-12">
                                     <a target="_blank" @if(!empty($banner['link-ref-nofollow'])) ref="nofollow" @endif href="{{ !empty($banner['link-bai-viet'])?$banner['link-bai-viet'] : '#' }}" title="{{ !empty($banner['title'])?$banner['title']:'' }}">
-                                        <img class="lazy" style="width: 100%" src="{{ asset(!empty($banner['image'])?$banner['image']:'') }}" alt="{{ !empty($banner['title'])?$banner['title']:'' }}"></a>
+                                        <img class="lazy" style="width: 100%" src="{{ \App\Ultility\Ultility::assetUrl(data_get($banner, 'image'), 'assets/image/banner_home1.png') }}" alt="{{ !empty($banner['title'])?$banner['title']:'' }}"></a>
                                 </div>
                             </div>
                         </div>

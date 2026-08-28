@@ -59,7 +59,7 @@
                 <div class="footer_new_dowload">
                     <div class="footer_new_box_logo">
                         <a href="/">
-                            <img class="lazy" src="{{ !empty($information['logo-footer-new']) ? asset($information['logo-footer-new']) : asset('assets/image/new/SKT.png') }}">
+                            <img class="lazy" src="{{ \App\Ultility\Ultility::assetUrl(data_get($information, 'logo-footer-new'), 'assets/image/new/SKT.png') }}" alt="Travelwork">
                             <span>Tìm việc - Nghe Podcast - Trắc nghiệm</span>
                         </a>
                     </div>
@@ -154,7 +154,7 @@
 {{--                    </div>--}}
                     <div class="box_mobile_bottom_content">
                         <div class="box_mobile_bottom_image">
-                            <a href="/"> <img class="lazy" data-src="{{ !empty($information['logo-footer-new']) ? asset($information['logo-footer-new']) : asset('assets/image/new/SKT.png') }}"
+                            <a href="/"> <img class="lazy" data-src="{{ \App\Ultility\Ultility::assetUrl(data_get($information, 'logo-footer-new'), 'assets/image/new/SKT.png') }}" alt="Travelwork"
                                         ></a>
                         </div>
                         <div class="box_mobile_bottom_rate">
@@ -185,7 +185,7 @@
                     </div>
                     <div class="box_mobile_bottom_content2">
                         <div class="box_mobile_bottom_image">
-                            <a href="/"><img class="lazy" data-src="{{ !empty($information['logo-footer-new']) ? asset($information['logo-footer-new']) : asset('assets/image/new/SKT.png') }}"
+                            <a href="/"><img class="lazy" data-src="{{ \App\Ultility\Ultility::assetUrl(data_get($information, 'logo-footer-new'), 'assets/image/new/SKT.png') }}" alt="Travelwork"
                                         ></a>
                         </div>
                         <div class="box_mobile_bottom_rate2">

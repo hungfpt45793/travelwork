@@ -12,8 +12,8 @@ $meta_exam= \App\Entity\Config_meta::getslug($slug);
 @section('meta_image', !empty($meta_exam->image) ? asset($meta_exam->image) : asset($information['logo']) )
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/tab_filter.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/intership.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/tab_filter.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/intership.css"/>
 @endsection
 
 @section('content')

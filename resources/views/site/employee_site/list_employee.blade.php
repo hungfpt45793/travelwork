@@ -14,11 +14,11 @@ $meta_employee = \App\Entity\Config_meta::getslug($slug);
 
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/tab_filter.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/list_employee.css"/>
-    {{--<link rel="stylesheet" type="text/css" href="/public/assets/web/css/modal_detail_cv_employee.css"/>--}}
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/tab_filter.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/list_employee.css"/>
+    {{--<link rel="stylesheet" type="text/css" href="/assets/web/css/modal_detail_cv_employee.css"/>--}}
 
 @endsection
 @section('content')
@@ -117,8 +117,8 @@ $meta_employee = \App\Entity\Config_meta::getslug($slug);
 @endsection
 
 @section('show_js')
-    <script type="text/javascript" src="/public/assets/js/sitebar.js"></script>
-    <script type="text/javascript" src="/public/assets/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="/assets/js/sitebar.js"></script>
+    <script type="text/javascript" src="/assets/js/sweetalert.min.js"></script>
 
     <script>
         $('#city').change(function () {

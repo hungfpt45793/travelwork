@@ -40,7 +40,7 @@
                             <div class="row mgt15">
                                 <div class="col-md-4">
                                     {{-- <p class="text-center clred"> điểm hồ sơ : 20  điểm</p>
-                                    <img data-src="{{ asset('public/assets/image/resume-icon.png') }}" class="img-thumbnail"> --}}
+                                    <img data-src="{{ asset('assets/image/resume-icon.png') }}" class="img-thumbnail"> --}}
                                     <?php
                                     $id = \Illuminate\Support\Facades\Auth::user()->id;
                                     $employee_profile = \App\Entity\Employee::get_profile($id);
@@ -48,7 +48,7 @@
                                     <p class="text-center clred">Điểm hồ sơ
                                         : {{ !empty($employee_profile->profile) ? $employee_profile->profile : '20' }}
                                         điểm</p>
-                                    <img src="{{ asset('public/assets/image/resume-icon.png') }}"
+                                    <img src="{{ asset('assets/image/resume-icon.png') }}"
                                          class="img-thumbnail mbds_none_500">
 
 

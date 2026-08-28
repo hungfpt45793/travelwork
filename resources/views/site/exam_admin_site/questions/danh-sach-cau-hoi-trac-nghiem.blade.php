@@ -89,7 +89,7 @@
                                                 <a href="{{ route('copyQuestion',['id_ques' => $question1['id_ques'] ]) }}"
                                                    class="copy_question" title="Copy câu hỏi"><i class="fa fa-clone" aria-hidden="true"></i></a>
 
-                                                <a href="{{ route('site_question.destroy',['id_ques' => $question1['id_ques'] ]) }}"
+                                                <a href="{{ route('site_question.destroy',['site_question' => $question1['id_ques'] ]) }}"
                                                    class=" delete_question btnDelete" data-toggle="modal"
                                                    data-target="#myModalDelete0"
                                                    onclick="return submitDelete(this);" title="Xóa câu hỏi">
@@ -193,7 +193,7 @@
                                                         <a href="{{ route('copyQuestion',['id_ques' => $question1['id_ques'] ]) }}"
                                                            title="copy câu hỏi"><i class="fa fa-clone"
                                                                                    aria-hidden="true"></i> </a>
-                                                        <a href="{{ route('site_question.destroy',['id_ques' => $question1['id_ques'] ]) }}"
+                                                        <a href="{{ route('site_question.destroy',['site_question' => $question1['id_ques'] ]) }}"
                                                            title="Xóa câu hỏi" class="btnDelete" data-toggle="modal"
                                                            data-target="#myModalDelete0"
                                                            onclick="return submitDelete(this);"><i class="far fa-trash-alt"></i></a>
@@ -451,7 +451,6 @@
         }
     });
 </script>
-
 
 
 

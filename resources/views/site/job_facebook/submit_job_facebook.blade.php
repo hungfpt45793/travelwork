@@ -498,7 +498,7 @@ $teacher_save_submit_fb = 0;
             lessLink: '<a title="Thu gọn" class="redmore" href="#">   <span> Thu gọn <i class="fas fa-angle-double-up"></i> </span> </a>',
         });
     </script>
-    <script src="/public/assets/ckeditor_easy/ckeditor.js"></script>
+    <script src="/assets/ckeditor_easy/ckeditor.js"></script>
     <script>
 
         $('.editor_basic').each(function (e) {

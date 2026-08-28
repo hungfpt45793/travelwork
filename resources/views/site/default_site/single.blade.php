@@ -11,10 +11,10 @@
 @section('meta_url', !empty($post->slug) ? route('post', ['cate_slug' => 'tin-tuc', 'post_slug' => $post->slug]) : ''  )
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/tab_filter.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/post.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/tab_filter.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/post.css"/>
 @endsection
 
 @section('content')
@@ -33,7 +33,7 @@
                         </li>
 
                         <li class="nav-item pd8">
-                            <a href="{{ route('site_category_post',['site_category_post'=>$public_link['slug']]) }}">{{ isset($public_link->title) ? $public_link->title : '' }}</a>
+                            <a href="{{ route('site_category_post',['slug_cate'=>$public_link['slug']]) }}">{{ isset($public_link->title) ? $public_link->title : '' }}</a>
                         </li>
                     @endif
                 </ul>

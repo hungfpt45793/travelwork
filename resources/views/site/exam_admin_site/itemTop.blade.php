@@ -26,7 +26,7 @@
     <div class="bg-white pd15 text-center">
         <div class="">
             <p class="mgBottom0">
-                <a href="{{ route('site_exam.edit',['id_exam' => $exam->id_exam]) }}" class="btnGreen btn clwhite"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa đề thi</a>
+                <a href="{{ route('site_exam.edit',['site_exam' => $exam->id_exam]) }}" class="btnGreen btn clwhite"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa đề thi</a>
             </p>
         </div>
 

@@ -64,7 +64,7 @@
                     {{--}--}}
                     {{--else {--}}
                         {{--col_pdf.find('.show_cv').append(`--}}
-                            {{--<img src="/public/image_cv_upload/cv_upload.jpg" alt="" style="height:95vh">--}}
+                            {{--<img src="/image_cv_upload/cv_upload.jpg" alt="" style="height:95vh">--}}
                         {{--`);--}}
                     {{--}--}}
                 {{--}--}}

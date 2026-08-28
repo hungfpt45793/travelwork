@@ -1,5 +1,5 @@
-<link rel="stylesheet" type="text/css" href="/public/assets/web/css/modal_detail_cv_employee.css"/>
-<link rel="stylesheet" type="text/css" href="/public/assets/web/css/star-rating-svg.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/web/css/modal_detail_cv_employee.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/web/css/star-rating-svg.css"/>
 <div class="col-xl-4 col-lg-4 item_employee">
 
     <!-- <a href="{{ route('show_detail_emplooyee', ['employee_id' => $employee['employee_id']]) }}" target="_blank"
@@ -78,7 +78,7 @@
 @include('site.employee_site.modal_detail_cv_employee')
 <!-- code js suw ly trong modal xem cv -->
 @include('site.employee_site.modal_detail_cv_employee_js')
-<script type="text/javascript" src="/public/assets/js/jquery.star-rating-svg.js"></script>
-<script type="text/javascript" src="/public/assets/js/sweetalert.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.star-rating-svg.js"></script>
+<script type="text/javascript" src="/assets/js/sweetalert.min.js"></script>
 <!-- thu vien alert -->
 

@@ -50,7 +50,7 @@
     <link rel="stylesheet" href="tracnghiem/css/styles.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="public/adminstration/plugins/iCheck/all.css">
     <link rel="stylesheet" type="text/css" href="public/assets/css/form.css">
-    <link rel="stylesheet" href="/public/select2/dist/select2-bootstrap4.css">
+    <link rel="stylesheet" href="/adminstration/select2/dist/css/select2.min.css">
     <script src="public/assets/js/umd/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/loadingoverlay.min.js"></script>
     <script src="public/assets/js/umd/popper.min.js"></script>

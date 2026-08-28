@@ -8,7 +8,7 @@
         <div class="row box_shadow_relative">
 
             <div class="icon_arrow icon_arrow_right dsNone_1000">
-                <img class="lazy" alt="" width="40%" src="/public/assets/image/right.png" style="">
+                <img class="lazy" alt="" width="40%" src="/assets/image/right.png" style="">
             </div>
 
 
@@ -48,19 +48,19 @@
         <div class="row icon_arrow_center dsNone_1000">
             <div class="col-lg-6 text-center">
                 <div class="icon_arrow icon_arrow_top">
-                    <img class="lazy" alt="" width="40%" src="/public/assets/image/up.png" style="">
+                    <img class="lazy" alt="" width="40%" src="/assets/image/up.png" style="">
                 </div>
             </div>
             <div class="col-lg-6 text-center">
                 <div class="icon_arrow icon_arrow_bottom">
-                    <img class="lazy" alt="" width="40%" src="/public/assets/image/down.png" style="">
+                    <img class="lazy" alt="" width="40%" src="/assets/image/down.png" style="">
                 </div>
             </div>
         </div>
 
         <div class="row box_shadow_relative">
             <div class="icon_arrow icon_arrow_left dsNone_1000">
-                <img class="lazy" alt="" width="40%" src="/public/assets/image/left.png" style="">
+                <img class="lazy" alt="" width="40%" src="/assets/image/left.png" style="">
             </div>
 
             <div class="col-lg-6 box_shadow_item_home_right">

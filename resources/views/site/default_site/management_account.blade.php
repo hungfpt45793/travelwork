@@ -5,9 +5,9 @@
 @section('keywords', 'Quản lý tài khoản')
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/employee_profile.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/employee_profile.css"/>
 @endsection
 
 @section('content')
@@ -324,7 +324,7 @@
 
 @endsection
 @section('show_js')
-    <script src="/public/assets/js/jquery.validate.min.js"></script>
+    <script src="/assets/js/jquery.validate.min.js"></script>
 <script>
     $('.js_box_change_email').hide();
     $(".js_toggle_changle_email").click(function () {

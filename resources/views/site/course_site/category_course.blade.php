@@ -7,10 +7,10 @@
 @section('meta_image', isset($information['logo']) ?  asset($information['logo']) : '')
 @section('show_css')
     {{--//sao danh  gias--}}
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" href="/public/assets/css/course/teacher.css"/>
-    <link rel="stylesheet" href="/public/assets/css/course/course.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" href="/assets/css/course/teacher.css"/>
+    <link rel="stylesheet" href="/assets/css/course/course.css"/>
 @endsection
 @section('content')
     <section class="courses ">

@@ -25,6 +25,17 @@
                         </ul>
                     </div>
 
+                    @if(session('success_job_desired'))
+                        <div id="job_desired_success_message"
+                             class="alert alert-success alert-dismissible fade show mgt20" role="alert">
+                            <i class="fas fa-check-circle"></i>
+                            {{ session('success_job_desired') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Đóng">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
+
                     {{--@include('site.filter.filter_job')--}}
                     <div class="titleDoor">
                         <!-- <div class="underLineX h1x w32 xl-w31 lg-w30 sm-w20 bgrBlueN inBlock mgb5 col-none"></div> -->

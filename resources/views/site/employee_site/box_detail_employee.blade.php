@@ -9,20 +9,20 @@
 asset($information['logo']) )
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/list_employee.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/detail_employee.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/preview_pdf.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/list_employee.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/detail_employee.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/preview_pdf.css"/>
     {{--//show cv dang html--}}
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/box_item_cv.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/box_item_cv.css"/>
 
 
     <link rel="stylesheet"
-          href="{{ asset('public/employee_cv') }}/cv/thiet-ke-co-dien/ke-toan-9/css/cv.css"
+          href="{{ asset('employee_cv') }}/cv/thiet-ke-co-dien/ke-toan-9/css/cv.css"
           type="text/css">
     {{--<link id="cv-color-css" rel="stylesheet"--}}
-          {{--href="{{ asset('public/employee_cv') }}/cv/thiet-ke-co-dien/ke-toan-9/css/colors/3a93a5.css@v=1.css"--}}
+          {{--href="{{ asset('employee_cv') }}/cv/thiet-ke-co-dien/ke-toan-9/css/colors/3a93a5.css@v=1.css"--}}
           {{--type="text/css">--}}
-    {{--<link rel="stylesheet" href="{{ asset('public/assets/css') }}/cusStyle_cv.css">--}}
+    {{--<link rel="stylesheet" href="{{ asset('assets/css') }}/cusStyle_cv.css">--}}
 
 
 @endsection
@@ -43,7 +43,7 @@ asset($information['logo']) )
                         <div class="box_item_cv_content">
                             <div class="box_cv_left bg_cv_home">
                                 <div class="box_cv_image">
-                                    <img class="" src="{{ !empty($employee->employee_image) ? asset($employee->employee_image) : asset('public/assets/image/no_avatar.jpg') }}">
+                                    <img class="" src="{{ !empty($employee->employee_image) ? asset($employee->employee_image) : asset('assets/image/no_avatar.jpg') }}">
                                 </div>
                                 <div class="box_cv_info item_content_left">
                                     <div class="item_cv_info bg_cv_info cl_cv_info text-center cv_info_input">

@@ -8,9 +8,9 @@
 @section('meta_url', !empty($cate_child_voucher['slug_cate_child']) ? route('getChildVoucher', ['slugChildVoucher' => $cate_child_voucher['slug_cate_child']]) : '')
 @section('show_css')
 
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/slick-theme.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/voucher.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/voucher.css"/>
 @endsection
 
 @section('content')

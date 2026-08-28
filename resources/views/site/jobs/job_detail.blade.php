@@ -85,7 +85,7 @@ $meta_description = ucwords($meta_description);
                                             <h1 class="fontBold blueDN mgb0 f23 lg-f20 sm-f15">{{$job->title}}</h1>
 
                                             @if(isset($employer->enterprise_name))
-                                                <a href="{{route('detail_employer',['id' => $employer->slug])}}"
+                                                <a href="{{route('detail_employer',['slug' => $employer->slug])}}"
                                                    class="xam font18 sm-f15 clorange mgt15 titleCompanyName"
                                                    style="display: inline-block">{{ isset($employer->enterprise_name) ? $employer->enterprise_name : ''}}</a>
                                             @endif
@@ -693,7 +693,7 @@ $meta_description = ucwords($meta_description);
                                 $.ajax({
                                     type: "get",
                                     dataType: 'json',
-                                    url: '{!! route('saveJob',['job_id'=>$job->job_id]) !!}',
+                                    url: '{!! route('saveJob', ['id_job' => $job->job_id]) !!}',
                                     data: {
                                         id_job: '{{ $job->job_id }}',
                                         // status_job 1 là việc nhà tuyển dung ; 0 là việc facebook
@@ -723,7 +723,7 @@ $meta_description = ucwords($meta_description);
                                 $.ajax({
                                     type: "get",
                                     dataType: 'json',
-                                    url: '{!! route('deletesaveJob',['job_id'=>$job->job_id]) !!}',
+                                    url: '{!! route('deletesaveJob', ['id_job' => $job->job_id]) !!}',
                                     data: {
                                         id_job: '{{ $job->job_id }}',
                                         // status_job 1 là việc nhà tuyển dung ; 0 là việc facebook

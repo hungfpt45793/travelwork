@@ -9,9 +9,9 @@ $meta_list_job_facebook = \App\Entity\Config_meta::getslug('viec-lam-facebook');
 @section('keywords', isset($meta_list_job_facebook['meta_keyword']) ? $meta_list_job_facebook['meta_keyword'] : '')
 @section('meta_image', isset($information['logo']) ?  asset($information['logo']) : ''  )
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/tab_filter.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/tab_filter.css"/>
 @endsection
 
 @section('content')
@@ -137,7 +137,7 @@ $meta_list_job_facebook = \App\Entity\Config_meta::getslug('viec-lam-facebook');
 @endsection
 
 @section('show_js')
-    <script type="text/javascript" src="/public/assets/js/sitebar.js"></script>
+    <script type="text/javascript" src="/assets/js/sitebar.js"></script>
     <script>
         $('.js_show_search_job').click(function () {
             $('.js_filter_job_face').toggle();

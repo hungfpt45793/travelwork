@@ -5,10 +5,10 @@
 @section('keywords', 'Sửa việc làm từ nhà tuyển dụng')
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/form.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/employer_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/form.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/employer_job.css"/>
 @endsection
 
 @section('content')
@@ -74,7 +74,7 @@
                                             @endif
 
                                             <form role="form"
-                                                  action="{{ route('job-user.update',['job_id'=>$job->job_id]) }}"
+                                                  action="{{ route('job-user.update',['job_user'=>$job->job_id]) }}"
                                                   method="POST" class="form_validate" enctype="multipart/form-data"
                                                   id="form_creat_store_jobs">
                                                 {!! csrf_field() !!}
@@ -450,7 +450,7 @@
 
 @endsection
 @section('show_js')
-    <script src="/public/assets/ckeditor_full/ckeditor.js"></script>
+    <script src="/assets/ckeditor_full/ckeditor.js"></script>
     @include('site.layout_site.from')
     <script>
 
@@ -470,7 +470,7 @@
             });
         });
     </script>
-    <script src="/public/assets/js/jquery.validate.min.js"></script>
+    <script src="/assets/js/jquery.validate.min.js"></script>
     <script>
         $(document).ready(function () {
 

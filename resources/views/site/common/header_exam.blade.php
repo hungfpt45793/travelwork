@@ -9,16 +9,26 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <?php  $public_exam = \App\Entity\Category::getDetailCategory('cuoc-thi-trac-nghiem');
-                ?>
-                <?php  $public_test = \App\Entity\Category::getDetailCategory('huong-dan-trac-nghiem');
-                ?>
+                @php
+                    $public_exam = \App\Entity\Category::getDetailCategory('cuoc-thi-trac-nghiem');
+                    $public_test = \App\Entity\Category::getDetailCategory('huong-dan-trac-nghiem');
+                    $public_exam_slug = data_get($public_exam, 'slug');
+                    $public_test_slug = data_get($public_test, 'slug');
+                    $public_exam_url = $public_exam_slug
+                        ? route('site_category_post', ['slug_cate' => $public_exam_slug])
+                        : route('getAllExam');
+                    $public_test_url = $public_test_slug
+                        ? route('site_category_post', ['slug_cate' => $public_test_slug])
+                        : route('getTestAllExam');
+                    $public_exam_title = data_get($public_exam, 'title', 'Cuộc thi trắc nghiệm');
+                    $public_test_title = data_get($public_test, 'title', 'Hướng dẫn trắc nghiệm');
+                @endphp
                 <ul class="navbar-nav">
                     
                     <li class="nav-item">
                         <a class="nav-link  blueN fw7" target="_blank"
-                           href="{{ route('site_category_post',['site_category_post'=>$public_exam['slug']]) }}"><i
-                                    class="fas fa-compress-arrows-alt white mgr5"></i> {{ isset($public_exam['title']) ? $public_exam['title'] : '' }}
+                           href="{{ $public_exam_url }}"><i
+                                    class="fas fa-compress-arrows-alt white mgr5"></i> {{ $public_exam_title }}
                         </a>
                     </li>
                     
@@ -44,9 +54,9 @@
 
 
                         <a class="nav-link  blueN fw7" target="_blank"
-                           href="{{ route('site_category_post',['site_category_post'=>$public_test['slug']]) }}"><i
+                           href="{{ $public_test_url }}"><i
                                     class="fab fa-slideshare white mgr5"></i>
-                            {{ isset($public_test['title']) ? $public_test['title'] : '' }}
+                            {{ $public_test_title }}
                         </a>
                     </li>
 
@@ -84,7 +94,7 @@
 
                 <ul class="nav justify-content-center">
                     <a target="_blank"
-                       href="{{ route('site_category_post',['site_category_post'=>$public_exam['slug']]) }}">
+                       href="{{ $public_exam_url }}">
                         <li class="nav-item text-center">
                             @if(isset($public_exam['icon']))
                                 {!! $public_exam['icon'] !!}
@@ -92,7 +102,7 @@
                                 <i class="fas fa-compress-arrows-alt white f25"></i>
                             @endif
 
-                            <span class="nav-link white hvWhite f17 pdt0"> {{ isset($public_exam['title']) ? $public_exam['title'] : '' }}
+                            <span class="nav-link white hvWhite f17 pdt0"> {{ $public_exam_title }}
                         </span>
                         </li>
                     </a>
@@ -121,7 +131,7 @@
                         </li>
                     </a>
                     <a target="_blank"
-                       href="{{ route('site_category_post',['site_category_post'=>$public_test['slug']]) }}">
+                       href="{{ $public_test_url }}">
                         <li class="nav-item text-center">
                             @if(isset($public_test['icon']))
                                 {!! $public_test['icon'] !!}
@@ -129,7 +139,7 @@
                                 <i class="fab fa-slideshare white f25"></i>
                             @endif
                             <span class="nav-link white hvWhite f17 pdt0">
-                             {{ isset($public_test['title']) ? $public_test['title'] : '' }}
+                             {{ $public_test_title }}
                         </span>
                         </li>
                     </a>
@@ -155,14 +165,14 @@
 
                 <ul class="nav justify-content-center">
                     <a target="_blank"
-                       href="{{ route('site_category_post',['site_category_post'=>$public_exam['slug']]) }}">
+                       href="{{ $public_exam_url }}">
                     <li class="nav-item text-center">
                         @if(isset($public_exam['icon']))
                             {!! $public_exam['icon'] !!}
                         @else
                             <i class="fas fa-compress-arrows-alt white f25"></i>
                         @endif
-                        <span class="nav-link white hvWhite f17 pdt0" > {{ isset($public_exam['title']) ? $public_exam['title'] : '' }}
+                        <span class="nav-link white hvWhite f17 pdt0" > {{ $public_exam_title }}
                         </span>
                     </li>
                     </a>
@@ -191,7 +201,7 @@
                         </span>
                     </li>
                     </a>
-                    <a href="{{ route('site_category_post',['site_category_post'=>$public_test['slug']]) }}"
+                    <a href="{{ $public_test_url }}"
                        target="_blank">
                     <li class="nav-item text-center">
                         @if(isset($public_test['icon']))
@@ -200,7 +210,7 @@
                             <i class="fab fa-slideshare white f25"></i>
                         @endif
                         <span class="nav-link white hvWhite f17 pdt0" >
-                            {{ isset($public_test['title']) ? $public_test['title'] : '' }}
+                            {{ $public_test_title }}
                         </span>
                     </li>
                     </a>
@@ -213,5 +223,4 @@
         </div>
     </div>
 </header>
-
 

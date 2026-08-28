@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="/public/assets/css/thang_job_reponsive.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/thang_job_reponsive.css"/>
 <div class="container-fluid dsNone show_mobile_job_500">
     <div class="row ">
         <div class="col-3">

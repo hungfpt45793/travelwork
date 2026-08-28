@@ -4,12 +4,12 @@
 @section('meta_description', !empty($cate_voucher->meta_description) ? $cate_voucher->meta_description : 'Mô tả kho tài liệu')
 @section('keywords', !empty($cate_voucher->meta_keyword) ? $cate_voucher->meta_keyword : $cate_voucher->name_cate_voucher)
 @section('meta_image', ''  )
-@section('meta_url', !empty($cate_voucher->slug_cate_voucher) ? route('getAllCategoryVoucher', ['slug_cate_voucher' => $cate_voucher->slug_cate_voucher]) : '')
+@section('meta_url', !empty($cate_voucher->slug_cate_voucher) ? route('getAllCategoryVoucher', ['slugCategoryVoucher' => $cate_voucher->slug_cate_voucher]) : '')
 @section('show_css')
 
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/slick-theme.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/voucher.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/voucher.css"/>
 @endsection
 @section('content')
     <section class="content pdt20 bgrGray">
@@ -104,7 +104,7 @@
     @include('site.partials_site.fixel_mobile_bottom')
 @endsection
 @section('show_js')
-    <script src="/public/assets/js/slick.min.js"></script>
+    <script src="/assets/js/slick.min.js"></script>
     @foreach($cate_child_voucher as $cate_child)
         <script type="text/javascript">
             $('.slideNews{{ $cate_child['id_cate_child'] }}').slick({
@@ -203,4 +203,3 @@
 
     </script>
 @endsection
-

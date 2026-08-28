@@ -45,8 +45,7 @@
         <meta property="og:description" content="@yield('meta_description')"/>
     @endif
 
-    <link rel="shortcut icon" href="{{ !empty($information['icon']) ?  asset($information['icon']) : '' }}"
-          type="image/x-icon"/>
+    <link rel="icon" href="{{ asset('assets/image/new/Logo.png') }}" type="image/png"/>
     @if (\Route::current()->getName() == 'job_detail' or \Route::current()->getName() == 'post' )
         <link rel="canonical" href="@yield('canonical')"/>
     @else
@@ -82,16 +81,16 @@
     <meta property="og:image:height" content="300"/>
     <link rel="image_src" href="{{ isset($information['image_src']) ?  asset($information['image_src']) : '' }}">
     {{-- CSS tags --}}
-    <link rel="stylesheet" href="/public/assets/css/tags.css">
-    <link rel="stylesheet" href="/public/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/public/assets/css/all.css">{{--font-awasome5--}}
-    <link href="/public/assets/css/select2.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/extra.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/hotline.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/item_price.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/Style.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/slick-theme.css"/>
+    <link rel="stylesheet" href="/assets/css/tags.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/all.css">{{--font-awasome5--}}
+    <link href="/assets/css/select2.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/extra.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/hotline.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/item_price.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/Style.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/slick-theme.css"/>
 
     <link rel="stylesheet" href="{{ asset('tracnghiem/') }}/css/star-rating-svg.css" type="text/css">
     @yield('show_css')
@@ -100,12 +99,12 @@
     <meta name="google-site-verification" content="hmcYpVxVByBDyB0YMddcuCMzQ-oTqW6Kn6DfDpkHhUs"/>
 
     {{--js--}}
-    <script src="/public/assets/js/umd/jquery-3.3.1.min.js"></script>
-    <script src="/public/assets/js/umd/popper.min.js"></script>
-    <script src="/public/assets/js/bootstrap.min.js"></script>
-    <script src="/public/assets/js/select2.min.js"></script>
-    <script src="/public/assets/js/jquery.matchHeight-min.js"></script>
-    <script src="/public/assets/js/slick.min.js"></script>
+    <script src="/assets/js/umd/jquery-3.3.1.min.js"></script>
+    <script src="/assets/js/umd/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/select2.min.js"></script>
+    <script src="/assets/js/jquery.matchHeight-min.js"></script>
+    <script src="/assets/js/slick.min.js"></script>
     <script src="{{ asset('tracnghiem/') }}/js/jquery.star-rating-svg.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
