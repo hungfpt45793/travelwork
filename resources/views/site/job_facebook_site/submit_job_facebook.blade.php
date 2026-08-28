@@ -5,11 +5,11 @@
 @section('keywords', 'Ứng viên nộp hồ sơ')
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/tab_filter.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/detail_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/preview_pdf.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/tab_filter.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/detail_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/preview_pdf.css"/>
 @endsection
 @section('content')
     <section class="content bgrGray pdt5">
@@ -345,7 +345,7 @@
             lessLink: '<a title="Thu gọn" class="redmore" href="#">   <span> Thu gọn <i class="fas fa-angle-double-up"></i> </span> </a>',
         });
     </script>
-    <script src="/public/assets/ckeditor_easy/ckeditor.js"></script>
+    <script src="/assets/ckeditor_easy/ckeditor.js"></script>
     <script>
 
         $('.editor_basic').each(function (e) {

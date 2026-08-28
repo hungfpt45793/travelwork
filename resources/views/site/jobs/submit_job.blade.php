@@ -56,7 +56,7 @@
                                             <h1 class="fontBold blueDN mgb0 f23 lg-f20 sm-f15">{{$job->title}}</h1>
 
                                             @if(isset($employer->enterprise_name))
-                                                <a href="{{route('detail_employer',['id' => $employer->slug])}}"
+                                                <a href="{{route('detail_employer',['slug' => $employer->slug])}}"
                                                    class="xam font18 sm-f15 clorange mgt15 titleCompanyName"
                                                    style="display: inline-block">{{ isset($employer->enterprise_name) ? $employer->enterprise_name : ''}}</a>
                                             @endif
@@ -489,7 +489,7 @@
             lessLink: '<a title="Thu gọn" class="redmore" href="#">   <span> Thu gọn <i class="fas fa-angle-double-up"></i> </span> </a>',
         });
     </script>
-    <script src="/public/assets/ckeditor_easy/ckeditor.js"></script>
+    <script src="/assets/ckeditor_easy/ckeditor.js"></script>
     <script>
 
         $('.editor_basic').each(function (e) {

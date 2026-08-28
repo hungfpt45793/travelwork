@@ -25,7 +25,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb bg-white">
                             <li class="breadcrumb-item"><a class="clHome"  href="{{ route('showExam') }}">Danh sách đề thi </a></li>
-                            <li class="breadcrumb-item"><a class="clHome" href="{{ route('site_exam.edit',['id_exam' => $exam->id_exam]) }}">Đề thi {{ $exam->code_exam }}</a></li>
+                            <li class="breadcrumb-item"><a class="clHome" href="{{ route('site_exam.edit',['site_exam' => $exam->id_exam]) }}">Đề thi {{ $exam->code_exam }}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Sửa câu hỏi</li>
                         </ol>
                     </nav>
@@ -68,7 +68,7 @@
         <div class="container">
             {{--cau hoi trac nghiem--}}
 
-            <form role="form" action="{{ route('site_question.update',['id_ques' => $question->id_ques]) }}" method="POST"
+            <form role="form" action="{{ route('site_question.update',['site_question' => $question->id_ques]) }}" method="POST"
                   class="formQuestion">
                 {!! csrf_field() !!}
                 {{ method_field('PUT') }}
@@ -422,7 +422,5 @@
 
     @include('site.exam_admin_site.delete')
 @endsection
-
-
 
 

@@ -57,7 +57,7 @@
             <div class="border-top d-flex justify-content-between pt-3">
                 <div class="d-flex align-items-center ">
                     <img class=" rounded-circle user_thump "
-                         src="{{!empty($course['teacher_images'])?$course['teacher_images']:asset('public/images/no_image.png')}}"
+                         src="{{!empty($course['teacher_images'])?$course['teacher_images']:asset('images/no_image.png')}}"
                          alt="{{!empty($course['teacher_name'])?$course['teacher_name']:''}}">
                     <span
                         class="ml-2">{{!empty($course['teacher_name'])?$course['teacher_name']:'Đang cập nhật'}}</span>

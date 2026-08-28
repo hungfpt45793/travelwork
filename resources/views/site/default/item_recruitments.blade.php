@@ -54,16 +54,16 @@
 
 
             <div class="arrowLeft text-center absolute top45 left46 xl-left45 lg-left43 hideOnTable">
-                <img class="lazy" data-src="/public/assets/image/right.png" alt="" width="40%">
+                <img class="lazy" data-src="/assets/image/right.png" alt="" width="40%">
             </div>
         </div>
         <div class="arrowUpDown h100x relative hideOnTable">
             <div class="arrowLeft inBlock absolute left23 top20 xl-left21 lg-left20">
-                <img class="lazy" data-src="/public/assets/image/up.png" alt="" width="40%">
+                <img class="lazy" data-src="/assets/image/up.png" alt="" width="40%">
             </div>
 
             <div class="arrowLeft inBlock absolute right19 top20 xl-right16 lg-right12">
-                <img class="lazy" data-src="/public/assets/image/down.png" alt="" width="40%">
+                <img class="lazy" data-src="/assets/image/down.png" alt="" width="40%">
             </div>
         </div>
         <div class="row relative">
@@ -108,7 +108,7 @@
                 </div>
             @endforeach
             <div class="arrowLeft text-center absolute top45 left46 xl-left45 lg-left42 hideOnTable">
-                <img class="lazy" data-src="/public/assets/image/left.png" alt="" width="40%">
+                <img class="lazy" data-src="/assets/image/left.png" alt="" width="40%">
             </div>
 
 

@@ -7,8 +7,8 @@
 @section('meta_image', !empty($course['course_image']) ? asset($course['course_image']) : asset($information['logo']))
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/teacher_course.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/teacher_course.css"/>
 
 
 @endsection
@@ -183,7 +183,7 @@
     {{--scrop js--}}
     <script src="{{ asset('adminstration/jquery.priceformat.js') }}"></script>
     <script src="{{asset('adminstration/js/numeral/numeral.min.js')}}"></script>
-    <script src="/public/assets/js/jquery.validate.min.js"></script>
+    <script src="/assets/js/jquery.validate.min.js"></script>
     {{--end scrop js--}}
     <script>
         $('.formatPrice').priceFormat({
@@ -279,7 +279,7 @@
         });
 
     </script>
-    <script src="/public/assets/ckeditor_full/ckeditor.js"></script>
+    <script src="/assets/ckeditor_full/ckeditor.js"></script>
     @include('site.layout_site.from')
     <script>
         $('.editor_basic').each(function (e) {

@@ -9,7 +9,7 @@
             ?>
             <?php $employer = \App\Entity\Employer::getIdUser($id_user); ?>
             <img class="lazy pdl10"
-                 src="{{ !empty($employer->employee_image) ? $employer->employee_image : '/public/CV/Profile.jpg'}}"
+                 src="{{ !empty($employer->employee_image) ? $employer->employee_image : '/assets/image/no_avatar.jpg'}}"
                  alt="" width="100% ">
         </div>
     </div>

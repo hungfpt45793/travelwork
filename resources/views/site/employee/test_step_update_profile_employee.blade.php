@@ -4,7 +4,7 @@
 @section('meta_description', 'Quản lý hồ sơ ứng viên')
 @section('keywords', 'Quản lý hồ sơ ứng viên')
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/nortification.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/nortification.css"/>
 @endsection
 @section('content')
     <style>

@@ -29,7 +29,7 @@
                 <div role="tabpanel" class="tab-pane active" id="post">
                     <div class="row">
                         <!-- form start -->
-                        <form role="form" action="{{ route('posts.update', ['post_id' => $post->post_id]) }}" method="POST">
+                        <form role="form" action="{{ route('posts.update', ['post' => $post->post_id]) }}" method="POST">
                             {!! csrf_field() !!}
                             {{ method_field('PUT') }}
                             <div class="col-xs-12 col-md-8">
@@ -283,4 +283,3 @@
         </div>
     </section>
 @endsection
-

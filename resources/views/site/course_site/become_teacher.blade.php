@@ -6,16 +6,16 @@
 @section('keywords','Danh sách giáo viên dạy kế toán')
 @section('meta_image', isset($information['logo']) ?  asset($information['logo']) : '')
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" href="/public/assets/css/course/teacher.css"/>
-    <link rel="stylesheet" href="/public/assets/css/course/course.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" href="/assets/css/course/teacher.css"/>
+    <link rel="stylesheet" href="/assets/css/course/course.css"/>
 @endsection
 @section('content')
 
 
     <section class="bc_teacher ourses">
         <div class="banner" style="
-            background:url({{asset('public/assets/image/course/background_city.jpg')}});
+            background:url({{asset('assets/image/course/background_city.jpg')}});
             background-size:cover;
             background-position:center;
             background-repeat: no-repeat;">
@@ -46,7 +46,7 @@
                 <div class="row mt-5">
                     @foreach(\App\Entity\SubPost::showSubPost('gioi-thieu-ve-san-ke-toan') as $subpost)
                         <div class="col-12 col-md-4 my-3">
-                            <img style="width: 100%;" src="{{ isset($subpost['image'])?$subpost['image']:'' }}"/>
+                            <img style="width: 100%;" src="{{ \App\Ultility\Ultility::assetUrl(data_get($subpost, 'image'), 'assets/image/course/course_target.png') }}"/>
                         </div>
                     @endforeach
                 </div>
@@ -61,7 +61,7 @@
                 <div class="row mt-3">
                     @foreach(\App\Entity\SubPost::showSubPost('ly-do-nen-chon-san-ke-toan',4,'asc') as $subpost)
                         <div class="col-6 col-md-3 my-3 text-center">
-                            <img src="{{ isset($subpost['image'])?$subpost['image']:'' }}"
+                            <img src="{{ \App\Ultility\Ultility::assetUrl(data_get($subpost, 'image'), 'assets/image/course/course_target.png') }}"
                                  alt="{{ isset($subpost['description'])?$subpost['description']:'sanketoan' }}"
                                  style="width: 200px;height: 200px;"/>
                             {!! isset($subpost['content'])?$subpost['content']:'' !!}
@@ -111,4 +111,3 @@
 
     </script>
 @endsection
-

@@ -244,7 +244,7 @@
                                                   style="width: 100%">{!!   isset($teacher->information_verifier) ? $teacher->information_verifier : ''  !!}</textarea>
                                     </div>
                                     <div class="col-xl-3 col-lg-3 right textCenter md-mgt20">
-                                        <link rel="stylesheet" href="/public/assets/css/cv.min.css">
+                                        <link rel="stylesheet" href="/assets/css/cv.min.css">
                                         <div id="camera-main" style="position: relative;display: none;z-index: 999;">
                                             <div id="camera-wrap" style="position: absolute; top: 50px;width:60%;">
                                                 <table border="0">

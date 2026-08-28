@@ -10,9 +10,13 @@
             $employer_id = $job['employer_id'];
             $employer = \App\Entity\Employer::getIdemployer($employer_id);
             $company_name = \App\Entity\Job_company::get_job_company_title($job->job_id);
+            $display_company_name = $company_name ?: data_get($employer, 'enterprise_name');
+            if (empty($display_company_name)) {
+                $display_company_name = 'Nhà tuyển dụng đang cập nhật';
+            }
             ?>
             <div class="item_new_bussnise cutTitle">
-                <i class="far fa-building"></i> <span>{{ !empty($company_name) ? $company_name : $employer['enterprise_name'] }}</span>
+                <i class="far fa-building"></i> <span>{{ $display_company_name }}</span>
             </div>
 
             <div class="item_new_local">

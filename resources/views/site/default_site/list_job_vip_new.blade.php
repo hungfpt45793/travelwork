@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="row">
-            @foreach (App\Entity\Job::showJobVipHome(12) as $id => $job)
+            @foreach ($urgentJobs as $id => $job)
             <div class="col-xl-4 col-lg-6 col-md-6 col-12">
                 <a href="{{ route('job_detail',['slug'=>$job->slug]) }}">
                     <div class="item_job_home_new">

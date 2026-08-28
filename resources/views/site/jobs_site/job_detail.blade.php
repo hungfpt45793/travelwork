@@ -39,13 +39,13 @@ $meta_description = ucwords($meta_description);
 @section('meta_image', !empty($job->employer_image) ?  asset($job->employer_image) : asset('assets/image/anh-vuong.jpg'))
 
 @section('show_css')
-    {{--<link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>--}}
+    {{--<link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>--}}
     {{----}}
    {{----}}
     {{----}}
-    {{--<link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>--}}
-    {{--<link rel="stylesheet" type="text/css" href="/public/assets/web/css/tab_filter.css"/>--}}
-    {{--<link rel="stylesheet" type="text/css" href="/public/assets/web/css/detail_job.css"/>--}}
+    {{--<link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>--}}
+    {{--<link rel="stylesheet" type="text/css" href="/assets/web/css/tab_filter.css"/>--}}
+    {{--<link rel="stylesheet" type="text/css" href="/assets/web/css/detail_job.css"/>--}}
 
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/sitebar.css') }}"/>
@@ -118,7 +118,7 @@ $meta_description = ucwords($meta_description);
                                                    style="display: inline-block;cursor: pointer">{{ !empty($company_name) ? $company_name : ''  }}
                                                 </a>
                                             @else
-                                                <a href="{{route('detail_employer',['id' => $employer->slug])}}"
+                                                <a href="{{route('detail_employer',['slug' => $employer->slug])}}"
                                                    class="titleCompanyName cutTitle"
                                                    style="display: inline-block">{{ isset($employer->enterprise_name) ? $employer->enterprise_name : ''}}
                                                 </a>
@@ -742,7 +742,7 @@ $meta_description = ucwords($meta_description);
 @endsection
 
 @section('show_js')
-    <script type="text/javascript" src="/public/assets/js/sitebar.js"></script>
+    <script type="text/javascript" src="/assets/js/sitebar.js"></script>
     <script>
         $('.js_remove_href_a a').removeAttr("href");
 
@@ -787,7 +787,7 @@ $meta_description = ucwords($meta_description);
                         "hiringOrganization":{
                         "@type":"Organization",
                         "name":"{{ $job->enterprise_name }}",
-                        "sameAs":"{{route('detail_employer',['id' => $employer->slug])}}",
+                        "sameAs":"{{route('detail_employer',['slug' => $employer->slug])}}",
                         @if(!empty($job->employer_image))
                           "logo": "{{ !empty($job->employer_image) ? asset($job->employer_image) : '' }}"
                         @else
@@ -846,7 +846,7 @@ $meta_description = ucwords($meta_description);
                 $.ajax({
                     type: "get",
                     dataType: 'json',
-                    url: '{!! route('saveJob',['job_id'=>$job->job_id]) !!}',
+                    url: '{!! route('saveJob', ['id_job' => $job->job_id]) !!}',
                     data: {
                         id_job: '{{ $job->job_id }}',
                         // status_job 1 là việc nhà tuyển dung ; 0 là việc facebook
@@ -876,7 +876,7 @@ $meta_description = ucwords($meta_description);
                 $.ajax({
                     type: "get",
                     dataType: 'json',
-                    url: '{!! route('deletesaveJob',['job_id'=>$job->job_id]) !!}',
+                    url: '{!! route('deletesaveJob', ['id_job' => $job->job_id]) !!}',
                     data: {
                         id_job: '{{ $job->job_id }}',
                         // status_job 1 là việc nhà tuyển dung ; 0 là việc facebook

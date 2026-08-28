@@ -9,11 +9,11 @@ $meta_employee = \App\Entity\Config_meta::getslug('danh-sach-ung-vien');
 @section('meta_image', isset($information['logo']) ?  asset($information['logo']) : ''  )
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/tab_filter.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/list_employee.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/modal_detail_cv_employee.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/tab_filter.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/list_employee.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/modal_detail_cv_employee.css"/>
 
 @endsection
 @section('content')
@@ -149,7 +149,7 @@ $meta_employee = \App\Entity\Config_meta::getslug('danh-sach-ung-vien');
                                                 style="width: 100%; height: 95vh; position: absolute; top: 0px;">
                                         </iframe>
                                     @else
-                                        <img class="img_cv_employee" src="/public/image_cv_upload/cv_upload.jpg" alt="" style="height:95vh">
+                                        <img class="img_cv_employee" src="/image_cv_upload/cv_upload.jpg" alt="" style="height:95vh">
                                     @endif
                                 @else
                                     @if(!empty($check_show_employee))
@@ -382,8 +382,8 @@ $meta_employee = \App\Entity\Config_meta::getslug('danh-sach-ung-vien');
     <script>
         // $('#detailEmployeeCv').modal('show');
     </script>
-    <script type="text/javascript" src="/public/assets/js/sitebar.js"></script>
-    <script type="text/javascript" src="/public/assets/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="/assets/js/sitebar.js"></script>
+    <script type="text/javascript" src="/assets/js/sweetalert.min.js"></script>
 
     <script>
         $('.js_show_intro_employee').on('click', function () {

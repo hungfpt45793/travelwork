@@ -6,10 +6,10 @@
 
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/form.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/employer_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/form.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/employer_job.css"/>
 @endsection
 
 @section('content')
@@ -116,7 +116,7 @@
                                                                        title="Đẩy tin">Đẩy tin <i
                                                                                 class="fas fa-external-link-square-alt"></i></a>
                                                                     <a class="dropdown-item"
-                                                                       href="{{ route('job-user.edit',['job_id'=>$job['job_id']]) }}"
+                                                                       href="{{ route('job-user.edit',['job_user'=>$job['job_id']]) }}"
                                                                        title="Sửa tin">Sửa tin <i
                                                                                 class="far fa-edit clorange"></i></a>
                                                                     <a class="dropdown-item"

@@ -122,7 +122,7 @@
                                             @endif
                                         </td>
                                         <td class="text-center" width="15%">
-                                            {{--<a href="{{ route('room.edit',['id_room' => $room->id_room]) }}" class="btn btn-primary btnSmall mgBottom5" title="Sửa phòng thi " data-toggle="tooltip" data-placement="bottom">--}}
+                                            {{--<a href="{{ route('room.edit',['room' => $room->id_room]) }}" class="btn btn-primary btnSmall mgBottom5" title="Sửa phòng thi " data-toggle="tooltip" data-placement="bottom">--}}
                                             {{--<i class="fa fa-pencil" aria-hidden="true"></i>--}}
                                             {{--</a>--}}
 
@@ -131,7 +131,7 @@
                                             {{--</a>--}}
 
 
-                                            {{--<a  href="{{ route('room.destroy' ,['id_room' => $room->id_room]) }}" class="btn btn-danger  btnSmall mgBottom5"--}}
+                                            {{--<a  href="{{ route('room.destroy' ,['room' => $room->id_room]) }}" class="btn btn-danger  btnSmall mgBottom5"--}}
                                             {{--data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);" title="Xóa phòng thi" data-toggle="tooltip" data-placement="bottom">--}}
                                             {{--<i class="fa fa-trash-o" aria-hidden="true"></i>--}}
                                             {{--</a>--}}

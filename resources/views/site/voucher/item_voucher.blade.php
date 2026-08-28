@@ -5,7 +5,7 @@
             <a href="{{ route('getVoucher',['slug_voucher'=> $voucher['slug_voucher']])}}" class="thumbs"
                title="{{ isset($voucher['name_voucher']) ? $voucher['name_voucher'] : '' }}" >
 
-                <img class="lazy" src="{{ isset($voucher['image_voucher']) ? asset($voucher['image_voucher']) : '' }}" alt="{{ isset($voucher['name_voucher']) ? $voucher['name_voucher'] : '' }}" width="100%" title="{{ isset($voucher['name_voucher']) ? $voucher['name_voucher'] : '' }}">
+                <img class="lazy" src="{{ \App\Ultility\Ultility::assetUrl(data_get($voucher, 'image_voucher'), 'assets/image/no_avatar.jpg') }}" alt="{{ isset($voucher['name_voucher']) ? $voucher['name_voucher'] : '' }}" width="100%" title="{{ isset($voucher['name_voucher']) ? $voucher['name_voucher'] : '' }}">
          
             </a>
         </div>

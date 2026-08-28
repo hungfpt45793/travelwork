@@ -26,7 +26,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb bg-white">
                             <li class="breadcrumb-item"><a class="clHome"  href="{{ route('showExam') }}">Danh sách đề thi </a></li>
-                            <li class="breadcrumb-item"><a class="clHome" href="{{ route('site_exam.edit',['id_exam' => $exam->id_exam]) }}">Đề thi {{ $exam->code_exam }}</a></li>
+                            <li class="breadcrumb-item"><a class="clHome" href="{{ route('site_exam.edit',['site_exam' => $exam->id_exam]) }}">Đề thi {{ $exam->code_exam }}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Copy câu hỏi</li>
                         </ol>
                     </nav>
@@ -424,7 +424,6 @@
 
     @include('site.exam_admin_site.delete')
 @endsection
-
 
 
 

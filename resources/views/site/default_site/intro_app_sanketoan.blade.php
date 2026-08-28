@@ -7,7 +7,7 @@
 @section('meta_image', 'Giới thiệu App Travelwork')
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/intro_app_sanketoan.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/intro_app_sanketoan.css"/>
 @endsection
 
 @section('content')
@@ -125,7 +125,7 @@
     </section>
 
 
-    <script src="/public/assets/js/slick.min.js"></script>
+    <script src="/assets/js/slick.min.js"></script>
     <script type="text/javascript">
         $('.js_item_feature').click(function(){
             var data_src = $(this).attr('data_src');

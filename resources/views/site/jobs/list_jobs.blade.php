@@ -170,7 +170,7 @@
                                                                    title="Đẩy tin">Đẩy tin <i
                                                                             class="fas fa-external-link-square-alt"></i></a>
                                                                 <a class="dropdown-item"
-                                                                   href="{{ route('job-user.edit',['job_id'=>$job['job_id']]) }}"
+                                                                   href="{{ route('job-user.edit',['job_user'=>$job['job_id']]) }}"
                                                                    title="Sửa tin">Sửa tin <i
                                                                             class="far fa-edit clorange"></i></a>
                                                                 <a class="dropdown-item"
@@ -186,10 +186,10 @@
                                                         {{--<div class="EditDelete">--}}
                                                         {{--<button><a href="{{ route('update_update_at',['job_id'=>$job['job_id']]) }}" title="Đẩy tin">Đẩy tin </a></button>--}}
                                                         {{--</br>--}}
-                                                        {{--<button><a href="{{ route('job-user.edit',['job_id'=>$job['job_id']]) }}" title="Sửa tin"></a></button>--}}
+                                                        {{--<button><a href="{{ route('job-user.edit',['job_user'=>$job['job_id']]) }}" title="Sửa tin"></a></button>--}}
                                                         {{--<button><a href="{{ route('update_stop_job',['job_id'=>$job['job_id']]) }}" title="Tạm dừng" class="clred" style="color: red !important;"></a></button>--}}
 
-                                                        {{--<button><a href="{{ route('job-user.destroy',['job_id'=>$job['job_id']]) }}" title="Xóa" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);"><i class="fas fa-trash-alt clorange"></i></a></button>--}}
+                                                        {{--<button><a href="{{ route('job-user.destroy',['job_user'=>$job['job_id']]) }}" title="Xóa" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);"><i class="fas fa-trash-alt clorange"></i></a></button>--}}
                                                         {{--</div>--}}
                                                     </td>
                                                 </tr>

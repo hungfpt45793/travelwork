@@ -154,7 +154,7 @@ $url_not_button = \App\Ultility\Ultility::getUrl();
                     <button class="dropdown-item" type="button">  <i class="fas fa-caret-right"></i> {{ isset($support['title']) ? $support['title'] : '' }}</button>
                 </a>
             @endforeach
-                <a href="{{ route('site_category_post',['site_category_post'=>$public_support['slug']]) }}" class="text-center" style="  width: 100%;
+                <a href="{{ route('site_category_post',['slug_cate'=>$public_support['slug']]) }}" class="text-center" style="  width: 100%;
     display: block;"><span style="border: 1px solid green;
     padding: 5px 19px;
     background: green;

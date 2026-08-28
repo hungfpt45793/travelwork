@@ -18,8 +18,14 @@ use App\Entity\Template_email;
 use App\Entity\User;
 use App\Exam\ResultRoomExam;
 use App\Exam\RoomExam;
+use App\Mail\Mail as AccountMail;
 use Illuminate\Http\Request;
 use App\Entity\MailConfig;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail as MailFacade;
+use Illuminate\Support\Str;
 use Validator;
 
 class MailConfigController extends SiteController
@@ -85,65 +91,78 @@ class MailConfigController extends SiteController
     //mai xác thực tài khoản
     public function ajax_send_email_confirm(Request $request)
     {
-        try {
-            //mã danh mục mẫu email
-            $id_cate_tem = 10;
-            //trạng thái sử dụng của email
-            $status_tem = 1;
-
-            $template_email_model = new Template_email();
-            $template_email = $template_email_model->where('id_cate_tem', $id_cate_tem)
-                ->where('status_tem', $status_tem)
-                ->first();
-            //cấu hình biến khi gửi mail
-
-            $email_confirm = $request->input('email');
-            //chek dinh dang email
-            if (!filter_var($email_confirm, FILTER_VALIDATE_EMAIL)) {
-                return true;
-                //email khong dung dinh dang nen se k gửi email
-            }
-
-            $user_model = new User();
-
-            $user_update = $user_model->select('name', 'phone', 'email', 'id', 'link_confirm_account')->where('email', $email_confirm)->first();
-
-
-            $link_confirm_account = str_random(10) . $user_update->id;
-
-            $update = $user_model->where('email', $email_confirm)->update([
-                'link_confirm_account' => $link_confirm_account,
-                'status_email_account' => 0,
-            ]);
-            $userWithPhone = $user_model->select('name', 'phone', 'email', 'id', 'link_confirm_account')->where('email', $email_confirm)->first();
-
-            $name = $userWithPhone->name;
-            $phone = $userWithPhone->phone;
-            $email = $userWithPhone->email;
-            $link_confirm_account = $userWithPhone->link_confirm_account;
-            $link_kich_hoat = route('link_confirm_account', ['link' => $link_confirm_account]);
-
-            //lấy ra nội dung gửi email
-            $content_email = $template_email->content_tem;
-            //tiêu đề khi gửi email
-            $subject = $template_email->subject_tem;
-
-            //thay đổi biến thành chuỗi khi gửi email
-            $search = ['{name}', '{phone}', '{email}', '{link_kich_hoat}'];
-            $replace = [$name, $phone, $email, $link_kich_hoat];
-            $content_string = str_replace($search, $replace, $content_email);
-
-//            echo $subject;die();
-            //tiến hành gửi email
-            $result = MailConfig::sendMail($email, $subject, $content_string);
-//            return response([
-//                'status' => 200,
-//            ])->header('Content-Type', 'text/plain');
-        } catch (\Exception $e) {
-//            return response('Error', 404)
-//                ->header('Content-Type', 'text/plain');
+        if (!Auth::check()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.',
+            ], 401);
         }
 
+        $user = User::select('name', 'phone', 'email', 'id', 'link_confirm_account', 'status_email_account')
+            ->find(Auth::id());
+
+        if (!$user || !filter_var($user->email, FILTER_VALIDATE_EMAIL)) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Địa chỉ email của tài khoản không hợp lệ.',
+            ], 422);
+        }
+
+        if ((int) $user->status_email_account === 1) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Tài khoản này đã được xác thực email.',
+            ], 422);
+        }
+
+        $template_email = Template_email::where('id_cate_tem', 10)
+            ->where('status_tem', 1)
+            ->first();
+
+        if (!$template_email) {
+            Log::error('Không tìm thấy mẫu email xác thực tài khoản đang hoạt động.', [
+                'user_id' => $user->id,
+            ]);
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Chưa cấu hình mẫu email xác thực. Vui lòng liên hệ quản trị viên.',
+            ], 500);
+        }
+
+        try {
+            $link_confirm_account = Str::random(10) . $user->id;
+            $link_kich_hoat = route('link_confirm_account', ['link' => $link_confirm_account]);
+            $search = ['{name}', '{phone}', '{email}', '{link_kich_hoat}'];
+            $replace = [$user->name, $user->phone, $user->email, $link_kich_hoat];
+            $content_string = str_replace($search, $replace, $template_email->content_tem);
+
+            DB::transaction(function () use ($user, $link_confirm_account, $content_string, $template_email) {
+                User::where('id', $user->id)->update([
+                    'link_confirm_account' => $link_confirm_account,
+                    'status_email_account' => 0,
+                ]);
+
+                if (!self::sendAccountVerificationMail($user->email, $template_email->subject_tem, $content_string)) {
+                    throw new \RuntimeException('Mail transport did not accept the verification email.');
+                }
+            });
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Email xác thực đã được gửi. Vui lòng kiểm tra cả hộp thư Spam/Junk.',
+            ]);
+        } catch (\Throwable $e) {
+            Log::error('Gửi lại email xác thực tài khoản thất bại.', [
+                'user_id' => $user->id,
+                'exception' => $e->getMessage(),
+            ]);
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Không thể gửi email xác thực lúc này. Vui lòng thử lại sau.',
+            ], 500);
+        }
     }
 
     public static function send_email_confirm($email_confirm)
@@ -193,7 +212,7 @@ class MailConfigController extends SiteController
 
 //            echo $subject;die();
             //tiến hành gửi email
-            $result = MailConfig::sendMail($email, $subject, $content_string);
+            $result = self::sendAccountVerificationMail($email, $subject, $content_string);
 //            return response([
 //                'status' => 200,
 //            ])->header('Content-Type', 'text/plain');
@@ -303,6 +322,8 @@ class MailConfigController extends SiteController
         }
 
         return false;
+
+        return false;
     }
 
     // đăng kí tài khoản nhà tuyển dụng
@@ -341,9 +362,10 @@ class MailConfigController extends SiteController
             $content_string = str_replace($search, $replace, $content_email);
 
             //tiến hành gửi email
-            MailConfig::sendMail($email, $subject, $content_string);
+            return self::sendAccountVerificationMail($email, $subject, $content_string);
         }
 
+        return false;
     }
 
     // đăng kí giáo viên
@@ -383,10 +405,10 @@ class MailConfigController extends SiteController
             $content_string = str_replace($search, $replace, $content_email);
 
             //tiến hành gửi email
-            MailConfig::sendMail($email, $subject, $content_string);
+            return self::sendAccountVerificationMail($email, $subject, $content_string);
         }
 
-
+        return false;
     }
 
     // nop ho cho cong viec fb
@@ -565,40 +587,67 @@ class MailConfigController extends SiteController
             $content_string = str_replace($search, $replace, $content_email);
 
             //tiến hành gửi email
-            MailConfig::sendMail($email, $subject, $content_string);
+            return self::sendAccountVerificationMail($email, $subject, $content_string);
         }
 
+        return false;
+    }
+
+    private static function sendAccountVerificationMail($email, $subject, $content)
+    {
+        try {
+            $mail = (new AccountMail($content))->subject($subject);
+            MailFacade::to($email)->send($mail);
+
+            return true;
+        } catch (\Throwable $e) {
+            Log::error('Gửi email xác thực tài khoản qua Laravel Mail thất bại.', [
+                'exception' => $e->getMessage(),
+            ]);
+
+            return false;
+        }
     }
 
     //đổi mật khẩu
     public static function resetPassword($email_to, $user, $email_otp)
     {
         if (!filter_var($email_to, FILTER_VALIDATE_EMAIL)) {
-            return true;
-            //email khong dung dinh dang nen se k gửi email
+            return false;
         }
 
-        $id_cate_tem = 4;
-        //trạng thái sử dụng của email
-        $status_tem = 1;
-        $template_email_model = new Template_email();
-        $template_email = $template_email_model->where('id_cate_tem', $id_cate_tem)
-            ->where('status_tem', $status_tem)
-            ->first();
-        if (!empty($template_email)) {
-            //cấu hình biến khi gửi mail
-            //link kich hoạt mật khẩu mới
+        try {
+            $template_email = Template_email::where('id_cate_tem', 4)
+                ->where('status_tem', 1)
+                ->first();
 
-            //lấy ra nội dung gửi email
-            $content_email = $template_email->content_tem;
-            //tiêu đề khi gửi email
-            $subject = $template_email->subject_tem;
-            //thay đổi biến thành chuỗi khi gửi email
-            $search = ['{name}', '{email}', '{email_otp}'];
-            $replace = [$user->name, $user->email, $email_otp];
-            $content_string = str_replace($search, $replace, $content_email);
-            //tiến hành gửi email
-            MailConfig::sendMail($email_to, $subject, $content_string);
+            if (!$template_email) {
+                \Log::error('Không tìm thấy template email quên mật khẩu.');
+
+                return false;
+            }
+
+            $content = str_replace(
+                ['{name}', '{email}', '{email_otp}'],
+                [e($user->name), e($user->email), e($email_otp)],
+                $template_email->content_tem
+            );
+
+            $mail = new \App\Mail\Mail($content);
+
+            \Mail::to($email_to)->send(
+                $mail->subject($template_email->subject_tem)
+            );
+
+            \Log::info('Đã gửi OTP quên mật khẩu.', ['user_id' => $user->id]);
+
+            return true;
+        } catch (\Throwable $exception) {
+            \Log::error('Lỗi gửi OTP quên mật khẩu: '.$exception->getMessage(), [
+                'user_id' => $user->id,
+            ]);
+
+            return false;
         }
     }
 

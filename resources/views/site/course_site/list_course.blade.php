@@ -9,10 +9,10 @@ $config_meta = \App\Entity\Config_meta::getslug($slug);
 @section('meta_image', !empty($config_meta->image) ?  asset($config_meta->image) : $information['logo'] )
 @section('show_css')
     {{--//sao danh  gias--}}
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" href="/public/assets/css/course/teacher.css"/>
-    <link rel="stylesheet" href="/public/assets/css/course/course.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" href="/assets/css/course/teacher.css"/>
+    <link rel="stylesheet" href="/assets/css/course/course.css"/>
 @endsection
 @section('content')
     <section class="courses ">
@@ -23,7 +23,7 @@ $config_meta = \App\Entity\Config_meta::getslug($slug);
                     @foreach(\App\Entity\SubPost::showSubPost('loi-ich-khi-su-dung-san-ke-toan',4,'asc') as $subpost)
                         <div class="course_proof_slick_item" style="height: fit-content">
 
-                            <img src="{{ isset($subpost['image'])?$subpost['image']:'' }}"
+                            <img src="{{ \App\Ultility\Ultility::assetUrl(data_get($subpost, 'image'), 'assets/image/course/course_target.png') }}"
                                  alt="{{ isset($subpost['description'])?$subpost['description']:'sanketoan' }}"
                                  class="">
                             <div class="note_proof">
@@ -198,4 +198,3 @@ $config_meta = \App\Entity\Config_meta::getslug($slug);
         $('.anotheTeacher #dismiss').remove();
     </script>
 @endsection
-

@@ -69,7 +69,7 @@
                                      Câu hỏi {{ $id1 + 1 }}
                                      </span>
                                                 <span class="edit_question" type="button" data-toggle="modal" data-target="#{{ isset($question1['id_ques']) ? $question1['id_ques'] : '' }}"><i class="fa fa-edit"></i></span>
-                                                <span class="delete_question deleteItem1"> <a href="{{ route('site_question.destroy',['id_ques' => $question1['id_ques'] ]) }}" class="btnDelete" data-toggle="modal" data-target="#myModalDelete0" onclick="return submitDelete(this);" style="color: #fff;text-decoration: none">
+                                                <span class="delete_question deleteItem1"> <a href="{{ route('site_question.destroy',['site_question' => $question1['id_ques'] ]) }}" class="btnDelete" data-toggle="modal" data-target="#myModalDelete0" onclick="return submitDelete(this);" style="color: #fff;text-decoration: none">
                                      X </a></span>
                                             </div>
                                             <div class="clearfix"></div>
@@ -126,7 +126,7 @@
                                                         <button class=" btn btn-primary pull-left mgRight5" type="button" data-toggle="modal" data-target="#{{ isset($question1['id_ques']) ? $question1['id_ques'] : '' }}">
                                                             Sửa câu hỏi
                                                         </button>
-                                                        <button class=" btn btn-primary pull-left"><a href="{{ route('site_question.destroy',['id_ques' => $question1['id_ques'] ]) }}" class="btnDelete" data-toggle="modal" data-target="#myModalDelete0" onclick="return submitDelete(this);" style="color: #fff;text-decoration: none">Xóa câu hỏi
+                                                        <button class=" btn btn-primary pull-left"><a href="{{ route('site_question.destroy',['site_question' => $question1['id_ques'] ]) }}" class="btnDelete" data-toggle="modal" data-target="#myModalDelete0" onclick="return submitDelete(this);" style="color: #fff;text-decoration: none">Xóa câu hỏi
                                                             </a></button>
                                                     </div>
                                                     <div class="clearfix"></div>
@@ -177,7 +177,7 @@
                                      Câu hỏi {{ $id2 + 1 }}
                                      </span>
                                                 <span class="edit_question" type="button" data-toggle="modal" data-target="#{{ isset($question2['id_ques']) ? $question2['id_ques'] : '' }}"><i class="fa fa-edit"></i></span>
-                                                <span class="delete_question deleteItem1"> <a href="{{ route('site_question.destroy',['id_ques' => $question2['id_ques'] ]) }}" class="btnDelete" data-toggle="modal" data-target="#myModalDelete1" onclick="return submitDelete(this);" style="color: #fff;text-decoration: none">
+                                                <span class="delete_question deleteItem1"> <a href="{{ route('site_question.destroy',['site_question' => $question2['id_ques'] ]) }}" class="btnDelete" data-toggle="modal" data-target="#myModalDelete1" onclick="return submitDelete(this);" style="color: #fff;text-decoration: none">
                                      X </a></span>
                                             </div>
                                             <div class="clearfix"></div>
@@ -224,7 +224,7 @@
                                                         <button class=" btn btn-primary pull-left mgRight5" type="button" data-toggle="modal" data-target="#{{ isset($question2['id_ques']) ? $question2['id_ques'] : '' }}">
                                                             Sửa câu hỏi
                                                         </button>
-                                                        <button class=" btn btn-primary pull-left"><a href="{{ route('site_question.destroy',['id_ques' => $question2['id_ques'] ]) }}" class="btnDelete" data-toggle="modal" data-target="#myModalDelete1" onclick="return submitDelete(this);" style="color: #fff;text-decoration: none">Xóa câu hỏi
+                                                        <button class=" btn btn-primary pull-left"><a href="{{ route('site_question.destroy',['site_question' => $question2['id_ques'] ]) }}" class="btnDelete" data-toggle="modal" data-target="#myModalDelete1" onclick="return submitDelete(this);" style="color: #fff;text-decoration: none">Xóa câu hỏi
                                                             </a></button>
                                                     </div>
                                                     <div class="clearfix"></div>
@@ -276,7 +276,7 @@
                                      Câu hỏi {{ $id3 + 1 }}
                                      </span>
                                                 <span class="edit_question" type="button" data-toggle="modal" data-target="#{{ isset($question3['id_ques']) ? $question3['id_ques'] : '' }}"><i class="fa fa-edit"></i></span>
-                                                <span class="delete_question deleteItem1"> <a href="{{ route('site_question.destroy',['id_ques' => $question3['id_ques'] ]) }}" class="btnDelete" data-toggle="modal" data-target="#myModalDelete2" onclick="return submitDelete(this);" style="color: #fff;text-decoration: none">
+                                                <span class="delete_question deleteItem1"> <a href="{{ route('site_question.destroy',['site_question' => $question3['id_ques'] ]) }}" class="btnDelete" data-toggle="modal" data-target="#myModalDelete2" onclick="return submitDelete(this);" style="color: #fff;text-decoration: none">
                                      X </a></span>
                                             </div>
                                             <div class="clearfix"></div>
@@ -320,7 +320,7 @@
                                                         <button class=" btn btn-primary pull-left mgRight5" type="button" data-toggle="modal" data-target="#{{ isset($question3['id_ques']) ? $question3['id_ques'] : '' }}">
                                                             Sửa câu hỏi
                                                         </button>
-                                                        <button class=" btn btn-primary pull-left"><a href="{{ route('site_question.destroy',['id_ques' => $question3['id_ques'] ]) }}" class="btnDelete" data-toggle="modal" data-target="#myModalDelet2" onclick="return submitDelete(this);" style="color: #fff;text-decoration: none">Xóa câu hỏi
+                                                        <button class=" btn btn-primary pull-left"><a href="{{ route('site_question.destroy',['site_question' => $question3['id_ques'] ]) }}" class="btnDelete" data-toggle="modal" data-target="#myModalDelet2" onclick="return submitDelete(this);" style="color: #fff;text-decoration: none">Xóa câu hỏi
                                                             </a></button>
                                                     </div>
                                                     <div class="clearfix"></div>
@@ -480,7 +480,7 @@
                  id="{{ isset($question1['id_ques']) ? $question1['id_ques'] : '' }}" tabindex="-1"
                  role="dialog" aria-labelledby="myLargeModalLabel">
                 <div class="modal-dialog modal-lg" role="document">
-                    <form role="form" action="{{ route('site_question.update', ['id_ques' => $question1->id_ques]) }}
+                    <form role="form" action="{{ route('site_question.update', ['site_question' => $question1->id_ques]) }}
                             " method="post" id="valiadateForm" class="valiadateForm">
                         {!! csrf_field() !!}
                         {{ method_field('PUT') }}
@@ -922,7 +922,7 @@
                  role="dialog" aria-labelledby="myLargeModalLabel">
                 <div class="modal-dialog modal-lg" role="document">
                     <form role="form"
-                          action="{{ route('site_question.update', ['id_ques' => $question2->id_ques]) }}
+                          action="{{ route('site_question.update', ['site_question' => $question2->id_ques]) }}
                                   " method="post">
                         {!! csrf_field() !!}
                         {{ method_field('PUT') }}
@@ -1230,7 +1230,7 @@
                  role="dialog" aria-labelledby="myLargeModalLabel">
                 <div class="modal-dialog modal-lg" role="document">
                     <form role="form"
-                          action="{{ route('site_question.update', ['id_ques' => $question3->id_ques]) }}
+                          action="{{ route('site_question.update', ['site_question' => $question3->id_ques]) }}
                                   " method="post"  class="">
                         {!! csrf_field() !!}
                         {{ method_field('PUT') }}
@@ -1426,7 +1426,6 @@
     </script>
     @include('site.admin_site.delete')
 @endsection
-
 
 
 

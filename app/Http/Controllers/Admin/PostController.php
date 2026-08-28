@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Entity\Category_tag;
 use App\Entity\Category;
 use App\Entity\CategoryPost;
-use App\Entity\Comment;
 use App\Entity\Input;
 use App\Entity\Notification_post;
 use App\Entity\Post;
@@ -49,28 +48,14 @@ class PostController extends AdminController
      */
     public function index(Request $request)
     {
-        $total_post =0;
-        $posts = Post::select('posts.*');
-        $posts = $posts->where('post_type', 'post');
-        if(!empty($request->input('post_question')))
-        {
-            $posts = $posts->where('post_question', $request->input('post_question'));
-        }
-        if(!empty($request->input('title')))
-        {
-            $title = $request->input('title');
-            $posts = $posts->where('title','like','%'.$title.'%' );
-        }
-        if(!empty($request->input('sale_money')))
-        {
-            $posts = $posts->where('sale_money', $request->input('sale_money'));
-        }
-        $posts = $posts->orderBy('posts.post_id','desc');
+        $posts = $this->applyPostFilters(
+            Post::where('post_type', 'post'),
+            $request
+        );
+
         $total_post = $posts->count();
-        $posts = $posts->paginate(20);
-//        print_r($posts);die();
-        $posts->appends(request()->query());
-        return View('admin.post.list',compact('posts','total_post'));
+
+        return View('admin.post.list', compact('total_post'));
     }
 
     /**
@@ -328,8 +313,8 @@ class PostController extends AdminController
                 ->orderBy('posts.post_id', 'desc')
                 ->get();
 
-//            $callApi = new CallApi();
-//            $campaigns = $callApi->getCampaigns();
+            // Tích hợp GetFly hiện đang tắt, nhưng view vẫn cần biến này.
+            $campaigns = [];
             $input_tags = Category_tag::all_tags_post();
             return view('admin.post.edit', compact(
                 'categories',
@@ -474,12 +459,14 @@ class PostController extends AdminController
             $posts = new Post();
             $posts->where('post_id', $post->post_id)->delete();
 
-            Comment::where('post_id', $post->post_id)->delete();
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
             Error::setErrorMessage('Lỗi xảy ra khi xóa bài viết: dữ liệu không hợp lệ.');
-            Log::error('http->admin->PostController->destroy: Lỗi xảy ra trong quá trình xóa bài viết');
+            Log::error('http->admin->PostController->destroy: Lỗi xảy ra trong quá trình xóa bài viết', [
+                'post_id' => $post->post_id,
+                'exception' => $e,
+            ]);
         } finally {
             return redirect('admin/posts');
         }
@@ -555,15 +542,18 @@ class PostController extends AdminController
     }
     
     public function anyDatatables(Request $request) {
-        $posts = Post::where('post_type', 'post')->select('posts.*');
+        $posts = $this->applyPostFilters(
+            Post::where('post_type', 'post')->select('posts.*'),
+            $request
+        );
 
         return Datatables::of($posts)
            ->addColumn('action', function($post) {
                $string = '<input type="checkbox" class="flat-red" onclick="return visiablePost(this); " value="'.$post->post_id.'"'.( ($post->visiable == 0 || $post->visiable == null ) ? 'checked' : '' ).'/> Hiện ';
-               $string .=  '<a href="'.route('posts.edit', ['post_id' => $post->post_id]).'">
+               $string .=  '<a href="'.route('posts.edit', ['post' => $post->post_id]).'">
                            <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                        </a>';
-               $string .= '<a  href="'.route('posts.destroy', ['post_id' => $post->post_id]).'" class="btn btn-danger btnDelete" 
+               $string .= '<a  href="'.route('posts.destroy', ['post' => $post->post_id]).'" class="btn btn-danger btnDelete"
                             data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>';
@@ -571,5 +561,22 @@ class PostController extends AdminController
            })
             ->orderColumn('post_id', 'post_id desc')
            ->make(true);
+    }
+
+    private function applyPostFilters($posts, Request $request)
+    {
+        if ($request->filled('post_question')) {
+            $posts->where('post_question', $request->input('post_question'));
+        }
+
+        if ($request->filled('title')) {
+            $posts->where('title', 'like', '%' . trim($request->input('title')) . '%');
+        }
+
+        if ($request->filled('sale_money')) {
+            $posts->where('sale_money', $request->input('sale_money'));
+        }
+
+        return $posts;
     }
 }

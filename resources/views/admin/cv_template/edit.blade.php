@@ -30,13 +30,13 @@
 
 
 
-        <link rel="stylesheet" href="{{ asset('public/employee_cv') }}/font-awesome.min.css">
-        <link rel="stylesheet" href="{{ asset('public/employee_cv') }}/slick/slick.css" type="text/css">
-        <link rel="stylesheet" href="{{ asset('public/employee_cv') }}/slick/slick-theme.css" type="text/css">
+        <link rel="stylesheet" href="{{ asset('employee_cv') }}/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ asset('employee_cv') }}/slick/slick.css" type="text/css">
+        <link rel="stylesheet" href="{{ asset('employee_cv') }}/slick/slick-theme.css" type="text/css">
 
 
-        <link rel="stylesheet" href="{{ asset('public/employee_cv') }}/style.css@v=57.css" type="text/css">
-        {{--<script src="{{ asset('public/employee_cv') }}/jquery.min.js"></script>--}}
+        <link rel="stylesheet" href="{{ asset('employee_cv') }}/style.css@v=57.css" type="text/css">
+        {{--<script src="{{ asset('employee_cv') }}/jquery.min.js"></script>--}}
 
         <div id="btn-shadow"></div>
 
@@ -46,10 +46,10 @@
             .menu_nncv .dm_more{z-index: 9999;}
             #hoso-scroll{z-index: 0;}
         </style>
-        <link rel="stylesheet" href="{{ asset('public/employee_cv') }}/roboto.css" type="text/css">
-        <link rel="stylesheet" href="{{ asset('public/employee_cv') }}/cvh.css" type="text/css">
-        <link rel="stylesheet" href="{{ asset('public/employee_cv') }}/cropper.css" type="text/css">
-        <script src="{{ asset('public/employee_cv') }}/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="{{ asset('employee_cv') }}/roboto.css" type="text/css">
+        <link rel="stylesheet" href="{{ asset('employee_cv') }}/cvh.css" type="text/css">
+        <link rel="stylesheet" href="{{ asset('employee_cv') }}/cropper.css" type="text/css">
+        <script src="{{ asset('employee_cv') }}/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 
 
 
@@ -73,11 +73,11 @@
 
             <div class="ctr">
                 <!-- Giao dien mau thu-->
-                <link rel="stylesheet" href="{{ asset('public/employee_cv') }}/cv/thiet-ke-co-dien/ke-toan-9/css/cv.css" type="text/css">
-                <link id="cv-color-css" rel="stylesheet" href="{{ asset('public/employee_cv') }}/cv/thiet-ke-co-dien/ke-toan-9/css/colors/3a93a5.css@v=1.css" type="text/css">
-                {{--<link id="cv-font" rel="stylesheet" href="{{ asset('public/employee_cv') }}/cv/thiet-ke-co-dien/ke-toan-9/css/fonts/Roboto.css" type="text/css">--}}
-                {{--<link id="cv-font-size" rel="stylesheet" href="{{ asset('public/employee_cv') }}/cv/thiet-ke-co-dien/ke-toan-9/css/font-size/normal.css" type="text/css">--}}
-                {{--<link id="cv-cpacing-css" rel="stylesheet" href="{{ asset('public/employee_cv') }}/cv/thiet-ke-co-dien/ke-toan-9/css/font-spacing/normal.css" type="text/css">--}}
+                <link rel="stylesheet" href="{{ asset('employee_cv') }}/cv/thiet-ke-co-dien/ke-toan-9/css/cv.css" type="text/css">
+                <link id="cv-color-css" rel="stylesheet" href="{{ asset('employee_cv') }}/cv/thiet-ke-co-dien/ke-toan-9/css/colors/3a93a5.css@v=1.css" type="text/css">
+                {{--<link id="cv-font" rel="stylesheet" href="{{ asset('employee_cv') }}/cv/thiet-ke-co-dien/ke-toan-9/css/fonts/Roboto.css" type="text/css">--}}
+                {{--<link id="cv-font-size" rel="stylesheet" href="{{ asset('employee_cv') }}/cv/thiet-ke-co-dien/ke-toan-9/css/font-size/normal.css" type="text/css">--}}
+                {{--<link id="cv-cpacing-css" rel="stylesheet" href="{{ asset('employee_cv') }}/cv/thiet-ke-co-dien/ke-toan-9/css/font-spacing/normal.css" type="text/css">--}}
 
                 <div id="page-cv">
                     <p>Một số thông tin cơ bản của ứng sẽ tự động nhập vào CV</p>
@@ -520,35 +520,35 @@ Mục tiêu dài hạn: Trở thành kiểm toán viên </textarea>
 
     <!-- <script src="js/jquery-ui.min.js" type="text/javascript"></script> -->
     <!-- <script src="js/jquery.ui.touch-punch.min.js" type="text/javascript"></script> -->
-    <script src="{{ asset('public/employee_cv') }}/cropper.js" type="text/javascript"></script>
-    <script src="{{ asset('public/employee_cv') }}/jquery.validate.min.js"></script>
-    <script src="{{ asset('public/employee_cv') }}/html2canvas.js"></script>
-    <script src="{{ asset('public/employee_cv') }}/main.js@v=10"></script>
-    <script src="{{ asset('public/employee_cv') }}/cvh.js@v=20"></script>
-    <script src="{{ asset('public/employee_cv') }}/select2.min.js"></script>
-    <script src="{{ asset('public/employee_cv') }}/edit.js"></script>
+    <script src="{{ asset('employee_cv') }}/cropper.js" type="text/javascript"></script>
+    <script src="{{ asset('employee_cv') }}/jquery.validate.min.js"></script>
+    <script src="{{ asset('employee_cv') }}/html2canvas.js"></script>
+    <script src="{{ asset('employee_cv') }}/main.js@v=10"></script>
+    <script src="{{ asset('employee_cv') }}/cvh.js@v=20"></script>
+    <script src="{{ asset('employee_cv') }}/select2.min.js"></script>
+    <script src="{{ asset('employee_cv') }}/edit.js"></script>
 
 
 
 
-    <script src="{{ asset('public/employee_cv') }}/select2.min.js"></script>
+    <script src="{{ asset('employee_cv') }}/select2.min.js"></script>
     {{--<div id="loadjs"></div>--}}
 
-    <script src="{{ asset('public/employee_cv') }}/html2canvas.js"></script>
-    <script src="{{ asset('public/employee_cv') }}/dist/jspdf.debug.js"></script>
-    <script src="{{ asset('public/employee_cv') }}/slick/slick.min.js"></script>
-    <link rel="stylesheet" href="{{ asset('public/employee_cv') }}/select2.min.css" media="print" onload="if(media!='all')media='all'">
+    <script src="{{ asset('employee_cv') }}/html2canvas.js"></script>
+    <script src="{{ asset('employee_cv') }}/dist/jspdf.debug.js"></script>
+    <script src="{{ asset('employee_cv') }}/slick/slick.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('employee_cv') }}/select2.min.css" media="print" onload="if(media!='all')media='all'">
     <style>
         .select2-container--default .select2-selection--multiple,.select2-container--default.select2-container--focus .select2-selection--multiple{border-color:#e3e3e3;outline:0}.select2-container .select2-selection--single{height:40px;font-size:14px}.select2-container--default .select2-selection--single .select2-selection__rendered{height:38px;line-height:38px}.select2-container--default .select2-selection--single .select2-selection__arrow{top:7px}.select2-container--default .select2-selection--single{border-radius:4px!important;border-color:#e3e3e3}.select2-container .select2-selection--multiple{min-height:40px}.select2-container .select2-search--inline .select2-search__field{font-size: 14px;line-height: normal;padding-top: 5px;}
     </style>
-    <script src="{{ asset('public/employee_cv') }}/jquery.validate.min.js" async></script>
-    <script src="{{ asset('public/employee_cv') }}/cv.js@v=42" async></script>
+    <script src="{{ asset('employee_cv') }}/jquery.validate.min.js" async></script>
+    <script src="{{ asset('employee_cv') }}/cv.js@v=42" async></script>
 
     <script type="text/javascript">
         if ($( window ).width() < 1180) {$("footer,.hd_top").css("width","1170");}
     </script>
-    <link rel="stylesheet" href="{{ asset('public/assets/css') }}/cusStyle_cv.css">
-    {{--<link rel="stylesheet" href="{{ asset('public/employee_cv') }}/fonts/font_css.css" media="print" onload="if(media!='all')media='all'">--}}
+    <link rel="stylesheet" href="{{ asset('assets/css') }}/cusStyle_cv.css">
+    {{--<link rel="stylesheet" href="{{ asset('employee_cv') }}/fonts/font_css.css" media="print" onload="if(media!='all')media='all'">--}}
     <script>
         $('textarea').each(function () {
             this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');

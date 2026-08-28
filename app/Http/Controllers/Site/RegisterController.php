@@ -214,33 +214,82 @@ class RegisterController extends SiteController
 
     public function send_email(Request $request)
     {
-        try {
-            $email = $request->input('email');
-            $user = User::where('email', $email)
-                ->first();
-            if (empty($user)) {
-                return redirect()->back()->with('error', 'Email đăng kí không tồn tại');
-            }
-            $email_otp = Ultility::create_random_string(5, 7);
-            $update = User::where('email', $email)->update([
-                'reset_password' => $email_otp
-            ]);
-            MailConfigController::resetPassword($email, $user, $email_otp);
-            $message = 'Mã xác thực đã được gửi tới Email của bạn . Vui lòng kiểm tra trong Email : '.$email;
-            return view('site.default_site.change_password_otp_email', compact('message', 'user'));
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Có lỗi xảy ra trong quá trình gửi email mã xác thực! Vui lòng thử lại sau');
+        $validation = Validator::make(
+            $request->all(),
+            ['email' => 'required|email'],
+            [
+                'email.required' => 'Vui lòng nhập địa chỉ email.',
+                'email.email' => 'Địa chỉ email không hợp lệ.',
+            ]
+        );
+
+        if ($validation->fails()) {
+            return redirect()->back()
+                ->withErrors($validation)
+                ->withInput();
         }
 
+        $email = trim($request->input('email'));
+        $user = User::where('email', $email)->first();
+
+        if (!$user) {
+            return redirect()->back()
+                ->with('error', 'Email đăng ký không tồn tại.')
+                ->withInput();
+        }
+
+        $previousOtp = (string) $user->reset_password;
+        $emailOtp = Ultility::create_random_string(5, 7);
+
+        try {
+            $user->reset_password = $emailOtp;
+            $user->save();
+
+            $mailSent = MailConfigController::resetPassword(
+                $email,
+                $user,
+                $emailOtp
+            );
+
+            if (!$mailSent) {
+                User::where('id', $user->id)
+                    ->where('reset_password', $emailOtp)
+                    ->update(['reset_password' => $previousOtp]);
+
+                return redirect()->back()
+                    ->with('error', 'Không thể gửi mã xác thực tới email. Vui lòng thử lại sau.')
+                    ->withInput();
+            }
+
+            $message = 'Mã xác thực đã được gửi tới email của bạn. Vui lòng kiểm tra email: '.$email;
+
+            return view(
+                'site.default_site.change_password_otp_email',
+                compact('message', 'user')
+            );
+        } catch (\Throwable $exception) {
+            User::where('id', $user->id)
+                ->where('reset_password', $emailOtp)
+                ->update(['reset_password' => $previousOtp]);
+
+            \Log::error('RegisterController@send_email: '.$exception->getMessage());
+
+            return redirect()->back()
+                ->with('error', 'Có lỗi xảy ra trong quá trình gửi email mã xác thực! Vui lòng thử lại sau.')
+                ->withInput();
+        }
     }
 
     public function change_otp_email(Request $request)
     {
 
         $validation = Validator::make($request->all(), [
-            'password' => 'required|min:7|confirmed',
+            'email' => 'required|email',
+            'password' => 'required|min:8|confirmed',
             'otp_email' => 'required',
         ], [
+            'email.required' => 'Không tìm thấy email cần đổi mật khẩu.',
+            'email.email' => 'Địa chỉ email không hợp lệ.',
             'otp_email.required' => 'Mã xác thực không được để trống.',
             'password.required' => 'Bạn chưa nhập mật khẩu',
             'password.min' => 'Mật khẩu của bạn phải lớn hơn hoặc bằng 8 ký tự',
@@ -258,22 +307,23 @@ class RegisterController extends SiteController
         $otp_email = $request->input('otp_email');
         $password = $request->input('password');
 
-        $check_user = User::where('email', $email)
-            ->where('reset_password', $otp_email)
-            ->first();
         $user = User::where('email', $email)
             ->first();
-        if (empty($check_user)) {
+
+        if (!$user) {
+            return redirect()->route('reset_passwrod')
+                ->with('error', 'Không tìm thấy tài khoản cần đổi mật khẩu.');
+        }
+
+        if (!hash_equals((string) $user->reset_password, (string) $otp_email)) {
             $message = 'Mã xác thực không đúng. Vui lòng kiểm tra lại trong Email : '.$email;
             return view('site.default_site.change_password_otp_email', compact('message', 'user'));
 
         }
-        User::where('email', $email)
-            ->where('reset_password', $otp_email)
-            ->update([
-                'password' => bcrypt($request->input('password')),
-                'reset_password' => ''
-            ]);
+        $user->password = bcrypt($password);
+        $user->reset_password = '';
+        $user->save();
+
         $message_success = 'Bạn đã thay đổi mật khẩu thành công .';
         return view('site.default_site.change_password_success', compact('message_success', 'user'));
     }

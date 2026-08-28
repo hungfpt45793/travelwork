@@ -9,7 +9,7 @@
             ?>
             <?php $employee = \App\Entity\Employee::getEmployee_id($id_user); ?>
             <img class="lazy pdl10"
-                 src="{{ !empty($employee->employee_image) ? $employee->employee_image : '/public/CV/Profile.jpg'}}"
+                 src="{{ !empty($employee->employee_image) ? $employee->employee_image : '/assets/image/no_avatar.jpg'}}"
                  alt="" width="100% ">
         </div>
     </div>
@@ -51,25 +51,25 @@
                     <i class="fas fa-cogs"></i><span>Cài đặt hồ sơ</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ route('get_all_coe') }}" data-toggle="tooltip"
+                   data-placement="right" title="Tính hệ số lương">
+                    <i class="fas fa-calculator"></i><span>Tính hệ số lương</span>
+                </a>
+            </li>
             <?php
             $check_coe_id = \App\Entity\Coefficients_salary::where('user_id',\Illuminate\Support\Facades\Auth::user()->id)->orderBy('coe_id','desc')->value('coe_id');
             $career_category_id = \App\Entity\Coefficients_salary::where('coe_id',$check_coe_id)->value('career_category_id');
             $career_category_slug  = \App\Entity\Career::where('career_category_id',$career_category_id)->value('career_category_slug');
             ?>
-            <li>
-                @if(!empty($check_coe_id))
+            @if(!empty($check_coe_id))
+                <li>
                     <a href="{{ route('total_get_all_coe',['career_category_slug'=>$career_category_slug,'coe_id'=>$check_coe_id ]) }}" data-toggle="tooltip"
-                       data-placement="right" title="Phân tích mức lương của bạn">
-                        <i class="fas fa-dollar-sign"></i></i><span>Phân tích mức lương của bạn<sup class="clRed">(mới)</sup></span>
+                       data-placement="right" title="Kết quả phân tích lương gần nhất">
+                        <i class="fas fa-dollar-sign"></i><span>Kết quả phân tích lương gần nhất</span>
                     </a>
-                    @else
-                    <a href="{{route('get_all_coe')}}" data-toggle="tooltip"
-                       data-placement="right" title="Phân tích mức lương của bạn">
-                        <i class="fas fa-dollar-sign"></i></i><span>Phân tích mức lương của bạn<sup class="clRed">(mới)</sup></span>
-                    </a>
-                    @endif
-
-            </li>
+                </li>
+            @endif
 
             <li>
                 <a href="{{route('show_user_job_facebook')}}" data-toggle="tooltip"

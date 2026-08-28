@@ -55,7 +55,7 @@
                                                 <h1 class="fontBold blueDN mgb0 f23 lg-f20 sm-f15">{{$job->title}}</h1>
 
                                                 @if(isset($employer->enterprise_name))
-                                                    <a href="{{route('detail_employer',['id' => $employer->slug])}}"
+                                                    <a href="{{route('detail_employer',['slug' => $employer->slug])}}"
                                                        class="xam font18 sm-f15 clorange mgt15 titleCompanyName"
                                                        style="display: inline-block">{{ isset($employer->enterprise_name) ? $employer->enterprise_name : ''}}</a>
                                                 @endif

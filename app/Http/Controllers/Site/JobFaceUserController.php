@@ -650,7 +650,10 @@ class JobFaceUserController extends SiteController
                 'created_at' => new \DateTime()
             ]);
         }
-        return redirect(route('job_desired_employee'));
+        return redirect(route('job_desired_employee'))->with(
+            'success_job_desired',
+            'Đã lưu thông tin việc làm mong muốn'
+        );
     }
 
 

@@ -74,6 +74,7 @@ class Category extends Model
                     'title' => $subChild.$cate->title,
                     'title_show' => $cate->title,
                     'category_id' => $cate->category_id,
+                    'parent' => $cate->parent,
                     'image' => $cate->image,
                     'slug' => $cate->slug,
 					'updated_at' => $cate->updated_at,

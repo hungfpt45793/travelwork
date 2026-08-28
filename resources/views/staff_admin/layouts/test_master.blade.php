@@ -52,7 +52,7 @@
     <link rel="stylesheet" href="tracnghiem/css/styles.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="public/adminstration/plugins/iCheck/all.css">
     <link rel="stylesheet" type="text/css" href="public/assets/css/form.css">
-    {{--<link rel="stylesheet" href="/public/select2/dist/select2-bootstrap4.css">--}}
+    {{--<link rel="stylesheet" href="/adminstration/select2/dist/css/select2.min.css">--}}
     <link rel="stylesheet" type="text/css" href="public/assets/css/d-public.css">
     <link rel="stylesheet" type="text/css" href="public/assets/css/d-res.css">
 
@@ -66,26 +66,26 @@
     {{--<script src="public/assets/js/jquery.matchHeight-min.js"></script>--}}
     {{--<script src="adminstration/ckeditor/ckeditor.js"></script>--}}
 
-    <script src="/public/assets/js/umd/jquery-3.3.1.min.js"></script>
-    <script src="/public/assets/js/loadingoverlay.min.js"></script>
+    <script src="/assets/js/umd/jquery-3.3.1.min.js"></script>
+    <script src="/assets/js/loadingoverlay.min.js"></script>
     {{--<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/"></script>--}}
 
-    {{--<script src="/public/assets/js/jquery-3.3.1.js"></script>--}}
+    {{--<script src="/assets/js/jquery-3.3.1.js"></script>--}}
     {{--<script src="https://code.jquery.com/jquery-3.4.1.js"></script>--}}
 
-    <script src="/public/assets/js/umd/popper.min.js"></script>
-    <script src="/public/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/umd/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
 
 
-    <script src="/public/assets/js/jquery.validate.min.js"></script>
-    {{--<script type="text/javascript" src="/public/assets/js/jquery.webcam.js"></script>--}}
-    {{--<script type="text/javascript" src="/public/assets/js/camera.min.js"></script>--}}
+    <script src="/assets/js/jquery.validate.min.js"></script>
+    {{--<script type="text/javascript" src="/assets/js/jquery.webcam.js"></script>--}}
+    {{--<script type="text/javascript" src="/assets/js/camera.min.js"></script>--}}
 
-    <script src="/public/assets/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
 
-    <script src="/public/assets/js/select2.min.js"></script>
-    <script src="/public/assets/js/slick.min.js"></script>
-    <script src="/public/assets/js/jquery.matchHeight-min.js"></script>
+    <script src="/assets/js/select2.min.js"></script>
+    <script src="/assets/js/slick.min.js"></script>
+    <script src="/assets/js/jquery.matchHeight-min.js"></script>
 
 
     {{--<script src="{{ asset('adminstration/ckeditor/ckeditor.js') }}"></script>--}}

@@ -1,7 +1,17 @@
-<?php  $public_exam = \App\Entity\Category::getDetailCategory('cuoc-thi-trac-nghiem');
-?>
-<?php  $public_test = \App\Entity\Category::getDetailCategory('huong-dan-trac-nghiem');
-?>
+@php
+    $public_exam = \App\Entity\Category::getDetailCategory('cuoc-thi-trac-nghiem');
+    $public_test = \App\Entity\Category::getDetailCategory('huong-dan-trac-nghiem');
+    $public_exam_slug = data_get($public_exam, 'slug');
+    $public_test_slug = data_get($public_test, 'slug');
+    $public_exam_url = $public_exam_slug
+        ? route('site_category_post', ['slug_cate' => $public_exam_slug])
+        : route('getAllExam');
+    $public_test_url = $public_test_slug
+        ? route('site_category_post', ['slug_cate' => $public_test_slug])
+        : route('getTestAllExam');
+    $public_exam_title = data_get($public_exam, 'title', 'Cuộc thi trắc nghiệm');
+    $public_test_title = data_get($public_test, 'title', 'Hướng dẫn trắc nghiệm');
+@endphp
 <header class="header_new_pc dsNone_900">
     <div class="container container_w_1200">
         <div class="row">
@@ -9,7 +19,7 @@
                 <div class="hd_left">
                     <div class="hd_logo">
                         <a href="/">
-                            <img class="lazy" src="{{ !empty($information['logo-pc-new']) ? asset($information['logo-pc-new']) : asset('assets/image/new/Logo.png') }}" alt="" width="100%">
+                            <img class="lazy" src="{{ \App\Ultility\Ultility::assetUrl(data_get($information, 'logo-pc-new'), 'assets/image/new/Logo.png') }}" alt="" width="100%">
                         </a>
                     </div>
                 </div>
@@ -17,10 +27,10 @@
                     <div class="hd_category">
                         <div class="hd_menu">
                             <ul>
-                                <a href="{{ route('site_category_post',['site_category_post'=>$public_exam['slug']]) }}" title="{{ isset($public_exam['title']) ? $public_exam['title'] : '' }}">
+                                <a href="{{ $public_exam_url }}" title="{{ $public_exam_title }}">
                                     <li>
                                         <i class="fas fa-compress-arrows-alt"></i>
-                                        <h2>{{ isset($public_exam['title']) ? $public_exam['title'] : '' }}</h2>
+                                        <h2>{{ $public_exam_title }}</h2>
                                     </li>
                                 </a>
                                 <a  href="{{ route('getRomAll') }}" title="Phòng thi">
@@ -41,10 +51,10 @@
                                         <h2> Đề thi thử</h2>
                                     </li>
                                 </a>
-                                <a target="_blank" href="{{ route('site_category_post',['site_category_post'=>$public_test['slug']]) }}" title="{{ isset($public_test['title']) ? $public_test['title'] : '' }}">
+                                <a target="_blank" href="{{ $public_test_url }}" title="{{ $public_test_title }}">
                                     <li>
                                         <i class="fab fa-slideshare"></i>
-                                        <h2> {{ isset($public_test['title']) ? $public_test['title'] : '' }}</h2>
+                                        <h2> {{ $public_test_title }}</h2>
                                     </li>
                                 </a>
                             </ul>
@@ -73,7 +83,7 @@
                 @if (!\Illuminate\Support\Facades\Auth::check())
                     <div class="header_new_mobile_center">
                         <a href="/">
-                            <img class="lazy" src="{{ !empty($information['logo-mobile-new']) ? asset($information['logo-mobile-new']) : asset('assets/image/new/logo_mobile.png') }}" alt="" width="100%">
+                            <img class="lazy" src="{{ \App\Ultility\Ultility::assetUrl(data_get($information, 'logo-mobile-new'), 'assets/image/new/logo_mobile.png') }}" alt="" width="100%">
                         </a>
                     </div>
 
@@ -91,7 +101,7 @@
 
             <div class="col-md-12 col-12 header_new_mobile_box_menu dsNone js_header_new_mobile_box_menu">
                 <div class="menu_mobile_logo">
-                    <a href="/"> <img src="{{ !empty($information['logo-mobile-new']) ? asset($information['logo-mobile-new']) : asset('assets/image/new/logo_mobile.png') }}"></a>
+                    <a href="/"> <img src="{{ \App\Ultility\Ultility::assetUrl(data_get($information, 'logo-mobile-new'), 'assets/image/new/logo_mobile.png') }}"></a>
                     <a class="menu_mobile_closed js_menu_mobile_closed"><i class="fas fa-times-circle"></i></a>
                 </div>
                 <div class="menu_mobile_login">
@@ -117,10 +127,10 @@
                 </div>
                 <div class="menu_mobile_list">
                     <ul>
-                        <a href="{{ route('site_category_post',['site_category_post'=>$public_exam['slug']]) }}" title="{{ isset($public_exam['title']) ? $public_exam['title'] : '' }}">
+                        <a href="{{ $public_exam_url }}" title="{{ $public_exam_title }}">
                             <li>
                                 <i class="fas fa-compress-arrows-alt"></i>
-                                <span>{{ isset($public_exam['title']) ? $public_exam['title'] : '' }}</span>
+                                <span>{{ $public_exam_title }}</span>
                             </li>
                         </a>
                         <a  href="{{ route('getRomAll') }}" title="Phòng thi">
@@ -141,10 +151,10 @@
                                 <span> Đề thi thử</span>
                             </li>
                         </a>
-                        <a target="_blank" href="{{ route('site_category_post',['site_category_post'=>$public_test['slug']]) }}" title="{{ isset($public_test['title']) ? $public_test['title'] : '' }}">
+                        <a target="_blank" href="{{ $public_test_url }}" title="{{ $public_test_title }}">
                             <li>
                                 <i class="fab fa-slideshare"></i>
-                                <span> {{ isset($public_test['title']) ? $public_test['title'] : '' }}</span>
+                                <span> {{ $public_test_title }}</span>
                             </li>
                         </a>
 {{--                        <a target="_blank" ref="nofollow" href="https://skt.sanketoan.vn/" title="MXH kế toán">--}}
@@ -223,6 +233,4 @@
         </div>
     </div>
 </header>
-
-
 

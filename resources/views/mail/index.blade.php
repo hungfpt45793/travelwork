@@ -7,6 +7,6 @@
     <link rel="stylesheet" href="">
 </head>
 <body>
-    <p><?= $content ?></p>
+{!! $content !!}
 </body>
 </html>

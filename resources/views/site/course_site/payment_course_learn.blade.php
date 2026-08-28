@@ -5,9 +5,9 @@
 @section('keywords','Thanh toán đơn hàng'.!empty($courses->course_title) ? $courses->course_title : '')
 @section('meta_image', isset($information['logo']) ?  asset($information['logo']) : '')
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" href="/public/assets/css/course/teacher.css"/>
-    <link rel="stylesheet" href="/public/assets/css/course/course.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" href="/assets/css/course/teacher.css"/>
+    <link rel="stylesheet" href="/assets/css/course/course.css"/>
 @endsection
 
 @section('content')
@@ -217,7 +217,7 @@
 
 @section('show_js')
 
-    <script type="text/javascript" src="{{ asset('/public/assets/web/js/numeral.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/assets/web/js/numeral.min.js') }}"></script>
     <script>
         $(document).ready(function () {
             $('.js_course_formality_id').change(function () {

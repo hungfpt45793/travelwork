@@ -42,8 +42,7 @@
     <!-- <meta property="fb:app_id" content="" />
     <meta property="fb:admins" content=""> -->
     @yield('show_css')
-    <link rel="shortcut icon" href="{{ !empty($information['icon']) ?  asset($information['icon']) : '' }}"
-          type="image/x-icon"/>
+    <link rel="icon" href="{{ asset('assets/image/new/Logo.png') }}" type="image/png"/>
     @if (\Route::current()->getName() == 'job_detail' or \Route::current()->getName() == 'post' )
         <link rel="canonical" href="@yield('canonical')"/>
     @else
@@ -73,12 +72,12 @@
 
     {{--<link rel="stylesheet" href="{{ asset('tracnghiem/') }}/css/star-rating-svg.css" type="text/css">--}}
     {{--<link rel="stylesheet" href="{{ asset('tracnghiem/') }}/css/styles.css" type="text/css">--}}
-    {{--<link rel="stylesheet" type="text/css" href="/public/assets/css/style_new.css"/>--}}
+    {{--<link rel="stylesheet" type="text/css" href="/assets/css/style_new.css"/>--}}
     {{--<link rel="stylesheet" href="http ://tracnghiem.local/adminstration/plugins/iCheck/all.css">--}}
-    {{--<link rel="stylesheet" type="text/css" href="/public/adminstration/plugins/iCheck/all.css"/>--}}
+    {{--<link rel="stylesheet" type="text/css" href="/adminstration/plugins/iCheck/all.css"/>--}}
     {{-- them moi --}}
-    {{--<link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>--}}
-    {{--<link rel="stylesheet" type="text/css" href="/public/assets/css/list_price.css"/>--}}
+    {{--<link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>--}}
+    {{--<link rel="stylesheet" type="text/css" href="/assets/css/list_price.css"/>--}}
 
 
 
@@ -276,11 +275,11 @@
 
 {{--xem thông tin ứng viên với quyền nhà tuyển dụng và ứng viên--}}
 @if (URL::current() != route('home'))
-    <script type="text/javascript" src="/public/assets/js/sitebar.js"></script>
+    <script type="text/javascript" src="/assets/js/sitebar.js"></script>
 @endif
 
 {{-- lazy load img --}}
-<script type="text/javascript" src="/public/assets/js/jquery.lazy.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.lazy.min.js"></script>
 <script>
     $(function () {
         $('img.lazy').Lazy({

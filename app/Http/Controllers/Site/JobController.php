@@ -70,11 +70,11 @@ class JobController extends SiteController
             ->where('jobs.slug', $slug)
             ->first();
 
-        if (empty($job->employer_id)) {
+        if (empty($job) || empty($job->employer_id)) {
             return redirect(route('home'));
         }
         $employer = Employer::where('employer_id', $job->employer_id)->first();
-        if (empty($job) || empty($employer)) {
+        if (empty($employer)) {
             return redirect(route('home'));
         }
 

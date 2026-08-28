@@ -7,8 +7,8 @@
 @section('meta_image', isset($information['logo']) ?  asset($information['logo']) : ''  )
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/nortification.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/upload_employee_cv.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/nortification.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/upload_employee_cv.css"/>
 @endsection
 @section('content')
     <div class="InfoCompanyJob bgrWhite  pd20" style="border-bottom: 1px solid #ccc">

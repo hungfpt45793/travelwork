@@ -4,9 +4,9 @@
 
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/slick-theme.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/voucher.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/voucher.css"/>
 @endsection
 
 
@@ -22,7 +22,7 @@ Travelwork - Tuyển dụng và việc làm du lịch lớn nhất Việt Nam.</
 @endsection
 
 @section('show_js')
-    <script src="/public/assets/js/slick.min.js"></script>
+    <script src="/assets/js/slick.min.js"></script>
 
     <script type="text/javascript">
         $('.slideNews').slick({

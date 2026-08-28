@@ -233,7 +233,7 @@ class uploader {
 
             // TRY TO CREATE UPLOAD DIRECTORY IF NOT EXISTS
             if (!$this->config['disabled'] && !is_dir($this->config['uploadDir']))
-                @mkdir($this->config['uploadDir'], $this->config['dirPerms']);
+                @mkdir($this->config['uploadDir'], $this->config['dirPerms'], true);
 
             // CHECK & MAKE DEFAULT .htaccess
             if (isset($this->config['_check4htaccess']) &&
@@ -254,7 +254,7 @@ class uploader {
 
             // CHECK & CREATE UPLOAD FOLDER
             if (!is_dir($this->typeDir)) {
-                if (!mkdir($this->typeDir, $this->config['dirPerms']))
+                if (!mkdir($this->typeDir, $this->config['dirPerms'], true))
                     $this->backMsg("Cannot create {dir} folder.", array('dir' => $this->type));
             } elseif (!is_readable($this->typeDir))
                 $this->backMsg("Cannot read upload folder.");

@@ -3,54 +3,54 @@
 @section('meta_description', isset($information['meta_description']) ? $information['meta_description'] : '')
 @section('keywords', isset($information['meta_keyword']) ? $information['meta_keyword'] : '')
 @section('content')
-    <section class="main-ctn pd15-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12 col-lg-12 col-md-12 createProfileOnline ">
-                    <div class="link bgrWhite md-mgt20 mgb10">
-                        <ul class="nav">
-                            <li class="nav-item pd8">
+<section class="main-ctn pd15-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 createProfileOnline ">
+                <div class="link bgrWhite md-mgt20 mgb10">
+                    <ul class="nav">
+                        <li class="nav-item pd8">
 
-                                <a href="/" class="f18 md-f14 blueDN hvBlueDN"><i class="fas fa-home"></i> Trang chủ</a>
-                            </li>
-                            <li class="nav-item pd8">
-                                <p class="mgb0 md-f13 md-mgt2 blueDN"><i class="fas fa-chevron-right"></i></p>
-                            </li>
-                            <li class="nav-item pd8">
-                                <?php
-                                $link_url = '#';
-                                $link_url = \App\Ultility\Ultility::getUrl();
-                                ?>
-                                <a href="{{ $link_url }}" class="f18 md-f14 blueDN hvBlueDN"> <i
-                                            class="fas fa-users mgr5"></i>Ứng viên đăng ký</a>
-                            </li>
-                        </ul>
-                    </div>
+                            <a href="/" class="f18 md-f14 blueDN hvBlueDN"><i class="fas fa-home"></i> Trang chủ</a>
+                        </li>
+                        <li class="nav-item pd8">
+                            <p class="mgb0 md-f13 md-mgt2 blueDN"><i class="fas fa-chevron-right"></i></p>
+                        </li>
+                        <li class="nav-item pd8">
+                            <?php
+                            $link_url = '#';
+                            $link_url = \App\Ultility\Ultility::getUrl();
+                            ?>
+                            <a href="{{ $link_url }}" class="f18 md-f14 blueDN hvBlueDN"> <i
+                                    class="fas fa-users mgr5"></i>Ứng viên đăng ký</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
+        </div>
 
-            <section id="contact-content" class="create_res_employee">
-                <div class="container">
-                    <form action="{{ route('createEmployee') }}" method="post" class="dang-ky-tuyen-dung"
-                          id="form_register">
-                        {!! csrf_field() !!}
+        <section id="contact-content" class="create_res_employee">
+            <div class="container">
+                <form action="{{ route('createEmployee') }}" method="post" class="dang-ky-tuyen-dung"
+                    id="form_register">
+                    {!! csrf_field() !!}
 
-                        <div class="row">
-                            <div class="col-lg-12 p_alert_0">
-                                <div class="alert alert-info" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
-                                    </button>
-                                    {!! !empty($information['huong-dan-dang-ki-tai-khoan-ung-vien']) ? $information['huong-dan-dang-ki-tai-khoan-ung-vien'] : '' !!}
-                                </div>
-                                @if(!empty($_GET['url']))
-                                <div class="alert alert-danger" role="alert">
-                                    <p class="clRed">
-                                        Bạn phải đăng ký tài khoản ứng viên trước mới kích hoạt được khóa học
-                                    </p>
-                                </div>
-                                @endif
+                    <div class="row">
+                        <div class="col-lg-12 p_alert_0">
+                            <div class="alert alert-info" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                {!! !empty($information['huong-dan-dang-ki-tai-khoan-ung-vien']) ? $information['huong-dan-dang-ki-tai-khoan-ung-vien'] : '' !!}
                             </div>
+                            @if(!empty($_GET['url']))
+                            <div class="alert alert-danger" role="alert">
+                                <p class="clRed">
+                                    Bạn phải đăng ký tài khoản ứng viên trước mới kích hoạt được khóa học
+                                </p>
+                            </div>
+                            @endif
+                        </div>
 
                         </div>
                         <div class="row mgt15">
@@ -82,8 +82,8 @@
                                                        value="{{ old('phone') }}" required>
                                             </div>
 
-                                            <div class="mess_notice_phone clearfix note_text_phone"></div>
-                                            <div class="error_reg_mess clearfix error_text_phone"></div>
+                                        <div class="mess_notice_phone clearfix note_text_phone"></div>
+                                        <div class="error_reg_mess clearfix error_text_phone"></div>
 
                                         </div>
                                         <div class="form-group">
@@ -123,51 +123,51 @@
                                         </div>
 
 
-                                        <div class="form-group error">
-                                            @if(!empty($errors->all()))
-                                                @foreach($errors->all() as $erorr)
-                                                    <span style="background-color: red;display: inline-block;color: #fff;padding: 3px 5px;margin:3px 5px;">{{ $erorr }}</span>
-                                                @endforeach
-                                            @endif
-                                        </div>
-
+                                    <div class="form-group error">
+                                        @if(!empty($errors->all()))
+                                        @foreach($errors->all() as $erorr)
+                                        <span style="background-color: red;display: inline-block;color: #fff;padding: 3px 5px;margin:3px 5px;">{{ $erorr }}</span>
+                                        @endforeach
+                                        @endif
                                     </div>
+
                                 </div>
-                                <div class="text-center mgt20">
-                                    {{--validate nếu chua chon công việc cần tìm--}}
-                                    <div class="mess_notice_career_category_id clearfix note_text_career_category_id"></div>
-                                    <div class="error_reg_mess clearfix error_text_career_category_id"></div>
+                            </div>
+                            <div class="text-center mgt20">
+                                {{--validate nếu chua chon công việc cần tìm--}}
+                                <div class="mess_notice_career_category_id clearfix note_text_career_category_id"></div>
+                                <div class="error_reg_mess clearfix error_text_career_category_id"></div>
 
-                                    {{--validate nếu chua chon thành phố cần tìm--}}
-                                    <div class="mess_notice_province clearfix note_text_province"></div>
-                                    <div class="error_reg_mess clearfix error_text_province"></div>
-                                    {{--validate nếu chua chon quận huyên--}}
-                                    <div class="mess_notice_district clearfix note_text_district"></div>
-                                    <div class="error_reg_mess clearfix error_text_district"></div>
+                                {{--validate nếu chua chon thành phố cần tìm--}}
+                                <div class="mess_notice_province clearfix note_text_province"></div>
+                                <div class="error_reg_mess clearfix error_text_province"></div>
+                                {{--validate nếu chua chon quận huyên--}}
+                                <div class="mess_notice_district clearfix note_text_district"></div>
+                                <div class="error_reg_mess clearfix error_text_district"></div>
 
-                                    <button type="submit" class="btn bgrBlueN white btn-loading js_btnRegidit">
-                                        HOÀN TẤT ĐĂNG KÝ
-                                    </button>
+                                <button type="submit" class="btn bgrBlueN white btn-loading js_btnRegidit">
+                                    HOÀN TẤT ĐĂNG KÝ
+                                </button>
 
-                                    {{--<button type="submit" id="btnDangKy" class="btn btn-danger" disabled="">HOÀN TẤT ĐĂNG KÝ</button>--}}
+                                {{--<button type="submit" id="btnDangKy" class="btn btn-danger" disabled="">HOÀN TẤT ĐĂNG KÝ</button>--}}
 
-                                    <div class="form-group w-100 text-center">
-                                        <small class="form-text text-dark text-center mbdsNone">
-                                            (
-                                            Bằng việc nhấn nút Đăng ký, bạn đã đọc và đồng ý với các
-                                            <a href="/bai-viet-ve-san-ke-toan/chinh-sach-bao-mat" target="_blank"
-                                               class="font-weight-bold text-dark">Chính sách bảo mật</a>)
+                                <div class="form-group w-100 text-center">
+                                    <small class="form-text text-dark text-center mbdsNone">
+                                        (
+                                        Bằng việc nhấn nút Đăng ký, bạn đã đọc và đồng ý với các
+                                        <a href="/bai-viet-ve-san-ke-toan/chinh-sach-bao-mat" target="_blank"
+                                            class="font-weight-bold text-dark">Chính sách bảo mật</a>)
 
-                                        </small>
+                                    </small>
 
-                                        <small class="form-text text-dark text-center mbf10 dsNone mbdsBlock">
-                                            (Bằng việc nhấn nút Đăng ký, bạn đã đồng ý với
-                                            <a href="/bai-viet-ve-san-ke-toan/chinh-sach-bao-mat" target="_blank"
-                                               class="font-weight-bold text-dark">Chính sách bảo mật</a>)
+                                    <small class="form-text text-dark text-center mbf10 dsNone mbdsBlock">
+                                        (Bằng việc nhấn nút Đăng ký, bạn đã đồng ý với
+                                        <a href="/bai-viet-ve-san-ke-toan/chinh-sach-bao-mat" target="_blank"
+                                            class="font-weight-bold text-dark">Chính sách bảo mật</a>)
 
-                                        </small>
-                                    </div>
+                                    </small>
                                 </div>
+                            </div>
 
                             </div>
                             <div class="col-md-6">
@@ -195,63 +195,63 @@
                                                 @endforeach
 
 
-                                            </div>
-                                            <div class="col-md-7">
-                                                <label class="f16 fw6">Khu vực cần tìm việc <i
-                                                            style="color: red">(*)</i></label>
-                                                <p>
-                                                    <i>Vui lòng chọn tỉnh /thành phố -> sau đó chọn quận / huyện</i>
-                                                </p>
-                                                <select class="form-control select2 error_border_province"
-                                                        name="province"
-                                                        aria-label="Tỉnh/Thành phố" id="province">
-                                                    <option value=""> -- Danh sách các tỉnh/thành phố --</option>
-                                                    @foreach(\App\Entity\Province::getAllProvince() as $province)
-                                                        <option value="{{$province->province_id}}">{{$province->province_name}}</option>
-                                                    @endforeach
-                                                </select>
-
-                                                <label class="f16 fw6 mgt15">Chọn tối đa 3 quận / huyện <i
-                                                            style="color: red">(*)</i></label>
-                                                <div class="search_province_district ">
-
-                                                </div>
-
-                                            </div>
                                         </div>
+                                        <div class="col-md-7">
+                                            <label class="f16 fw6">Khu vực cần tìm việc <i
+                                                    style="color: red">(*)</i></label>
+                                            <p>
+                                                <i>Vui lòng chọn tỉnh /thành phố -> sau đó chọn quận / huyện</i>
+                                            </p>
+                                            <select class="form-control select2 error_border_province"
+                                                name="province"
+                                                aria-label="Tỉnh/Thành phố" id="province">
+                                                <option value=""> -- Danh sách các tỉnh/thành phố --</option>
+                                                @foreach(\App\Entity\Province::getAllProvince() as $province)
+                                                <option value="{{$province->province_id}}">{{$province->province_name}}</option>
+                                                @endforeach
+                                            </select>
 
+                                            <label class="f16 fw6 mgt15">Chọn tối đa 3 quận / huyện <i
+                                                    style="color: red">(*)</i></label>
+                                            <div class="search_province_district ">
+
+                                            </div>
+
+                                        </div>
                                     </div>
 
                                 </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="rs_video">
-                                <h3>Video hướng dẫn đăng ký và tạo tài khoản trên sanketoan.vn</h3>
-                                {!! isset($information['video-huong-dan-dang-ky']) ?  $information['video-huong-dan-dang-ky'] : ' <iframe width="100%" height="100%" src="https://www.youtube.com/embed/h-cE5diGutU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' !!}
 
                             </div>
                         </div>
                     </div>
+                </form>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="rs_video">
+                            <h3>Video hướng dẫn đăng ký và tạo tài khoản trên sanketoan.vn</h3>
+                            {!! isset($information['video-huong-dan-dang-ky']) ? $information['video-huong-dan-dang-ky'] : ' <iframe width="100%" height="100%" src="https://www.youtube.com/embed/h-cE5diGutU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' !!}
+
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-            </section>
-
-
-        </div>
-    </section>
+        </section>
 
 
+    </div>
+</section>
 
-    <style>
-        .select2-selection__rendered {
-            border: 1px solid green;
-        }
-    </style>
+
+
+<style>
+    .select2-selection__rendered {
+        border: 1px solid green;
+    }
+</style>
 
     <script>
         function limitCareerChoices() {
@@ -314,39 +314,39 @@
         });
     </script>
 
-    <script>
-        function searchAjax(e) {
-            var word = $(e).val();
-            $('.search .bodySearch ').empty();
-            return true;
-        }
+<script>
+    function searchAjax(e) {
+        var word = $(e).val();
+        $('.search .bodySearch ').empty();
+        return true;
+    }
 
-        $(document).ready(function () {
-            $('#province').change(function () {
-                $('.search_province_district').html('');
-                $.ajax({
-                    type: "get",
-                    url: '/ajax-district_radio/' + $(this).val(),
-                    data: {
-                        province: $(this).val(),
-                    },
-                    success: function (result) {
-                        $('.search_province_district').html('');
-                        var obj = jQuery.parseJSON(result);
-                        // $('.search .bodySearch ').empty();
-                        $.each(obj.districts, function (index, element) {
-                            var html = '<div class="form-group" style="width: 50%;display: inline-block">';
-                            html += '<label class="answerRadio">';
-                            html += '<input type="checkbox" id="' + element.district_id + '" name="district[]" value="' + element.district_id + '"class="flat-red resetchecked mgr5 js_check_category_carrer_max_2">';
-                            html += element.district_name;
-                            html += '</label>';
-                            html += '</div>';
+    $(document).ready(function() {
+        $('#province').change(function() {
+            $('.search_province_district').html('');
+            $.ajax({
+                type: "get",
+                url: '/ajax-district_radio/' + $(this).val(),
+                data: {
+                    province: $(this).val(),
+                },
+                success: function(result) {
+                    $('.search_province_district').html('');
+                    var obj = jQuery.parseJSON(result);
+                    // $('.search .bodySearch ').empty();
+                    $.each(obj.districts, function(index, element) {
+                        var html = '<div class="form-group" style="width: 50%;display: inline-block">';
+                        html += '<label class="answerRadio">';
+                        html += '<input type="checkbox" id="' + element.district_id + '" name="district[]" value="' + element.district_id + '"class="flat-red resetchecked mgr5 js_check_category_carrer_max_2">';
+                        html += element.district_name;
+                        html += '</label>';
+                        html += '</div>';
 
-                            $('.search_province_district').append(html);
+                        $('.search_province_district').append(html);
 
-                        });
-                    }
-                });
+                    });
+                }
+            });
 
             });
         });
@@ -434,46 +434,43 @@
                 },
                 errorPlacement: function (error, element) {
 
-                    var name = $(element).attr("name");
-                    $('.alert_error_' + name).css('display', 'block');
-                    $('.alert_success_' + name).css('display', 'none');
-                    $('.alert_note_' + name).html(error.text());
+                var name = $(element).attr("name");
+                $('.alert_error_' + name).css('display', 'block');
+                $('.alert_success_' + name).css('display', 'none');
+                $('.alert_note_' + name).html(error.text());
 
-                    $('.note_text_' + name).hide();
-                    $('.error_text_' + name).html('<i class="error"><span class="error_reg_mess_icon"></span>' + error.text() + '</i>');
-                    $('.error_border_' + name).css("cssText", "border: 1px solid #ff0000  !important;");
-                    $('.btn-loading').button('reset');
-                },
-                success: function (label, element) {
-                    var name = $(element).attr("name");
-                    $('.alert_error_' + name).css('display', 'none');
-                    $('.alert_success_' + name).css('display', 'block');
-                    $('.alert_note_' + name).html('Bạn có thể tiếp tục đăng ký thông tin cho email này.');
+                $('.note_text_' + name).hide();
+                $('.error_text_' + name).html('<i class="error"><span class="error_reg_mess_icon"></span>' + error.text() + '</i>');
+                $('.error_border_' + name).css("cssText", "border: 1px solid #ff0000  !important;");
+                $('.btn-loading').button('reset');
+            },
+            success: function(label, element) {
+                var name = $(element).attr("name");
+                $('.alert_error_' + name).css('display', 'none');
+                $('.alert_success_' + name).css('display', 'block');
+                $('.alert_note_' + name).html('Bạn có thể tiếp tục đăng ký thông tin cho email này.');
 
-                    $('.note_text_' + name).show();
-                    $('.error_text_' + name).html('');
-                    $('.error_border_' + name).css("cssText", "border: 1px solid #e0e0e0  !important;");
-                    $('.js_btnRegidit').attr('disabled', false);
+                $('.note_text_' + name).show();
+                $('.error_text_' + name).html('');
+                $('.error_border_' + name).css("cssText", "border: 1px solid #e0e0e0  !important;");
+                $('.js_btnRegidit').attr('disabled', false);
 
-                },
-                submitHandler: function (form) {
-                    form.submit();
-                }
-            });
-            //tao jquery load button
-            $('.js_btnRegidit').click(function () {
+            },
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+        //tao jquery load button
+        $('.js_btnRegidit').click(function() {
 
-                if ($('#form_register').valid()) {
-                    $(this).html('<i class="fas fa-spinner fa-spin mgr5"></i>' + 'ĐANG HOÀN TẤT ĐĂNG KÍ...');
-                    $btn.attr('disabled', false);
-                } else {
-                }
-            });
-
+            if ($('#form_register').valid()) {
+                $(this).html('<i class="fas fa-spinner fa-spin mgr5"></i>' + 'ĐANG HOÀN TẤT ĐĂNG KÍ...');
+                $btn.attr('disabled', false);
+            } else {}
         });
 
-
-    </script>
+    });
+</script>
 @endsection
 @section('show_js')
 

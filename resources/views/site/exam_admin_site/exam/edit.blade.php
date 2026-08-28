@@ -55,7 +55,7 @@
                     <section class="content contentMain">
                         <div class="clearfix"></div>
 
-                         <form role="form" action="{{ route('site_exam.update', ['id_cate_exam' => $exam->id_exam]) }}" method="POST">
+                         <form role="form" action="{{ route('site_exam.update', ['site_exam' => $exam->id_exam]) }}" method="POST">
                              {!! csrf_field() !!}
                             {{ method_field('PUT') }}
                             <div class="row">
@@ -265,7 +265,6 @@
 
     @include('site.exam_admin_site.delete')
 @endsection
-
 
 
 

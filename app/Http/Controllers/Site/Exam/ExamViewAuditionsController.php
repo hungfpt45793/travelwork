@@ -135,6 +135,12 @@ class ExamViewAuditionsController extends SiteController
             ->where('exam.bank_exam', '=', 1)
             ->where('exam.slug_exam' ,'=', $slug_exam)
             ->first();
+        if (empty($exam)) {
+            return redirect()->route('getTestAllExam')->with(
+                'errorExam',
+                'Đề thi không tồn tại hoặc chưa được công khai'
+            );
+        }
         $categories_exams = new CategoriesExam();
         $categories_exams = $categories_exams->select('*')
             ->join('categories_join_exam','categories_join_exam.id_categories_exam' , '=' ,'categories_exam.id_cate_exam')

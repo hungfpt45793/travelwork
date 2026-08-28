@@ -76,6 +76,13 @@ class Job extends Model
 
     ];
 
+    public function scopePubliclyVisible($query)
+    {
+        return $query
+            ->where('jobs.active_job', 1)
+            ->whereDate('jobs.deadline_submit_profile', '>=', date('Y-m-d'));
+    }
+
     public static function total_carerr_job($career_category_id)
     {
         $postModel = new Job();
@@ -220,8 +227,7 @@ class Job extends Model
                 ->leftJoin('province', 'province.province_id', 'jobs.province')
                 ->leftJoin('district', 'district.district_id', 'jobs.district')
                 ->where('jobs.vip', '=', 1)
-                ->where('jobs.active_job', 1)
-                ->whereDate('jobs.deadline_submit_profile', '>=', date('Y-m-d'))
+                ->publiclyVisible()
                 ->select(
                     'jobs.slug',
                     'jobs.title',
@@ -251,8 +257,7 @@ class Job extends Model
                 ->leftJoin('province', 'province.province_id', 'jobs.province')
                 ->leftJoin('district', 'district.district_id', 'jobs.district')
                 ->where('jobs.vip', '!=', 1)
-                ->where('jobs.active_job', 1)
-                ->whereDate('jobs.deadline_submit_profile', '>=', date('Y-m-d'))
+                ->publiclyVisible()
                 ->select(
                     'jobs.slug',
                     'jobs.title',

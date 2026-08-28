@@ -6,10 +6,10 @@
 
 
 @section('show_css')
-    <link rel="stylesheet" type="text/css" href="/public/assets/css/sitebar.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/side_bar_job.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/form.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/assets/web/css/employer_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/sitebar.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/side_bar_job.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/form.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/web/css/employer_job.css"/>
 @endsection
 
 @section('content')
@@ -539,7 +539,7 @@
 
 
 @section('show_js')
-    <script src="/public/assets/ckeditor_full/ckeditor.js"></script>
+    <script src="/assets/ckeditor_full/ckeditor.js"></script>
     @include('site.layout_site.from')
     <script>
 
@@ -560,7 +560,7 @@
         });
 
     </script>
-    <script src="/public/assets/js/jquery.validate.min.js"></script>
+    <script src="/assets/js/jquery.validate.min.js"></script>
     <script>
         $(document).ready(function () {
             $('.js_icon_show_hidden').click(function () {

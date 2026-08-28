@@ -71,7 +71,7 @@ asset($information['logo']) )
                                         style="max-width: 100%;width: 100%; height: 90vh; " type="application/pdf">
                                 </iframe>
                             @else
-                                <img class="img_cv_employee" src="/public/image_cv_upload/cv_upload.jpg" alt=""
+                                <img class="img_cv_employee" src="/image_cv_upload/cv_upload.jpg" alt=""
                                      style="width: 100%;">
                             @endif
                         @else
@@ -82,7 +82,7 @@ asset($information['logo']) )
                                 <div id="appendToThis"></div>
                                 <!-- <iframe id="myFrame"  src="javascript:;" style="width: 100%; height: 90vh; "></iframe> -->
                             @else
-                                <img class="img_cv_employee" src="/public/image_cv_upload/cv_upload.jpg" alt=""
+                                <img class="img_cv_employee" src="/image_cv_upload/cv_upload.jpg" alt=""
                                      style="width: 100%;">
                             @endif
                         @endif
@@ -638,7 +638,7 @@ asset($information['logo']) )
         </div>
     </div>
 @endsection
-<script type="text/javascript" src="/public/assets/js/sweetalert.min.js"></script>
+<script type="text/javascript" src="/assets/js/sweetalert.min.js"></script>
 @section('show_js')
     <script>
         @if(Auth::check() && Auth::user()-> role == 2)

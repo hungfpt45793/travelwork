@@ -36,8 +36,8 @@
         top: 7px;
     }
 </style>
-<link rel="stylesheet" type="text/css" href="/public/assets/css/list_price.css"/>
-<link rel="stylesheet" type="text/css" href="/public/assets/web/css/list_employee.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/list_price.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/web/css/list_employee.css"/>
 
 @section('content')
     <section class="PagesNewsContent bkxam bgrGray pdb20 pdt20">
