@@ -40,10 +40,10 @@
                                     <td>{{ $template->title }}</td>
                                     <td>{{ $template->slug }}</td>
                                     <td>
-                                        <a href="{{ route('templates.edit', ['template_id' => $template->template_id]) }}">
+                                        <a href="{{ route('templates.edit', ['template' => $template->template_id]) }}">
                                             <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         </a>
-                                        <a  href="{{ route('templates.destroy', ['template_id' => $template->template_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
+                                        <a  href="{{ route('templates.destroy', ['template' => $template->template_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                         </a>
                                     </td>
@@ -70,4 +70,3 @@
     </section>
     @include('admin.partials.popup_delete')
 @endsection
-

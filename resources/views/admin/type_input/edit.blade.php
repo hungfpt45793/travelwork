@@ -18,7 +18,7 @@
     <section class="content">
         <div class="row">
             <!-- form start -->
-            <form role="form" action="{{ route('type-input.update', ['type_input_id' => $typeInput->type_input_id]) }}" method="POST">
+            <form role="form" action="{{ route('type-input.update', ['type_input' => $typeInput->type_input_id]) }}" method="POST">
                 {!! csrf_field() !!}
                 {{ method_field('PUT') }}
                 <div class="col-xs-12 col-md-6">
@@ -209,4 +209,3 @@
         </div>
     </section>
 @endsection
-

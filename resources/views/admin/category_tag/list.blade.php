@@ -96,10 +96,10 @@
                                         ?>
                                     </td>
                                     <td>
-                                        <a href="{{ route('category-tag.edit',['tag_id'=> $tag->tag_id]) }}">
+                                        <a href="{{ route('category-tag.edit', ['category_tag' => $tag->tag_id]) }}">
                                             <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         </a>
-                                        <a href="{{ route('category-tag.destroy',['tag_id'=> $tag->tag_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
+                                        <a href="{{ route('category-tag.destroy', ['category_tag' => $tag->tag_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                         </a>
                                     </td>

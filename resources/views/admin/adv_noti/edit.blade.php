@@ -18,7 +18,7 @@
     <section class="content">
         <div class="row">
             <!-- form start -->
-            <form role="form" action="{{ route('adv_noti.update',['adv_id'=> $adv->adv_id]) }}" method="POST">
+            <form role="form" action="{{ route('adv_noti.update', ['adv_noti' => $adv->adv_id]) }}" method="POST">
                 {!! csrf_field() !!}
                 {{ method_field('PUT') }}
                 <div class="col-xs-12 col-md-12">

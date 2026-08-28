@@ -128,7 +128,7 @@
                 <li class="header">Bổ sung</li>
                 @foreach($typeSubPostsAdmin as $typeSubPost)
                     <li class="{{ Request::is('admin/'.$typeSubPost->slug.'/sub-posts', 'admin/'.$typeSubPost->slug.'/sub-posts/create') ? 'active' : null }} treeview">
-                        <a href="{{$typeSubPost->slug.'/sub-posts' }} ">
+                        <a href="{{ route('sub-posts.index', ['typePost' => $typeSubPost->slug]) }}">
                             <i class="fa fa-th-list" aria-hidden="true"></i><span>{{ $typeSubPost->title }}</span>
                             <span class="pull-right-container">
                       <i class="fa fa-angle-left pull-right"></i>

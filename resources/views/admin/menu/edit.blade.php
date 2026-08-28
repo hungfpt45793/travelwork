@@ -187,7 +187,7 @@
                 </div>
             </div>
             <!-- form start -->
-            <form role="form" action="{{ route('menus.update', ['menu_id' => $menu->menu_id]) }}" method="POST">
+            <form role="form" action="{{ route('menus.update', ['menu' => $menu->menu_id]) }}" method="POST">
                 {!! csrf_field() !!}
                 {{ method_field('PUT') }}
 
@@ -455,4 +455,3 @@
         }
     </script>
 @endsection
-

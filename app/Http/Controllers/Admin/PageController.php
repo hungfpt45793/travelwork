@@ -58,7 +58,7 @@ class PageController extends AdminController
         // lọc bỏ những trường mà ko sử dụng trong post
         $typeInputs = $this->getTypeInputs();
 
-        return view('admin.page.add', compact('templates', 'typeInputs', 'productList'));
+        return view('admin.page.add', compact('templates', 'typeInputs'));
     }
 
     private function getTypeInputs() {

@@ -89,8 +89,9 @@ class PostController extends AdminController
 //            $callApi = new CallApi();
 //            $campaigns = $callApi->getCampaigns();
             $input_tags = Category_tag::all_tags_post();
+            $categoryPost = [];
             // dd($input_tags);
-            return view('admin.post.add', compact('categories', 'templates', 'typeInputs', 'productList', 'input_tags'));
+            return view('admin.post.add', compact('categories', 'templates', 'typeInputs', 'productList', 'input_tags', 'categoryPost'));
         // } catch (\Exception $e) {
         //     Error::setErrorMessage('Lỗi xảy ra khi tạo mới bài viết: dữ liệu không hợp lệ.');
         //     Log::error('http->admin->PostController->create: Lỗi xảy ra trong quá trình tạo mới bài viết');

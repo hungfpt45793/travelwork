@@ -26,7 +26,7 @@
         <div class="row">
             <!-- form start -->
             <?php $updateView = \App\Entity\Contact::updateView($contact->contact_id)?>
-            <form role="form" action="{{ route('contact.update', ['contact_id' => $contact->contact_id]) }}" method="POST">
+            <form role="form" action="{{ route('contact.update', ['contact' => $contact->contact_id]) }}" method="POST">
                 {!! csrf_field() !!}
                 {{ method_field('PUT') }}
                 <div class="col-xs-12 col-md-6">
@@ -165,4 +165,3 @@
         </div>
     </section>
 @endsection
-

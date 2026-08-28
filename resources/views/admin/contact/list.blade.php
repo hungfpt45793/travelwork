@@ -57,23 +57,23 @@
                                         @if($user->role == 1)
                                             <td><span style="color: #fff;background: green;padding: 5px 10px">Ứng viên</span></td>
                                             <?php $employee = \App\Entity\Employee::getEmployee_id($user->id)?>
-                                            <td>{{ $employee->employee_name }}</td>
-                                            <td><img src="{{ $employee->employee_image }}" width="50px"></td>
+                                            <td>{{ optional($employee)->employee_name }}</td>
+                                            <td><img src="{{ optional($employee)->employee_image }}" width="50px"></td>
                                             <td>
-                                                <p>SĐT : {{ $employee->phone }}</p>
-                                                <p>Email : {{ $employee->email }}</p>
-                                                <p>Địa chỉ :{{ $employee->address }}</p>
+                                                <p>SĐT : {{ optional($employee)->phone }}</p>
+                                                <p>Email : {{ optional($employee)->email }}</p>
+                                                <p>Địa chỉ :{{ optional($employee)->address }}</p>
                                             </td>
                                         @endif 
                                         @if($user->role == 2)
                                             <td><span style="color: #fff;background: orange;padding: 5px 10px">Nhà tuyển dụng</span></td>
                                             <?php $employer = \App\Entity\Employer::getIdUser($user->id)?>
-                                            <td>{{ $employer->enterprise_name }}</td>
-                                            <td><img src="{{ $employer->image }}" width="50px"></td>
+                                            <td>{{ optional($employer)->enterprise_name }}</td>
+                                            <td><img src="{{ optional($employer)->image }}" width="50px"></td>
                                             <td>
-                                                <p>SĐT : {{ $employer->phone }}</p>
-                                                <p>Email :{{ $employer->email }}</p>
-                                                <p>Địa chỉ :{{ $employer->address }}</p>
+                                                <p>SĐT : {{ optional($employer)->phone }}</p>
+                                                <p>Email :{{ optional($employer)->email }}</p>
+                                                <p>Địa chỉ :{{ optional($employer)->address }}</p>
 
                                             </td>
 
@@ -81,12 +81,12 @@
                                         @if($user->role == 3)
                                             <td><span style="color: #fff;background: #0b43c6;padding: 5px 10px">Giáo viên</span></td>
                                             <?php $teacher = \App\Entity\Teacher::getTeacher_id($user->id)?>
-                                            <td>{{ $teacher->teacher_name }}</td>
-                                            <td><img src="{{ $teacher->teacher_images }}" width="50px"></td>
+                                            <td>{{ optional($teacher)->teacher_name }}</td>
+                                            <td><img src="{{ optional($teacher)->teacher_images }}" width="50px"></td>
                                             <td>
-                                                <p>SĐT :{{ $teacher->teacher_phone }}</p>
-                                                <p>Email :{{ $teacher->teacher_email }}</p>
-                                                <p>Địa chỉ :{{ $teacher->address }}</td></p>
+                                                <p>SĐT :{{ optional($teacher)->teacher_phone }}</p>
+                                                <p>Email :{{ optional($teacher)->teacher_email }}</p>
+                                                <p>Địa chỉ :{{ optional($teacher)->address }}</p>
 
                                             </td>
                                         @endif
@@ -114,10 +114,10 @@
                                     </td>
                                     <td>
 
-                                        <a href="{{ route('contact.edit', ['contact_id' => $contact->contact_id]) }}">
+                                        <a href="{{ route('contact.edit', ['contact' => $contact->contact_id]) }}">
                                             <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         </a>
-                                        <a  href="{{ route('contact.destroy', ['contact_id' => $contact->contact_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
+                                        <a  href="{{ route('contact.destroy', ['contact' => $contact->contact_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                         </a>
                                     </td>
@@ -137,4 +137,3 @@
     </section>
     @include('admin.partials.popup_delete')
 @endsection
-

@@ -41,10 +41,10 @@
                                     <td><a href="{{ $ad->adv_link }}" target="_blank">Link</a></td>
                                     <td>{{ $ad->adv_time }}</td>
                                     <td>
-                                        <a href="{{ route('adv_noti.edit',['adv_id'=> $ad->adv_id]) }}">
+                                        <a href="{{ route('adv_noti.edit', ['adv_noti' => $ad->adv_id]) }}">
                                             <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         </a>
-                                        <a href="{{ route('adv_noti.destroy',['adv_id'=> $ad->adv_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
+                                        <a href="{{ route('adv_noti.destroy', ['adv_noti' => $ad->adv_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                         </a>
                                     </td>

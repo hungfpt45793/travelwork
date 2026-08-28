@@ -44,10 +44,10 @@
                                     <td>{{ $typeInput->post_used }}</td>
                                     <td>{{ $typeInput->placeholder }}</td>
                                     <td>
-                                        <a href="{{ route('type-input.edit', ['type_input_id' => $typeInput->type_input_id]) }}">
+                                        <a href="{{ route('type-input.edit', ['type_input' => $typeInput->type_input_id]) }}">
                                             <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         </a>
-                                        <a  href="{{ route('type-input.destroy', ['type_input_id' => $typeInput->type_input_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
+                                        <a  href="{{ route('type-input.destroy', ['type_input' => $typeInput->type_input_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                         </a>
                                     </td>
@@ -74,4 +74,3 @@
     </section>
     @include('admin.partials.popup_delete')
 @endsection
-

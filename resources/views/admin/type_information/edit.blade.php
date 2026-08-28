@@ -18,7 +18,7 @@
     <section class="content">
         <div class="row">
             <!-- form start -->
-            <form role="form" action="{{ route('type-information.update', ['type_infor_id' => $typeInformation->type_infor_id]) }}" method="POST">
+            <form role="form" action="{{ route('type-information.update', ['type_information' => $typeInformation->type_infor_id]) }}" method="POST">
                 {!! csrf_field() !!}
                 {{ method_field('PUT') }}
                 <div class="col-xs-12 col-md-6">
@@ -112,4 +112,3 @@
         </div>
     </section>
 @endsection
-

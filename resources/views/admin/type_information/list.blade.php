@@ -42,10 +42,10 @@
                                     <td>{{ $typeInformation->slug }}</td>
                                     <td>{{ $typeInformation->placeholder }}</td>
                                     <td>
-                                        <a href="{{ route('type-information.edit', ['type_infor_id' => $typeInformation->type_infor_id]) }}">
+                                        <a href="{{ route('type-information.edit', ['type_information' => $typeInformation->type_infor_id]) }}">
                                             <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         </a>
-                                        <a  href="{{ route('type-information.destroy', ['type_infor_id' => $typeInformation->type_infor_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
+                                        <a  href="{{ route('type-information.destroy', ['type_information' => $typeInformation->type_infor_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                         </a>
                                     </td>
@@ -72,4 +72,3 @@
     </section>
     @include('admin.partials.popup_delete')
 @endsection
-

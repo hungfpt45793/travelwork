@@ -112,6 +112,50 @@ class AdminResourceRouteParametersTest extends TestCase
             ->assertOk();
     }
 
+    public function test_admin_website_sidebar_links_resolve_without_errors(): void
+    {
+        $admin = User::where('role', 4)->firstOrFail();
+        $sidebarResponse = $this->actingAs($admin)->get(route('admin_home'));
+
+        $sidebarResponse->assertOk();
+
+        $document = new \DOMDocument();
+        $previousState = libxml_use_internal_errors(true);
+        $document->loadHTML($sidebarResponse->getContent());
+        libxml_clear_errors();
+        libxml_use_internal_errors($previousState);
+
+        $xpath = new \DOMXPath($document);
+        $nodes = $xpath->query('//aside[contains(concat(" ", normalize-space(@class), " "), " main-sidebar ")]//a[@href]');
+        $links = [];
+
+        foreach ($nodes as $node) {
+            $href = trim(html_entity_decode($node->getAttribute('href')));
+            if ($href === '' || $href === '#') {
+                continue;
+            }
+
+            $parts = parse_url($href);
+            $path = $parts['path'] ?? '/';
+            if (!empty($parts['query'])) {
+                $path .= '?' . $parts['query'];
+            }
+            $links[$path] = $path;
+        }
+
+        $this->assertNotEmpty($links);
+
+        $failedLinks = [];
+        foreach ($links as $path) {
+            $response = $this->actingAs($admin)->get($path);
+            if ($response->getStatusCode() >= 400) {
+                $failedLinks[] = "{$path} returned HTTP {$response->getStatusCode()}";
+            }
+        }
+
+        $this->assertSame([], $failedLinks, implode(PHP_EOL, $failedLinks));
+    }
+
     public function test_admin_category_list_renders_resource_edit_and_delete_links(): void
     {
         $admin = User::where('role', 4)->firstOrFail();
