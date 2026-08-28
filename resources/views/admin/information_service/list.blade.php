@@ -43,10 +43,10 @@
                                     <td><div style="background: #009385;text-align: center"><img src="{{ isset($info->images) ? $info->images : ''  }}" alt=""></div></td>
                                     <td>{!! isset($info->description) ? $info->description : ''  !!}</td>
                                     <td>
-                                        <a href="{{ route('information_service.edit',['service_id'=> $info->service_id]) }}">
+                                        <a href="{{ route('information_service.edit',['information_service'=> $info->service_id]) }}">
                                             <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         </a>
-                                        <a href="{{ route('information_service.destroy',['service_id'=> $info->service_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
+                                        <a href="{{ route('information_service.destroy',['information_service'=> $info->service_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                         </a>
                                     </td>

@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Entity\Task_detail;
 use App\Entity\User;
+use App\Http\Controllers\APIgoogle;
 use App\Mail\Mail as ApplicationMail;
 use Carbon\CarbonInterface;
 use Illuminate\Support\Facades\Mail;
@@ -83,5 +84,18 @@ class FrameworkCompatibilityTest extends TestCase
 
         $this->assertIsArray($captcha);
         $this->assertStringStartsWith('data:image/jpeg;base64,', $captcha['img']);
+    }
+
+    public function test_google_indexing_is_optional_when_credentials_file_is_missing(): void
+    {
+        config([
+            'services.google_indexing.enabled' => true,
+            'services.google_indexing.credentials' => storage_path('app/missing-google-indexing-test.json'),
+        ]);
+
+        $this->assertNull(APIgoogle::APIgoogle(
+            'URL_UPDATED',
+            'http://localhost:8014/cong-viec/tin-kiem-thu'
+        ));
     }
 }

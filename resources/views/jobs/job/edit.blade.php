@@ -17,7 +17,7 @@
     <section class="content">
         <div class="row">
             <!-- form start -->
-            <form role="form" action="{{ route('job.update',['job_id'=>$job->job_id]) }}" method="POST" enctype="multipart/form-data">
+            <form role="form" action="{{ route('job.update',['job'=>$job->job_id]) }}" method="POST" enctype="multipart/form-data">
                 {!! csrf_field() !!}
                 {{ method_field('PUT') }}
                 <div class="col-xs-12 col-md-8">
@@ -141,7 +141,7 @@
                                             <option value="" selected>Chọn phần mềm</option>
                                             @foreach($softwares as $software)
                                                 <option value="{{$software->software_id}}"
-                                                        @if($software->software_id = $job->software_id) selected @endif
+                                                        @if($software->software_id == $job->software_id) selected @endif
                                                 >{{$software->software_name}}</option>
                                             @endforeach
                                         </select>

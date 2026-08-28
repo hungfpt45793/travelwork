@@ -7,20 +7,20 @@
     <base href="{{ asset('') }}">
     <!-- meta -->
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <meta http-equiv=”content-language” content=”vi” />
+    <meta http-equiv="content-language" content="vi" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8;application/json">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="i5wMjz3Es53TNlMDj3jBM5vHpYLpoQe3nxrfY5aZ">
-    <link rel="stylesheet" href="public/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <!-- font awesome -->
-    <link rel="stylesheet" href="public/assets/css/all.css">
-    <link rel="stylesheet" href="public/adminstration/select2/dist/css/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="public/assets/css/d-public.css">
-    <link rel="stylesheet" type="text/css" href="public/assets/css/floatscroll.css">
-    <link rel="stylesheet" type="text/css" href="public/assets/css/d-res.css">
-    <link rel="stylesheet" href="public/assets/css/cssNghia.css">
-    <script src="public/assets/js/umd/jquery-3.3.1.min.js"></script>
-    <script src="public/assets/js/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('assets/css/all.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminstration/select2/dist/css/select2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/d-public.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/floatscroll.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/d-res.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/cssNghia.css') }}">
+    @stack('styles')
+    <script src="{{ asset('assets/js/umd/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('assets/js/umd/popper.min.js') }}"></script>
 </head>
 
 <body class="preloading">
@@ -30,8 +30,8 @@
                 <div class="row">
                     <div class="d-flex">
                         <div class="logo">
-                            <a href="">
-                                <img src="public/library/images/logo/logo2.jpg" alt="" width="100%">
+                            <a href="{{ route('dashboard') }}">
+                                <img src="{{ asset('assets/image/new/Logo.png') }}" alt="Travelwork" width="100%">
                             </a>
                         </div>
                         <div class="p-3">
@@ -171,7 +171,7 @@
                         </div> -->
                         </div>
                         <li class="nav-item cursor button-menu open-res">
-                            <a class="nav-link text-whiteIm f17"><i class="fas fa-bars"></i></i></a>
+                            <a class="nav-link text-whiteIm f17"><i class="fas fa-bars"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -193,8 +193,8 @@
     <script src="{{ asset('adminstration/select2/dist/js/select2.min.js') }}"></script>
     <script src="{{ asset('adminstration/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('adminstration/jquery.priceformat.js') }}"></script>
-    <script src="public/assets/js/d-public.js"></script>
-    <script src="public/assets/js/jquery.validate.min.js"></script>
+    <script src="{{ asset('assets/js/d-public.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.validate.min.js') }}"></script>
     <script type="text/javascript ">
     //cấu hinh ckfinder chọn image
     function ChangeToSlug()
@@ -378,7 +378,6 @@
     });
     </script>
     @yield('scripts')
-</body>
 <script>
     $('.formatPrice').priceFormat({
         prefix: '',
@@ -568,4 +567,5 @@ $(document).ready(function() {
 {{-- END scrip để thêm từ khóa --}}
 @stack('custom-scripts')
 
+</body>
 </html>

@@ -46,7 +46,7 @@
                                     <td>{{$transaction->created_at}}</td>
                                     <td>{{$transaction->money}}  VNĐ</td>
                                     <td>{{$transaction->reason}} ứng viên <a href="{{route('employee.edit',['employee_id'=>$transaction->employee_id])}}">{{$transaction->employee_name}}</a>
-                                     cho công việc <a href="{{route('job.edit',['job_id'=>$transaction->job_id])}}">{{$transaction->title}}</a> .</td>
+                                     cho công việc <a href="{{route('job.edit',['job'=>$transaction->job_id])}}">{{$transaction->title}}</a> .</td>
                                 </tr>
                             @endforeach
                             </tbody>

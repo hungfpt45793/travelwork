@@ -290,7 +290,7 @@
                                                 $employer = \App\Entity\Employer::getIdemployer($job['employer_id']);
                                                 ?>
                                                 @if(isset($employer->employer_id))
-                                                <a href="{{ route('staff_employer.edit',['employer_id'=>$employer->employer_id]) }}" target="_blank" rel="noopener noreferrer">
+                                                <a href="{{ route('staff_employer.edit',['staff_employer'=>$employer->employer_id]) }}" target="_blank" rel="noopener noreferrer">
                                                     <p class="crop" style="width:400px">{{ $job->enterprise_name }}</p>
                                                 </a>
                                                 @endif

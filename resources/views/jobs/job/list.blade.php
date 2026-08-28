@@ -301,11 +301,11 @@
                                                 @endif
                                         </td>
                                         <td>
-                                            <a href="{{ route('job.edit',['job_id' => $job->job_id]) }}">
+                                            <a href="{{ route('job.edit',['job' => $job->job_id]) }}">
                                                 <button class="btn btn-primary"><i class="fa fa-pencil"
                                                                                    aria-hidden="true"></i></button>
                                             </a>
-                                            <a href="{{ route('job.destroy',['job_id' => $job->job_id]) }}"
+                                            <a href="{{ route('job.destroy',['job' => $job->job_id]) }}"
                                                class="btn btn-danger btnDelete" data-toggle="modal"
                                                data-target="#myModalDelete" onclick="return submitDelete(this);">
                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>

@@ -237,7 +237,7 @@ class JobController extends AdminController
 //        $campaigns = $callApi->getCampaigns();
         $input_tags = Category_tag::all_tags_job();
         return view('jobs.job.add', compact( 'softwares', 'employers',
-            'salaries', 'literacies', 'jobgroups', 'salePackages', 'campaigns', 'input_tags'));
+            'salaries', 'literacies', 'jobgroups', 'salePackages', 'input_tags'));
     }
 
     /**
@@ -384,7 +384,7 @@ class JobController extends AdminController
 //        $campaigns = $callApi->getCampaigns();
         $input_tags = Category_tag::all_tags_job();
         return view('jobs.job.edit', compact('job', 'softwares', 'employers',
-            'salaries', 'literacies', 'jobgroups', 'salePackages', 'campaigns', 'input_tags'));
+            'salaries', 'literacies', 'jobgroups', 'salePackages', 'input_tags'));
     }
 
     /**
@@ -394,92 +394,101 @@ class JobController extends AdminController
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $job_id)
+    public function update(Request $request, Job $job)
     {
-        $jobs = new Job();
         $validator = Validator::make($request->all(), [
             'title' => 'required'
         ]);
-        $job = $jobs->select('*')->where('job_id',$job_id)->first();
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
         }
+
+        $jobId = $job->job_id;
+        $slug = $request->filled('slug')
+            ? Ultility::createSlug($request->input('slug'))
+            : $job->slug;
+
+        if (empty($slug)) {
+            $slug = Ultility::createSlug($request->input('title')) . '-' . $jobId;
+        }
+
         try {
-            $sale_money = 0;
-            if(!empty($request->input('sale_money')))
-            {
-                $sale_money = $request->input('sale_money');
-            }
+            $saleMoney = $request->input('sale_money', 0);
             DB::beginTransaction();
 
             // thêm tag
-            $tags = "";
-            foreach ($request->input('tags') as $tag)
-            {
-                $tags .= $tag.',';
-            }
-            $tags = rtrim($tags, ",");
+            $tags = implode(',', array_filter((array) $request->input('tags', [])));
             // END thêm tag
 
-        $update = $jobs->where('job_id',$job_id)->update([
-            'title' => $request->input('title'),
-            'job_code' => 'SKT'.$job_id,
-            'slug' => $slug,
-            'age_id' => $request->input('age_id'),
-            'description' => $request->has('description') ? $request->input('description') : '',
-            'salary_id' => !empty($request->input('salary_id')) ? $request->input('salary_id') : 0,
-            'experience_id' => $request->input('experience_id'),
-            'literacy_id' => !empty($request->input('literacy_id')) ? $request->input('literacy_id') : 0,
-            'deadline_submit_profile' => $request->input('deadline_submit_profile'),
-            'content' => $request->input('content'),
-            'welfare' => $request->input('welfare'),
+            Job::where('job_id', $jobId)->update([
+                'title' => $request->input('title'),
+                'job_code' => 'SKT' . $jobId,
+                'slug' => $slug,
+                'age_id' => $request->input('age_id'),
+                'description' => $request->has('description') ? $request->input('description') : '',
+                'salary_id' => !empty($request->input('salary_id')) ? $request->input('salary_id') : 0,
+                'experience_id' => $request->input('experience_id'),
+                'literacy_id' => !empty($request->input('literacy_id')) ? $request->input('literacy_id') : 0,
+                'deadline_submit_profile' => $request->input('deadline_submit_profile'),
+                'content' => $request->input('content'),
+                'welfare' => $request->input('welfare'),
 //se co man hinh rieng de chon nha tuyen dung
-            'employer_id' => $request->input('employer_id'),
-            'number_recruit' => $request->input('number_recruit'),
-            'province' => $request->input('province'),
-            'district' => $request->input('district'),
-            'vip' => $request->input('vip'),
-            'position' => $request->input('position'),
-            'gender' => $request->input('gender'),
-            'image' => $request->input('image'),
-            'image_list' => $request->input('image_list'),
-            'tags' => $tags,
-            'date_end' => $request->input('date_end'),
-            'campain_candidate' => $request->input('campain_candidate'),
-            'user_id_candidate' => $request->input('user_id_candidate'),
-            'campain_status' => $request->input('campain_status'),
-            'meta_title' => $request->has('meta_title') ? $request->input('meta_title') : null,
-            'meta_description' => $request->has('meta_description') ? $request->input('meta_description') : null,
-            'meta_keyword' => $request->has('meta_keyword') ? $request->input('meta_keyword') : null,
-            'updated_at' => new \DateTime(),
+                'employer_id' => $request->input('employer_id'),
+                'number_recruit' => $request->input('number_recruit'),
+                'province' => $request->input('province'),
+                'district' => $request->input('district'),
+                'vip' => $request->input('vip'),
+                'position' => $request->input('position'),
+                'gender' => $request->input('gender'),
+                'image' => $request->has('image') ? $request->input('image') : $job->image,
+                'image_list' => $request->has('image_list') ? $request->input('image_list') : $job->image_list,
+                'tags' => $tags,
+                'date_end' => $request->input('date_end'),
+                'campain_candidate' => $request->has('campain_candidate') ? $request->input('campain_candidate') : $job->campain_candidate,
+                'user_id_candidate' => $request->has('user_id_candidate') ? $request->input('user_id_candidate') : $job->user_id_candidate,
+                'campain_status' => $request->has('campain_status') ? $request->input('campain_status') : $job->campain_status,
+                'meta_title' => $request->has('meta_title') ? $request->input('meta_title') : null,
+                'meta_description' => $request->has('meta_description') ? $request->input('meta_description') : null,
+                'meta_keyword' => $request->has('meta_keyword') ? $request->input('meta_keyword') : null,
+                'updated_at' => new \DateTime(),
             //chia se kiếm tiền
-            'sale_money' => $sale_money,
+                'sale_money' => $saleMoney,
             //goi bán hàng
-            'sale_package_id' => $request->input('salePackages'),
+                'sale_package_id' => $request->input('salePackages'),
             //phần mềm Y/C
-            'software_id' => $request->input('software'),
+                'software_id' => $request->input('software', 0),
 //                nhóm công việc
-            'jobgroup_id' => $request->input('jobgroup_id'),
+                'jobgroup_id' => $request->input('jobgroup_id'),
 //                danh mục ngành nghề
-            'career_category_id' => $request->input('career_category_id'),
+                'career_category_id' => $request->input('career_category_id'),
 //                Địa chỉ
-            'address_work' => $request->input('address')
-        ]);
-            // gửi API cho google
-            $slug_gg = 'cong-viec/'.$job->slug;
-            $type = "URL_UPDATED";
-            APIgoogle::APIgoogle($type ,$slug_gg);
-            // END gửi API cho google
+                'address_work' => $request->input('address')
+            ]);
 
             DB::commit();
-        } catch (\Exception $exception) {
+        } catch (\Throwable $exception) {
             Error::setErrorMessage('Không thể cập nhật dữ liệu: Đã có lỗi xảy ra trong quá trình nhập dữ liệu');
             DB::rollback();
-        } finally {
-            return redirect(route('job.index'));
+            report($exception);
+
+            return redirect()->back()
+                ->withInput()
+                ->with('error', 'Cập nhật tin tuyển dụng thất bại.');
         }
+
+        // Google Indexing là tác vụ phụ, không được phép rollback dữ liệu đã lưu.
+        if (!app()->environment('testing')) {
+            try {
+                APIgoogle::APIgoogle('URL_UPDATED', route('job_detail', ['slug' => $slug]));
+            } catch (\Throwable $exception) {
+                report($exception);
+            }
+        }
+
+        return redirect(route('job.index'))
+            ->with('success', 'Cập nhật tin tuyển dụng thành công.');
     }
 
     /**
@@ -537,10 +546,10 @@ class JobController extends AdminController
                 return $job->number_recruit - $job->number_recruited;
             })
             ->addColumn('action', function ($job) {
-                $string = '<a href="' . route('job.edit', ['job_id' => $job->job_id]) . '">
+                $string = '<a href="' . route('job.edit', ['job' => $job->job_id]) . '">
                                 <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                            </a>';
-                $string .= '<a href="' . route('job.destroy', ['job_id' => $job->job_id]) .
+                $string .= '<a href="' . route('job.destroy', ['job' => $job->job_id]) .
                     '" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                 </a>';
@@ -579,10 +588,10 @@ class JobController extends AdminController
                 return $job->number_recruit - $job->number_recruited;
             })
             ->addColumn('action', function ($job) {
-                $string = '<a href="' . route('job.edit', ['job_id' => $job->job_id]) . '">
+                $string = '<a href="' . route('job.edit', ['job' => $job->job_id]) . '">
                                 <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                            </a>';
-                $string .= '<a href="' . route('job.destroy', ['job_id' => $job->job_id]) .
+                $string .= '<a href="' . route('job.destroy', ['job' => $job->job_id]) .
                     '" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>';
@@ -621,10 +630,10 @@ class JobController extends AdminController
                 return $job->number_recruit - $job->number_recruited;
             })
             ->addColumn('action', function ($job) {
-                $string = '<a href="' . route('job.edit', ['job_id' => $job->job_id]) . '">
+                $string = '<a href="' . route('job.edit', ['job' => $job->job_id]) . '">
                                 <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                            </a>';
-                $string .= '<a href="' . route('job.destroy', ['job_id' => $job->job_id]) .
+                $string .= '<a href="' . route('job.destroy', ['job' => $job->job_id]) .
                     '" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>';
@@ -662,10 +671,10 @@ class JobController extends AdminController
                 return $job->number_recruit - $job->number_recruited;
             })
             ->addColumn('action', function ($job) {
-                $string = '<a href="' . route('job.edit', ['job_id' => $job->job_id]) . '">
+                $string = '<a href="' . route('job.edit', ['job' => $job->job_id]) . '">
                                 <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                            </a>';
-                $string .= '<a href="' . route('job.destroy', ['job_id' => $job->job_id]) .
+                $string .= '<a href="' . route('job.destroy', ['job' => $job->job_id]) .
                     '" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>';
@@ -703,10 +712,10 @@ class JobController extends AdminController
                 return $job->number_recruit - $job->number_recruited;
             })
             ->addColumn('action', function ($job) {
-                $string = '<a href="' . route('job.edit', ['job_id' => $job->job_id]) . '">
+                $string = '<a href="' . route('job.edit', ['job' => $job->job_id]) . '">
                                 <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                            </a>';
-                $string .= '<a href="' . route('job.destroy', ['job_id' => $job->job_id]) .
+                $string .= '<a href="' . route('job.destroy', ['job' => $job->job_id]) .
                     '" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>';

@@ -1,5 +1,6 @@
 @extends('staff_admin.layouts.master')
 @section('title', 'Dashboard' )
+@push('styles')
 <style>
     #highChartsMap {
     height: 450px;
@@ -10,6 +11,7 @@
         color: gray;
     }
 </style>
+@endpush
 @section('content')
 <div class="container-fluid">
     <div class="row row-content">

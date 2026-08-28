@@ -42,8 +42,11 @@ class SiteStaffController extends Controller
             if (session_status() === PHP_SESSION_NONE) {
                 session_start();
             }
-            if (Auth::check() &&  Auth::user()->role != 5) {
-                return redirect(route('home'))->with('error_login', 'Vui lòng dăng nhập để sử dụng chức năng này !');
+            if (!Auth::check()) {
+                return redirect(route('home'))->with('error_login', 'Vui lòng đăng nhập để sử dụng chức năng này!');
+            }
+            if (Auth::user()->role != 5) {
+                return redirect(route('home'))->with('error_login', 'Tài khoản không có quyền truy cập khu vực nhân viên!');
             }
             //dem tin viec lam chua duyet
             $job_not_active = Job::where('active_job', 0)->count();
@@ -114,17 +117,14 @@ class SiteStaffController extends Controller
                 'uv_dk_untt' => $uv_dk_untt
             ]);
 
-            $this->id_user = Auth::user()->id;
+            $user = Auth::user();
+            $this->id_user = $user->id;
             $ckeditor = new CkedittorController();
             $session_image = $ckeditor->checkImage();
-            $user = Auth::user();
             $_SESSION['loginSuccessAdmin'] = $user->email;
             $_SESSION['role'] = $user->role;
 
-            if($user->role == 5)
-            {
-                $upload = "library_staff/" . $user->id;
-            }
+            $upload = "library_staff/" . $user->id;
             $_SESSION['emailFolder'] = $upload;
             return $next($request);
         });

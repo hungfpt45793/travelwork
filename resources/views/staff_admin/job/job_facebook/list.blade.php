@@ -322,7 +322,7 @@
                                                 $employer = \App\Entity\Employer::getIdemployer($job['employer_id']);
                                                 ?>
                                                 @if(!empty($employer['enterprise_name']))
-                                                <a href="{{ route('staff_employer.edit',['employer_id'=>$employer->employer_id]) }}" target="_blank" rel="noopener noreferrer">
+                                                <a href="{{ route('staff_employer.edit',['staff_employer'=>$employer->employer_id]) }}" target="_blank" rel="noopener noreferrer">
                                                 {{ $employer['enterprise_name'] }}
                                                 </a>
                                                 @else

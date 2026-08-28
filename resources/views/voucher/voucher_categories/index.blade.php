@@ -60,10 +60,10 @@
                                     <td>{{ $listcate->slug_cate_voucher }}</td>
 
                                     <td>
-                                        <a href="{{ route('voucher-categories.edit', ['id_cate_voucher' => $listcate->id_cate_voucher]) }}">
+                                        <a href="{{ route('voucher-categories.edit', ['voucher_category' => $listcate->id_cate_voucher]) }}">
                                             <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         </a>
-                                        <a  href="{{ route('voucher-categories.destroy', ['id_cate_voucher' => $listcate->id_cate_voucher]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
+                                        <a  href="{{ route('voucher-categories.destroy', ['voucher_category' => $listcate->id_cate_voucher]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                         </a>
                                     </td>
@@ -82,4 +82,3 @@
     </section>
     @include('admin.partials.popup_delete')
 @endsection
-

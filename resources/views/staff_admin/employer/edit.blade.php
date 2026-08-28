@@ -27,7 +27,7 @@
                     </div>
                 </div>
             @endif
-                <form class="custom-form" action="{{ route('employer_update_with_staff_admin',['employer_id'=>$employer->employer_id]) }}" method="POST">
+                <form class="custom-form" action="{{ route('employer_update_with_staff_admin',['id'=>$employer->employer_id]) }}" method="POST">
                     <div class="contentJobsInteresting pd15 col-f14">
                         <div class="row">
                             <div class="col-md-12 col-xs-12 box-body">

@@ -69,10 +69,10 @@
                                         {!! $cate->note_tem_var !!}
                                     </td>
                                     <td>
-                                        <a href="{{ route('category_template_email.edit',['id_cate_tem'=> $cate->id_cate_tem]) }}">
+                                        <a href="{{ route('category_template_email.edit',['category_template_email'=> $cate->id_cate_tem]) }}">
                                             <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         </a>
-                                        <a href="{{ route('category_template_email.destroy',['id_cate_tem'=> $cate->id_cate_tem]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
+                                        <a href="{{ route('category_template_email.destroy',['category_template_email'=> $cate->id_cate_tem]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                         </a>
                                     </td>

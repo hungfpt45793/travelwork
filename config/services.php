@@ -34,6 +34,14 @@ return [
         'secret' => env('NOCAPTCHA_SECRET'),
     ],
 
+    'google_indexing' => [
+        'enabled' => env('GOOGLE_INDEXING_ENABLED', false),
+        'credentials' => env(
+            'GOOGLE_INDEXING_CREDENTIALS',
+            storage_path('app/google-indexing-service-account.json')
+        ),
+    ],
+
     'stripe' => [
         'model' => App\User::class,
         'key' => env('STRIPE_KEY'),

@@ -18,7 +18,7 @@
     <section class="content">
         <div class="row">
             <!-- form start -->
-            <form role="form" action="{{ route('voucher-categories.update',['id_cate_voucher'=>$cate_gory_voucher->id_cate_voucher]) }}" method="POST">
+            <form role="form" action="{{ route('voucher-categories.update',['voucher_category'=>$cate_gory_voucher->id_cate_voucher]) }}" method="POST">
                 {!! csrf_field() !!}
                 {{ method_field('PUT') }}
                 <div class="col-xs-12 col-md-6">
@@ -97,4 +97,3 @@
         </div>
     </section>
 @endsection
-

@@ -138,10 +138,10 @@
                                                 </ul>
                                             </div>
 
-                                            {{--<a href="{{ route('employer.edit',['employer_id' => $employer->employer_id]) }}">--}}
+                                            {{--<a href="{{ route('employer.edit',['employer' => $employer->employer_id]) }}">--}}
                                             {{--<button class="btn btn-primary" type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>--}}
                                             {{--</a>--}}
-                                            {{--<a href="{{ route('employer.destroy',['employer_id' => $employer->employer_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">--}}
+                                            {{--<a href="{{ route('employer.destroy',['employer' => $employer->employer_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">--}}
                                             {{--<i class="fa fa-trash-o" aria-hidden="true"></i>--}}
                                             {{--</a>--}}
                                             {{--<a class="mgt5" href="{{ route('list_intership',['employer_id' => $employer->employer_id]) }}" style="display: block">--}}

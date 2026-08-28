@@ -68,10 +68,10 @@
                                     <td><img src="{{ $product->product_image }}" style="width: 50px;"></td>
                                     <td>{{ $product->product_link }}</td>
                                     <td>
-                                        <a href="{{ route('list_product.edit',['product_id'=> $product->product_id]) }}">
+                                        <a href="{{ route('list_product.edit',['list_product'=> $product->product_id]) }}">
                                             <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                                         </a>
-                                        <a href="{{ route('list_product.destroy',['product_id'=> $product->product_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
+                                        <a href="{{ route('list_product.destroy',['list_product'=> $product->product_id]) }}" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                         </a>
                                     </td>

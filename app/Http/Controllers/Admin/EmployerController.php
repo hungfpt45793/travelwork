@@ -257,9 +257,9 @@ class EmployerController extends AdminController
         $businessList = Business::orderBy('business_type_name')->get();
 
         $staff = User::where('role', 3)->get();
-        $employerTypeBusinessList = EmployerTypeBusiness::where('employer_id', $employer->id)->get();
-        $employerBusinessList = EmployerBusiness::where('employer_id', $employer->id)->get();
-        $representatives = EmployerRepresentative::where('employer_id', $employer->id)->get();
+        $employerTypeBusinessList = EmployerTypeBusiness::where('employer_id', $employer->employer_id)->get();
+        $employerBusinessList = EmployerBusiness::where('employer_id', $employer->employer_id)->get();
+        $representatives = EmployerRepresentative::where('employer_id', $employer->employer_id)->get();
         $staffCharge = User::where('id', $employer->user_id)->first();
         $employer_agency = EmployerAgency::select('*')->where('employer_id', $employer->employer_id)->first();
 
@@ -521,10 +521,10 @@ class EmployerController extends AdminController
 
         return Datatables::of($employers)
             ->addColumn('action', function ($employer) {
-                $string = '<a href="' . route('employer.edit', ['employer_id' => $employer->id]) . '">
+                $string = '<a href="' . route('employer.edit', ['employer' => $employer->employer_id]) . '">
                                 <button class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                            </a>';
-                $string .= '<a href="' . route('employer.destroy', ['employer_id' => $employer->id]) . '" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
+                $string .= '<a href="' . route('employer.destroy', ['employer' => $employer->employer_id]) . '" class="btn btn-danger btnDelete" data-toggle="modal" data-target="#myModalDelete" onclick="return submitDelete(this);">
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>';
                 $string .= '<a href="' . route('transaction', ['employer_id' => $employer->id]) . '">
