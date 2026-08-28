@@ -20,6 +20,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
+use ReCaptcha\ReCaptcha;
 
 
 class RegisterController extends SiteController
@@ -364,9 +365,32 @@ class RegisterController extends SiteController
     //thay đổi địa chỉ email và kích hoạt lại tài khoản
     public function change_email_confirm(Request $request)
     {
+        $recaptchaSecret = config('services.recaptcha.secret');
+
         $validation = Validator::make($request->all(), [
             'email' => 'required|unique:users',
-            'g-recaptcha-response' => 'required',
+            'g-recaptcha-response' => [
+                'required',
+                function ($attribute, $value, $fail) use ($request, $recaptchaSecret) {
+                    if (empty($recaptchaSecret)) {
+                        $fail('CAPTCHA chưa được cấu hình trên hệ thống.');
+                        return;
+                    }
+
+                    try {
+                        $response = (new ReCaptcha($recaptchaSecret))
+                            ->verify($value, $request->ip());
+                    } catch (\Throwable $exception) {
+                        report($exception);
+                        $fail('Không thể xác minh CAPTCHA. Vui lòng thử lại.');
+                        return;
+                    }
+
+                    if (!$response->isSuccess()) {
+                        $fail('Xác minh CAPTCHA không hợp lệ hoặc đã hết hạn.');
+                    }
+                },
+            ],
         ], [
 //            'enterprise_id.unique' => 'Email đã tồn tại.',
             'email.required' => 'Bạn chưa nhập email.',

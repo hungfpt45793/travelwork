@@ -29,6 +29,11 @@ return [
         'secret' => env('SPARKPOST_SECRET'),
     ],
 
+    'recaptcha' => [
+        'site_key' => env('NOCAPTCHA_SITEKEY'),
+        'secret' => env('NOCAPTCHA_SECRET'),
+    ],
+
     'stripe' => [
         'model' => App\User::class,
         'key' => env('STRIPE_KEY'),
