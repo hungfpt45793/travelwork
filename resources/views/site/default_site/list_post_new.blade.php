@@ -13,25 +13,14 @@
                                 <div class="CropImg">
                                     <div class="thumbs">
                                         @php
-                                            $postImage = !empty($post->image) ? ltrim($post->image, '/') : '';
-
-                                            if (!empty($postImage)) {
-                                                if (strpos($postImage, 'public/') === 0) {
-                                                    $postImageFile = base_path($postImage);
-                                                } else {
-                                                    $postImageFile = public_path($postImage);
-                                                }
-                                            } else {
-                                                $postImageFile = '';
-                                            }
-
-                                            $postImageUrl = (!empty($postImageFile) && file_exists($postImageFile))
-                                                ? asset($post->image)
-                                                : asset('images/no_image.png');
+                                            $postImageUrl = \App\Ultility\Ultility::assetUrl(
+                                                $post->image,
+                                                'images/no_image.png'
+                                            );
                                         @endphp
 
-                                        <img class="lazy"
-                                             data-src="{{ $postImageUrl }}"
+                                        <img class="post-home-image"
+                                             data-lazy="{{ $postImageUrl }}"
                                              alt="{{ isset($post['title']) ? $post['title'] : '' }}"
                                              width="100%">
                                     </div>
@@ -55,6 +44,7 @@
 </section>
 <script type="text/javascript">
     $('.slide_post_new').slick({
+        lazyLoad: 'anticipated',
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,

@@ -3,6 +3,7 @@
 
 <head>
     <title>@yield('title')</title>
+    <link rel="icon" href="{{ asset('assets/image/new/Logo.png') }}" type="image/png"/>
     <base href="{{ asset('') }}">
     <!-- meta -->
     <meta name="csrf-token" content="{{ csrf_token() }}" />

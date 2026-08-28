@@ -45,8 +45,7 @@
         <meta property="og:description" content="@yield('meta_description')"/>
     @endif
 
-    <link rel="shortcut icon" href="{{ !empty($information['icon']) ?  asset($information['icon']) : '' }}"
-          type="image/x-icon"/>
+    <link rel="icon" href="{{ asset('assets/image/new/Logo.png') }}" type="image/png"/>
     @if (\Route::current()->getName() == 'job_detail' or \Route::current()->getName() == 'post' )
         <link rel="canonical" href="@yield('canonical')"/>
     @else
