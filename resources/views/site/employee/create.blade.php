@@ -52,93 +52,75 @@
                             @endif
                         </div>
 
-                        <div class="col-lg-12">
-                            <div class="input-group input-group-lg group_input_check_email">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text border-danger" id="basic-addon1"><i
-                                            class="far fa-envelope"></i></span>
-                                </div>
-                                <input value="{{ old('email') }}" class="form-control border-danger"
-                                    id="js_val_email" type="email" name="email" v
-                                    placeholder="Vui lòng nhập địa chỉ email ... ">
-                                <div class="input-group-append mbdsNone">
-                                    <button class="btn btn-danger" id="js_check_email_create" type="button">KIỂM TRA
-                                        EMAIL
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="text-center mgt5 mbdsBlock dsNone">
-                                <button class="btn btn-danger" id="js_check_email_create" type="button">KIỂM TRA
-                                    EMAIL
-                                </button>
-                            </div>
-                            {{--<div class="mess_notice_email clearfix note_text_email"></div>--}}
-                            {{--<div class="error_reg_mess clearfix error_text_email"></div>--}}
-
-                            <div id="alert_taikhoantontai" class="alert alert-danger mt-2 alert_error_email"
-                                style="display: none" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                                <strong>Thông báo: </strong><span class="alert_note_email"></span>
-                            </div>
-                            <div id="alert_taikhoanchuatontai" class="alert alert-success mt-2 alert_success_email"
-                                style="display: none" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                                <strong>Chúc mừng!</strong> <span class="alert_note_email"></span>
-                            </div>
-
                         </div>
-
-                    </div>
-                    <div class="row mgt15">
-                        <div class="col-md-6">
-                            <div class="card bg-light mb-3">
-                                <div class="card-header bg-dark text-white">Thông tin tài khoản</div>
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text" id="basic-addon1"><i
-                                                        class="far fa-user"></i></span>
+                        <div class="row mgt15">
+                            <div class="col-md-6">
+                                <div class="card bg-light mb-3">
+                                    <div class="card-header bg-dark text-white">Thông tin tài khoản</div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1"><i
+                                                                class="far fa-user"></i></span>
+                                                </div>
+                                                <input class="form-control error_border_name" name="name"
+                                                       placeholder="Họ tên của bạn" type="text"
+                                                       value="{{ old('name') }}" required>
                                             </div>
-                                            <input class="form-control error_border_name" name="name"
-                                                placeholder="Họ tên của bạn" type="text"
-                                                value="{{ old('name') }}" required>
+                                            <div class="mess_notice_name clearfix note_text_name"></div>
+                                            <div class="error_reg_mess clearfix error_text_name"></div>
                                         </div>
-                                        <div class="mess_notice_name clearfix note_text_name"></div>
-                                        <div class="error_reg_mess clearfix error_text_name"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text" id="basic-addon1"><i
-                                                        class="fas fa-phone-alt"></i></span>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1"><i
+                                                                class="fas fa-phone-alt"></i></span>
+                                                </div>
+                                                <input class="form-control error_border_phone" name="phone"
+                                                       placeholder="Số điện thoại" type="number"
+                                                       value="{{ old('phone') }}" required>
                                             </div>
-                                            <input class="form-control error_border_phone" name="phone"
-                                                placeholder="Số điện thoại" type="text"
-                                                value="{{ old('phone') }}" required>
-                                        </div>
 
                                         <div class="mess_notice_phone clearfix note_text_phone"></div>
                                         <div class="error_reg_mess clearfix error_text_phone"></div>
 
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text" id="basic-addon1"><i
-                                                        class="fas fa-key"></i></span>
-                                            </div>
-                                            <input class="form-control error_border_password"
-                                                value="{{ old('password') }}" name="password"
-                                                placeholder="Mật khẩu đăng nhập" type="password" required>
                                         </div>
-                                        <div class="mess_notice_password clearfix note_text_password"></div>
-                                        <div class="error_reg_mess clearfix error_text_password"></div>
-                                    </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1"><i
+                                                                class="far fa-envelope"></i></span>
+                                                </div>
+                                                <input value="{{ old('email') }}" class="form-control error_border_email"
+                                                       id="js_val_email" type="email" name="email"
+                                                       placeholder="Địa chỉ email" required>
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-danger" id="js_check_email_create" type="button">KIỂM TRA EMAIL</button>
+                                                </div>
+                                            </div>
+                                            <div class="mess_notice_email clearfix note_text_email"></div>
+                                            <div class="error_reg_mess clearfix error_text_email"></div>
+                                            <div class="alert alert-danger alert_error_email" style="display: none" role="alert">
+                                                <strong>Thông báo: </strong><span class="alert_note_email"></span>
+                                            </div>
+                                            <div class="alert alert-success alert_success_email" style="display: none" role="alert">
+                                                <strong>Chúc mừng! </strong><span class="alert_note_email"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1"><i
+                                                                class="fas fa-key"></i></span>
+                                                </div>
+                                                <input class="form-control error_border_password"
+                                                       value="{{ old('password') }}" name="password"
+                                                       placeholder="Mật khẩu đăng nhập" type="password" required>
+                                            </div>
+                                            <div class="mess_notice_password clearfix note_text_password"></div>
+                                            <div class="error_reg_mess clearfix error_text_password"></div>
+                                        </div>
 
 
                                     <div class="form-group error">
@@ -187,29 +169,30 @@
                                 </div>
                             </div>
 
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card bg-light mb-3">
-                                <div class="card-header bg-dark text-white">
-                                    <span>Chọn tối đã 3 vị trí</span>
-                                    <span style="float: right" class="mbdsNone">Khu vực cần tìm việc</span>
-                                </div>
-                                <div class="card-body pd15 list-linhvuc">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <label class="f16 fw6">Công việc cần tìm<i
-                                                    style="color: red">(*)</i></label>
-                                            @foreach(\App\Entity\Career::orderBy('career_category_name')->get() as $career)
-                                            <div class="form-group">
-                                                <label class="answerRadio">
-                                                    <input type="checkbox" name="career_category_id[]"
-                                                        value="{{$career->career_category_id}}"
-                                                        id="{{$career->career_category_id}}"
-                                                        class="flat-red resetchecked js_check_category_carrer_max_3">
-                                                    {{$career->career_category_name}}
-                                                </label>
-                                            </div>
-                                            @endforeach
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card bg-light mb-3">
+                                    <div class="card-header bg-dark text-white">
+                                        <span>Chọn tối đã 3 vị trí</span>
+                                        <span style="float: right" class="mbdsNone">Khu vực cần tìm việc</span>
+                                    </div>
+                                    <div class="card-body pd15 list-linhvuc">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label class="f16 fw6">Công việc cần tìm<i
+                                                            style="color: red">(*)</i></label>
+                                                @foreach(\App\Entity\Career::orderBy('career_category_name')->get() as $career)
+                                                    <div class="form-group">
+                                                        <label class="answerRadio">
+                                                            <input type="checkbox" name="career_category_id[]"
+                                                                   value="{{$career->career_category_id}}"
+                                                                   id="{{$career->career_category_id}}"
+                                                                    class="flat-red resetchecked js_check_category_carrer_max_3"
+                                                                    @if(in_array($career->career_category_id, old('career_category_id', []))) checked @endif>
+                                                            {{$career->career_category_name}}
+                                                        </label>
+                                                    </div>
+                                                @endforeach
 
 
                                         </div>
@@ -270,40 +253,66 @@
     }
 </style>
 
-<script>
-    var array = [];
-    $(".js_check_category_carrer_max_3").change(function() {
-        if ($(this).is(":checked")) {
-            array.push(this.id);
-            if (array.length > 3) {
-                array.splice(0, 1);
+    <script>
+        function limitCareerChoices() {
+            var careerCheckboxes = $('.js_check_category_carrer_max_3');
+            var checkedCareerCheckboxes = careerCheckboxes.filter(':checked');
+
+            checkedCareerCheckboxes.slice(3).each(function () {
+                $(this).iCheck('uncheck');
             }
-            $("input").prop("checked", false);
-            for (var i = 0; i < array.length; i++) {
-                $("#" + array[i]).prop("checked", true);
-            }
-        } else {
-            var index = array.indexOf(this.id);
-            array.splice(index, 1);
+            checkedCareerCheckboxes = careerCheckboxes.filter(':checked');
+
+            careerCheckboxes.each(function () {
+                if (this.checked || checkedCareerCheckboxes.length < 3) {
+                    $(this).iCheck('enable');
+                } else {
+                    $(this).iCheck('disable');
+                }
+            });
         }
-    });
-    var array = [];
-    $(".js_check_category_carrer_max_2").change(function() {
-        if ($(this).is(":checked")) {
-            array.push(this.id);
-            if (array.length > 3) {
-                array.splice(0, 1);
+
+        $(document).on('ifChanged', '.js_check_category_carrer_max_3', function () {
+            limitCareerChoices();
+        });
+
+        $(document).on('ifClicked', '.js_check_category_carrer_max_3', function () {
+            var checkedCareerCount = $('.js_check_category_carrer_max_3').filter(function () {
+                return $(this).parent().hasClass('checked');
+            }).length;
+
+            if (!$(this).parent().hasClass('checked') && checkedCareerCount >= 3) {
+                var checkbox = this;
+                setTimeout(function () {
+                    $(checkbox).iCheck('uncheck');
+                }, 0);
             }
-            $("input").prop("checked", false);
-            for (var i = 0; i < array.length; i++) {
-                $("#" + array[i]).prop("checked", true);
+        });
+
+        $(document).ready(function () {
+            limitCareerChoices();
+        });
+
+        $(document).on('ifChanged', '.js_check_category_carrer_max_2', function () {
+            if ($('.js_check_category_carrer_max_2:checked').length > 3) {
+                $(this).iCheck('uncheck');
             }
-        } else {
-            var index = array.indexOf(this.id);
-            array.splice(index, 1);
-        }
-    });
-</script>
+        });
+
+        $(document).on('ifChanged', '.js_check_category_carrer_max_2', function () {
+            if ($('.js_check_category_carrer_max_2:checked').length > 3) {
+                $(this).iCheck('uncheck');
+            }
+        });
+
+        $('#form_register').on('submit', function (event) {
+            if ($('.js_check_category_carrer_max_3:checked').length > 3
+                || $('.js_check_category_carrer_max_2:checked').length > 3) {
+                event.preventDefault();
+                alert('Bạn chỉ được chọn tối đa 3 mục.');
+            }
+        });
+    </script>
 
 <script>
     function searchAjax(e) {
@@ -339,75 +348,91 @@
                 }
             });
 
+            });
         });
-    });
-</script>
-<script type="text/javascript">
-    $('input[name="phone"]').on('input', function() {
-        this.value = this.value.replace(/\D/g, '').slice(0, 10);
-    });
-    $.validator.addMethod("validEmail", function(value, element) {
-        return this.optional(element) ||
-            /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(value);
-    }, "Vui lòng nhập một địa chỉ Email hợp lệ !");
-    $(document).ready(function() {
-        $("#form_register").validate({
-            ignore: [],
-            onkeyup: false,
-            click: false,
-            rules: {
-                name: {
-                    required: true,
-                    minlength: 5,
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.validator.addMethod('strictEmail', function (value, element) {
+                return this.optional(element) || /^[^\s@.](?:[^\s@]*[^\s@.])?@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z]{2,}$/.test(value)
+                    && !/\.\./.test(value);
+            }, 'Vui lòng nhập một địa chỉ Email hợp lệ !');
+
+            $('#js_check_email_create').click(function () {
+                var email = $('#js_val_email').val().trim();
+                if (!/^[^\s@.](?:[^\s@]*[^\s@.])?@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z]{2,}$/.test(email)
+                    || /\.\./.test(email)) {
+                    $('.alert_success_email').hide();
+                    $('.alert_error_email').show().find('.alert_note_email').text('Vui lòng nhập một địa chỉ Email hợp lệ !');
+                    return;
+                }
+
+                $.get('{{ route('check_email_employee') }}', {email: email})
+                    .done(function (response) {
+                        $('.alert_error_email').hide();
+                        $('.alert_success_email').show().find('.alert_note_email').text(response.email || 'Email có thể sử dụng.');
+                    })
+                    .fail(function (xhr) {
+                        $('.alert_success_email').hide();
+                        $('.alert_error_email').show().find('.alert_note_email').text(
+                            xhr.responseJSON && xhr.responseJSON.message
+                                ? xhr.responseJSON.message
+                                : 'Email đã tồn tại hoặc không thể sử dụng.'
+                        );
+                    });
+            });
+
+            $("#form_register").validate({
+                ignore: [],
+                onkeyup: false,
+                click: false,
+                rules: {
+                    name: {
+                        required: true,
+                        minlength: 5,
+                    },
+                    email: {
+                        required: true,
+                        strictEmail: true
+                    },
+                    phone: {
+                        required: true,
+                        number: true,
+                        checkPhone: true,
+                    },
+                    password: {
+                        required: true,
+                        minlength: 8,
+                    },
+                    province: {
+                        required: true,
+                    },
                 },
-                email: {
-                    required: true,
-                    //checkEmail: true,
-                    validEmail: true,
-                    email: true
+                messages: {
+                    name: {
+                        required: 'Vui lòng nhập vào họ và tên.',
+                        minlength: 'Họ tên phải tối thiểu 5 ký tự.',
+                    },
+                    email: {
+                        required: 'Vui lòng nhập địa chỉ Email.',
+                        strictEmail: 'Vui lòng nhập một địa chỉ Email hợp lệ !'
+                    },
+                    phone: {
+                        required: 'Số điện thoại phải là số và không được để trống.',
+                        checkPhone: 'Số điện thoại không hợp lệ',
+                    },
+                    password: {
+                        required: 'Vui lòng nhập vào mật khẩu.',
+                        minlength: 'Mật khẩu tối thiểu 8 ký tự'
+                    },
+                    province: {
+                        required: 'Vui lòng chọn tỉnh /thành phố.',
+                    },
                 },
-                phone: {
-                    required: true,
-                    number: true,
-                    checkPhone: true,
-                    minlength: 10,
-                    maxlength: 10
+                onfocusout: function (element) {
+                    $(element).valid();
                 },
-                password: {
-                    required: true,
-                    minlength: 8,
-                },
-                province: {
-                    required: true,
-                },
-            },
-            messages: {
-                name: {
-                    required: 'Vui lòng nhập vào họ và tên.',
-                    minlength: 'Họ tên phải tối thiểu 5 ký tự.',
-                },
-                email: {
-                    required: 'Vui lòng nhập địa chỉ Email.',
-                    checkEmail: 'Địa chỉ email đã tồn tại trên hệ thống ! Vui lòng nhập một địa chỉ email mới.',
-                    email: 'Vui lòng nhập một địa chỉ Email hợp lệ !'
-                    // checkEmail của jquery layout site
-                },
-                phone: {
-                    required: 'Số điện thoại phải là số và không được để trống.',
-                    checkPhone: 'Số điện thoại không hợp lệ',
-                },
-                password: {
-                    required: 'Vui lòng nhập vào mật khẩu.',
-                    minlength: 'Mật khẩu tối thiểu 8 ký tự'
-                },
-                province: {
-                    required: 'Vui lòng chọn tỉnh /thành phố.',
-                },
-            },
-            onfocusout: function(element) {
-                $(element).valid();
-            },
-            errorPlacement: function(error, element) {
+                errorPlacement: function (error, element) {
 
                 var name = $(element).attr("name");
                 $('.alert_error_' + name).css('display', 'block');

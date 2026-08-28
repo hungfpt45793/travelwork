@@ -61,6 +61,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use App\Entity\MailConfig;
 use App\Ultility\Error;
@@ -412,7 +413,6 @@ class EmployeeController extends SiteController
 
     public function createEmployee(Request $request)
     {
-        // check xem là dữ liệu hợp lệ không
         $validation = $this->validateEmployee($request);
         if ($validation->fails()) {
             return redirect()->back()
@@ -420,20 +420,16 @@ class EmployeeController extends SiteController
                 ->with('registerEmployee', 'Đăng ký ứng viên lỗi !')
                 ->withInput();
         }
+
         try {
             DB::beginTransaction();
-//            Tạo tài khoản để login trong bang user
             $userWithPhone = $this->createUser($request);
-            //Tạo ứng viên trong bảng employee
             $this->createNewEmployee($request, $userWithPhone);
-            // Đẩy thông tin lên getfly
-//            $this->addNewCampaignGetfly($request);
             Auth::guard()->login($userWithPhone);
 
             if ($request->session()->has('activation_code') && $request->session()->has('status_select_active_code')) {
                 $activation_code = $request->session()->get('activation_code');
                 $status_select_active_code = $request->session()->get('status_select_active_code');
-
                 $course_id = 0;
                 if ($status_select_active_code == 0) {
                     $course_id = Courses::where('activation_code', $activation_code)->value('course_id');
@@ -445,10 +441,13 @@ class EmployeeController extends SiteController
                     $course_id = Course_teacher_active::where('activation_code', $activation_code)->value('course_id');
                 }
                 if (!empty($course_id)) {
-                    $course_employee = new CourseEmployeeController();
-                    $active_employee = $course_employee->get_active_employee($userWithPhone->id, $course_id, $activation_code, $status_select_active_code);
+                    (new CourseEmployeeController())->get_active_employee(
+                        $userWithPhone->id,
+                        $course_id,
+                        $activation_code,
+                        $status_select_active_code
+                    );
                 }
-                //xóa session
                 $request->session()->forget('activation_code');
                 $request->session()->forget('status_select_active_code');
             }
@@ -457,62 +456,95 @@ class EmployeeController extends SiteController
             $employee_id = $employee_model->where('user_id', $userWithPhone->id)->value('employee_id');
             $profile_info = $employee_model->get_profile_info($userWithPhone->id);
             $profile_course = $employee_model->get_profile_course($userWithPhone->id);
-
-            $profile_employee = $profile_info + $profile_course;
-            //cong điểm cho ứng viên
-            $update_profile = Employee::where('user_id', $userWithPhone->id)->update([
-                'profile' => $profile_employee
+            Employee::where('user_id', $userWithPhone->id)->update([
+                'profile' => $profile_info + $profile_course
             ]);
-            //thêm vào bảng profile
-            $insert_employee_profile = Employee_profile::insert([
+            Employee_profile::insert([
                 'employee_id' => $employee_id,
                 'profile_info' => $profile_info,
                 'profile_course' => $profile_course,
                 'created_at' => new \DateTime()
             ]);
-
             DB::commit();
-            //Gửi email thông báo và kích hoạt tài khoản
-            MailConfigController::send_email_employee_confirm($userWithPhone);
         } catch (\Exception $e) {
-            Error::setErrorMessage("Không thể Đăng ký tài khoản. Vui lòng thử lại ");
             DB::rollBack();
-            return redirect(route('employer_register'))->with('error', 'Đăng kí ứng viên thất bại ! Vui lòng thử lại');
-        } finally {
-
-            $html = '<h5 class="mgb10 text-center">Chúc mừng bạn đã tạo thành công tài khoản ứng viên.</h5>';
-            $html .= '<p class="mgb10">Bước 1: Mời bạn kiểm tra Email để xác thực.</p>';
-            $html .= ' <p class="mgb10">Bước 2: Mời bạn cập nhật bổ sung thêm các thông tin, hình ảnh để hồ sơ của bạn nổi bật hơn</p>';
-            $html .= ' <p class="mgb10">Bước 3: Mời bạn cập nhật bổ sung CV để hồ sơ của bạn nổi bật hơn</p>';
-            $html .= '<p class="mgb10 text-right"><a class="button_res_employer" href="' . route('show_step_profile_employee') . '">Đồng ý</a></p>';
-            return redirect(route('list_job_face'))->with('mesage_modal', $html);
+            return redirect()->back()->with('error', 'Đăng kí ứng viên thất bại ! Vui lòng thử lại')->withInput();
         }
+
+        MailConfigController::send_email_employee_confirm($userWithPhone);
+        return redirect(route('list_job_face'))->with('mesage_modal', '<h5 class="mgb10 text-center">Chúc mừng bạn đã tạo thành công tài khoản ứng viên.</h5><p class="mgb10">Mời bạn kiểm tra Email để xác thực.</p><p class="mgb10 text-right"><a class="button_res_employer" href="' . route('show_step_profile_employee') . '">Đồng ý</a></p>');
     }
 
     // check điều kiện submit form
     private function validateEmployee($request)
     {
         $validation = Validator::make($request->all(), [
-            'email' => 'required|unique:users|unique:employees|unique:employer|unique:teacher,teacher_email|email',
+            'email' => [
+                'required',
+                'unique:users',
+                'unique:employees',
+                'unique:employer',
+                'unique:teacher,teacher_email',
+                'email:rfc',
+                'regex:/^[A-Z0-9.!#$%&\'*+\/=?^_`{|}~-]+@[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?(?:\.[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?)+$/i'
+            ],
             'password' => 'required|min:8',
             'name' => 'required',
             'phone' => 'required',
-            'career_category_id' => 'required',
+            'career_category_id' => 'required|array|max:3',
+            'career_category_id.*' => 'integer|distinct|exists:career_categories,career_category_id',
             'province' => 'required',
-            'district' => 'required'
+            'district' => 'required|array|max:3',
+            'district.*' => 'distinct|exists:district,district_id'
         ], [
 //            'enterprise_id.unique' => 'Email đã tồn tại.',
             'password.required' => 'Bạn chưa nhập mật khẩu',
             'email.required' => 'Bạn chưa nhập email',
             'email.unique' => 'Email đã tồn tại',
             'email.email' => 'Vui lòng nhập đúng định dạng email',
+            'email.regex' => 'Vui lòng nhập email có dạng ten@tenmien.com',
             'password.min' => 'Mật khẩu Phải lớn hơn 8 ký tự.',
             'name.required' => 'Họ và tên không được để trống',
             'phone.required' => 'Số điện thoại không được bỏ trống',
             'career_category_id.required' => 'Công việc cần tìm không được để trống',
+            'career_category_id.array' => 'Danh sách công việc không hợp lệ',
+            'career_category_id.max' => 'Bạn chỉ được chọn tối đa 3 vị trí',
+            'career_category_id.*.integer' => 'Vị trí công việc không hợp lệ',
+            'career_category_id.*.distinct' => 'Vị trí công việc không được trùng nhau',
+            'career_category_id.*.exists' => 'Vị trí công việc không tồn tại',
             'province.required' => 'Thành phố không được để trống',
-            'district.required' => 'Quận huyện không được để trống'
+            'district.required' => 'Quận huyện không được để trống',
+            'district.array' => 'Danh sách quận huyện không hợp lệ',
+            'district.max' => 'Bạn chỉ được chọn tối đa 3 quận huyện',
+            'district.*.distinct' => 'Quận huyện không được trùng nhau',
+            'district.*.exists' => 'Quận huyện không tồn tại'
         ]);
+
+        $validation->after(function ($validator) use ($request) {
+            if ($validator->errors()->has('email')) {
+                return;
+            }
+
+            $email = $request->input('email');
+            $domain = substr(strrchr($email, '@'), 1);
+            try {
+                $hasMailServer = checkdnsrr($domain, 'MX')
+                    || checkdnsrr($domain, 'A')
+                    || checkdnsrr($domain, 'AAAA');
+
+                if (!$hasMailServer) {
+                    Log::warning('Email domain has no detectable mail DNS record.', [
+                        'email' => $email,
+                        'domain' => $domain,
+                    ]);
+                }
+            } catch (\Throwable $exception) {
+                Log::warning('Email domain DNS check failed.', [
+                    'email' => $email,
+                    'domain' => $domain,
+                ]);
+            }
+        });
         return $validation;
     }
 
@@ -523,14 +555,16 @@ class EmployeeController extends SiteController
         $insert_id = $userModel->insertGetId([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'password' => bcrypt($request->input('password')),
+            'password' => $request->input('password_hash') ?: bcrypt($request->input('password')),
             'phone' => $request->has('phone') ? $request->input('phone') : '',
             'role' => 1,
-            'status_email_account' => 0,
+            'status_email_account' => $request->boolean('email_verified') ? 1 : 0,
             'created_at' => new \DateTime(),
             'updated_at' => new \DateTime()
         ]);
-        $link_confirm_account = str_random(10) . $insert_id;
+        $link_confirm_account = $request->boolean('email_verified')
+            ? ''
+            : 'otp_' . random_int(100000, 999999);
         $update = $userModel->where('id', $insert_id)->update([
             'link_confirm_account' => $link_confirm_account
         ]);
@@ -597,32 +631,17 @@ class EmployeeController extends SiteController
         $user_model = new User();
         $user_link_active = $user_model->select('link_confirm_account', 'status_email_account', 'name', 'id', 'email', 'role')
             ->where('link_confirm_account', $link)
+            ->where('link_confirm_account', 'not like', 'otp_%')
             ->where('status_email_account', 0)
             ->first();
 
         if (empty($user_link_active)) {
             return view('site.default.show_confirm_account_404', compact('user_link_active'));
         }
-        //cong thêm 10 xu
-        $user_coin_status = $user_model->where('id', $user_link_active->id)->value('user_coin');
         $update_user = $user_model->where('id', $user_link_active->id)->update([
             'status_email_account' => 1,
             'link_confirm_account' => '',
-            'user_coin' => $user_coin_status + 10,
             'updated_at' => new \DateTime()
-        ]);
-        $noti_model = new Forum_notification();
-        $noti_title = 'Bạn được nhận + 10 xu khi xác thực tài khoản trên sanketoan.vn';
-        $create_noti_coin = $noti_model->insertGetId([
-            'noti_title' => $noti_title,
-            'for_post_id' => 0,
-            'for_comment_id' => 0,
-            'user_id' => $user_link_active->id,
-            'user_id_comment' => 0,
-            'noti_type' => 'user_pro',
-            'noti_status' => 0,
-            'type_status' => 'plus',
-            'created_at' => new \DateTime()
         ]);
 
 

@@ -47,46 +47,6 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-12">
-                                <div class="input-group input-group-lg group_input_check_email">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text border-danger" id="basic-addon1"><i
-                                                    class="far fa-envelope"></i></span>
-                                    </div>
-                                    <input value="{{ old('email') }}" class="form-control border-danger"
-                                           id="js_val_email" type="email" name="email"
-                                           placeholder="Vui lòng nhập địa chỉ email ... ">
-                                    <div class="input-group-append mbdsNone">
-                                        <button class="btn btn-danger" id="js_check_email_create" type="button">KIỂM TRA
-                                            EMAIL
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="text-center mgt5 mbdsBlock dsNone">
-                                    <button class="btn btn-danger" id="js_check_email_create" type="button">KIỂM TRA
-                                        EMAIL
-                                    </button>
-                                </div>
-                                {{--<div class="mess_notice_email clearfix note_text_email"></div>--}}
-                                {{--<div class="error_reg_mess clearfix error_text_email"></div>--}}
-
-                                <div id="alert_taikhoantontai" class="alert alert-danger mt-2 alert_error_email"
-                                     style="display: none" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
-                                    </button>
-                                    <strong>Thông báo: </strong><span class="alert_note_email"></span>
-                                </div>
-                                <div id="alert_taikhoanchuatontai" class="alert alert-success mt-2 alert_success_email"
-                                     style="display: none" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
-                                    </button>
-                                    <strong>Chúc mừng!</strong> <span class="alert_note_email"></span>
-                                </div>
-
-                            </div>
-
                         </div>
                         <div class="row mgt15">
                             <div class="col-md-6">
@@ -120,6 +80,19 @@
                                             <div class="mess_notice_phone clearfix note_text_phone"></div>
                                             <div class="error_reg_mess clearfix error_text_phone"></div>
 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1"><i
+                                                                class="far fa-envelope"></i></span>
+                                                </div>
+                                                <input value="{{ old('email') }}" class="form-control error_border_email"
+                                                       id="js_val_email" type="email" name="email"
+                                                       placeholder="Địa chỉ email" required>
+                                            </div>
+                                            <div class="mess_notice_email clearfix note_text_email"></div>
+                                            <div class="error_reg_mess clearfix error_text_email"></div>
                                         </div>
                                         <div class="form-group">
                                             <div class="input-group">
@@ -268,7 +241,6 @@
                     },
                     email: {
                         required: true,
-                        checkEmail: true,
                         email: true
                     },
                     phone: {

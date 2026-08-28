@@ -286,7 +286,7 @@ class MailConfigController extends SiteController
     public static function send_email_employee_confirm($userWithPhone)
     {
         if (!filter_var($userWithPhone->email, FILTER_VALIDATE_EMAIL)) {
-            return true;
+            return false;
             //email khong dung dinh dang nen se k gửi email
         }
         //mã danh mục mẫu email
@@ -304,8 +304,7 @@ class MailConfigController extends SiteController
             $name = $userWithPhone->name;
             $phone = $userWithPhone->phone;
             $email = $userWithPhone->email;
-            $link_confirm_account = $userWithPhone->link_confirm_account;
-            $link_kich_hoat = route('link_confirm_account', ['link' => $link_confirm_account]);
+            $otp = str_replace('otp_', '', $userWithPhone->link_confirm_account);
 
             //lấy ra nội dung gửi email
             $content_email = $template_email->content_tem;
@@ -314,11 +313,15 @@ class MailConfigController extends SiteController
             $subject = $template_email->subject_tem;
             //thay đổi biến thành chuỗi khi gửi email
             $search = ['{name}', '{phone}', '{email}', '{link_kich_hoat}'];
-            $replace = [$name, $phone, $email, $link_kich_hoat];
+            $replace = [$name, $phone, $email, ''];
             $content_string = str_replace($search, $replace, $content_email);
+            $content_string .= '<p>Mã OTP xác nhận email của bạn là: <strong>' . e($otp) . '</strong></p>';
+            $content_string .= '<p>Mã OTP có 6 chữ số. Vui lòng nhập mã trên trang đăng ký để kích hoạt tài khoản.</p>';
             //tiến hành gửi email
-            return self::sendAccountVerificationMail($email, $subject, $content_string);
+            return MailConfig::sendMail($email, $subject, $content_string);
         }
+
+        return false;
 
         return false;
     }
