@@ -115,7 +115,7 @@
                                 <td>{{ !empty($course->course_price) ? number_format($course->course_price) : '' }}</td>
                                 <td>{{ !empty($course->course_discount) ? number_format($course->course_discount) : '' }}</td>
                                 <td>
-                                    <a href="{{ route('course_order.edit',['course_id'=> $course->course_id]) }}">
+                                    <a href="{{ route('courses.edit', ['course' => $course->course_id]) }}">
                                         <button class="btn btn-primary"><i class="fa fa-pencil"
                                                                            aria-hidden="true"></i></button>
                                     </a>

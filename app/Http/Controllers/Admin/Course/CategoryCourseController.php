@@ -126,7 +126,7 @@ class CategoryCourseController extends AdminController
         try {
             $category_course = new Category_course();
             $category_course_slug = Ultility::createSlug($request->input('category_course_title'));
-            $category_course_id = $category_course->where('category_course_id', $category_course_id)->update([
+            $category_course->where('category_course_id', $category_course_id)->update([
                 'category_course_title' => $request->input('category_course_title'),
                 'category_course_desc' => $request->input('category_course_desc'),
                 'category_course_content' => $request->input('category_course_content'),

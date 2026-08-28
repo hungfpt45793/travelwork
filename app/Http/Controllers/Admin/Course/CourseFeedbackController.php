@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Course;
 use App\Course\Category_course;
 use App\Course\Course_chapters;
 use App\Course\Course_order;
+use App\Course\Course_tag;
 use App\Course\Courses;
 use App\Entity\Teacher;
 use App\Entity\User;
@@ -74,7 +75,8 @@ class CourseFeedbackController extends AdminController
     {
         $list_teacher = Teacher::select('teacher_id', 'teacher_name', 'teacher_email', 'teacher_phone')->get();
         $list_category = Category_course::select('category_course_id', 'category_course_title')->get();
-        return view('admin.course.courses.add', compact('list_teacher', 'list_category'));
+        $list_tag = Course_tag::select('tag_id', 'tag_title')->get();
+        return view('admin.course.courses.add', compact('list_teacher', 'list_category', 'list_tag'));
     }
 
     /**

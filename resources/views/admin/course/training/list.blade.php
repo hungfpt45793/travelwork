@@ -52,11 +52,11 @@
                                     <td>{{ $training->trai_title }}</td>
                                     <td>{{ !empty($training->course_id) ? 'Khóa học riêng' : 'Tất cả khóa học' }}</td>
                                     <td>
-                                        <a href="{{ route('training.edit',['trai_id'=> $training->trai_id]) }}">
+                                        <a href="{{ route('training.edit', ['training' => $training->trai_id]) }}">
                                             <button class="btn btn-primary"><i class="fa fa-pencil"
                                                                                aria-hidden="true"></i></button>
                                         </a>
-                                        <a href="{{ route('training.destroy',['course_id'=> $training->trai_id]) }}"
+                                        <a href="{{ route('training.destroy', ['training' => $training->trai_id]) }}"
                                            class="btn btn-danger btnDelete" data-toggle="modal"
                                            data-target="#myModalDelete" onclick="return submitDelete(this);"> <i
                                                     class="fa fa-trash-o" aria-hidden="true"></i> </a>

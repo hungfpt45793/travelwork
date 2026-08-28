@@ -2,12 +2,16 @@
 
 namespace Tests\Feature;
 
+use App\Course\Category_course;
+use App\Course\Course_order;
+use App\Course\Course_tag;
 use App\Entity\Category;
 use App\Entity\Category_template_email;
 use App\Entity\Employer;
 use App\Entity\InformationService;
 use App\Entity\Job;
 use App\Entity\Post;
+use App\Entity\Training;
 use App\Entity\User;
 use App\Entity\VoucherCategories;
 use App\Transaction\List_product;
@@ -201,6 +205,69 @@ class AdminResourceRouteParametersTest extends TestCase
             $response->assertSee($resource['destroy'], false);
 
             $this->actingAs($admin)->get($resource['edit'])->assertOk();
+        }
+
+    }
+
+    public function test_admin_course_resource_lists_render_with_laravel_11_route_parameters(): void
+    {
+        $admin = User::where('role', 4)->firstOrFail();
+        $category = Category_course::orderBy('category_course_id')->firstOrFail();
+        $order = Course_order::join('courses', 'courses.course_id', '=', 'course_order.course_id')
+            ->select('course_order.*')
+            ->orderByDesc('course_order.course_order_id')
+            ->firstOrFail();
+        $training = Training::orderBy('trai_id')->firstOrFail();
+        $tag = Course_tag::orderByDesc('tag_id')->firstOrFail();
+
+        $resources = [
+            [
+                'index' => route('category_course.index'),
+                'edit' => route('category_course.edit', ['category_course' => $category->category_course_id]),
+                'destroy' => route('category_course.destroy', ['category_course' => $category->category_course_id]),
+            ],
+            [
+                'index' => route('course_order.index'),
+                'edit' => route('course_order.edit', ['course_order' => $order->course_order_id]),
+                'destroy' => route('course_order.destroy', ['course_order' => $order->course_order_id]),
+            ],
+            [
+                'index' => route('training.index'),
+                'edit' => route('training.edit', ['training' => $training->trai_id]),
+                'destroy' => route('training.destroy', ['training' => $training->trai_id]),
+            ],
+            [
+                'index' => route('course_tag.index'),
+                'edit' => route('course_tag.edit', ['course_tag' => $tag->tag_id]),
+                'destroy' => route('course_tag.destroy', ['course_tag' => $tag->tag_id]),
+            ],
+        ];
+
+        foreach ($resources as $resource) {
+            $response = $this->actingAs($admin)->get($resource['index']);
+
+            $response->assertOk();
+            $response->assertSee($resource['edit'], false);
+            $response->assertSee($resource['destroy'], false);
+
+            $this->actingAs($admin)->get($resource['edit'])->assertOk();
+        }
+
+        $this->actingAs($admin)
+            ->get(route('list_formality', ['course_id' => $order->course_id]))
+            ->assertOk()
+            ->assertSee(route('courses.edit', ['course' => $order->course_id]), false);
+    }
+
+    public function test_admin_course_create_forms_receive_the_tag_list(): void
+    {
+        $admin = User::where('role', 4)->firstOrFail();
+
+        foreach (['course_feedback.create', 'course_questions.create', 'course_order.create'] as $routeName) {
+            $this->actingAs($admin)
+                ->get(route($routeName))
+                ->assertOk()
+                ->assertSee('name="tag_id[]"', false);
         }
     }
 

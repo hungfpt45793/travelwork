@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Course;
 
 use App\Course\Category_course;
 use App\Course\Course_order;
+use App\Course\Course_tag;
 use App\Course\Course_statistical_employee;
 use App\Course\Course_statistical_teacher;
 use App\Course\Course_teacher_money;
@@ -105,7 +106,8 @@ class CourseOrderController extends AdminController
     {
         $list_teacher = Teacher::select('teacher_id', 'teacher_name', 'teacher_email', 'teacher_phone')->get();
         $list_category = Category_course::select('category_course_id', 'category_course_title')->get();
-        return view('admin.course.courses.add', compact('list_teacher', 'list_category'));
+        $list_tag = Course_tag::select('tag_id', 'tag_title')->get();
+        return view('admin.course.courses.add', compact('list_teacher', 'list_category', 'list_tag'));
     }
 
     /**

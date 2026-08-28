@@ -164,11 +164,11 @@
                                             {{ !empty($user_admin->name) ? $user_admin->name  : '' }}
                                     </td>
                                     <td>
-                                        <a href="{{ route('course_order.edit',['course_order_id'=> $order->course_order_id]) }}">
+                                        <a href="{{ route('course_order.edit', ['course_order' => $order->course_order_id]) }}">
                                             <button class="btn btn-primary"><i class="fa fa-pencil"
                                                                                aria-hidden="true"></i></button>
                                         </a>
-                                        <a href="{{ route('course_order.destroy',['course_order_id'=> $order->course_order_id]) }}"
+                                        <a href="{{ route('course_order.destroy', ['course_order' => $order->course_order_id]) }}"
                                            class="btn btn-danger btnDelete" data-toggle="modal"
                                            data-target="#myModalDelete" onclick="return submitDelete(this);">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>

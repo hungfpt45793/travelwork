@@ -59,11 +59,11 @@
                                     </td>
 
                                     <td>
-                                        <a href="{{ route('category_course.edit',['category_course_id'=> $category->category_course_id]) }}">
+                                        <a href="{{ route('category_course.edit', ['category_course' => $category->category_course_id]) }}">
                                             <button class="btn btn-primary"><i class="fa fa-pencil"
                                                                                aria-hidden="true"></i></button>
                                         </a>
-                                        <a href="{{ route('category_course.destroy',['category_course_id'=> $category->category_course_id]) }}"
+                                        <a href="{{ route('category_course.destroy', ['category_course' => $category->category_course_id]) }}"
                                            class="btn btn-danger btnDelete" data-toggle="modal"
                                            data-target="#myModalDelete" onclick="return submitDelete(this);">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
